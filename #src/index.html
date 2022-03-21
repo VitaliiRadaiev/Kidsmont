@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('_head.html',{
+"title": "Kidsmond"
+})
+
+<body>
+	<div class="_preload-body"></div>
+	<!-- == TOP LINE ================== -->
+
+	@@include('common/header/_header.html',{
+	"mod": ""
+	})
+	<!-- == // TOP LINE ================== -->
+	<main class="_page home-page" data-padding-top-header-size data-scroll-container>
+
+		@@include('common/promo-header/_promo-header.html',{})
+
+		@@include('common/product-carousel/_product-carousel.html',{})
+
+		@@include('common/see-more-ban/_see-more-ban.html',{})
+
+		<section class="advantages padding-wrap" data-scroll-section>
+			<div class="container-sm">
+				<div class="head">
+					<h2 class="head__title">Why clients choose us</h2>
+				</div>
+				<div class="advantages__body">
+					<div class="advantages__col-1">
+						<div class="advantages__text-wrap">
+							<ul class="advantages__list">
+								<li data-scroll data-scroll-offset="30%,100">
+									<div class="advantages__list-title">Uniqueness</div>
+									<div class="advantages__list-text">
+										Our walls have a unique, thoughtful design that will give you emotions
+									</div>
+								</li>
+								<li data-scroll data-scroll-offset="30%,100">
+									<div class="advantages__list-title">Ergonomics</div>
+									<div class="advantages__list-text">
+										You get a full-fledged playground that can be folded
+									</div>
+								</li>
+								<li data-scroll data-scroll-offset="30%,100">
+									<div class="advantages__list-title">Fast shipping</div>
+									<div class="advantages__list-text">
+										We do our best to get you up and running the next day.
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="advantages__col-2">
+						<div class="advantages__media-wrap">
+							<a href="img/videoForTest.mp4" data-fancybox class="video not-hover">
+								<div class="video__poster ibg">
+									<img src="img/photo/poster.jpg" alt="">
+								</div>
+								<div class="video__btn">
+									@@include('common/buttons/_btn.html', {
+									"link":"false",
+									"decor": "img/photo/play-text.svg",
+									"text": "Play"
+									})
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="products-preview padding-wrap" data-scroll-section>
+			<div class="container-sm">
+				<div class="products-preview__head head">
+					<h2 class="products-preview__title">
+						Looking for new items? We have a lot
+					</h2>
+					<div class="products-preview__text">
+						Excellent Swedish wall, looks good and easily withstands adults. Assembly was relatively
+						easy thanks to good instructions.
+					</div>
+				</div>
+				<ul class="products-preview__list">
+					<li>
+						<a href="#" class="products-preview__item">
+							<div class="products-preview__item-img ibg">
+								<img src="img/photo/preview-img-1.jpg" alt="">
+							</div>
+							<div class="products-preview__item-title">
+								Walls
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="products-preview__item">
+							<div class="products-preview__item-img ibg">
+								<img src="img/photo/preview-img-2.jpg" alt="">
+							</div>
+							<div class="products-preview__item-title">
+								Mattresses
+							</div>
+						</a>
+					</li>
+					<li class="big">
+						<a href="#" class="products-preview__item">
+							<div class="products-preview__item-img ibg" data-scroll data-scroll-offset="30%,100">
+								<img src="img/photo/preview-img-4.jpg" alt="">
+							</div>
+							<div class="products-preview__item-title">
+								Accessories
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="products-preview__item">
+							<div class="products-preview__item-img ibg">
+								<img src="img/photo/preview-img-3.jpg" alt="">
+							</div>
+							<div class="products-preview__item-title">
+								Accessories
+							</div>
+						</a>
+					</li>
+					<li class="has-btn">
+						<a href="#" class="products-preview__btn" data-scroll data-scroll-offset="10%,0">
+							<span>Discover all</span>
+						</a>
+					</li>
+				</ul>
+				<div class="products-preview__mob-btn">
+					@@include('common/buttons/_btn-with-arrow.html', {
+					"text": "Discover all"
+					})
+				</div>
+			</div>
+		</section>
+
+		@@include('common/reviews/_reviews.html')
+
+		<section class="ergonomics padding-wrap" data-scroll-section>
+			<div class="ergonomics__inner">
+				<div class="container-sm">
+					<div class="ergonomics__body">
+						<div class="ergonomics__col-1">
+							<h2 class="ergonomics__title">Ergonomics</h2>
+							<div class="ergonomics__text text-content">
+								<p>
+									You get a full-fledged playground that can be folded. You get a full-fledged
+									playground that can be folded. You get a full-fledged playground that can be
+									folded. You get a full-fledged playground that can be folded. You get a
+									full-fledged playground that can be folded.
+								</p>
+								<p>
+									You get a full-fledged playground that can be folded. You get a full-fledged
+									playground that can be folded. You get a full-fledged playground that can be
+									folded. You get a full-fledged playground that can be folded
+								</p>
+							</div>
+						</div>
+						<div class="ergonomics__col-2">
+							<div class="ergonomics__images" data-scroll data-scroll-offset="10%,100">
+								<div class="ergonomics__decor">
+									<img src="img/photo/ergonomics-text.svg" alt="">
+								</div>
+								<div class="ergonomics__img-1 ibg">
+									<img src="img/photo/poster.jpg" alt="">
+								</div>
+								<div class="ergonomics__img-2 ibg">
+									<img src="img/photo/poster.jpg" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="blog-preview padding-wrap" data-scroll-section>
+			<div class="container-sm">
+				<div class="blog-preview__head head">
+					<h2 class="head__title">Blog</h2>
+				</div>
+				<ul class="blog-preview__list">
+					<li>
+						<a href="#" class="blog-preview-card">
+							<div class="blog-preview-card__col-1">
+								<div class="blog-preview-card__img ibg">
+									<img src="img/photo/blog-preview-card-img-1.jpg" alt="">
+								</div>
+							</div>
+							<div class="blog-preview-card__col-2">
+								<div class="blog-preview-card__arrow">
+									<img class="img-svg" src="img/icons/arrow-right.svg" alt="">
+								</div>
+								<div class="blog-preview-card__date">12.03.2022</div>
+								<div class="blog-preview-card__title">
+									International Children's Day. Celebrate with us!
+								</div>
+								<div class="blog-preview-card__text">
+									June 1 is celebrated by all the children in the world. On this occasion, we are
+									giving up to 70%* discount on many of our accessories for 2 weeks.
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="blog-preview-card">
+							<div class="blog-preview-card__col-1">
+								<div class="blog-preview-card__img ibg">
+									<img src="img/photo/blog-preview-card-img-2.jpg" alt="">
+								</div>
+							</div>
+							<div class="blog-preview-card__col-2">
+								<div class="blog-preview-card__arrow">
+									<img class="img-svg" src="img/icons/arrow-right.svg" alt="">
+								</div>
+								<div class="blog-preview-card__date">12.03.2022</div>
+								<div class="blog-preview-card__title">
+									New colors of Kidsmont black and white
+								</div>
+								<div class="blog-preview-card__text">
+									Following numerous requests from our customers, we now also offer boulder board
+									slide climbing holds as a separate product.
+								</div>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="blog-preview-card">
+							<div class="blog-preview-card__col-1">
+								<div class="blog-preview-card__img ibg">
+									<img src="img/photo/blog-preview-card-img-3.jpg" alt="">
+								</div>
+							</div>
+							<div class="blog-preview-card__col-2">
+								<div class="blog-preview-card__arrow">
+									<img class="img-svg" src="img/icons/arrow-right.svg" alt="">
+								</div>
+								<div class="blog-preview-card__date">12.03.2022</div>
+								<div class="blog-preview-card__title">
+									International Children's Day. Celebrate with us!
+								</div>
+								<div class="blog-preview-card__text">
+									June 1 is celebrated by all the children in the world. On this occasion, we are
+									giving up to 70%* discount on many of our accessories for 2 weeks.
+								</div>
+							</div>
+						</a>
+					</li>
+				</ul>
+				<div class="blog-preview__bottom">
+					@@include('common/buttons/_btn-with-arrow.html', {
+					"text": "Discover all"
+					})
+				</div>
+			</div>
+		</section>
+
+		<!-- == FOOTER ================== -->
+		@@include('common/footer/_footer.html',{})
+		<!-- == // FOOTER ================== -->
+	</main>
+	@@include('common/popup/_popup-search.html')
+
+	@@include('_js-bottom.html',{})
+</body>
+
+</html>

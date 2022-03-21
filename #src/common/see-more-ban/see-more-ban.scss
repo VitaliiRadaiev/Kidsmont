@@ -1,0 +1,58 @@
+.see-more-ban {
+    font-size: 1rem;
+
+
+    @media (max-width: $md3+px) {
+        font-size: 6.7px;
+    }
+
+    & .swiper {
+        overflow: visible;
+    }
+
+    & .swiper-wrapper {
+        transition-timing-function: linear !important;
+    }
+
+    & .swiper-slide {
+        width: auto;
+        display: flex;
+        align-items: center;
+        color: $lightColor;
+        padding: 0 3em;
+
+        & strong {
+            font-weight: 600;
+            font-size: 18em;
+            line-height: 1em;
+            text-transform: uppercase;
+        }
+        
+        & > span {
+            font-size: 18em;
+            line-height: 1em;
+            text-transform: uppercase;
+        }
+    }
+
+    &__circle {
+        flex: 0 0 auto;
+        width: 15em;
+        height: 15em;
+        background-color: $lightColor;
+        color: $textColor;
+        border-radius: 50%;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 3em;
+        transform: rotate(-15deg);
+
+
+        & span {
+            font-size: 1.8em;
+            line-height: 1.5em;
+        }
+    }
+}
