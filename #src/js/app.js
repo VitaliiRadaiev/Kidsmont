@@ -35,6 +35,7 @@ class App {
 			this.slidersInit();
 			this.componentsScripts();
 			this.setFontSize();
+
 		});
 
 	}
@@ -262,7 +263,6 @@ class App {
 			smooth: true,
 			lerp: 0.03
 		});
-		console.log(scroll);
 	}
 
 	componentsScripts() {

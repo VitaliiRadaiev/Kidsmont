@@ -21,9 +21,9 @@ if (header) {
     })
 
     window.addEventListener('load', () => {
-        console.log('ets');
         header.classList.add('show')
     });
+
 }
 
 if(mobileMenu) {

@@ -3828,6 +3828,17 @@ figure {
           transform: scale(0);
 }
 
+.promo-header__img.show img {
+  opacity: 0;
+}
+
+.promo-header__img img {
+  -webkit-transition: all 0.8s ease;
+  -o-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+  z-index: 2;
+}
+
 .promo-header__img--1 {
   top: 7.4074074074%;
   left: 0.8571428571%;
@@ -3892,6 +3903,16 @@ figure {
           transform: scale(1);
 }
 
+.promo-header__img-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
 .promo-header__body {
   position: relative;
   padding-bottom: 57.85%;
@@ -3904,6 +3925,7 @@ figure {
   left: 0;
   width: 100%;
   height: 100%;
+  pointer-events: none;
 }
 
 .promo-header__title {
@@ -3953,6 +3975,7 @@ figure {
 
 .promo-header__title--layer-1 {
   z-index: 1;
+  pointer-events: auto;
 }
 
 .promo-header__title-mask {
