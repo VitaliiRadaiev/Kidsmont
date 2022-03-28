@@ -2,6 +2,10 @@ let header = document.querySelector('[data-header]');
 let burger = document.querySelector('[data-action="menu-mobile-open"]');
 let closeBtn = document.querySelector('[data-action="menu-mobile-close"]')
 let mobileMenu = document.querySelector('[data-menu-mobile]');
+let deskMenuItemHasSubMenu = document.querySelector('[data-menu-item-has-sab-menu]');
+let mainSearch = document.querySelector('[data-main-search]');
+let btnShowMainSearch = document.querySelector('[data-action="show-main-search"]');
+let btnHideMainSearch = document.querySelector('[data-action="hide-main-search"]');
 
 if (header) {
 
@@ -26,32 +30,62 @@ if (header) {
 
 }
 
-if(mobileMenu) {
-    let mobileMenuNavSubItems = mobileMenu.querySelectorAll('[data-toggle-sab]');
+if(mainSearch) {
 
-    mobileMenuNavSubItems.forEach(item => {
-        let link = item.querySelector('.menu-mobile__link');
-        let subMenu = item.querySelector('.sub-menu');
-
-        if (link && subMenu) {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                item.classList.toggle('menu-mobile__list-item--sub-menu-is-open');
-                link.classList.toggle('menu-mobile__link--sub-menu-is-open');
-                this.utils.slideToggle(subMenu);
-
-                mobileMenuNavSubItems.forEach(i => {
-                    if (i === item) return;
-
-                    let link = i.querySelector('.menu-mobile__link');
-                    let subMenu = i.querySelector('.sub-menu');
-
-                    i.classList.remove('menu-mobile__list-item--sub-menu-is-open');
-                    link.classList.remove('menu-mobile__link--sub-menu-is-open');
-                    this.utils.slideUp(subMenu);
-                })
-            })
-        }
+    btnShowMainSearch.addEventListener('click', (e) => {
+        e.preventDefault();
+        mainSearch.classList.add('main-search--show');
+        document.body.classList.add('cover');
+        document.body.classList.add('overflow-hidden');
     })
+
+    btnHideMainSearch.addEventListener('click', (e) => {
+        e.preventDefault();
+        mainSearch.classList.remove('main-search--show');
+        document.body.classList.remove('cover');
+        document.body.classList.remove('overflow-hidden');
+    })
+}
+
+if(deskMenuItemHasSubMenu) {
+
+    deskMenuItemHasSubMenu.addEventListener('mouseenter', () => {
+        document.body.classList.add('cover');
+    })
+    deskMenuItemHasSubMenu.addEventListener('mouseleave', () => {
+        document.body.classList.remove('cover');
+    })
+}
+
+if (mobileMenu) {
+    let slider = document.querySelector('[data-mobile-menu-slider]');
+    let triggerItem = document.querySelector('[data-action="show-next-list"] a');
+    let swiperSlider;
+
+    if (slider) {
+        swiperSlider = new Swiper(slider, {
+            observer: true,
+            observeParents: true,
+            slidesPerView: 1,
+            spaceBetween: 0,
+            speed: 800,
+            allowTouchMove: false,
+            autoHeight: true,
+
+            on: {
+                slideChange: () => {
+                    swiperSlider.allowTouchMove = false;
+                }
+            }
+        });
+    }
+
+    if (triggerItem) {
+        triggerItem.addEventListener('click', (e) => {
+            e.preventDefault();
+            swiperSlider.slideNext();
+            swiperSlider.allowTouchMove = true;
+        })
+    }
 }
 

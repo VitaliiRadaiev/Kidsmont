@@ -12,11 +12,14 @@
         let borderXEnd = 100 - borderXStart;
         let borderYStart = 15;
         let borderYEnd = 100 - borderYStart;
+        let animationForwardId = null;
+        let animationBackId = null;
 
         const animationForward = () => {
             if (animValue < r) {
                 animValue += 0.2;
-                requestAnimationFrame(animationForward);
+                mask.style.clipPath = `circle(${animValue}% at ${x}% ${y}%)`;
+                animationForwardId = requestAnimationFrame(animationForward);
             }
         }
 
@@ -24,7 +27,7 @@
             if (animValue > 0) {
                 animValue -= 0.2;
                 mask.style.clipPath = `circle(${animValue}% at ${x}% ${y}%)`;
-                requestAnimationFrame(animationBack);
+                animationBackId = requestAnimationFrame(animationBack);
             }
         }
 
@@ -37,13 +40,16 @@
 
                 mask.style.clipPath = `circle(${animValue}% at ${x}% ${y}%)`;
                 discoverText.setAttribute('style', `left:${x}%;top:${y}%;`);
+
             }
         })
-
         promoTitle.addEventListener('mouseenter', () => {
             mask.classList.add('_anime');
             animationForward();
             mouseDot.hide();
+            if(animationBackId) {
+                cancelAnimationFrame(animationBackId);
+            }
         })
 
         promoTitle.addEventListener('mouseleave', () => {
@@ -51,6 +57,10 @@
             mask.classList.remove('_anime');
             animationBack();
             mouseDot.show();
+
+            if(animationForwardId) {
+                cancelAnimationFrame(animationForwardId);
+            }
         })
     }
 
@@ -112,13 +122,13 @@
                 const float PI = 3.141592;
 
                 textureCoord.x += (
-                    sin(textureCoord.x * 10.0 + ((uTime * (PI / 3.0)) * 0.031))
-                    + sin(textureCoord.y * 10.0 + ((uTime * (PI / 2.489)) * 0.017))
+                    sin(textureCoord.x * 5.0 + ((uTime * (PI / 3.0)) * 0.031))
+                    + sin(textureCoord.y * 5.0 + ((uTime * (PI / 2.489)) * 0.017))
                     ) * 0.0075;
 
                 textureCoord.y += (
-                    sin(textureCoord.y * 20.0 + ((uTime * (PI / 2.023)) * 0.023))
-                    + sin(textureCoord.x * 20.0 + ((uTime * (PI / 3.1254)) * 0.037))
+                    sin(textureCoord.y * 7.0 + ((uTime * (PI / 5.023)) * 0.023))
+                    + sin(textureCoord.x * 7.0 + ((uTime * (PI / 6.1254)) * 0.037))
                     ) * 0.0125;
 
                 gl_FragColor = texture2D(uSampler0, textureCoord);

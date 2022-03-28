@@ -316,6 +316,10 @@ class App {
 let burger = document.querySelector('[data-action="menu-mobile-open"]');
 let closeBtn = document.querySelector('[data-action="menu-mobile-close"]')
 let mobileMenu = document.querySelector('[data-menu-mobile]');
+let deskMenuItemHasSubMenu = document.querySelector('[data-menu-item-has-sab-menu]');
+let mainSearch = document.querySelector('[data-main-search]');
+let btnShowMainSearch = document.querySelector('[data-action="show-main-search"]');
+let btnHideMainSearch = document.querySelector('[data-action="hide-main-search"]');
 
 if (header) {
 
@@ -340,33 +344,63 @@ if (header) {
 
 }
 
-if(mobileMenu) {
-    let mobileMenuNavSubItems = mobileMenu.querySelectorAll('[data-toggle-sab]');
+if(mainSearch) {
 
-    mobileMenuNavSubItems.forEach(item => {
-        let link = item.querySelector('.menu-mobile__link');
-        let subMenu = item.querySelector('.sub-menu');
-
-        if (link && subMenu) {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                item.classList.toggle('menu-mobile__list-item--sub-menu-is-open');
-                link.classList.toggle('menu-mobile__link--sub-menu-is-open');
-                this.utils.slideToggle(subMenu);
-
-                mobileMenuNavSubItems.forEach(i => {
-                    if (i === item) return;
-
-                    let link = i.querySelector('.menu-mobile__link');
-                    let subMenu = i.querySelector('.sub-menu');
-
-                    i.classList.remove('menu-mobile__list-item--sub-menu-is-open');
-                    link.classList.remove('menu-mobile__link--sub-menu-is-open');
-                    this.utils.slideUp(subMenu);
-                })
-            })
-        }
+    btnShowMainSearch.addEventListener('click', (e) => {
+        e.preventDefault();
+        mainSearch.classList.add('main-search--show');
+        document.body.classList.add('cover');
+        document.body.classList.add('overflow-hidden');
     })
+
+    btnHideMainSearch.addEventListener('click', (e) => {
+        e.preventDefault();
+        mainSearch.classList.remove('main-search--show');
+        document.body.classList.remove('cover');
+        document.body.classList.remove('overflow-hidden');
+    })
+}
+
+if(deskMenuItemHasSubMenu) {
+
+    deskMenuItemHasSubMenu.addEventListener('mouseenter', () => {
+        document.body.classList.add('cover');
+    })
+    deskMenuItemHasSubMenu.addEventListener('mouseleave', () => {
+        document.body.classList.remove('cover');
+    })
+}
+
+if (mobileMenu) {
+    let slider = document.querySelector('[data-mobile-menu-slider]');
+    let triggerItem = document.querySelector('[data-action="show-next-list"] a');
+    let swiperSlider;
+
+    if (slider) {
+        swiperSlider = new Swiper(slider, {
+            observer: true,
+            observeParents: true,
+            slidesPerView: 1,
+            spaceBetween: 0,
+            speed: 800,
+            allowTouchMove: false,
+            autoHeight: true,
+
+            on: {
+                slideChange: () => {
+                    swiperSlider.allowTouchMove = false;
+                }
+            }
+        });
+    }
+
+    if (triggerItem) {
+        triggerItem.addEventListener('click', (e) => {
+            e.preventDefault();
+            swiperSlider.slideNext();
+            swiperSlider.allowTouchMove = true;
+        })
+    }
 }
 
 ;
@@ -574,19 +608,21 @@ window.popup = {
     }
 };
 		{
-    let seeMoreBan = document.querySelector('[data-slider="see-more-ban"]');
-    if(seeMoreBan) {
-        let swiperSeeMoreBan = new Swiper(seeMoreBan, {
-            autoplay: {
-                delay: 1,
-                disableOnInteraction: false,
-            },
-            slidesPerView: 'auto',
-            spaceBetween: 0,
-            speed: 7000,
-            loop: true,
-            freeMode: true
-        });
+    let seeMoreBanAll = document.querySelectorAll('[data-slider="see-more-ban"]');
+    if(seeMoreBanAll.length) {
+        seeMoreBanAll.forEach(seeMoreBan => {
+            let swiperSeeMoreBan = new Swiper(seeMoreBan, {
+                autoplay: {
+                    delay: 1,
+                    disableOnInteraction: false,
+                },
+                slidesPerView: 'auto',
+                spaceBetween: 0,
+                speed: 7000,
+                loop: true,
+                freeMode: true
+            });
+        })
     }
 };
 		{
@@ -1276,11 +1312,14 @@ if (videoBlock.length) {
         let borderXEnd = 100 - borderXStart;
         let borderYStart = 15;
         let borderYEnd = 100 - borderYStart;
+        let animationForwardId = null;
+        let animationBackId = null;
 
         const animationForward = () => {
             if (animValue < r) {
                 animValue += 0.2;
-                requestAnimationFrame(animationForward);
+                mask.style.clipPath = `circle(${animValue}% at ${x}% ${y}%)`;
+                animationForwardId = requestAnimationFrame(animationForward);
             }
         }
 
@@ -1288,7 +1327,7 @@ if (videoBlock.length) {
             if (animValue > 0) {
                 animValue -= 0.2;
                 mask.style.clipPath = `circle(${animValue}% at ${x}% ${y}%)`;
-                requestAnimationFrame(animationBack);
+                animationBackId = requestAnimationFrame(animationBack);
             }
         }
 
@@ -1301,13 +1340,16 @@ if (videoBlock.length) {
 
                 mask.style.clipPath = `circle(${animValue}% at ${x}% ${y}%)`;
                 discoverText.setAttribute('style', `left:${x}%;top:${y}%;`);
+
             }
         })
-
         promoTitle.addEventListener('mouseenter', () => {
             mask.classList.add('_anime');
             animationForward();
             mouseDot.hide();
+            if(animationBackId) {
+                cancelAnimationFrame(animationBackId);
+            }
         })
 
         promoTitle.addEventListener('mouseleave', () => {
@@ -1315,6 +1357,10 @@ if (videoBlock.length) {
             mask.classList.remove('_anime');
             animationBack();
             mouseDot.show();
+
+            if(animationForwardId) {
+                cancelAnimationFrame(animationForwardId);
+            }
         })
     }
 
@@ -1376,13 +1422,13 @@ if (videoBlock.length) {
                 const float PI = 3.141592;
 
                 textureCoord.x += (
-                    sin(textureCoord.x * 10.0 + ((uTime * (PI / 3.0)) * 0.031))
-                    + sin(textureCoord.y * 10.0 + ((uTime * (PI / 2.489)) * 0.017))
+                    sin(textureCoord.x * 5.0 + ((uTime * (PI / 3.0)) * 0.031))
+                    + sin(textureCoord.y * 5.0 + ((uTime * (PI / 2.489)) * 0.017))
                     ) * 0.0075;
 
                 textureCoord.y += (
-                    sin(textureCoord.y * 20.0 + ((uTime * (PI / 2.023)) * 0.023))
-                    + sin(textureCoord.x * 20.0 + ((uTime * (PI / 3.1254)) * 0.037))
+                    sin(textureCoord.y * 7.0 + ((uTime * (PI / 5.023)) * 0.023))
+                    + sin(textureCoord.x * 7.0 + ((uTime * (PI / 6.1254)) * 0.037))
                     ) * 0.0125;
 
                 gl_FragColor = texture2D(uSampler0, textureCoord);

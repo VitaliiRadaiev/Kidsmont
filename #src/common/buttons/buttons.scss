@@ -40,6 +40,7 @@
         align-items: center;
         text-align: center;
         padding: 2rem;
+        font-family: $titleFontFamily;
         font-weight: 600;
         font-size: 1.8rem;
         line-height: 1.5em;
@@ -56,6 +57,7 @@
 .btn-with-arrow {
     display: inline-flex;
     align-items: center;
+    font-family: $titleFontFamily;
     font-weight: 600;
     font-size: 1.8rem;
     line-height: 1.5em;
@@ -81,5 +83,11 @@
         background-color: #fff;
         font-size: 1.8rem;
         transition: all .3s ease;
+
+        @media (max-width: $md3+px) {
+            height: 36px;
+            width: 36px;
+            font-size: 14px;
+        }
     }
 }

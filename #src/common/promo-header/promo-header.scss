@@ -139,12 +139,12 @@
 
     &__title {
         position: absolute;
-        font-weight: 600;
         top: 21.6%;
         left: 50%;
         transform: translateX(-50%);
         text-align: center;
         display: block;
+        font-family: $titleFontFamily;
         font-weight: 600;
         font-size: 7.1em;
         line-height: 1.2em;

@@ -4,7 +4,7 @@
 "title": "Kidsmond"
 })
 
-<body>
+<body data-scroll-container>
 	<div class="_preload-body"></div>
 	<!-- == TOP LINE ================== -->
 
@@ -12,7 +12,8 @@
 	"mod": ""
 	})
 	<!-- == // TOP LINE ================== -->
-	<main class="_page home-page" data-padding-top-header-size data-scroll-container>
+	
+	<main class="_page home-page" data-padding-top-header-size data-scroll-section>
 
 		@@include('common/promo-header/_promo-header.html',{})
 
@@ -20,7 +21,7 @@
 
 		@@include('common/see-more-ban/_see-more-ban.html',{})
 
-		<section class="advantages padding-wrap" data-scroll-section>
+		<section class="advantages padding-wrap" >
 			<div class="container-sm">
 				<div class="head">
 					<h2 class="head__title">Why clients choose us</h2>
@@ -28,20 +29,20 @@
 				<div class="advantages__body">
 					<div class="advantages__col-1">
 						<div class="advantages__text-wrap">
-							<ul class="advantages__list">
-								<li data-scroll data-scroll-offset="30%,100">
+							<ul class="advantages__list" data-scroll data-scroll-offset="30%,100">
+								<li>
 									<div class="advantages__list-title">Uniqueness</div>
 									<div class="advantages__list-text">
 										Our walls have a unique, thoughtful design that will give you emotions
 									</div>
 								</li>
-								<li data-scroll data-scroll-offset="30%,100">
+								<li>
 									<div class="advantages__list-title">Ergonomics</div>
 									<div class="advantages__list-text">
 										You get a full-fledged playground that can be folded
 									</div>
 								</li>
-								<li data-scroll data-scroll-offset="30%,100">
+								<li>
 									<div class="advantages__list-title">Fast shipping</div>
 									<div class="advantages__list-text">
 										We do our best to get you up and running the next day.
@@ -70,7 +71,7 @@
 			</div>
 		</section>
 
-		<section class="products-preview padding-wrap" data-scroll-section>
+		<section class="products-preview padding-wrap">
 			<div class="container-sm">
 				<div class="products-preview__head head">
 					<h2 class="products-preview__title">
@@ -123,7 +124,7 @@
 						</a>
 					</li>
 					<li class="has-btn">
-						<a href="#" class="products-preview__btn" data-scroll data-scroll-offset="10%,0">
+						<a href="#" class="products-preview__btn not-hover">
 							<span>Discover all</span>
 						</a>
 					</li>
@@ -138,7 +139,9 @@
 
 		@@include('common/reviews/_reviews.html')
 
-		<section class="ergonomics padding-wrap" data-scroll-section>
+		@@include('common/see-more-ban/_see-more-ban.html',{})
+
+		<section class="ergonomics padding-wrap">
 			<div class="ergonomics__inner">
 				<div class="container-sm">
 					<div class="ergonomics__body">
@@ -176,7 +179,7 @@
 			</div>
 		</section>
 
-		<section class="blog-preview padding-wrap" data-scroll-section>
+		<section class="blog-preview padding-wrap">
 			<div class="container-sm">
 				<div class="blog-preview__head head">
 					<h2 class="head__title">Blog</h2>
@@ -257,11 +260,11 @@
 			</div>
 		</section>
 
-		<!-- == FOOTER ================== -->
-		@@include('common/footer/_footer.html',{})
-		<!-- == // FOOTER ================== -->
 	</main>
-	@@include('common/popup/_popup-search.html')
+
+	<!-- == FOOTER ================== -->
+	@@include('common/footer/_footer.html',{})
+	<!-- == // FOOTER ================== -->
 
 	@@include('_js-bottom.html',{})
 </body>

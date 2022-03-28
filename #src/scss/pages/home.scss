@@ -59,15 +59,21 @@
         padding-left: 0;
         max-width: 34rem;
 
+        &.is-inview {
+            @for $i from 1 through 50 {
+                & > li:nth-child(#{$i}) {
+                    opacity: 1;
+                    transition: all 2s ease;
+                    transition-delay: $i *  0.25s;
+                    transform: translateY(0);
+                }
+            }
+
+        }
+
         & > li {
             transform: translateY(200%);
             opacity: 0;
-
-            &.is-inview {
-                opacity: 1;
-                transition: all 2s ease;
-                transform: translateY(0);
-            }
 
             &:not(:last-child) {
                 margin-bottom: 6.4rem;
@@ -81,6 +87,7 @@
     }
 
     &__list-title {
+        font-family: $titleFontFamily;
         font-weight: 600;
         font-size: 2.4rem;
         line-height: 1.5em;
@@ -273,6 +280,7 @@
     }
 
     &__item-title {
+        font-family: $titleFontFamily;
         font-weight: 600;
         text-transform: uppercase;
 
@@ -290,33 +298,29 @@
         align-items: center;
         position: relative;
         transition: all 0.3s ease;
-       
         white-space: nowrap;
 
         @media (min-width: 992px) {
             &:hover {
-                transition: opacity .3s ease;
+                background-color: $mainColor;
+
+                & span {
+                    color: $lightColor;
+                }
             }
         }
 
-        &.is-inview  {
-            transition: background-color 1s ease 1s;
-            background-color: $mainColor;
-
-            & span {
-                transition: color 0.7s ease 1s;
-                color: $lightColor;
-            }
-        }
 
         & span {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            font-family: $titleFontFamily;
             font-weight: 600;
             color: inherit;
             color: $textColor;
+            transition: all 0.3s ease;
         }
     }
 
@@ -544,6 +548,7 @@
     }
 
     &__title {
+        font-family: $titleFontFamily;
         margin-top: auto;
         font-weight: 600;
         text-transform: uppercase;
