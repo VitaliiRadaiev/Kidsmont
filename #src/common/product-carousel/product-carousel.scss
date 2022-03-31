@@ -40,6 +40,18 @@
         flex-direction: column-reverse;
     }
 
+    @media (min-width: 992px) {
+        &:hover {
+            &:before {
+                background-color: $bgSecondaryHover;
+            }
+
+            & .product-carousel-card__center-icon {
+                opacity: 1;
+            }
+        }
+    }
+
     &:before {
         position: absolute;
         content: "";
@@ -49,6 +61,23 @@
         width: 100%;
         height: calc(100% - 6.7rem);
         background-color: $bgSecondary;
+        transition: all .3s ease;
+    }
+
+    &__center-icon {
+        position: absolute;
+        z-index: 5;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        width: 6.4rem;
+        transition: all .3s ease;
+        opacity: 0;
+
+        & img {
+            width: 100%;
+            height: auto;
+        }
     }
 
     &__col-1 {

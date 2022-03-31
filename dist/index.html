@@ -218,6 +218,9 @@ defer
                     <img src="img/logo/logo.svg" alt="">
                 </a>
             </div>
+            <div class="menu-mobile__back-btn" data-action="hide-next-list">
+                back
+            </div>
         </div>
         <div class="menu-mobile__scroll-wrap">
             <div class="swiper" data-mobile-menu-slider>
@@ -322,19 +325,19 @@ defer
     <div class="container">
         <div class="promo-header__body" data-set-font-size>
             <div class="promo-header__bg">
-                <div class="promo-header__img promo-header__img--1 ibg" data-scroll>
+                <div class="promo-header__img promo-header__img--1 ibg" data-scroll data-scroll-call="0">
                     <div class="promo-header__img-canvas"></div>
                     <img src="img/photo/promo-img-1.jpg" alt="">
                 </div>
-                <div class="promo-header__img promo-header__img--2 ibg" data-scroll>
+                <div class="promo-header__img promo-header__img--2 ibg" data-scroll data-scroll-call="1">
                     <div class="promo-header__img-canvas"></div>
                     <img src="img/photo/promo-img-2.jpg" alt="">
                 </div>
-                <div class="promo-header__img promo-header__img--3 ibg" data-scroll>
+                <div class="promo-header__img promo-header__img--3 ibg" data-scroll data-scroll-call="2">
                     <div class="promo-header__img-canvas"></div>
                     <img src="img/photo/promo-img-3.jpg" alt="">
                 </div>
-                <div class="promo-header__img promo-header__img--4 ibg" data-scroll>
+                <div class="promo-header__img promo-header__img--4 ibg" data-scroll data-scroll-call="3">
                     <div class="promo-header__img-canvas"></div>
                     <img src="img/photo/promo-img-4.jpg" alt="">
                 </div>
@@ -352,6 +355,9 @@ defer
                             <span>playgrounds</span>
                         </strong>
                     </h1>
+                    <div class="promo-header__mob-btn">
+                        Discover
+                    </div>
                 </a>
                 <div class="promo-header__title-mask">
                     <span class="promo-header__title-discover">Discover</span>
@@ -389,7 +395,10 @@ defer
     <div class="product-carousel__slider swiper" data-scroll data-scroll-offset="0%,100">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <a href="#" class="product-carousel-card">
+                <a href="#" class="product-carousel-card not-hover">
+                    <div class="product-carousel-card__center-icon">
+                        <img src="img/icons/bag-circle-green.svg" alt="">
+                    </div>
                     <div class="product-carousel-card__col-1">
                         <div class="product-carousel-card__title">Barbell 5-in-1</div>
                         <div class="product-carousel-card__price">755,00€</div>
@@ -402,7 +411,10 @@ defer
                 </a>
             </div>
             <div class="swiper-slide">
-                <a href="#" class="product-carousel-card">
+                <a href="#" class="product-carousel-card not-hover">
+                    <div class="product-carousel-card__center-icon">
+                        <img src="img/icons/bag-circle-green.svg" alt="">
+                    </div>
                     <div class="product-carousel-card__col-1">
                         <div class="product-carousel-card__title">Crib "Pirate Ship"</div>
                         <div class="product-carousel-card__price">545,00€</div>
@@ -415,7 +427,10 @@ defer
                 </a>
             </div>
             <div class="swiper-slide">
-                <a href="#" class="product-carousel-card">
+                <a href="#" class="product-carousel-card not-hover">
+                    <div class="product-carousel-card__center-icon">
+                        <img src="img/icons/bag-circle-green.svg" alt="">
+                    </div>
                     <div class="product-carousel-card__col-1">
                         <div class="product-carousel-card__title">Barbell 5-in-1</div>
                         <div class="product-carousel-card__price">755,00€</div>
@@ -432,7 +447,7 @@ defer
 </section>
 
 		<div class="see-more-ban padding-wrap">
-    <div class="swiper" data-slider="see-more-ban">
+    <a href="#" class="swiper" data-slider="see-more-ban">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <strong>
@@ -474,7 +489,7 @@ defer
                 </span>
             </div>
         </div>
-    </div>
+    </a>
 </div>
 
 		<section class="advantages padding-wrap" >
@@ -485,7 +500,7 @@ defer
 				<div class="advantages__body">
 					<div class="advantages__col-1">
 						<div class="advantages__text-wrap">
-							<ul class="advantages__list" data-scroll data-scroll-offset="30%,100">
+							<ul class="advantages__list" data-scroll data-scroll-offset="15%,100">
 								<li>
 									<div class="advantages__list-title">Uniqueness</div>
 									<div class="advantages__list-text">
@@ -516,7 +531,7 @@ defer
 								<div class="video__btn">
 									<div class="btn">
     <div class="btn__text-decor">
-        <img src="img/photo/play-text.svg" alt="">
+        <img class="img-svg" src="img/photo/play-text.svg" alt="">
     </div>
     <div class="btn__text">Play</div>
 </div>
@@ -541,7 +556,7 @@ defer
 				</div>
 				<ul class="products-preview__list">
 					<li>
-						<a href="#" class="products-preview__item">
+						<a href="#" class="products-preview__item not-hover">
 							<div class="products-preview__item-img ibg">
 								<img src="img/photo/preview-img-1.jpg" alt="">
 							</div>
@@ -551,7 +566,7 @@ defer
 						</a>
 					</li>
 					<li>
-						<a href="#" class="products-preview__item">
+						<a href="#" class="products-preview__item not-hover">
 							<div class="products-preview__item-img ibg">
 								<img src="img/photo/preview-img-2.jpg" alt="">
 							</div>
@@ -561,7 +576,7 @@ defer
 						</a>
 					</li>
 					<li class="big">
-						<a href="#" class="products-preview__item">
+						<a href="#" class="products-preview__item not-hover">
 							<div class="products-preview__item-img ibg" data-scroll data-scroll-offset="30%,100">
 								<img src="img/photo/preview-img-4.jpg" alt="">
 							</div>
@@ -571,7 +586,7 @@ defer
 						</a>
 					</li>
 					<li>
-						<a href="#" class="products-preview__item">
+						<a href="#" class="products-preview__item not-hover">
 							<div class="products-preview__item-img ibg">
 								<img src="img/photo/preview-img-3.jpg" alt="">
 							</div>
@@ -662,7 +677,7 @@ defer
 </section>
 
 		<div class="see-more-ban padding-wrap">
-    <div class="swiper" data-slider="see-more-ban">
+    <a href="#" class="swiper" data-slider="see-more-ban">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <strong>
@@ -704,7 +719,7 @@ defer
                 </span>
             </div>
         </div>
-    </div>
+    </a>
 </div>
 
 		<section class="ergonomics padding-wrap">
@@ -847,7 +862,7 @@ defer
                 <div class="footer__head-col-2">
                     <div class="btn">
     <div class="btn__text-decor">
-        <img src="img/photo/subscribe-text.svg" alt="">
+        <img class="img-svg" src="img/photo/subscribe-text.svg" alt="">
     </div>
     <div class="btn__text">Subscribe</div>
 </div>

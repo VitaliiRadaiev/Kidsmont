@@ -4,13 +4,17 @@
     height: 15em;
     width: 15em;
     position: relative;
+    color: $lightColor;
+    transition: all 0.3s ease;
 
     @media (min-width: 992px) {
         &:hover {
-            & .btn__text {
-                transform: scale(1.2);
-            }
+            color: $hover;
         }
+    }
+
+    &:active {
+        color: $active !important;
     }
 
     &__text-decor {
@@ -22,7 +26,8 @@
         z-index: 1;
         animation: textCircleAnim 10s linear infinite;
 
-        & img {
+        & img,
+        & svg {
             width: 100%;
             height: auto;
         }
@@ -44,14 +49,16 @@
         font-weight: 600;
         font-size: 1.8rem;
         line-height: 1.5em;
-        color: $lightColor;
-        transition: all .3s ease;
     }
 }
 
 @keyframes textCircleAnim {
-    0% {transform: translate(-50%, -50%) rotate(360deg);}
-    100% {transform: translate(-50%, -50%) rotate(0deg);}
+    0% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
 }
 
 .btn-with-arrow {
@@ -65,9 +72,16 @@
     @media (min-width: 992px) {
         &:hover {
             & span {
-                background-color: $textColor;
+                background-color: $hover;
                 color: $lightColor;
             }
+        }
+    }
+
+    &:active {
+        & span {
+            background-color: $active !important;
+            color: $lightColor !important;
         }
     }
 
@@ -82,7 +96,7 @@
         border-radius: 50%;
         background-color: #fff;
         font-size: 1.8rem;
-        transition: all .3s ease;
+        transition: all 0.3s ease;
 
         @media (max-width: $md3+px) {
             height: 36px;

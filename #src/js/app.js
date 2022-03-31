@@ -263,6 +263,16 @@ class App {
 			smooth: true,
 			lerp: 0.03
 		});
+
+		scroll.on('call', func => {
+			let id = setInterval(() => {
+                window?.webGLCurtainElements[func]();
+            }, 200);
+            setTimeout(() => {
+                clearInterval(id);
+            }, 3000)
+			
+		});
 	}
 
 	componentsScripts() {

@@ -321,17 +321,70 @@ let mainSearch = document.querySelector('[data-main-search]');
 let btnShowMainSearch = document.querySelector('[data-action="show-main-search"]');
 let btnHideMainSearch = document.querySelector('[data-action="hide-main-search"]');
 
-if (header) {
+if (header && mobileMenu) {
+
+    let slider = document.querySelector('[data-mobile-menu-slider]');
+    let triggerItem = document.querySelector('[data-action="show-next-list"] a');
+    let btnBack = document.querySelector('[data-action="hide-next-list"]');
+    let mobileMenuLogo = document.querySelector('.menu-mobile__logo');
+    let swiperSlider;
+
+
+    const toggleShowBtnBack = (state) => {
+        if(state === 'hide') {
+            btnBack.classList.remove('show');
+            mobileMenuLogo.classList.remove('hide');
+        } else if (state == 'show') {
+            btnBack.classList.add('show');
+            mobileMenuLogo.classList.add('hide');
+        }
+    }
+
+    if (slider) {
+        swiperSlider = new Swiper(slider, {
+            observer: true,
+            observeParents: true,
+            slidesPerView: 1,
+            spaceBetween: 0,
+            speed: 800,
+            allowTouchMove: false,
+            autoHeight: true,
+
+            on: {
+                slideChange: () => {
+                    swiperSlider.allowTouchMove = false;
+                    toggleShowBtnBack('hide');
+                }
+            }
+        });
+    }
+
+    if (triggerItem) {
+        triggerItem.addEventListener('click', (e) => {
+            e.preventDefault();
+            swiperSlider.slideNext();
+            swiperSlider.allowTouchMove = true;
+            toggleShowBtnBack('show');
+        })
+    }
 
     burger.addEventListener('click', () => {
         header.classList.add('header--menu-is-open');
         mobileMenu.classList.add('menu-mobile--open');
         document.body.classList.add('overflow-hidden');
     })
+
     closeBtn.addEventListener('click', () => {
         header.classList.remove('header--menu-is-open');
         mobileMenu.classList.remove('menu-mobile--open');
         document.body.classList.remove('overflow-hidden');
+        swiperSlider.slideTo(0);
+        toggleShowBtnBack('hide');
+    })
+
+    btnBack.addEventListener('click', () => {
+        swiperSlider.slideTo(0);
+        toggleShowBtnBack('hide');
     })
 
     window.addEventListener('scroll', () => {
@@ -341,7 +394,7 @@ if (header) {
     window.addEventListener('load', () => {
         header.classList.add('show')
     });
-
+    
 }
 
 if(mainSearch) {
@@ -370,39 +423,6 @@ if(deskMenuItemHasSubMenu) {
         document.body.classList.remove('cover');
     })
 }
-
-if (mobileMenu) {
-    let slider = document.querySelector('[data-mobile-menu-slider]');
-    let triggerItem = document.querySelector('[data-action="show-next-list"] a');
-    let swiperSlider;
-
-    if (slider) {
-        swiperSlider = new Swiper(slider, {
-            observer: true,
-            observeParents: true,
-            slidesPerView: 1,
-            spaceBetween: 0,
-            speed: 800,
-            allowTouchMove: false,
-            autoHeight: true,
-
-            on: {
-                slideChange: () => {
-                    swiperSlider.allowTouchMove = false;
-                }
-            }
-        });
-    }
-
-    if (triggerItem) {
-        triggerItem.addEventListener('click', (e) => {
-            e.preventDefault();
-            swiperSlider.slideNext();
-            swiperSlider.allowTouchMove = true;
-        })
-    }
-}
-
 ;
 	}
 
@@ -1295,6 +1315,16 @@ if (videoBlock.length) {
 			smooth: true,
 			lerp: 0.03
 		});
+
+		scroll.on('call', func => {
+			let id = setInterval(() => {
+                window?.webGLCurtainElements[func]();
+            }, 200);
+            setTimeout(() => {
+                clearInterval(id);
+            }, 3000)
+			
+		});
 	}
 
 	componentsScripts() {
@@ -1344,22 +1374,26 @@ if (videoBlock.length) {
             }
         })
         promoTitle.addEventListener('mouseenter', () => {
-            mask.classList.add('_anime');
-            animationForward();
-            mouseDot.hide();
-            if(animationBackId) {
-                cancelAnimationFrame(animationBackId);
+            if (document.documentElement.clientWidth > 991) {
+                mask.classList.add('_anime');
+                animationForward();
+                mouseDot.hide();
+                if(animationBackId) {
+                    cancelAnimationFrame(animationBackId);
+                }
             }
+
         })
 
         promoTitle.addEventListener('mouseleave', () => {
-
-            mask.classList.remove('_anime');
-            animationBack();
-            mouseDot.show();
-
-            if(animationForwardId) {
-                cancelAnimationFrame(animationForwardId);
+            if (document.documentElement.clientWidth > 991) {
+                mask.classList.remove('_anime');
+                animationBack();
+                mouseDot.show();
+    
+                if(animationForwardId) {
+                    cancelAnimationFrame(animationForwardId);
+                }
             }
         })
     }
@@ -1435,6 +1469,7 @@ if (videoBlock.length) {
             }`
     };
 
+    window.webGLCurtainElements = [];
 
     let images = document.querySelectorAll('.promo-header__img');
     if (images.length) {
@@ -1462,31 +1497,11 @@ if (videoBlock.length) {
 
             const plane = new Plane(webGLCurtain, img, params);
 
-            plane && plane.onReady(() => {
-
-                plane.userData.mouseOver = false;
-
-                img.addEventListener("mouseenter", function (e) {
-                    plane.userData.mouseOver = true;
-                    img.classList.add('show');
-                });
-
-                img.addEventListener("mouseleave", function (e) {
-                    plane.userData.mouseOver = false;
-                    img.classList.remove('show');
-                });
-            }).onRender(() => {
-                // use damping
-                // if(plane.userData.mouseOver) {
-                //     plane.uniforms.time.value++;
-                // }
-                // else {
-                //     plane.uniforms.time.value = -1;
-                // }
+            plane && plane.onRender(() => {
                 plane.uniforms.time.value++;
             });
 
-            //webGLCurtain.disableDrawing();
+            webGLCurtainElements.push(() => webGLCurtain.resize());
 
             let id = setInterval(() => {
                 webGLCurtain.resize();

@@ -44,22 +44,26 @@
             }
         })
         promoTitle.addEventListener('mouseenter', () => {
-            mask.classList.add('_anime');
-            animationForward();
-            mouseDot.hide();
-            if(animationBackId) {
-                cancelAnimationFrame(animationBackId);
+            if (document.documentElement.clientWidth > 991) {
+                mask.classList.add('_anime');
+                animationForward();
+                mouseDot.hide();
+                if(animationBackId) {
+                    cancelAnimationFrame(animationBackId);
+                }
             }
+
         })
 
         promoTitle.addEventListener('mouseleave', () => {
-
-            mask.classList.remove('_anime');
-            animationBack();
-            mouseDot.show();
-
-            if(animationForwardId) {
-                cancelAnimationFrame(animationForwardId);
+            if (document.documentElement.clientWidth > 991) {
+                mask.classList.remove('_anime');
+                animationBack();
+                mouseDot.show();
+    
+                if(animationForwardId) {
+                    cancelAnimationFrame(animationForwardId);
+                }
             }
         })
     }
@@ -135,6 +139,7 @@
             }`
     };
 
+    window.webGLCurtainElements = [];
 
     let images = document.querySelectorAll('.promo-header__img');
     if (images.length) {
@@ -162,31 +167,11 @@
 
             const plane = new Plane(webGLCurtain, img, params);
 
-            plane && plane.onReady(() => {
-
-                plane.userData.mouseOver = false;
-
-                img.addEventListener("mouseenter", function (e) {
-                    plane.userData.mouseOver = true;
-                    img.classList.add('show');
-                });
-
-                img.addEventListener("mouseleave", function (e) {
-                    plane.userData.mouseOver = false;
-                    img.classList.remove('show');
-                });
-            }).onRender(() => {
-                // use damping
-                // if(plane.userData.mouseOver) {
-                //     plane.uniforms.time.value++;
-                // }
-                // else {
-                //     plane.uniforms.time.value = -1;
-                // }
+            plane && plane.onRender(() => {
                 plane.uniforms.time.value++;
             });
 
-            //webGLCurtain.disableDrawing();
+            webGLCurtainElements.push(() => webGLCurtain.resize());
 
             let id = setInterval(() => {
                 webGLCurtain.resize();

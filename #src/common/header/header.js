@@ -7,17 +7,70 @@ let mainSearch = document.querySelector('[data-main-search]');
 let btnShowMainSearch = document.querySelector('[data-action="show-main-search"]');
 let btnHideMainSearch = document.querySelector('[data-action="hide-main-search"]');
 
-if (header) {
+if (header && mobileMenu) {
+
+    let slider = document.querySelector('[data-mobile-menu-slider]');
+    let triggerItem = document.querySelector('[data-action="show-next-list"] a');
+    let btnBack = document.querySelector('[data-action="hide-next-list"]');
+    let mobileMenuLogo = document.querySelector('.menu-mobile__logo');
+    let swiperSlider;
+
+
+    const toggleShowBtnBack = (state) => {
+        if(state === 'hide') {
+            btnBack.classList.remove('show');
+            mobileMenuLogo.classList.remove('hide');
+        } else if (state == 'show') {
+            btnBack.classList.add('show');
+            mobileMenuLogo.classList.add('hide');
+        }
+    }
+
+    if (slider) {
+        swiperSlider = new Swiper(slider, {
+            observer: true,
+            observeParents: true,
+            slidesPerView: 1,
+            spaceBetween: 0,
+            speed: 800,
+            allowTouchMove: false,
+            autoHeight: true,
+
+            on: {
+                slideChange: () => {
+                    swiperSlider.allowTouchMove = false;
+                    toggleShowBtnBack('hide');
+                }
+            }
+        });
+    }
+
+    if (triggerItem) {
+        triggerItem.addEventListener('click', (e) => {
+            e.preventDefault();
+            swiperSlider.slideNext();
+            swiperSlider.allowTouchMove = true;
+            toggleShowBtnBack('show');
+        })
+    }
 
     burger.addEventListener('click', () => {
         header.classList.add('header--menu-is-open');
         mobileMenu.classList.add('menu-mobile--open');
         document.body.classList.add('overflow-hidden');
     })
+
     closeBtn.addEventListener('click', () => {
         header.classList.remove('header--menu-is-open');
         mobileMenu.classList.remove('menu-mobile--open');
         document.body.classList.remove('overflow-hidden');
+        swiperSlider.slideTo(0);
+        toggleShowBtnBack('hide');
+    })
+
+    btnBack.addEventListener('click', () => {
+        swiperSlider.slideTo(0);
+        toggleShowBtnBack('hide');
     })
 
     window.addEventListener('scroll', () => {
@@ -27,7 +80,7 @@ if (header) {
     window.addEventListener('load', () => {
         header.classList.add('show')
     });
-
+    
 }
 
 if(mainSearch) {
@@ -56,36 +109,3 @@ if(deskMenuItemHasSubMenu) {
         document.body.classList.remove('cover');
     })
 }
-
-if (mobileMenu) {
-    let slider = document.querySelector('[data-mobile-menu-slider]');
-    let triggerItem = document.querySelector('[data-action="show-next-list"] a');
-    let swiperSlider;
-
-    if (slider) {
-        swiperSlider = new Swiper(slider, {
-            observer: true,
-            observeParents: true,
-            slidesPerView: 1,
-            spaceBetween: 0,
-            speed: 800,
-            allowTouchMove: false,
-            autoHeight: true,
-
-            on: {
-                slideChange: () => {
-                    swiperSlider.allowTouchMove = false;
-                }
-            }
-        });
-    }
-
-    if (triggerItem) {
-        triggerItem.addEventListener('click', (e) => {
-            e.preventDefault();
-            swiperSlider.slideNext();
-            swiperSlider.allowTouchMove = true;
-        })
-    }
-}
-
