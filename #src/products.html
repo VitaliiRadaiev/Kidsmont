@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('_head.html',{
+"title": "Kidsmond"
+})
+
+<body data-scroll-container>
+    <div class="_preload-body"></div>
+    <!-- == TOP LINE ================== -->
+
+    @@include('common/header/_header.html',{
+    "mod": ""
+    })
+    <!-- == // TOP LINE ================== -->
+
+    <main class="_page " data-padding-top-header-size data-scroll-section>
+
+        @@include('common/breadcrumbs/_breadcrumbs.html', {
+        "arr": ['<a href="#">Home</a>', '<a href="#">Catalog</a>', 'Walls']
+        })
+
+        <div class="container-sm">
+            <div class="head head--top">
+                <h2 class="head__title products-title d-flex align-items-center justify-content-between">Walls</h2>
+            </div>
+        </div>
+
+        <div class="products padding-wrap pt-0">
+            <div class="container-sm">
+                <div class="products__body">
+                    <div class="products__filter">
+
+                        <div class="side-panel products-filter" data-side-panel="products-filter"
+                            data-da="body,991.98,first">
+                            <div class="side-panel__close" data-side-panel-close><span></span></div>
+                            <div class="side-panel__body">
+                                <div class="side-panel__head">
+                                    <div class="products-filter__title">Filter Products</div>
+                                </div>
+                                <div class="side-panel__scroll-wrap">
+                                    <form action="/">
+                                        <div class="products-filter__body">
+                                            <div class="products-filter__list" data-spoller>
+                                                <div class="products-filter__list-item">
+                                                    <div class="products-filter__list-item-title active" data-spoller-trigger>Material</div>
+                                                    <div class="products-filter__list-item-body">
+                                                        <div class="products-filter__item">
+                                                            <label class="checkbox-radio">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox-radio__square"></div>
+                                                                <div class="checkbox-radio__text">Wood</div>
+                                                            </label>
+                                                        </div>
+                                                        <div class="products-filter__item">
+                                                            <label class="checkbox-radio">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox-radio__square"></div>
+                                                                <div class="checkbox-radio__text">Metal</div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="products-filter__list-item">
+                                                    <div class="products-filter__list-item-title active" data-spoller-trigger>Size</div>
+                                                    <div class="products-filter__list-item-body">
+                                                        <div class="products-filter__item">
+                                                            <label class="checkbox-radio">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox-radio__square"></div>
+                                                                <div class="checkbox-radio__text">2.10 x 3.20</div>
+                                                            </label>
+                                                        </div>
+                                                        <div class="products-filter__item">
+                                                            <label class="checkbox-radio">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox-radio__square"></div>
+                                                                <div class="checkbox-radio__text">3.10 x 4.20</div>
+                                                            </label>
+                                                        </div>
+                                                        <div class="products-filter__item">
+                                                            <label class="checkbox-radio">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox-radio__square"></div>
+                                                                <div class="checkbox-radio__text">1.60 x 2.20</div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="products-filter__list-item">
+                                                    <div class="products-filter__list-item-title active" data-spoller-trigger>Price</div>
+                                                    <div class="products-filter__list-item-body">
+                                                        <div class="products-filter__item">
+                                                            @@include('common/price-range/_price-range.html')
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="products-filter__list-item">
+                                                    <div class="products-filter__list-item-title active" data-spoller-trigger>Colour</div>
+                                                    <div class="products-filter__list-item-body">
+                                                        <div class="products-filter__item">
+                                                            <label class="checkbox-radio">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox-radio__square"></div>
+                                                                <div class="checkbox-radio__text">Brown</div>
+                                                            </label>
+                                                        </div>
+                                                        <div class="products-filter__item">
+                                                            <label class="checkbox-radio">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox-radio__square"></div>
+                                                                <div class="checkbox-radio__text">Red</div>
+                                                            </label>
+                                                        </div>
+                                                        <div class="products-filter__item">
+                                                            <label class="checkbox-radio">
+                                                                <input type="checkbox">
+                                                                <div class="checkbox-radio__square"></div>
+                                                                <div class="checkbox-radio__text">Black</div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button class="products-filter__submit btn-default">Save</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="products__content">
+                        <div class="products__top">
+                            <div class="products__count" data-da=".products-title,991.98,last">
+                                35 products
+                            </div>
+                            <div class="products__sort">
+                                <label for="sort">Sort:</label>
+                                <div class="select-wrap">
+                                    <select id="sort" name="sort" class="_select" data-select="price">
+                                        <option value="1" selected>High to low</option>
+                                        <option value="2">Low to high</option>
+                                        <option value="3">New</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="products__mobile">
+                                <button class="products__filter-btn"
+                                    data-side-panel-open="products-filter">Filter</button>
+                                <div class="select-wrap">
+                                    <select id="sort" name="sort" class="_select">
+                                        <option value="" selected>Sort by</option>
+                                        <option value="1">High to low</option>
+                                        <option value="2">Low to high</option>
+                                        <option value="3">New</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="products__list">
+                            <li>
+                                @@include('common/product-card/_product-card.html', {
+                                "label": true,
+                                "labelText": 'hit',
+                                "img": "img/photo/product-list-img-1.png",
+                                "title": "Sprossenwand 5-in-1 aus Kiefer Naturholz",
+                                "price": "437,00€"
+                                })
+                            </li>
+                            <li>
+                                @@include('common/product-card/_product-card.html', {
+                                "label": false,
+                                "labelText": 'hit',
+                                "img": "img/photo/product-list-img-2.png",
+                                "title": "Sprossenwand 5-in-1 aus Kiefer Schwarz",
+                                "price": "471,00€"
+                                })
+                            </li>
+                            <li>
+                                @@include('common/product-card/_product-card.html', {
+                                "label": true,
+                                "labelText": 'SALE',
+                                "img": "img/photo/product-list-img-3.png",
+                                "title": "Kinderbett “Piratenschiff” aus Kiefer oder Esche...",
+                                "price": "501,00€ – 595,00€"
+                                })
+                            </li>
+                            <li>
+                                @@include('common/product-card/_product-card.html', {
+                                "label": true,
+                                "labelText": 'hit',
+                                "img": "img/photo/product-list-img-1.png",
+                                "title": "Kletterspielplatz „Kleinkind“ von Kidsmont",
+                                "price": "512,00€"
+                                })
+                            </li>
+                            <li>
+                                @@include('common/product-card/_product-card.html', {
+                                "label": false,
+                                "labelText": 'hit',
+                                "img": "img/photo/product-list-img-2.png",
+                                "title": "Sprossenwand 5-in-1 aus Kiefer Schwarz",
+                                "price": "471,00€"
+                                })
+                            </li>
+                            <li>
+                                @@include('common/product-card/_product-card.html', {
+                                "label": false,
+                                "labelText": 'hit',
+                                "img": "img/photo/product-list-img-3.png",
+                                "title": "Kinderbett “Piratenschiff” aus Kiefer oder Esche...",
+                                "price": "501,00€ – 595,00€"
+                                })
+                            </li>
+                            <li>
+                                @@include('common/product-card/_product-card.html', {
+                                "label": false,
+                                "labelText": 'hit',
+                                "img": "img/photo/product-list-img-1.png",
+                                "title": "Sprossenwand 5-in-1 aus Kiefer Naturholz",
+                                "price": "437,00€"
+                                })
+                            </li>
+                            <li>
+                                @@include('common/product-card/_product-card.html', {
+                                "label": false,
+                                "labelText": 'hit',
+                                "img": "img/photo/product-list-img-2.png",
+                                "title": "Sprossenwand 5-in-1 aus Kiefer Schwarz",
+                                "price": "471,00€"
+                                })
+                            </li>
+                            <li>
+                                @@include('common/product-card/_product-card.html', {
+                                "label": true,
+                                "labelText": 'sale',
+                                "img": "img/photo/product-list-img-3.png",
+                                "title": "Kinderbett “Piratenschiff” aus Kiefer oder Esche...",
+                                "price": "501,00€ – 595,00€"
+                                })
+                            </li>
+                            <li>
+                                @@include('common/product-card/_product-card.html', {
+                                "label": true,
+                                "labelText": 'hit',
+                                "img": "img/photo/product-list-img-1.png",
+                                "title": "Kletterspielplatz „Kleinkind“ von Kidsmont",
+                                "price": "512,00€"
+                                })
+                            </li>
+                            <li>
+                                @@include('common/product-card/_product-card.html', {
+                                "label": false,
+                                "labelText": 'hit',
+                                "img": "img/photo/product-list-img-2.png",
+                                "title": "Sprossenwand 5-in-1 aus Kiefer Schwarz",
+                                "price": "471,00€"
+                                })
+                            </li>
+                            <li>
+                                @@include('common/product-card/_product-card.html', {
+                                "label": true,
+                                "labelText": 'sale',
+                                "img": "img/photo/product-list-img-3.png",
+                                "title": "Kinderbett “Piratenschiff” aus Kiefer oder Esche...",
+                                "price": "501,00€ – 595,00€"
+                                })
+                            </li>
+                        </ul>
+                        <div class="products__bottom">
+                            @@include('common/pagination/_pagination.html')
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @@include('common/carousel/_carousel-preview-products.html')
+
+    </main>
+
+    <!-- == FOOTER ================== -->
+    @@include('common/footer/_footer.html',{})
+    <!-- == // FOOTER ================== -->
+
+    @@include('_js-bottom.html',{})
+</body>
+
+</html>

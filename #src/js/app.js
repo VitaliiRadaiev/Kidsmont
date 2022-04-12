@@ -26,6 +26,7 @@ class App {
 		this.tabsInit();
 		this.selectInit();
 		this.initMouse();
+		this.spollerInit();
 
 		window.addEventListener('load', () => {
 			document.body.classList.add('page-is-load');
@@ -52,6 +53,7 @@ class App {
 		@@include('../common/product-carousel/product-carousel.js');
 		@@include('../common/see-more-ban/see-more-ban.js');
 		@@include('../common/reviews/reviews.js');
+		@@include('../common/carousel/carousel.js');
 	}
 
 	initMouse() {
@@ -150,6 +152,11 @@ class App {
 					triggers.forEach(trigger => {
 						let parent = trigger.parentElement;
 						let content = trigger.nextElementSibling;
+
+						// init
+						if(trigger.classList.contains('active')) {
+							content.style.display = 'block';
+						}
 
 						trigger.addEventListener('click', (e) => {
 							e.preventDefault();
@@ -277,6 +284,8 @@ class App {
 
 	componentsScripts() {
 		@@include('../common/promo-header/promo-header.js');
+		@@include('../common/side-panel/side-panel.js');
+		@@include('../common/price-range/price-range.js');
 	}
 
 }

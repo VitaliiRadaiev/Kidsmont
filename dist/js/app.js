@@ -297,6 +297,7 @@ class App {
 		this.tabsInit();
 		this.selectInit();
 		this.initMouse();
+		this.spollerInit();
 
 		window.addEventListener('load', () => {
 			document.body.classList.add('page-is-load');
@@ -313,9 +314,8 @@ class App {
 
 	headerHandler() {
 		let header = document.querySelector('[data-header]');
-let burger = document.querySelector('[data-action="menu-mobile-open"]');
-let closeBtn = document.querySelector('[data-action="menu-mobile-close"]')
-let mobileMenu = document.querySelector('[data-menu-mobile]');
+let closeBtn = document.querySelector('[data-side-panel="menu-mobile"] [data-side-panel-close]')
+let mobileMenu = document.querySelector('[data-side-panel="menu-mobile"]');
 let deskMenuItemHasSubMenu = document.querySelector('[data-menu-item-has-sab-menu]');
 let mainSearch = document.querySelector('[data-main-search]');
 let btnShowMainSearch = document.querySelector('[data-action="show-main-search"]');
@@ -368,16 +368,8 @@ if (header && mobileMenu) {
         })
     }
 
-    burger.addEventListener('click', () => {
-        header.classList.add('header--menu-is-open');
-        mobileMenu.classList.add('menu-mobile--open');
-        document.body.classList.add('overflow-hidden');
-    })
 
     closeBtn.addEventListener('click', () => {
-        header.classList.remove('header--menu-is-open');
-        mobileMenu.classList.remove('menu-mobile--open');
-        document.body.classList.remove('overflow-hidden');
         swiperSlider.slideTo(0);
         toggleShowBtnBack('hide');
     })
@@ -667,6 +659,35 @@ window.popup = {
         });
     }
 };
+		{
+    let carousels = document.querySelectorAll('[data-carousel]');
+    if(carousels.length) {
+        carousels.forEach(carousel => {
+            let carouselSwiper = new Swiper(carousel.querySelector('.swiper'), {
+                speed: 800,
+                navigation: {
+                    nextEl: carousel.querySelector('[data-action="btn-next"]'),
+                    prevEl: carousel.querySelector('[data-action="btn-prev"]'),
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 2,
+                        spaceBetween: 15,
+                        autoHeight: true,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                    992: {
+                        slidesPerView: 4,
+                        spaceBetween: 25,
+                    },
+                },
+            });
+        })
+    }
+};
 	}
 
 	initMouse() {
@@ -765,6 +786,11 @@ window.popup = {
 					triggers.forEach(trigger => {
 						let parent = trigger.parentElement;
 						let content = trigger.nextElementSibling;
+
+						// init
+						if(trigger.classList.contains('active')) {
+							content.style.display = 'block';
+						}
 
 						trigger.addEventListener('click', (e) => {
 							e.preventDefault();
@@ -1177,8 +1203,9 @@ if (videoBlock.length) {
         const select_items = select_parent.querySelector('.select__item');
         const select_options = select.querySelectorAll('option');
         const select_selected_option = select.querySelector('option:checked');
-        const select_selected_text = select_selected_option.text;
+        const select_selected_text = select_selected_option.innerHTML;
         const select_type = select.getAttribute('data-type');
+        const label = '<span class="select__label">Price:</span>';
 
         if (select_items) {
             select_items.remove();
@@ -1191,9 +1218,10 @@ if (videoBlock.length) {
             select_type_content = '<div class="select__value icon-select-arrow"><span>' + select_selected_text + '</span></div>';
         }
 
+   
         select_parent.insertAdjacentHTML('beforeend',
             '<div class="select__item">' +
-            '<div class="select__title">' + select_type_content + '</div>' +
+            `<div class="select__title">${(select.dataset.select === 'price') ? label : ''}` + select_type_content + '</div>' +
             '<div class="select__options">' + select_get_options(select_options) + '</div>' +
             '</div></div>');
 
@@ -1513,6 +1541,91 @@ if (videoBlock.length) {
     }
 
 };
+		{
+    let sidePanelAll = Array.from(document.querySelectorAll('[data-side-panel]'));
+    if(sidePanelAll.length) {
+        sidePanelAll.forEach(sidePanel => {
+            let closeBtn = sidePanel.querySelector('[data-side-panel-close]');
+            
+            closeBtn.addEventListener('click', () => {
+                sidePanel.classList.remove('side-panel--open');
+                document.body.classList.remove('overflow-hidden');
+            })
+    })
+
+        let openButtons = document.querySelectorAll('[data-side-panel-open]');
+        if(openButtons.length) {
+            openButtons.forEach(openButton => {
+                let [sidePanel] = sidePanelAll.filter(sidePanel => sidePanel.dataset.sidePanel === openButton.dataset.sidePanelOpen);
+                openButton.addEventListener('click', () => {
+                    sidePanel.classList.add('side-panel--open');
+                    document.body.classList.add('overflow-hidden');
+                })
+            })
+        }
+    }
+};
+		{
+    let rangeAll = document.querySelectorAll('[data-price-range]');
+    if (rangeAll.length) {
+        rangeAll.forEach(range => {
+            let min = range.dataset.min;
+            let max = range.dataset.max;
+            let numStart = range.dataset.start;
+            let numEnd = range.dataset.end;
+            let step = range.dataset.step;
+            let slider = range.querySelector('.price-range__slider');
+            let inputStart = range.querySelector('.price-range__input--start');
+            let inputEnd = range.querySelector('.price-range__input--end');
+
+            noUiSlider.create(slider, {
+                start: [+numStart, +numEnd],
+                connect: true,
+                range: {
+                    'min': [+min],
+                    'max': [+max],
+                },
+                step: +step,
+                tooltips: true,
+                format: wNumb({
+                    decimals: 0
+                })
+            });
+
+            let numFormat = wNumb({ decimals: 0, thousand: ',' });
+
+            slider.noUiSlider.on('update', function (values, handle) {
+                let value = values[handle];
+                if (handle) {
+                    inputEnd.value = Math.round(value);
+                } else {
+                    inputStart.value = Math.round(value);
+                }
+            });
+
+            slider.noUiSlider.on('change', (values, handle) => {
+                let value = values[handle];
+                if (handle) {
+                    let event = new Event("change", { bubbles: true });
+                    inputEnd.dispatchEvent(event);
+                } else {
+                    let event = new Event("change", { bubbles: true });
+                    inputStart.dispatchEvent(event);
+                }
+
+            })
+
+            inputStart.addEventListener('change', function () {
+                slider.noUiSlider.set([this.value, null]);
+            });
+            inputEnd.addEventListener('change', function () {
+                slider.noUiSlider.set([null, this.value]);
+            });
+        })
+    }
+
+}
+;
 	}
 
 }

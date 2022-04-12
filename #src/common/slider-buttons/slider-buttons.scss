@@ -29,6 +29,10 @@
         }
     }
 
+    &.swiper-button-lock {
+        display: none;
+    }
+
     &:active {
         background-color: $active !important;
         color: $lightColor !important;

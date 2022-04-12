@@ -105,3 +105,33 @@
         }
     }
 }
+
+.btn-default {
+    display: inline-flex;
+    min-height: 5.9rem;
+    min-width: 24.3rem;
+    background-color: $secondColor;
+    color: $lightColor;
+    transition: all .3s ease;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    font-family: $titleFontFamily;
+    border: 1px solid $secondColor;
+
+    @media (min-width: 992px) {
+        &:hover {
+            color: $lightColor;
+            background-color: $hover;
+        }
+    }
+
+    &:active {
+        background-color: transparent !important;
+        color: $textColor !important;
+        border-color: $textColor !important;
+    }
+}

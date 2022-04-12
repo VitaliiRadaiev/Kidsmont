@@ -1,7 +1,6 @@
 let header = document.querySelector('[data-header]');
-let burger = document.querySelector('[data-action="menu-mobile-open"]');
-let closeBtn = document.querySelector('[data-action="menu-mobile-close"]')
-let mobileMenu = document.querySelector('[data-menu-mobile]');
+let closeBtn = document.querySelector('[data-side-panel="menu-mobile"] [data-side-panel-close]')
+let mobileMenu = document.querySelector('[data-side-panel="menu-mobile"]');
 let deskMenuItemHasSubMenu = document.querySelector('[data-menu-item-has-sab-menu]');
 let mainSearch = document.querySelector('[data-main-search]');
 let btnShowMainSearch = document.querySelector('[data-action="show-main-search"]');
@@ -54,16 +53,8 @@ if (header && mobileMenu) {
         })
     }
 
-    burger.addEventListener('click', () => {
-        header.classList.add('header--menu-is-open');
-        mobileMenu.classList.add('menu-mobile--open');
-        document.body.classList.add('overflow-hidden');
-    })
 
     closeBtn.addEventListener('click', () => {
-        header.classList.remove('header--menu-is-open');
-        mobileMenu.classList.remove('menu-mobile--open');
-        document.body.classList.remove('overflow-hidden');
         swiperSlider.slideTo(0);
         toggleShowBtnBack('hide');
     })

@@ -1,0 +1,19 @@
+<div class="product-card">
+    @@if (label) {
+        <div class="product-card__label-group">
+            <div class="product-card__label card-label">@@labelText</div>
+        </div>
+    }
+    <a href="#" class="product-card__like"></a> 
+    <!-- use  product-card__like--active -->
+    <a href="#" class="product-card__img-wrap">
+        <div class="product-card__img">
+            <img src="@@img" alt="">
+        </div>
+        <div class="product-card__center-icon">
+            <img src="img/icons/bag-circle-green.svg" alt="">
+        </div>
+    </a>
+    <a href="#" class="product-card__title">@@title</a>
+    <div class="product-card__price">@@price</div>
+</div>

@@ -113,8 +113,9 @@
         const select_items = select_parent.querySelector('.select__item');
         const select_options = select.querySelectorAll('option');
         const select_selected_option = select.querySelector('option:checked');
-        const select_selected_text = select_selected_option.text;
+        const select_selected_text = select_selected_option.innerHTML;
         const select_type = select.getAttribute('data-type');
+        const label = '<span class="select__label">Price:</span>';
 
         if (select_items) {
             select_items.remove();
@@ -127,9 +128,10 @@
             select_type_content = '<div class="select__value icon-select-arrow"><span>' + select_selected_text + '</span></div>';
         }
 
+   
         select_parent.insertAdjacentHTML('beforeend',
             '<div class="select__item">' +
-            '<div class="select__title">' + select_type_content + '</div>' +
+            `<div class="select__title">${(select.dataset.select === 'price') ? label : ''}` + select_type_content + '</div>' +
             '<div class="select__options">' + select_get_options(select_options) + '</div>' +
             '</div></div>');
 

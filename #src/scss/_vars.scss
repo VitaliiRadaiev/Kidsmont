@@ -20,7 +20,7 @@ $textColorSecondary: #B9B9B9;
 $hover: #0F8F5A;
 $active: #037847;
 $mainColor: #222222;
-$secondColor: #4B9403;
+$secondColor: #037847;
 $dangerColor:  #FF4444;
 $successColor:#00C367;
 $infoColor: #BC62EF;
@@ -29,11 +29,12 @@ $warningColor: #FFC31C;
 $bg: #F3F1EF;
 $bgSecondary: #EBE8E4;
 $bgSecondaryHover: #cdcac7;
+$borderColor: #D2D2D2;
 
 
 :root {
     --bs-primary: #222222;
-    --bs-secondary: #4B9403;
+    --bs-secondary: #037847;
     --bs-success: #00C367;
     --bs-info: #BC62EF;
     --bs-warning: #FFC31C;
@@ -42,7 +43,7 @@ $bgSecondaryHover: #cdcac7;
     --bs-dark: #000;
 
     --bs-primary-rgb: 34, 34, 34;
-    --bs-secondary-rgb: 75, 148, 3;
+    --bs-secondary-rgb: 3, 120, 71;
     --bs-success-rgb: 0, 195, 103;
     --bs-info-rgb: 188, 98, 239;
     --bs-warning-rgb: 255, 195, 28;

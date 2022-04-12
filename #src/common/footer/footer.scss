@@ -171,11 +171,10 @@
 
     &__logo {
         width: 100%;
-        max-width: 22.7rem;
+        max-width: 6.7rem;
         margin-bottom: 4.7rem;
 
         @media (max-width: $md3+px) {
-            max-width: 152px;
             margin: 0 auto 11px;
         }
 

@@ -18,6 +18,7 @@
 @import "plugins/swiper-bundle";
 @import "plugins/fancybox.scss";
 @import "plugins/locomotive-scroll.min.scss";
+@import "plugins/nouislider"; 
 // ==== // PLUGINS ===========================================================================================
 
 // ==== VARS ===========================================================================================
@@ -46,10 +47,16 @@
 @import "../common/see-more-ban/see-more-ban";
 @import "../common/reviews/reviews";
 @import "../common/breadcrumbs/breadcrumbs";
+@import "../common/product-card/product-card";
+@import "../common/pagination/pagination";
+@import "../common/side-panel/side-panel";
+@import "../common/price-range/price-range";
+@import "../common/carousel/carousel";
 // ==== // COMMON BLOCKS =====================================================
 
 // ==== PAGES =====================================================
 @import "pages/home";
 @import "pages/category";
+@import "pages/products";
 // ==== AND PAGES =====================================================
 
