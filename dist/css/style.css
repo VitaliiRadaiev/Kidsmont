@@ -7345,12 +7345,16 @@ figure {
   margin: 0 -1.25rem;
 }
 
+.products__list:last-child {
+  margin-bottom: -5rem;
+}
+
 .products__list > li {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 33.333333%;
           flex: 0 1 33.333333%;
   padding: 0 1.25rem;
-  margin-bottom: 50px;
+  margin-bottom: 5rem;
   position: relative;
 }
 
@@ -8630,6 +8634,10 @@ figure {
 
   .products__list {
     margin: 0 -7.5px;
+  }
+
+  .products__list:last-child {
+    margin-bottom: -24px;
   }
 
   .products__list > li {
