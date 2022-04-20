@@ -126,6 +126,7 @@
         &:hover {
             color: $lightColor;
             background-color: $hover;
+            border-color: $hover !important;
         }
     }
 
@@ -133,5 +134,17 @@
         background-color: transparent !important;
         color: $textColor !important;
         border-color: $textColor !important;
+    }
+
+    &--transparent {
+        background-color: transparent;
+        border-color: $mainColor;
+        color: $textColor;
+
+        &:active {
+            background-color: $active !important;
+            color: $lightColor !important;
+            border-color: $active !important;
+        }
     }
 }

@@ -1,4 +1,5 @@
 .carousel {
+    min-width: 0;
     &__head {
         margin-bottom: 5rem;
 
@@ -10,5 +11,17 @@
         border-bottom: 2px solid $borderColor;
         padding-bottom: 2px;
         margin-bottom: -2px;
+    }
+
+    &--fixed-width  {
+        & .swiper-slide {
+            width: 30rem;
+        }
+    }
+}
+
+.carousel-preview-posts {
+    & .post-card {
+        border-bottom: none;
     }
 }

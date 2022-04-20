@@ -27,14 +27,16 @@ class App {
 		this.selectInit();
 		this.initMouse();
 		this.spollerInit();
+		this.componentsScriptsBeforeLoadPage();
+
 
 		window.addEventListener('load', () => {
 			document.body.classList.add('page-is-load');
+			this.componentsScriptsAfterLoadPage();
 			this.locomotiveScrollInit();
 			this.setPaddingTopHeaderSize();
 			//this.videoHandlerInit();
 			this.slidersInit();
-			this.componentsScripts();
 			this.setFontSize();
 
 		});
@@ -54,6 +56,8 @@ class App {
 		@@include('../common/see-more-ban/see-more-ban.js');
 		@@include('../common/reviews/reviews.js');
 		@@include('../common/carousel/carousel.js');
+		@@include('../common/gallery-product-detail/gallery-product-detail.js');
+		@@include('../common/article-slider/article-slider.js');
 	}
 
 	initMouse() {
@@ -271,6 +275,13 @@ class App {
 			lerp: 0.03
 		});
 
+		let id = setInterval(() => {
+			scroll.update();
+		}, 200);
+		setTimeout(() => {
+			clearInterval(id);
+		}, 1000)
+
 		scroll.on('call', func => {
 			let id = setInterval(() => {
                 window?.webGLCurtainElements[func]();
@@ -280,12 +291,20 @@ class App {
             }, 3000)
 			
 		});
-	}
 
-	componentsScripts() {
+		scroll.on('scroll', (args) => {
+			//console.log(args);
+		});
+	}
+	componentsScriptsBeforeLoadPage() {
+		
+	}
+	componentsScriptsAfterLoadPage() {
 		@@include('../common/promo-header/promo-header.js');
 		@@include('../common/side-panel/side-panel.js');
 		@@include('../common/price-range/price-range.js');
+		@@include('../common/blog-list/blog-list.js');
+		@@include('../common/blog-detail/blog-detail.js');
 	}
 
 }

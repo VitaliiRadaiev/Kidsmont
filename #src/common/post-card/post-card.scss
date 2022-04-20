@@ -1,0 +1,56 @@
+.post-card {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2.4rem;
+    border-bottom: 1px solid $borderColor;
+
+    @media (max-width: $md2+px) {
+        height: 100%;
+    }
+
+    @media (min-width: 992px) {
+        &:hover {
+            & .post-card__title {
+                color: $hover;
+            }
+        }
+    }
+
+    &__img {
+        padding-bottom: 62.5%;
+        margin-bottom: 1.2rem;
+    }
+
+    &__date {
+        color: $textColorThird;
+        font-size: 1.6rem;
+        line-height: 1.5em;
+        margin-bottom: 1.2rem;
+
+        @media (max-width: $md3+px) {
+            margin-bottom: 24px;
+        }
+    }
+
+    &__title {
+        font-family: $titleFontFamily;
+        transition: all .3s ease;
+        font-weight: 600;
+        margin-bottom: 1.6rem;
+        text-transform: uppercase;
+    }
+
+    &__text {
+        & > *:last-child {
+            margin-bottom: 0;
+        }
+        &.text-content {
+            font-size: 1.6rem;
+            line-height: 1.5em;
+
+            @media (max-width: $md3+px) {
+                font-size: 14px;
+            }
+        }
+    }
+}

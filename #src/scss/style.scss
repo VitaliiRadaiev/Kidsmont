@@ -52,11 +52,18 @@
 @import "../common/side-panel/side-panel";
 @import "../common/price-range/price-range";
 @import "../common/carousel/carousel";
+@import "../common/gallery-product-detail/gallery-product-detail";
+@import "../common/blog-list/blog-list";
+@import "../common/post-card/post-card";
+@import "../common/article-slider/article-slider";
 // ==== // COMMON BLOCKS =====================================================
 
 // ==== PAGES =====================================================
 @import "pages/home";
 @import "pages/category";
 @import "pages/products";
+@import "pages/product-detail";
+@import "pages/blog";
+@import "pages/blog-detail";
 // ==== AND PAGES =====================================================
 

@@ -1,0 +1,110 @@
+.gallery-product-detail {
+
+    @media (min-width: 992px) {
+        overflow: visible;
+
+        & .swiper-wrapper {
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: -2.5rem;
+        }
+
+        & .swiper-slide {
+            height: auto;
+            width: auto;
+            flex: 0 1 calc(50% - 1.25rem);
+            margin-bottom: 2.5rem;
+
+      
+                &:nth-child(3n + 1) {
+                    flex: 0 1 100%;
+    
+                    & .gallery-product-detail__item {
+                        padding-bottom: 72%;
+                    }
+                }
+            
+        }
+    }
+
+    &__label-group {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__label {
+        margin-bottom: 0.5rem;
+    }
+
+    &__item {
+        position: relative;
+        height: 0;
+        padding-bottom: 120.68%;
+
+        @media (max-width: $md2+px) {
+            padding-bottom: 95.52%;
+        }
+    }
+
+    &__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $bgSecondary;
+
+        &:not(.gallery-product-detail__img--cover) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5rem;
+
+            & img {
+                max-width: 100%;
+                max-height: 100%;
+                width: auto;
+                height: auto;
+            }
+        }
+    }
+
+    &__img--cover {
+        & img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            object-fit: cover;
+        }
+    }
+
+    &__video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $bgSecondary;
+    }
+
+    & .swiper-pagination  {
+        display: inline-block;
+        left: auto;
+        width: auto;
+        right: 10px;
+        bottom: 10px;
+        font-size: 14px;
+        line-height: 21px;
+
+        @media (min-width: 992px) {
+            display: none;
+        }
+    }
+}

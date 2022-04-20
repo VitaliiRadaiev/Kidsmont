@@ -298,14 +298,16 @@ class App {
 		this.selectInit();
 		this.initMouse();
 		this.spollerInit();
+		this.componentsScriptsBeforeLoadPage();
+
 
 		window.addEventListener('load', () => {
 			document.body.classList.add('page-is-load');
+			this.componentsScriptsAfterLoadPage();
 			this.locomotiveScrollInit();
 			this.setPaddingTopHeaderSize();
 			//this.videoHandlerInit();
 			this.slidersInit();
-			this.componentsScripts();
 			this.setFontSize();
 
 		});
@@ -663,7 +665,7 @@ window.popup = {
     let carousels = document.querySelectorAll('[data-carousel]');
     if(carousels.length) {
         carousels.forEach(carousel => {
-            let carouselSwiper = new Swiper(carousel.querySelector('.swiper'), {
+            let options = {
                 speed: 800,
                 navigation: {
                     nextEl: carousel.querySelector('[data-action="btn-next"]'),
@@ -684,6 +686,113 @@ window.popup = {
                         spaceBetween: 25,
                     },
                 },
+            }
+            if(carousel.dataset.carousel === 'fixed-width') {
+                options = {
+                    ...options,
+                    breakpoints: {
+                        320: {
+                            slidesPerView: 2,
+                            spaceBetween: 15,
+                            autoHeight: true,
+                        },
+                        768: {
+                            slidesPerView: 3,
+                            spaceBetween: 20,
+                        },
+                        992: {
+                            slidesPerView: 'auto',
+                            spaceBetween: 25,
+                        },
+                    },
+                }
+            }
+
+            if(carousel.dataset.carousel === 'posts') {
+                options = {
+                    ...options,
+                    breakpoints: {
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 15,
+                            autoHeight: true,
+                        },
+                        768: {
+                            slidesPerView: 3,
+                            spaceBetween: 20,
+                        },
+                        992: {
+                            slidesPerView: 4,
+                            spaceBetween: 25,
+                        },
+                    },
+                }
+            }
+            let carouselSwiper = new Swiper(carousel.querySelector('.swiper'), options);
+        })
+    }
+};
+		{
+    let galleryProductDetail = document.querySelector('[data-gallery-product-detail]');
+    if(galleryProductDetail) {
+        const slider = galleryProductDetail;
+        if(slider) {
+            let mySwiper;
+    
+            function mobileSlider() {
+                if(document.documentElement.clientWidth <= 991 && slider.dataset.mobile == 'false') {
+                    mySwiper = new Swiper(slider, {
+                        slidesPerView: 1,
+                        speed: 800,
+                        spaceBetween: 20,
+                        pagination: {
+                            el: slider.querySelector('.swiper-pagination'),
+                            type: "fraction",
+                        }    
+                    });
+    
+                    slider.dataset.mobile = 'true';
+    
+                    //mySwiper.slideNext(0);
+                }
+    
+                if(document.documentElement.clientWidth > 767) {
+                    slider.dataset.mobile = 'false';
+    
+                    if(slider.classList.contains('swiper-initialized')) {
+                        mySwiper.destroy();
+                    }
+                }
+            }
+    
+            mobileSlider();
+    
+            window.addEventListener('resize', () => {
+                mobileSlider();
+            })
+        }
+    }
+};
+		{
+    let articleSliders = document.querySelectorAll('[data-article-slider]');
+    if(articleSliders.length) {
+        articleSliders.forEach(articleSlider => {
+            let sliderData = new Swiper(articleSlider.querySelector('.swiper'), {
+                speed: 800,
+                navigation: {
+                    nextEl: articleSlider.querySelector('[data-action="btn-next"]'),
+                    prevEl: articleSlider.querySelector('[data-action="btn-prev"]'),
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 'auto',
+                        spaceBetween: 25,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 25,
+                    }
+                }
             });
         })
     }
@@ -1344,6 +1453,13 @@ if (videoBlock.length) {
 			lerp: 0.03
 		});
 
+		let id = setInterval(() => {
+			scroll.update();
+		}, 200);
+		setTimeout(() => {
+			clearInterval(id);
+		}, 1000)
+
 		scroll.on('call', func => {
 			let id = setInterval(() => {
                 window?.webGLCurtainElements[func]();
@@ -1353,9 +1469,15 @@ if (videoBlock.length) {
             }, 3000)
 			
 		});
-	}
 
-	componentsScripts() {
+		scroll.on('scroll', (args) => {
+			//console.log(args);
+		});
+	}
+	componentsScriptsBeforeLoadPage() {
+		
+	}
+	componentsScriptsAfterLoadPage() {
 		{
     let promoTitle = document.querySelector('[data-promo-title]');
     if (promoTitle) {
@@ -1626,6 +1748,85 @@ if (videoBlock.length) {
 
 }
 ;
+		{
+    let blogList = document.querySelector('[data-blog-list]');
+    if(blogList) {
+        if(document.documentElement.clientWidth >= 992) {
+            let count = 1;
+    
+            // add columns
+            const createColumn = (className) => {
+                let div = document.createElement('div');
+                div.className = className;
+                return div;
+            }
+            let columns = {
+                "1": createColumn('blog-list__column'),
+                "2": createColumn('blog-list__column'),
+                "3": createColumn('blog-list__column')
+            }
+            blogList.append(columns["1"], columns["2"], columns["3"]);
+    
+    
+            // move items to columns
+            Array.from(blogList.querySelectorAll('.blog-list__item')).forEach(item => {
+                columns[count].append(item);
+    
+                if(count <= 2) {
+                    count++;
+                } else {
+                    count = 1;
+                }
+            })
+    
+            // align columns
+            for(let i = 0; i < 10; i++) {
+                const getMaxHeightColumn = () => {
+                    let num = 0;
+                    let el;
+                    Object.values(columns).forEach(item => {
+                        if(item.clientHeight > num) {
+                            num = item.clientHeight;
+                            el = item;
+                        }
+                    })
+                    return {el, height: num};
+                }
+    
+                const getMinHeightColumn = () => {
+                    let num = columns["1"].clientHeight;
+                    let el =columns["1"];
+    
+                    Object.values(columns).forEach(item => {
+                        if(item.clientHeight < num) {
+                            num = item.clientHeight;
+                            el = item;
+                        }
+                    })
+                    return {el, height: num};
+                }
+    
+                let maxHeightColumn = getMaxHeightColumn();
+                let minHeightColumn = getMinHeightColumn();
+    
+                if(maxHeightColumn.height - minHeightColumn.height > 400) {
+                    minHeightColumn.el.append(maxHeightColumn.el.lastElementChild);
+                }
+            }
+        }
+    }
+};
+		{
+    let blogDetail = document.querySelector('[data-blog-detail]');
+    if(blogDetail) {
+        let headImage = blogDetail.querySelector('.blog-detail__article-head-img');
+        let sidePostWrap = blogDetail.querySelector('.blog-detail__col-2');
+
+        if(headImage && sidePostWrap) {
+            sidePostWrap.style.paddingTop = headImage.offsetTop + 'px';
+        }
+    }
+};
 	}
 
 }

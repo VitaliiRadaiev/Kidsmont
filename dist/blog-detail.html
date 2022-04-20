@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Kidsmond</title>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		:root {
+			cursor: none !important;
+		}
+
+		* {
+			cursor: none !important;
+		}
+
+		body.page-is-load ._preload-body {
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		body.page-is-load ._preload-body:before {
+			display: none;
+		}
+
+		.mouse-dot {
+			font-size: 10px;
+			height: 2em;
+			width: 2em;
+			transition: transform, background-color, height, width .3s ease;
+			position: absolute;
+			z-index: 99999;
+			border-radius: 50%;
+			background-color: #222222;
+			transform: translate(-50%, -50%) scale(1);
+			pointer-events: none;
+			left: -30px;
+			top: -30px;
+			box-shadow: 0 0 15px rgba(243, 241, 239, 0.4);
+		}
+
+		.mouse-dot.hide {
+			transform: translate(-50%, -50%) scale(0);
+		}
+
+		.mouse-dot.hover {
+
+		}
+
+		._preload-body {
+			background-color: #fff;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 999;
+			transition: all .6s ease .2s;
+		}
+
+		._preload-body:before {
+			position: absolute;
+			content: '';
+			z-index: 999;
+			top: 50%;
+			left: 50%;
+			height: 50px;
+			width: 50px;
+			border-radius: 50%;
+			border: 4px solid #6e6e6e;
+			border-right: 4px solid #fff;
+			transform: translate(-50%, -50%);
+			animation: preloadBody 2s linear infinite;
+		}
+
+		@keyframes preloadBody {
+			from {
+				transform: translate(-50%, -50%) rotate(0);
+			}
+
+			to {
+				transform: translate(-50%, -50%) rotate(360deg);
+			}
+		}
+	</style>
+	
+<script src="js/vendors.js"></script>
+<script src="js/app.js"></script>
+<!-- <script
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7Q82l2QjSzJJk1uUW3OzUBGPTlbk8w1g&callback=initMap&libraries=&v=weekly"
+defer
+></script> -->
+</head>
+
+<body data-scroll-container>
+    <div class="_preload-body"></div>
+    <!-- == TOP LINE ================== -->
+
+    <header class="header " data-header data-popup="add-right-padding">
+    <div class="container">
+        <div class="header__body">
+            <div class="header__burger burger" data-side-panel-open="menu-mobile">
+                <span class="burger__cross"></span>
+                <span class="burger__cross"></span>
+                <span class="burger__cross"></span>
+                <span class="burger__cross"></span>
+            </div>
+            <div class="header__logo">
+                <a href="#">
+                    <img src="img/logo/logo.svg" alt="">
+                </a>
+            </div>
+            <nav class="header__menu menu">
+                <ul class="menu__list">
+                    <li class="menu__list-item menu__list-item--has-sab-menu" data-menu-item-has-sab-menu>
+                        <a class="menu__link" href="#">
+                            Catalog
+                            <!-- use class .menu__link--active -->
+                        </a>
+                        <div class="menu__sub-menu-wrap">
+                            <ul class="sub-menu">
+                                <li><a class="sub-menu__link" href="#">Swedish wall
+                                        <!-- use class .sub-menu__link--active -->
+                                    </a></li>
+                                <li><a class="sub-menu__link" href="#">Bed</a></li>
+                                <li><a class="sub-menu__link" href="#">Slides board</a></li>
+                                <li><a class="sub-menu__link" href="#">Mats</a></li>
+                                <li><a class="sub-menu__link" href="#">A rock</a></li>
+                                <li><a class="sub-menu__link" href="#">Equipment</a></li>
+                                <li><a class="sub-menu__link" href="#">Walls for climbing</a></li>
+                                <li><a class="sub-menu__link" href="#">Playground</a></li>
+                                <li><a class="sub-menu__link" href="#">Toys</a></li>
+                            </ul>
+                            <div class="menu__img">
+                                <a href="#">
+                                    <img src="img/photo/header-img.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="menu__list-item">
+                        <a class="menu__link" href="#">About Us</a>
+                    </li>
+                    <li class="menu__list-item">
+                        <a class="menu__link" href="#">Gallery</a>
+                    </li>
+                    <li class="menu__list-item">
+                        <a class="menu__link" href="#">Blog</a>
+                    </li>
+                    <li class="menu__list-item">
+                        <a class="menu__link" href="#">
+                            FAQ
+                        </a>
+                    </li>
+                    <li class="menu__list-item">
+                        <a class="menu__link" href="#">
+                            Shipping and payment
+                        </a>
+                    </li>
+                    <li class="menu__list-item">
+                        <a class="menu__link" href="#">
+                            Contacts
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header__search">
+                <a href="#" data-action="show-main-search">
+                    <img class="img-svg" src="img/icons/search.svg" alt="">
+                </a>
+            </div>
+            <div class="header__actions">
+                <div class="header-actions">
+                    <div class="header-actions__item">
+                        <a class="header-actions__link" href="#">
+                            <img class="img-svg" src="img/icons/user.svg" alt="">
+                        </a>
+                    </div>
+                    <div class="header-actions__item">
+                        <a class="header-actions__link" href="#">
+                            <img class="img-svg" src="img/icons/like.svg" alt="">
+                        </a>
+                    </div>
+                    <div class="header-actions__item">
+                        <a class="header-actions__link" href="#">
+                            <img class="img-svg" src="img/icons/bag.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="main-search" data-main-search>
+    <form action="">
+        <div class="main-search__body container">
+            <button class="main-search__submit">
+                <img class="img-svg" src="img/icons/search.svg" alt="">
+            </button>
+            <input type="text" class="main-search__input" placeholder="Enter text to search...">
+            <div class="main-search__close" data-action="hide-main-search"><span></span></div>
+        </div>
+    </form>
+</div>
+
+<div class="side-panel menu-mobile" data-side-panel="menu-mobile">
+    <div class="side-panel__close" data-side-panel-close><span></span></div> 
+    <div class="side-panel__body">
+        <div class="side-panel__head">
+            <div class="menu-mobile__logo">
+                <a href="#">
+                    <img src="img/logo/logo.svg" alt="">
+                </a>
+            </div>
+            <div class="menu-mobile__back-btn" data-action="hide-next-list">
+                back
+            </div>
+        </div>
+        <div class="side-panel__scroll-wrap">
+            <div class="swiper" data-mobile-menu-slider>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <ul class="menu-mobile__list">
+                            <li class="menu-mobile__list-item" data-action="show-next-list">
+                                <a class="menu-mobile__link menu-mobile__link--with-chevron menu-mobile__link"
+                                    href="#">Catalog</a>
+                            </li>
+                            <li class="menu-mobile__list-item">
+                                <a class="menu-mobile__link" href="#">
+                                    About Us
+                                </a>
+                            </li>
+                            <li class="menu-mobile__list-item">
+                                <a class="menu-mobile__link" href="#">
+                                    Gallery
+                                </a>
+                            </li>
+                            <li class="menu-mobile__list-item">
+                                <a class="menu-mobile__link" href="#">
+                                    Blog
+                                </a>
+                            </li>
+                            <li class="menu-mobile__list-item">
+                                <a class="menu-mobile__link" href="#">
+                                    FAQ
+                                </a>
+                            </li>
+                            <li class="menu-mobile__list-item">
+                                <a class="menu-mobile__link" href="#">
+                                    Shipping and payment
+                                </a>
+                            </li>
+                            <li class="menu-mobile__list-item">
+                                <a class="menu-mobile__link" href="#">
+                                    Contacts
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="swiper-slide">
+                        <ul class="menu-mobile__list">
+                            <li class="menu-mobile__list-item">
+                                <a class="menu-mobile__link" href="#">
+                                    Swedish wall
+                                </a>
+                            </li>
+                            <li class="menu-mobile__list-item">
+                                <a class="menu-mobile__link" href="#">
+                                    Bed
+                                </a>
+                            </li>
+                            <li class="menu-mobile__list-item">
+                                <a class="menu-mobile__link" href="#">
+                                    Slides board
+                                </a>
+                            </li>
+                            <li class="menu-mobile__list-item">
+                                <a class="menu-mobile__link" href="#">
+                                    Mats
+                                </a>
+                            </li>
+                            <li class="menu-mobile__list-item">
+                                <a class="menu-mobile__link" href="#">
+                                    A rock
+                                </a>
+                            </li>
+                            <li class="menu-mobile__list-item">
+                                <a class="menu-mobile__link" href="#">
+                                    Equipment
+                                </a>
+                            </li>
+                            <li class="menu-mobile__list-item">
+                                <a class="menu-mobile__link" href="#">
+                                    Walls for climbing
+                                </a>
+                            </li>
+                            <li class="menu-mobile__list-item">
+                                <a class="menu-mobile__link" href="#">
+                                    Playground
+                                </a>
+                            </li>
+                            <li class="menu-mobile__list-item">
+                                <a class="menu-mobile__link" href="#">
+                                    Toys
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- == // TOP LINE ================== -->
+
+    <main class="_page " data-padding-top-header-size data-scroll-section>
+
+        <div class="container-sm d-none d-lg-block">
+    <ul class="breadcrumbs">
+         <li><a href="#">Home</a></li>
+             <li><a href="#">Our blog</a></li>
+             <li>Unsere Sommerpreise hauen jeden um. Aber die Sprossenwände bleiben stabil</li>
+            
+    </ul>
+</div>
+
+        <div class="container-sm">
+            <div class="head head--top">
+                <h2 class="head__title">category</h2>
+            </div>
+        </div>
+
+
+        <div class="blog-detail padding-wrap pt-0" data-blog-detail>
+            <div class="container-sm">
+                <div class="blog-detail__body">
+                    <div class="blog-detail__col-1">
+                        <div class="blog-detail__article-head">
+                            <h2 class="blog-detail__article-head-title ">
+                                Unsere Sommerpreise hauen jeden um. Aber die Sprossenwä bleiben stabil
+                            </h2>
+                            <div class="blog-detail__article-head-date">
+                                12.03.2022
+                            </div>
+                            <div class="blog-detail__article-head-img">
+                                <div class="blog-detail__article-head-img-wrap ibg">
+                                    <img src="img/photo/article-img.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blog-detail__article-body">
+                            <div class="blog-detail__article-side-social">
+                                <ul class="blog-detail-social" data-scroll data-scroll-sticky data-scroll-target=".blog-detail__article-side-social">
+                                    <li>
+                                        <a href="#">
+                                            Facebook
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Twitter
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            Telegram
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="blog-detail__article-content">
+                                <div class="blog-detail__article-text text-content">
+                                    <p>
+                                        Unsere Sommerrabatte auf Sprossenwände, Brettrutschen und Matten 140x100x10cm
+                                        (normal und faltbar) verschaffen euch eine hervorragende Frühlingsstimmung und einen
+                                        guten Start in den Mai.
+                                        Wir starten mit einer Rabattaktion auf folgende Artikel:
+                                        Der 5% Gutschein mit dem Aktionscode SOMMER5 bekommen Sie auf eine Bestellung von
+                                        Sprossenwand mit Brettrutsche oder mit Matte mit einem Mindestbestellwert ab 535
+                                        Euro, exkl. Versandkosten.
+                                        Der 10% Gutschein mit dem Aktionscode SOMMER10 bekommen Sie auf eine Bestellung von
+                                        Sprossenwand mit Brettrutsche und Matte mit einem Mindestbestellwert ab 645 Euro,
+                                        exkl. Versandkosten.
+                                        Bei einem Kauf von einer Sprossenwand ohne Brettrutsche oder Matte gelten unsere
+                                        Standartpreise. Jede Art von Sprossenwänden und Brettrutschen werden in dieser
+                                        Aktion berücksichtigt. Die Matten mit den Maßen 140x100x10 werden bei dem Kauf mit
+                                        Sprossenwänden akzeptiert.
+
+                                    </p>
+                                    <p>
+                                        Die Aktion startet am 01.05.2021 und endet voraussichtlich am 31.08.2021 und nur
+                                        solange der Vorrat reicht. Der Gutscheinwert wird während der Bestellung nach der
+                                        Eingabe des entsprechenden Codes im Warenkorb angezeigt. Der Gutscheinwert lässt
+                                        sich nicht in bar auszahlen und ist nicht mit anderen Aktionen oder Rabatten
+                                        kombinierbar. Diese Aktion gilt nur auf unserer Website und ist nicht auf anderen
+                                        Marktplätze übertragbar.
+
+                                    </p>
+
+                                    <div class="quote">
+                                        <div class="quote__icon">
+                                            <img src="img/icons/quote.svg" alt="">
+                                        </div>
+                                        <div class="quote__text">
+                                            Excellent Swedish wall, looks good and easily withstands adults. Assembly was
+                                            relatively easy thanks to good instructions.
+                                        </div>
+                                        <div class="quote__author">
+                                            <div class="quote__author-img ibg">
+                                                <img src="img/photo/quote-author.jpg" alt="">
+                                            </div>
+                                            <div class="quote__author-inner">
+                                                <div class="quote__author-name">
+                                                    Christy Adams
+                                                </div>
+                                                <div class="quote__author-position">
+                                                    Company Founder
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <p>
+                                        Unsere Sommerrabatte auf Sprossenwände, Brettrutschen und Matten 140x100x10cm
+                                        (normal und faltbar) verschaffen euch eine hervorragende Frühlingsstimmung und einen
+                                        guten Start in den Mai.
+                                        Wir starten mit einer Rabattaktion auf folgende Artikel:
+                                        Der 5% Gutschein mit dem Aktionscode SOMMER5 bekommen Sie auf eine Bestellung von
+                                        Sprossenwand mit Brettrutsche oder mit Matte mit einem Mindestbestellwert ab 535
+                                        Euro, exkl. Versandkosten.
+                                        Der 10% Gutschein mit dem Aktionscode SOMMER10 bekommen Sie auf eine Bestellung von
+                                        Sprossenwand mit Brettrutsche und Matte mit einem Mindestbestellwert ab 645 Euro,
+                                        exkl. Versandkosten.
+                                        Bei einem Kauf von einer Sprossenwand ohne Brettrutsche oder Matte gelten unsere
+                                        Standartpreise. Jede Art von Sprossenwänden und Brettrutschen werden in dieser
+                                        Aktion berücksichtigt. Die Matten mit den Maßen 140x100x10 werden bei dem Kauf mit
+                                        Sprossenwänden akzeptiert.
+
+                                    </p>
+                                    <p>
+                                        Die Aktion startet am 01.05.2021 und endet voraussichtlich am 31.08.2021 und nur
+                                        solange der Vorrat reicht. Der Gutscheinwert wird während der Bestellung nach der
+                                        Eingabe des entsprechenden Codes im Warenkorb angezeigt. Der Gutscheinwert lässt
+                                        sich nicht in bar auszahlen und ist nicht mit anderen Aktionen oder Rabatten
+                                        kombinierbar. Diese Aktion gilt nur auf unserer Website und ist nicht auf anderen
+                                        Marktplätze übertragbar.
+
+                                    </p>
+
+                                    <figure>
+                                        <img src="img/photo/article-img-2.jpg" alt="">
+                                    </figure>
+
+                                    <h4>Sommeraktion auf Sprossenwände, Brettrutschen und Matten</h4>
+                                    <p>
+                                        Unsere Sommerrabatte auf Sprossenwände, Brettrutschen und Matten 140x100x10cm
+                                        (normal und faltbar) verschaffen euch eine hervorragende Frühlingsstimmung und einen
+                                        guten Start in den Mai.
+                                        Wir starten mit einer Rabattaktion auf folgende Artikel:
+                                        Der 5% Gutschein mit dem Aktionscode SOMMER5 bekommen Sie auf eine Bestellung von
+                                        Sprossenwand mit Brettrutsche oder mit Matte mit einem Mindestbestellwert ab 535
+                                        Euro, exkl. Versandkosten.
+                                    </p>
+
+                                    <div class="video-wrap">
+                                        <a href="img/videoForTest.mp4" data-fancybox class="video not-hover">
+                                            <div class="video__poster ibg">
+                                                <img src="img/photo/article-video-poster.jpg" alt="">
+                                            </div>
+                                            <div class="video__btn">
+                                                <div class="btn">
+    <div class="btn__text-decor">
+        <img class="img-svg" src="img/photo/play-text.svg" alt="">
+    </div>
+    <div class="btn__text">Play</div>
+</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="blog-detail__article-sliders">
+                                    <div class="article-slider" data-article-slider>
+    <div class="article-slider__head">
+        <h4 class="article-slider__title text-uppercase">1. Sprossenwände</h4>
+        <div class="slider-buttons">
+    <div class="slider-button slider-button--prev hover" data-action="btn-prev">
+        <img class="img-svg" src="img/icons/arrow-left.svg" alt="">
+    </div>
+    <div class="slider-button slider-button--next hover" data-action="btn-next">
+        <img class="img-svg" src="img/icons/arrow-right.svg" alt="">
+    </div>
+</div>
+    </div>
+    <div class="article-slider__slider swiper">
+        <div class="swiper-wrapper">
+            
+                <div class="swiper-slide">
+                    <a href="#" class="article-slider-card not-hover">
+                        <div class="article-slider-card__img ibg">
+                            <img src="img/photo/article-slider-card-img-1.jpg" alt="">
+                        </div>
+                        <div class="article-slider-card__title">Walls</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="article-slider-card not-hover">
+                        <div class="article-slider-card__img ibg">
+                            <img src="img/photo/article-slider-card-img-2.jpg" alt="">
+                        </div>
+                        <div class="article-slider-card__title">Mattresses</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="article-slider-card not-hover">
+                        <div class="article-slider-card__img ibg">
+                            <img src="img/photo/article-slider-card-img-3.jpg" alt="">
+                        </div>
+                        <div class="article-slider-card__title">Walls</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="article-slider-card not-hover">
+                        <div class="article-slider-card__img ibg">
+                            <img src="img/photo/article-slider-card-img-1.jpg" alt="">
+                        </div>
+                        <div class="article-slider-card__title">Walls</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="article-slider-card not-hover">
+                        <div class="article-slider-card__img ibg">
+                            <img src="img/photo/article-slider-card-img-2.jpg" alt="">
+                        </div>
+                        <div class="article-slider-card__title">Mattresses</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="article-slider-card not-hover">
+                        <div class="article-slider-card__img ibg">
+                            <img src="img/photo/article-slider-card-img-3.jpg" alt="">
+                        </div>
+                        <div class="article-slider-card__title">Walls</div>
+                    </a>
+                </div>
+            
+            
+        </div>
+    </div>
+</div>
+                                    <div class="article-slider" data-article-slider>
+    <div class="article-slider__head">
+        <h4 class="article-slider__title text-uppercase">2. Matten</h4>
+        <div class="slider-buttons">
+    <div class="slider-button slider-button--prev hover" data-action="btn-prev">
+        <img class="img-svg" src="img/icons/arrow-left.svg" alt="">
+    </div>
+    <div class="slider-button slider-button--next hover" data-action="btn-next">
+        <img class="img-svg" src="img/icons/arrow-right.svg" alt="">
+    </div>
+</div>
+    </div>
+    <div class="article-slider__slider swiper">
+        <div class="swiper-wrapper">
+            
+            
+                <div class="swiper-slide">
+                    <a href="#" class="article-slider-card not-hover">
+                        <div class="article-slider-card__img ibg">
+                            <img src="img/photo/article-slider-card-img-3.jpg" alt="">
+                        </div>
+                        <div class="article-slider-card__title">Walls</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="article-slider-card not-hover">
+                        <div class="article-slider-card__img ibg">
+                            <img src="img/photo/article-slider-card-img-1.jpg" alt="">
+                        </div>
+                        <div class="article-slider-card__title">Mattresses</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="article-slider-card not-hover">
+                        <div class="article-slider-card__img ibg">
+                            <img src="img/photo/article-slider-card-img-2.jpg" alt="">
+                        </div>
+                        <div class="article-slider-card__title">Walls</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="article-slider-card not-hover">
+                        <div class="article-slider-card__img ibg">
+                            <img src="img/photo/article-slider-card-img-3.jpg" alt="">
+                        </div>
+                        <div class="article-slider-card__title">Walls</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="article-slider-card not-hover">
+                        <div class="article-slider-card__img ibg">
+                            <img src="img/photo/article-slider-card-img-1.jpg" alt="">
+                        </div>
+                        <div class="article-slider-card__title">Mattresses</div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="article-slider-card not-hover">
+                        <div class="article-slider-card__img ibg">
+                            <img src="img/photo/article-slider-card-img-2.jpg" alt="">
+                        </div>
+                        <div class="article-slider-card__title">Walls</div>
+                    </a>
+                </div>
+            
+        </div>
+    </div>
+</div>
+                                </div>
+                                <div class="blog-detail__article-bottom">
+                                    <a href="#" class="blog-detail__article-bottom-link">
+                                        <img class="img-svg" src="img/icons/arrow-left.svg" alt="">
+                                        <span>Previous post</span>
+                                    </a>
+                                    <a href="#" class="blog-detail__article-bottom-link">
+                                        <span>Next post</span>
+                                        <img class="img-svg" src="img/icons/arrow-right.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-detail__col-2">
+                        <div class="blog-detail__col-2-inner">
+                            <ul class="blog-detail__side-posts" data-scroll data-scroll-sticky
+                                data-scroll-target=".blog-detail__col-2-inner">
+                                <li>
+                                    <a href="#" class="post-card not-hover">
+    <div class="post-card__img ibg">
+        <img src="img/photo/post-card-img-1.jpg" alt="">
+    </div>
+    <div class="post-card__date">12.03.2022</div>
+    <div class="post-card__title">International Children's Day. Celebrate with us!</div>
+    <div class="post-card__text text-content">
+        June 1 is celebrated by all the children in the world. On this occasion, we are giving up to 70%...
+    </div>
+</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="post-card not-hover">
+    <div class="post-card__img ibg">
+        <img src="img/photo/post-card-img-1.jpg" alt="">
+    </div>
+    <div class="post-card__date">12.03.2022</div>
+    <div class="post-card__title">International Children's Day. Celebrate with us!</div>
+    <div class="post-card__text text-content">
+        June 1 is celebrated by all the children in the world. On this occasion, we are giving up to 70%...
+    </div>
+</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="post-card not-hover">
+    <div class="post-card__img ibg">
+        <img src="img/photo/post-card-img-1.jpg" alt="">
+    </div>
+    <div class="post-card__date">12.03.2022</div>
+    <div class="post-card__title">International Children's Day. Celebrate with us!</div>
+    <div class="post-card__text text-content">
+        June 1 is celebrated by all the children in the world. On this occasion, we are giving up to 70%...
+    </div>
+</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel  carousel-preview-posts padding-wrap" data-carousel="posts">
+    <div class="container-sm">
+        <div class="carousel__head head d-flex align-items-center justify-content-between">
+            <h3 class="head__title mb-0">Popular</h3>
+            <div class="slider-buttons">
+    <div class="slider-button slider-button--prev hover" data-action="btn-prev">
+        <img class="img-svg" src="img/icons/arrow-left.svg" alt="">
+    </div>
+    <div class="slider-button slider-button--next hover" data-action="btn-next">
+        <img class="img-svg" src="img/icons/arrow-right.svg" alt="">
+    </div>
+</div>
+        </div>
+        <div class="carousel__slider swiper">
+            <div class="swiper-wrapper">
+                
+
+                
+                    <div class="swiper-slide">
+                        <a href="#" class="post-card not-hover">
+    <div class="post-card__img ibg">
+        <img src="img/photo/post-card-img-12.jpg" alt="">
+    </div>
+    <div class="post-card__date">12.03.2022</div>
+    <div class="post-card__title">International Children's Day. Celebrate with us!</div>
+    <div class="post-card__text text-content">
+        June 1 is celebrated by all the children in the world. On this occasion, we are giving up to 70%* discount on many of our accessories for 2 weeks.
+    </div>
+</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="post-card not-hover">
+    <div class="post-card__img ibg">
+        <img src="img/photo/post-card-img-13.jpg" alt="">
+    </div>
+    <div class="post-card__date">12.03.2022</div>
+    <div class="post-card__title">International Children's Day. Celebrate with us!</div>
+    <div class="post-card__text text-content">
+        June 1 is celebrated by all the children in the world. On this occasion, we are giving up to 70%* discount on many of our accessories for 2 weeks.
+    </div>
+</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="post-card not-hover">
+    <div class="post-card__img ibg">
+        <img src="img/photo/post-card-img-14.jpg" alt="">
+    </div>
+    <div class="post-card__date">12.03.2022</div>
+    <div class="post-card__title">International Children's Day. Celebrate with us!</div>
+    <div class="post-card__text text-content">
+        June 1 is celebrated by all the children in the world. On this occasion, we are giving up to 70%* discount on many of our accessories for 2 weeks.
+    </div>
+</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="post-card not-hover">
+    <div class="post-card__img ibg">
+        <img src="img/photo/post-card-img-15.jpg" alt="">
+    </div>
+    <div class="post-card__date">12.03.2022</div>
+    <div class="post-card__title">International Children's Day. Celebrate with us!</div>
+    <div class="post-card__text text-content">
+        June 1 is celebrated by all the children in the world. On this occasion, we are giving up to 70%* discount on many of our accessories for 2 weeks.
+    </div>
+</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="post-card not-hover">
+    <div class="post-card__img ibg">
+        <img src="img/photo/post-card-img-1.jpg" alt="">
+    </div>
+    <div class="post-card__date">12.03.2022</div>
+    <div class="post-card__title">International Children's Day. Celebrate with us!</div>
+    <div class="post-card__text text-content">
+        June 1 is celebrated by all the children in the world. On this occasion, we are giving up to 70%* discount on many of our accessories for 2 weeks.
+    </div>
+</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="post-card not-hover">
+    <div class="post-card__img ibg">
+        <img src="img/photo/post-card-img-2.jpg" alt="">
+    </div>
+    <div class="post-card__date">12.03.2022</div>
+    <div class="post-card__title">International Children's Day. Celebrate with us!</div>
+    <div class="post-card__text text-content">
+        June 1 is celebrated by all the children in the world. On this occasion, we are giving up to 70%* discount on many of our accessories for 2 weeks.
+    </div>
+</a>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    </main>
+
+    <!-- == FOOTER ================== -->
+    <footer class="footer padding-wrap pb-0" data-scroll-section>
+    <div class="footer__inner bg-dark">
+        <div class="container-sm">
+            <div class="footer__head">
+                <div class="footer__head-col-1">
+                    <div class="footer__title">
+                        Subscribe <br> to <span>newsletter</span>
+                    </div>
+                    <div class="footer__subtitle">
+                        We will send only important information without spam
+                    </div>
+                </div>
+                <div class="footer__head-col-2">
+                    <div class="btn">
+    <div class="btn__text-decor">
+        <img class="img-svg" src="img/photo/subscribe-text.svg" alt="">
+    </div>
+    <div class="btn__text">Subscribe</div>
+</div>
+                </div>
+            </div>
+            <nav class="footer__nav">
+                <ul class="footer__nav-list">
+                    <li>
+                        <a href="#">
+                            Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            TikTok
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            WhatsApp
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Youtube
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Pinterest
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Telegram
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="footer__body">
+                <div class="footer__body-col-1">
+                    <div class="footer__logo">
+                        <a href="#">
+                            <img src="img/logo/logo-color.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__body-col-2">
+                    <a href="#" class="footer__title-link">Navigation</a>
+                    <ul class="footer__list">
+                        <li>
+                            <a href="#" class="footer__link">Catalog</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">About us</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">Gallery</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__body-col-3">
+                    <a href="#" class="footer__title-link">Helpful information</a>
+                    <ul class="footer__list">
+                        <li>
+                            <a href="#" class="footer__link">FAQ</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">Shipping and payment</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">Return</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__body-col-4">
+                    <a href="#" class="footer__title-link">Privacy Policy</a>
+                    <ul class="footer__list">
+                        <li>
+                            <a href="#" class="footer__link">Output</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">A complaint</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">Conditions and information</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer__link">Right of withdrawal</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__body-col-5">
+                    <a href="#" class="footer__title-link">Contacts</a>
+                    <ul class="footer__list">
+                        <li>
+                            Meerner Str. 11E, 12681 Berlin
+                        </li>
+                        <li>
+                            Mon-Fri: from 8:00 to 12:00 <br>
+                            Mon-Fri: from 12:30 to 16:00
+                        </li>
+                        <li>
+                            <a href="tel:4903046997501" class="footer__link">+49(0)30 46997501</a>
+                        </li>
+                        <li>
+                            <a href="mailto:info@kidsmont.de" class="footer__link">info@kidsmont.de</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div>
+                    Created by <a href="#"><strong>Ipapus Agency</strong></a>
+                </div>
+                <div>All rights reserved by Kidsmont © 2021</div>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- == // FOOTER ================== -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="js/jQueryScripts.min.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
+</body>
+
+</html>
