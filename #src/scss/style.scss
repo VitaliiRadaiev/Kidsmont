@@ -19,6 +19,7 @@
 @import "plugins/fancybox.scss";
 @import "plugins/locomotive-scroll.min.scss";
 @import "plugins/nouislider"; 
+@import "plugins/dropzone.min.scss"; 
 // ==== // PLUGINS ===========================================================================================
 
 // ==== VARS ===========================================================================================
@@ -56,6 +57,9 @@
 @import "../common/blog-list/blog-list";
 @import "../common/post-card/post-card";
 @import "../common/article-slider/article-slider";
+@import "../common/review-list-card/review-list-card";
+@import "../common/gallery-carousel/gallery-carousel";
+@import "../common/drop-zone/drop-zone";
 // ==== // COMMON BLOCKS =====================================================
 
 // ==== PAGES =====================================================
@@ -65,5 +69,7 @@
 @import "pages/product-detail";
 @import "pages/blog";
 @import "pages/blog-detail";
+@import "pages/about";
+@import "pages/reviews";
 // ==== AND PAGES =====================================================
 

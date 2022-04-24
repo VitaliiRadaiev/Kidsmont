@@ -58,6 +58,8 @@ class App {
 		@@include('../common/carousel/carousel.js');
 		@@include('../common/gallery-product-detail/gallery-product-detail.js');
 		@@include('../common/article-slider/article-slider.js');
+		@@include('../common/review-list-card/review-list-card.js');
+		@@include('../common/gallery-carousel/gallery-carousel.js');
 	}
 
 	initMouse() {
@@ -295,9 +297,10 @@ class App {
 		scroll.on('scroll', (args) => {
 			//console.log(args);
 		});
+
 	}
 	componentsScriptsBeforeLoadPage() {
-		
+		@@include('../common/form/form.js');
 	}
 	componentsScriptsAfterLoadPage() {
 		@@include('../common/promo-header/promo-header.js');
@@ -305,6 +308,7 @@ class App {
 		@@include('../common/price-range/price-range.js');
 		@@include('../common/blog-list/blog-list.js');
 		@@include('../common/blog-detail/blog-detail.js');
+		@@include('../common/drop-zone/drop-zone.js');
 	}
 
 }

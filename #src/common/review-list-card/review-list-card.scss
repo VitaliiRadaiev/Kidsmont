@@ -1,0 +1,118 @@
+.reviews-list-card {
+    min-width: 0;
+
+    @media (min-width: 992px) {
+        display: flex;
+    }
+
+    &__col-1 {
+        @media (min-width: 992px) {
+            flex: 0 0 50%;
+            margin-right: 8rem;
+        }
+    }
+
+    &__col-2 {
+        min-width: 0;
+
+        @media (min-width: 992px) {
+            flex: 1 1 auto;
+        }
+    }
+
+    &__text {
+        max-width: 50rem;
+        margin-bottom: 3.6rem;
+
+        @media (max-width: $md3+px) {
+            margin-bottom: 16px;
+            &.text-content {
+                font-size: 14px;
+                line-height: 150%;
+            }
+        }
+    }
+
+    &__author {
+        font-size: 1.6rem;
+        font-weight: 600;
+        line-height: 1.5em;
+        margin-bottom: 3.6rem;
+
+        @media (max-width: $md3+px) {
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+    }
+
+    &__img {
+        min-height: 36rem;
+
+        @media (max-width: $md3+px) {
+            min-height: 220px;
+        }
+    }
+
+    &__slider {
+        min-width: 0;
+
+        @media (max-width: $md3+px) {
+            margin-right: -20px;
+        }
+
+        & .swiper-slide {
+            height: 30.7rem;
+
+            @media (max-width: $md3+px) {
+                width: 220px;
+                height: 220px;
+            }
+        }
+    }
+
+    &__btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 15rem;
+        width: 15rem;
+        border-radius: 50%;
+        background-color: $secondColor;
+        color: $lightColor;
+        font-size: 1.8rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        outline: none;
+
+        @media (min-width: 992px) {
+            &:hover {
+                background-color: $hover;
+            }
+        }
+
+        @media (max-width: $md3+px) {
+            display: none;
+        }
+
+        &:active {
+            background-color: $active !important;
+        }
+
+        &.swiper-button-disabled {
+            display: none;
+        }
+    }
+
+    &__btn--prev {
+        left: 1.2rem;
+    }
+
+    &__btn--next {
+        right: 1.2rem;
+    }
+}

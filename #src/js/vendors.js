@@ -5,3 +5,4 @@
 @@include('plugins/curtains.min.js');
 @@include('plugins/wNumb.min.js');
 @@include('plugins/nouislider.js');
+@@include('plugins/dropzone.min.js');

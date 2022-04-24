@@ -1,0 +1,17 @@
+<div class="drop-zone" data-drop-zone>
+    <input class="drop-zone__input" type="file" multiple="multiple" >
+    <!-- accept=".jpg, .jpeg, .png, .pdf" -->
+    <div class="drop-zone__fraction">
+        0/10
+    </div>
+    <div class="drop-zone__body">
+        <div class="drop-zone__title">Drop your files here</div>
+        <span>or</span>
+        @@include('../buttons/_btn.html', {
+            "link":"true",
+            "decor": "img/photo/upload-photo-text.svg",
+            "text": "Upload photos"
+            })
+    </div>
+    <div class="drop-zone__preview dropzone-previews"></div>
+</div>

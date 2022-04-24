@@ -797,6 +797,63 @@ window.popup = {
         })
     }
 };
+		{
+    let reviewsListCardSliders = document.querySelectorAll('[data-reviews-list-card-slider]');
+    if(reviewsListCardSliders.length) {
+        reviewsListCardSliders.forEach(reviewsListCardSlider => {
+            let options = {
+                speed: 800,
+                navigation: {
+                    nextEl: reviewsListCardSlider.querySelector('.reviews-list-card__btn--next'),
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 'auto',
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 25,
+                    },
+                    992: {
+                        slidesPerView: 2,
+                        spaceBetween: 25,
+                    }
+                }
+            }
+            if(reviewsListCardSlider.querySelector('.swiper-wrapper').children.length > 2 || document.documentElement.clientWidth < 768) {
+                options = {
+                    ...options,
+                    loop: true
+                }
+            }
+            let sliderData = new Swiper(reviewsListCardSlider, options);
+            
+        })
+    }
+};
+		{
+    let galleryCarousel = document.querySelector('[data-gallery-carousel]');
+    if(galleryCarousel) {
+        let sliderData = new Swiper(galleryCarousel.querySelector('.swiper'), {
+            speed: 800,
+            navigation: {
+                nextEl: galleryCarousel.querySelector('[data-action="btn-next"]'),
+                prevEl: galleryCarousel.querySelector('[data-action="btn-prev"]'),
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 25,
+                }
+            }
+        });
+    }
+};
 	}
 
 	initMouse() {
@@ -1473,9 +1530,48 @@ if (videoBlock.length) {
 		scroll.on('scroll', (args) => {
 			//console.log(args);
 		});
+
 	}
 	componentsScriptsBeforeLoadPage() {
-		
+		{
+    let textareaAll = document.querySelectorAll('[data-textarea]');
+    if (textareaAll.length) {
+        textareaAll.forEach(textarea => {
+
+            // add wrapper
+            let wrapper = document.createElement('div');
+            wrapper.className = 'textarea-wrapper';
+            textarea.before(wrapper);
+            wrapper.append(textarea);
+
+            // add mask
+            let textMask = document.createElement('div');
+            textMask.className = 'textarea-text-mask';
+            wrapper.append(textMask);
+
+            // add size box
+            let sizeBox = document.createElement('div');
+            sizeBox.className = 'textarea-size-box';
+            wrapper.append(sizeBox);
+
+            textarea.addEventListener('input', (e) => {
+                wrapper.classList.toggle('textarea-has-text', e.target.value.length > 0);
+                sizeBox.innerText = e.target.value;
+                textarea.style.height = sizeBox.clientHeight + 'px';
+                textMask.innerText = e.target.value;
+            })
+
+            textarea.addEventListener('focus', () => {
+                wrapper.classList.add('textarea-is-focus');
+                textarea.style.height = sizeBox.clientHeight  + 'px';
+            })
+            textarea.addEventListener('blur', () => {
+                wrapper.classList.remove('textarea-is-focus');
+                textarea.removeAttribute('style');
+            })
+        })
+    }
+};
 	}
 	componentsScriptsAfterLoadPage() {
 		{
@@ -1826,6 +1922,107 @@ if (videoBlock.length) {
             sidePostWrap.style.paddingTop = headImage.offsetTop + 'px';
         }
     }
+};
+		let dropZoneBox = document.querySelector('[data-drop-zone]');
+if (dropZoneBox) {
+    let inputFile = dropZoneBox.querySelector('.drop-zone__input');
+    let fraction = dropZoneBox.querySelector('.drop-zone__fraction');
+    let submitBtn = dropZoneBox.closest('form').querySelector('[type="submit"], .form__submit');
+    
+    let dropZone = new Dropzone(dropZoneBox, {
+        url: '/',
+        previewsContainer: dropZoneBox.querySelector('.drop-zone__preview'),
+        uploadMultiple: true,
+        maxFiles: 10,
+        addRemoveLinks: true,
+        thumbnail: function (file, dataUrl) {
+            if (file.previewElement) {
+                file.previewElement.classList.remove("dz-file-preview");
+                let images = file.previewElement.querySelectorAll("[data-dz-thumbnail]");
+                for (let i = 0; i < images.length; i++) {
+                    let thumbnailElement = images[i];
+                    thumbnailElement.alt = file.name;
+                    thumbnailElement.src = dataUrl;
+                }
+                setTimeout(function () { file.previewElement.classList.add("dz-image-preview"); }, 1);
+            }
+        },
+        accept: function (file, done) {
+            if (file.type === "image/jpeg" || file.type === "image/jpg" || file.type === "image/png" || file.type === "application/pdf") {
+                done();
+            }
+            else {
+                done("Error! Files of this type are not accepted");
+            }
+        }
+    });
+
+    let minSteps = 6,
+        maxSteps = 60,
+        timeBetweenSteps = 100,
+        bytesPerStep = 100000;
+
+    dropZone.uploadFiles = function (files) {
+        let self = this;
+
+        for (let i = 0; i < files.length; i++) {
+
+            let file = files[i];
+            let totalSteps = Math.round(Math.min(maxSteps, Math.max(minSteps, file.size / bytesPerStep)));
+
+            for (let step = 0; step < totalSteps; step++) {
+                let duration = timeBetweenSteps * (step + 1);
+                setTimeout(function (file, totalSteps, step) {
+                    return function () {
+                        file.upload = {
+                            progress: 100 * (step + 1) / totalSteps,
+                            total: file.size,
+                            bytesSent: (step + 1) * file.size / totalSteps
+                        };
+
+                        self.emit('uploadprogress', file, file.upload.progress, file.upload.bytesSent);
+                        if (file.upload.progress == 100) {
+                            file.status = Dropzone.SUCCESS;
+                            self.emit("success", file, 'success', null);
+                            self.emit("complete", file);
+                            self.processQueue();
+                            //document.getElementsByClassName("dz-success-mark").style.opacity = "1";
+                        }
+                    };
+                }(file, totalSteps, step), duration);
+            }
+        }
+    }
+
+    let dt = new DataTransfer();
+    const numberOfFilesHandler = () => {
+        fraction.innerText = dt.files.length + '/10';
+        dropZoneBox.classList.toggle('drop-zone--has-files', dt.files.length > 0)
+
+        if(dt.files.length > 10) {
+            submitBtn.setAttribute('disabled', true);
+        } else {
+            submitBtn.removeAttribute('disabled');
+        }
+    }
+
+    dropZone.on("complete", function (file) {
+        // console.log(file);
+    });
+
+    dropZone.on("addedfile", file => {
+        dt.items.add(file)
+        inputFile.files = dt.files;
+
+        numberOfFilesHandler();
+    })
+
+    dropZone.on("removedfile", file => {
+        dt.items.remove(file)
+        inputFile.files = dt.files;
+        numberOfFilesHandler();
+        console.log(dt.files)
+    })
 };
 	}
 

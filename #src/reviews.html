@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('_head.html',{
+"title": "Kidsmond"
+})
+
+<body data-scroll-container>
+	<div class="_preload-body"></div>
+	<!-- == TOP LINE ================== -->
+
+	@@include('common/header/_header.html',{
+	"mod": ""
+	})
+	<!-- == // TOP LINE ================== -->
+	
+	<main class="_page " data-padding-top-header-size data-scroll-section>
+        @@include('common/breadcrumbs/_breadcrumbs.html', {
+            "arr": ['<a href="#">Home</a>', 'Feedback from our clients']
+        })
+
+        <div class="container-sm">
+            <div class="head head--top">
+                <h2 class="head__title">Feedback from our clients</h2>
+            </div>
+        </div>
+
+
+
+        <div class="container-sm">
+            <ul class="reviews-list">
+                <li>
+                    @@include('common/review-list-card/_review-list-card.html', {
+                        "text": "Excellent Swedish wall, looks good and easily withstands adults. Assembly was relatively easy thanks to good instructions.",
+                        "img": "img/photo/reviews-list-img-1.jpg",
+                        "slider": false,
+                        "sliderLogn": false,
+                    })
+                </li>
+                <li>
+                    @@include('common/review-list-card/_review-list-card.html', {
+                        "text": "It was a great purchase for us as we spend a lot of time at home due to Covid-19. We watched competitors' products, but chose this one because it has a larger size and height (and installation versatility) means my kids will enjoy it for longer.",
+                        "img": "img/photo/reviews-list-img-1.jpg",
+                        "slider": false,
+                        "sliderLogn": true,
+                    })
+                </li>
+                <li>
+                    @@include('common/review-list-card/_review-list-card.html', {
+                        "text": "Excellent Swedish wall, looks good and easily withstands adults. Assembly was relatively easy thanks to good instructions.",
+                        "img": "img/photo/reviews-list-img-4.jpg",
+                        "slider": false,
+                        "sliderLogn": false,
+                    })
+                </li>
+                <li>
+                    @@include('common/review-list-card/_review-list-card.html', {
+                        "text": "It was a great purchase for us as we spend a lot of time at home due to Covid-19. We watched competitors' products, but chose this one because it has a larger size and height (and installation versatility) means my kids will enjoy it for longer.",
+                        "img": "img/photo/reviews-list-img-1.jpg",
+                        "slider": true,
+                        "sliderLogn": false,
+                    })
+                </li>
+                <li>
+                    @@include('common/review-list-card/_review-list-card.html', {
+                        "text": "Excellent Swedish wall, looks good and easily withstands adults. Assembly was relatively easy thanks to good instructions.",
+                        "img": "img/photo/reviews-list-img-1.jpg",
+                        "slider": false,
+                        "sliderLogn": false,
+                    })
+                </li>
+            </ul>
+            <div>
+                @@include('common/pagination/_pagination.html')
+            </div>
+        </div>
+    
+
+        @@include('common/see-more-ban/_see-more-ban.html',{})
+
+        @@include('common/gallery-carousel/_gallery-carousel.html')
+
+        <div class="leave-comment padding-wrap">
+            <div class="container-sm">
+                <h3 class="leave-comment__title">Leave a comment</h3>
+                <form class="dropzone" action="/">
+                    <div class="leave-comment__body">
+                        <div class="leave-comment__col-1">
+                            @@include('common/drop-zone/_drop-zone.html')
+                        </div>
+                        <div class="leave-comment__col-2">
+                            <div class="form">
+                                <div class="form__items">
+                                    <div class="form__item">
+                                        <input class="input" type="text" placeholder="Name">
+                                    </div>
+                                    <div class="form__item">
+                                        <textarea data-textarea class="textarea" placeholder="Comment"></textarea>
+                                    </div>
+                                </div>
+                                <button type="submit" class="form__submit btn-default w-100">Leave a comment</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>  
+
+	</main>
+
+	<!-- == FOOTER ================== -->
+	@@include('common/footer/_footer.html',{})
+	<!-- == // FOOTER ================== -->
+
+	@@include('_js-bottom.html',{})
+</body>
+
+</html>

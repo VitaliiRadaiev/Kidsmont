@@ -1,0 +1,46 @@
+<div class="reviews-list-card">
+    <div class="reviews-list-card__col-1">
+        <div class="reviews-list-card__text text-content">@@text</div>
+        <div class="reviews-list-card__author">mstephan1970</div>
+    </div>
+    <div class="reviews-list-card__col-2">
+        @@if (slider === false && sliderLogn === false) {
+            <div class="reviews-list-card__img ibg">
+                <img src="@@img" alt="">
+            </div>
+        }
+
+        @@if(slider === true) {
+            <div class="reviews-list-card__slider swiper" data-reviews-list-card-slider>
+                <button class="reviews-list-card__btn reviews-list-card__btn--next">Next</button>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide ibg">
+                        <img src="img/photo/reviews-list-img-2.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide ibg">
+                        <img src="img/photo/reviews-list-img-3.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        }
+        @@if(sliderLogn === true) {
+            <div class="reviews-list-card__slider swiper" data-reviews-list-card-slider>
+                <button class="reviews-list-card__btn reviews-list-card__btn--next">Next</button>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide ibg">
+                        <img src="img/photo/reviews-list-img-2.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide ibg">
+                        <img src="img/photo/reviews-list-img-3.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide ibg">
+                        <img src="img/photo/reviews-list-img-2.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide ibg">
+                        <img src="img/photo/reviews-list-img-3.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

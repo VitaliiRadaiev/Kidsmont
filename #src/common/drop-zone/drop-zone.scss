@@ -1,0 +1,196 @@
+.drop-zone {
+    border: 2px dashed $mainColor;
+    pointer-events: auto;
+    position: relative;
+    min-height: 40rem;
+
+    @media (min-width: 992px) {
+        &:hover {
+            & .btn {
+                color: $hover;
+            }
+        }
+    }
+
+    @media (max-width: $md3+px) {
+        min-height: 260px;
+    }
+
+
+    &__body {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        pointer-events: none;
+
+        @media (max-width: $md3+px) {
+            padding: 27px;
+        }
+
+        & > span {
+            margin-bottom: 2.4rem;
+
+            
+        @media (max-width: $md3+px) {
+            font-size: 14px !important;
+            line-height: 1.5em;
+            margin-bottom: 12px;
+        }
+        }
+    }
+
+    &__input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &__title {
+        font-weight: 600;
+        margin-bottom: 2.4rem;
+        display: block;
+
+        @media (max-width: $md3+px) {
+            font-size: 14px !important;
+            line-height: 1.5em;
+            margin-bottom: 12px;
+        }
+    }
+
+    &__fraction {
+        position: absolute;
+        z-index: 3;
+        right: 2rem;
+        bottom: 2rem;
+        font-size: 1.6rem;
+        line-height: 1.5em;
+
+        @media (max-width: $md3+px) {
+            right: 10px;
+            bottom: 10px;
+            font-size: 14px;
+        }
+    }
+
+    & .btn {
+        color: inherit;
+        height: 17.2rem;
+        width: 17.2rem;
+
+        @media (max-width: $md3+px) {
+            height: 140px;
+            width: 140px;
+        }
+
+        & .btn__text {
+            @media (max-width: $md3+px) {
+                font-size: 14px;
+            }
+        }
+    }
+
+    &__preview {
+        position: relative;
+        z-index: 2;
+        display: none;
+        flex-wrap: wrap;
+        align-self: flex-start;
+        min-height: 40rem;
+        padding-bottom: 3rem;
+
+        @media (max-width: $md3+px) {
+            min-height: 260px;
+            padding-bottom: 20px;
+        }
+
+        & .dz-preview.dz-image-preview {
+            flex: 0 1 20%;
+            background-color: transparent;
+            margin: 0;
+            padding: 15px 7.5px;
+
+            @media (max-width: $md3+px) {
+                padding: 10px 5px;
+                flex: 0 1 25%;
+            }
+
+            & .dz-image {
+                border-radius: 0;
+                width: 100%;
+                height: 0;
+                padding-bottom: 100%;
+                position: relative;
+
+                & img {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    max-width: 100%;
+                    max-height: 100%;
+                    width: auto;
+                    height: auto;
+                    z-index: 1;
+                    object-fit: cover;
+                }
+            }
+
+            & .dz-details {
+                line-height: 1;
+            }
+
+            & .dz-success-mark, & .dz-error-mark, & .dz-progress {
+                top: 70px;
+
+                @media (max-width: $md3+px) {
+                    top: 50px;
+                }
+            }
+
+            & .dz-remove {
+                position: relative;
+                z-index: 30;
+            }
+
+            & .dz-error-message {
+                top: 160px;
+
+                @media (max-width: $md3+px) {
+                    top: 120px;
+                }
+            }
+        }
+    }
+
+    &--has-files {
+        & .drop-zone__body {
+            display: none;
+        }
+
+        & .drop-zone__preview {
+            display: flex;
+        }
+    }
+
+}
+
+form.dropzone {
+    pointer-events: none;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    min-height: auto;
+    & .dz-default.dz-message {
+        display: none;
+    }   
+}
