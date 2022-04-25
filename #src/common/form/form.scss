@@ -1,5 +1,12 @@
 .form {
     pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        text-transform: uppercase;
+        margin-bottom: 3.6rem;
+    }
 
     &__items {
         display: flex;
@@ -17,10 +24,16 @@
         flex: 0 1 100%;
         min-width: 0;
         &:not(:last-child) {
-            margin-bottom: 3.6rem;
+            margin-bottom: 2.4rem;
 
             @media (max-width: $md3+px) {
-                margin-bottom: 24px;
+                margin-bottom: 14px;
+            }
+        }
+
+        &--half {
+            @media (min-width: 768px) {
+                flex: 0 1 calc(50% - 3rem);
             }
         }
 
@@ -34,6 +47,14 @@
     }
 
     &__submit {
+    }
+
+    & .select__value {
+        @media (max-width: $md3+px) {
+            & span {
+                font-size: 14px;
+            }
+        }
     }
 }
 

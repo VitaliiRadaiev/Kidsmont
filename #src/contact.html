@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('_head.html',{
+"title": "Kidsmond"
+})
+
+<body data-scroll-container>
+    <div class="_preload-body"></div>
+    <!-- == TOP LINE ================== -->
+
+    @@include('common/header/_header.html',{
+    "mod": ""
+    })
+    <!-- == // TOP LINE ================== -->
+
+    <main class="_page " data-padding-top-header-size data-scroll-section>
+
+        @@include('common/breadcrumbs/_breadcrumbs.html', {
+        "arr": ['<a href="#">Home</a>', 'Kontaktformular']
+        })
+
+        <div class="container-sm">
+            <div class="head pt-4 pt-lg-0">
+                <h2 class="head__title">Kontaktformular</h2>
+            </div>
+        </div>
+
+
+        <div class="contact padding-wrap pt-0">
+            <div class="container-sm">
+                <div class="main-table">
+                    <div class="main-table__tr">
+                        <div class="main-table__td">
+                            <h4 class="main-table__title">Kontaktliste</h4>
+                        </div>
+                        <div class="main-table__td text-content">
+                            <h5>Alternative Streitbeilegung</h5>
+                            <table class="contact-tabel">
+                                <tr>
+                                    <td>Arbeitsmodus laden:</td>
+                                    <td>Mo bis Fr: von 08:00 bis 12:00 Uhr </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>Mo bis Fr: von 12:30 bis 16:00 Uhr</td>
+                                </tr>
+                            </table>
+
+                            <h5>Kontakte:</h5>
+                            <table class="contact-tabel">
+                                <tr>
+                                    <td>Arbeitsmodus:</td>
+                                    <td><a href="#">info@kidsmont.de</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Soziales Netzwerk:</td>
+                                    <td>
+                                        <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Youtube</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Die Adresse:</td>
+                                    <td>Meeraner Str. 11E, 12681 Berlin </td>
+                                </tr>
+                                <tr>
+                                    <td>Telefon:</td>
+                                    <td><a href="#">+49 (0)30 46997501</a></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-banner padding-wrap">
+            <div class="contact-banner__inner">
+                <div class="container-sm">
+                    <div class="contact-banner__body">
+                        <div class="contact-banner__col-1">
+                            <h3 class="contact-banner__title">
+                                showroom <br> berlin
+                            </h3>
+                            <h4 class="contact-banner__subtitle">Schicken</h4>
+                            <div class="contact-banner__decor">
+                                <img src="img/photo/fas-hipping-text.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="contact-banner__col-2">
+                            <div class="contact-banner__img ibg">
+                                <img src="img/photo/contact-banner-img.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact padding-wrap">
+            <div class="container-sm">
+                <div class="main-table border-top-0">
+                    <div class="main-table__tr pt-0">
+                        <div class="main-table__td">
+                            <h4 class="main-table__title">Reichen Sie Ihre Bewerbung ein</h4>
+                        </div>
+                        <div class="main-table__td">
+                            <form  action="/">
+                                <div class="form">
+                                    <div class="form__items">
+                                        <div class="form__item form__item--half">
+                                            <input class="input" type="text" placeholder="Ihr Name">
+                                        </div>
+                                        <div class="form__item form__item--half">
+                                            <input class="input" type="text" placeholder="Ihr Nachname">
+                                        </div>
+                                        <div class="form__item form__item--half" data-mask="+9(999)-999-99-99">
+                                            <input class="input" type="text" placeholder="Telefonnummer">
+                                        </div>
+                                        <div class="form__item form__item--half">
+                                            <input class="input" type="email" placeholder="Email">
+                                        </div>
+                                        <div class="form__item">
+                                            <div class="select-wrap">
+                                                <select name="" class="_select">
+                                                    <option value="" selected>Wie sind Sie auf uns aufmerksam geworden?</option>
+                                                    <option value="1">Lorem, ipsum dolor.</option>
+                                                    <option value="2">Lorem, ipsum dolor.</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form__item">
+                                            <input class="input" type="text" placeholder="Nachricht">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="form__submit btn-default align-self-end">Schicken</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- == FOOTER ================== -->
+    @@include('common/footer/_footer.html',{})
+    <!-- == // FOOTER ================== -->
+
+    @@include('_js-bottom.html',{})
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('_head.html',{
+"title": "Kidsmond"
+})
+
+<body data-scroll-container>
+    <div class="_preload-body"></div>
+    <!-- == TOP LINE ================== -->
+
+    @@include('common/header/_header.html',{
+    "mod": ""
+    })
+    <!-- == // TOP LINE ================== -->
+
+    <main class="_page " data-padding-top-header-size data-scroll-section>
+
+        @@include('common/breadcrumbs/_breadcrumbs.html', {
+        "arr": ['<a href="#">Home</a>', 'Account']
+        })
+
+        <div class="container-sm">
+            <div class="head pt-4 pt-lg-0">
+                <h2 class="head__title">Persönliches Büro</h2>
+            </div>
+        </div>
+
+
+        <div class="account padding-wrap pt-0">
+            <div class="container-sm">
+                <div class="account__body tabs" data-tabs>
+                    <div class="tabs__col-1">
+                        <div class="tabs__nav">
+                            <div class="tabs__nav-list swiper" data-tabs-nav data-mobile="false">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <a href="#" class="not-hover" data-tab-trigger="0">Meine Details</a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#" class="not-hover tab-active" data-tab-trigger="1">Meine Bestellungen</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabs__col-2">
+                        <div class="tabs__content" data-tab-content="0">
+                            <form  action="/">
+                                <div class="form">
+                                    <h5 class="form__title">
+                                        Fülle das Formular aus
+                                    </h5>
+                                    <div class="form__items">
+                                        <div class="form__item form__item--half">
+                                            <input class="input" type="text" placeholder="Serhii">
+                                        </div>
+                                        <div class="form__item form__item--half">
+                                            <input class="input" type="text" placeholder="Ihr Nachname">
+                                        </div>
+                                        <div class="form__item form__item--half">
+                                            <input class="input" type="email" placeholder="Email">
+                                        </div>
+                                        <div class="form__item form__item--half">
+                                            <input class="input" type="text" placeholder="Handy">
+                                        </div>
+                                        <div class="form__item">
+                                            <input class="input" type="text" placeholder="Die Adresse">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="form__submit btn-default align-self-end">Speichern</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tabs__content" data-tab-content="1">
+                            <ul class="accordion" data-spoller>
+                                <li>
+                                    <div class="accordion__title" data-spoller-trigger>
+                                        Was ist ein Piratenschiff-Bett?
+                                        <div class="accordion__icon">
+                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="accordion__collapse text-content">
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
+                                            in alias quis nisi sequi omnis?</p>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
+                                            in alias quis nisi sequi omnis?</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- == FOOTER ================== -->
+    @@include('common/footer/_footer.html',{})
+    <!-- == // FOOTER ================== -->
+
+    @@include('_js-bottom.html',{})
+</body>
+
+</html>

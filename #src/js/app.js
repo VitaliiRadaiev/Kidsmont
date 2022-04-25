@@ -60,6 +60,7 @@ class App {
 		@@include('../common/article-slider/article-slider.js');
 		@@include('../common/review-list-card/review-list-card.js');
 		@@include('../common/gallery-carousel/gallery-carousel.js');
+		@@include('../common/tabs/tabs.js');
 	}
 
 	initMouse() {
@@ -75,12 +76,6 @@ class App {
 
 			const setPositon = (e) => {
 				let width = mouseDot.clientWidth / 2;
-				// if (e.pageX > width && e.pageX < (document.documentElement.clientWidth - width)) {
-				// 	mouseDot.style.left = e.pageX + 'px';
-				// }
-				// if (e.pageY > width && e.pageY < (document.body.clientHeight - width)) {
-				// 	mouseDot.style.top = e.pageY + 'px';
-				// }
 				mouseDot.style.left = e.pageX + 'px';
 				mouseDot.style.top = e.pageY + 'px';
 			}
@@ -120,6 +115,7 @@ class App {
 			tabsContainers.forEach(tabsContainer => {
 				let triggerItems = tabsContainer.querySelectorAll('[data-tab-trigger]');
 				let contentItems = Array.from(tabsContainer.querySelectorAll('[data-tab-content]'));
+				let select = tabsContainer.querySelector('[data-tab-select]');
 
 				const getContentItem = (id) => {
 					if (!id.trim()) return;
@@ -127,8 +123,15 @@ class App {
 				}
 
 				if (triggerItems.length && contentItems.length) {
-					triggerItems[0].classList.add('tab-active');
-					getContentItem(triggerItems[0].dataset.tabTrigger).classList.add('tab-active');
+					// init
+					let activeItem = tabsContainer.querySelector('.tab-active[data-tab-trigger]');
+					if(activeItem) {
+						activeItem.classList.add('tab-active');
+						getContentItem(activeItem.dataset.tabTrigger).classList.add('tab-active');
+					} else {
+						triggerItems[0].classList.add('tab-active');
+						getContentItem(triggerItems[0].dataset.tabTrigger).classList.add('tab-active');
+					}
 
 					triggerItems.forEach(item => {
 						item.addEventListener('click', () => {
@@ -141,6 +144,26 @@ class App {
 								i.classList.remove('tab-active');
 								getContentItem(i.dataset.tabTrigger).classList.remove('tab-active');
 							})
+
+							// update locomotive scroll
+							let id = setInterval(() => {
+								window.locomotivePageScroll.update();
+							}, 20);
+							setTimeout(() => {
+								clearInterval(id);
+							}, 200)
+						})
+					})
+				}
+
+				if(select) {
+					select.addEventListener('change', (e) => {
+						getContentItem(e.target.value).classList.add('tab-active');
+
+						contentItems.forEach(item => {
+							if(getContentItem(e.target.value) === item) return;
+
+							item.classList.remove('tab-active');
 						})
 					})
 				}
@@ -160,7 +183,7 @@ class App {
 						let content = trigger.nextElementSibling;
 
 						// init
-						if(trigger.classList.contains('active')) {
+						if (trigger.classList.contains('active')) {
 							content.style.display = 'block';
 						}
 
@@ -182,6 +205,15 @@ class App {
 									content && this.utils.slideUp(content);
 								})
 							}
+
+							// update locomotive scroll
+							let id = setInterval(() => {
+								window.locomotivePageScroll.update();
+							}, 200);
+							setTimeout(() => {
+								clearInterval(id);
+							}, 600)
+
 						})
 					})
 				}
@@ -277,6 +309,8 @@ class App {
 			lerp: 0.03
 		});
 
+		window.locomotivePageScroll = scroll;
+
 		let id = setInterval(() => {
 			scroll.update();
 		}, 200);
@@ -286,12 +320,12 @@ class App {
 
 		scroll.on('call', func => {
 			let id = setInterval(() => {
-                window?.webGLCurtainElements[func]();
-            }, 200);
-            setTimeout(() => {
-                clearInterval(id);
-            }, 3000)
-			
+				window?.webGLCurtainElements[func]();
+			}, 200);
+			setTimeout(() => {
+				clearInterval(id);
+			}, 3000)
+
 		});
 
 		scroll.on('scroll', (args) => {

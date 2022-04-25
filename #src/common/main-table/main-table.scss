@@ -1,0 +1,70 @@
+.main-table {
+    border-top: 1px solid $borderColor;
+
+    &__tr {
+        display: flex;
+        padding: 3.6rem 0;
+        border-bottom: 1px solid $borderColor;
+
+        @media (max-width: $md3+px) {
+            display: block;
+            padding: 24px 0;
+        }
+    }
+
+    &__td {
+        flex: 0 1 50%;
+
+        &:nth-child(1) {
+            @media (min-width: 768px) {
+                padding-right: 4rem;
+            }
+        }
+
+        &.text-content {
+            & > *:last-child {
+                margin-bottom: 0 !important;
+            }
+
+            & p,
+            & ul,
+            & ol,
+            & figure,
+            & h1,
+            & h2,
+            & h3,
+            & h4,
+            & h5,
+            & h6 {
+                & ~ h1,
+                & ~ h2,
+                & ~ h3,
+                & ~ h4,
+                & ~ h5,
+                & ~ h6 {
+                    margin-top: 3.6rem;
+        
+                    @media (max-width: $md3+px) {
+                        margin-top: 2.4rem;
+                    }
+                }
+            }
+        }
+    }
+
+    & h4.main-table__title {
+        text-transform: uppercase;
+
+        @media (max-width: $md3+px) {
+            font-size: 18px;
+        }
+    }
+
+    &__title {
+        margin-bottom: 0;
+
+        @media (max-width: $md3+px) {
+            margin-bottom: 16px;
+        }
+    }
+}

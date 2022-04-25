@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('_head.html',{
+"title": "Kidsmond"
+})
+
+<body data-scroll-container>
+    <div class="_preload-body"></div>
+    <!-- == TOP LINE ================== -->
+
+    @@include('common/header/_header.html',{
+    "mod": ""
+    })
+    <!-- == // TOP LINE ================== -->
+
+    <main class="_page " data-padding-top-header-size data-scroll-section>
+
+        @@include('common/breadcrumbs/_breadcrumbs.html', {
+        "arr": ['<a href="#">Home</a>', 'Hinterlassen Sie eine Beschwerde']
+        })
+
+        <div class="container-sm">
+            <div class="head pt-4 pt-lg-0">
+                <h2 class="head__title">Hinterlassen Sie eine Beschwerde</h2>
+            </div>
+        </div>
+
+        <div class="padding-wrap pt-0">
+            <div class="container-sm">
+                <div class="main-table">
+                    <div class="main-table__tr">
+                        <div class="main-table__td">
+                            <h4 class="main-table__title">Information</h4>
+                        </div>
+                        <div class="main-table__td text-content">
+                            <h5>Es ist etwas nicht in Ordnung?
+                                Das tut uns leid – wir kümmern uns darum!</h5>
+                            <p>
+                                Gerne tauschen wir defekte oder mangelhafte Teile aus, so dass dem perfekten und
+                                sicheren Spielvergnügen nichts im Weg steht.
+                                Bitte prüfen Sie direkt bei Erhalt der Produkte die Sendung auf äußerliche
+                                Beschädigungen. Sollten Produkte mit offensichtlichen Transportschäden angeliefert
+                                worden sein, reklamieren Sie dies bitte sofort beim Zusteller und nehmen direkt Kontakt
+                                zu uns auf. Sie helfen uns damit, unsere Ansprüche gegenüber dem Transportunternehmen
+                                und der Transportversicherung geltend machen zu können.
+                                Wir bitten Sie innerhalb von 14 Tagen die Produkte auf Mängel zu prüfen. Lesen Sie vor
+                                dem Aufbau und der Benutzung unserer Produkte sorgfältig die Aufbau- und
+                                Bedienungsanleitung. Das Reklamations- und Rückgaberecht schließt nur Produkte ein, die
+                                gemäß der Anleitung aufgebaut, angebracht und genutzt wurden.
+                                Für die Erfassung und Bearbeitung der Reklamation bitten wir Sie uns innerhalb von 14
+                                Tagen nach Erhalt der Bestellung folgende Daten mitzuteilen:
+                                Vor- und Nachname;
+                                Auftragsnummer (5-stellig);
+                                Anfertigungsnummer der Sprossenwand (Die Nummer befindet sich auf der großen Verpackung
+                                oben seitlich oder auf der kleinen Verpackung oben und unten neben dem Farbaufkleber);
+                                eine genaue Schilderung der Mängel und des Geschehens. Bitte mache Sie Fotos von den
+                                betroffenen Stellen, dann können wir die Situation besser nachvollziehen.
+                                Die Reklamation muss in schriftlicher Form mitgeteilt werden, nutzen Sie hierfür bitte
+                                direkt das Reklamationsformular unserer Website. Nachdem wir den Anspruch auf Austausch
+                                der defekten oder mangelhaften Teile schriftlich bestätigt haben, schicken Sie uns bitte
+                                innerhalb von 14 Tagen die betroffenen Teile an folgende Adresse (werden die betroffenen
+                                Teile nicht im angegebenen Zeitraum zurückgesendet, verfällt der Anspruch auf
+                                Reklamation):
+                                Kidsmont
+                                Meeraner Straße 11E
+                                12681, Berlin
+                                Nach Erhalt der defekten Teile, schicken wir Ihnen direkt neue Teile zu.
+                                Teilrückerstattung:
+                                Sollte ein zweiter Austausch notwendig sein und dieser wider Erwarten auch mangelhaft
+                                sein, haben Sie das Recht statt neuer Teile eine Teilrückerstattung über die defekten
+                                Teile in Anspruch zu nehmen und das Produkt zu behalten. Über die Höhe des
+                                Rückerstattungsbetrags entscheiden wir nach Überprüfung der defekten Teile. Die
+                                Rückerstattung wird Ihnen nach unserer Bestätigung innerhalb von 14 Tagen auf die
+                                gleiche Zahlungsart ausgezahlt mir der Sie bei uns bestellt haben.
+                                Um eine Reklamation zu melden, schciken Sie uns eine E-Mail an info@kidsmont.de
+                            </p>
+                        </div>
+                    </div>
+                    <div class="main-table__tr pb-0 border-bottom-0">
+                        <div class="main-table__td">
+                            <h4 class="main-table__title">Reichen Sie Ihre Bewerbung ein</h4>
+                        </div>
+                        <div class="main-table__td">
+                            <form action="/">
+                                <div class="form">
+                                    <div class="form__items">
+                                        <div class="form__item form__item--half">
+                                            <input class="input" type="text" placeholder="Ihr Name">
+                                        </div>
+                                        <div class="form__item form__item--half">
+                                            <input class="input" type="text" placeholder="Ihr Nachname">
+                                        </div>
+                                        <div class="form__item form__item--half" data-mask="+9(999)-999-99-99">
+                                            <input class="input" type="text" placeholder="Telefonnummer">
+                                        </div>
+                                        <div class="form__item form__item--half">
+                                            <input class="input" type="email" placeholder="Email">
+                                        </div>
+                                        <div class="form__item">
+                                            <div class="select-wrap">
+                                                <select name="" class="_select">
+                                                    <option value="" selected>Wie sind Sie auf uns aufmerksam geworden?
+                                                    </option>
+                                                    <option value="1">Lorem, ipsum dolor.</option>
+                                                    <option value="2">Lorem, ipsum dolor.</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form__item">
+                                            <input class="input" type="text" placeholder="Nachricht">
+                                        </div>
+                                    </div>
+                                    <button type="submit"
+                                        class="form__submit btn-default align-self-end">Schicken</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- == FOOTER ================== -->
+    @@include('common/footer/_footer.html',{})
+    <!-- == // FOOTER ================== -->
+
+    @@include('_js-bottom.html',{})
+</body>
+
+</html>

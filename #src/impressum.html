@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('_head.html',{
+"title": "Kidsmond"
+})
+
+<body data-scroll-container>
+	<div class="_preload-body"></div>
+	<!-- == TOP LINE ================== -->
+
+	@@include('common/header/_header.html',{
+	"mod": ""
+	})
+	<!-- == // TOP LINE ================== -->
+	
+	<main class="_page " data-padding-top-header-size data-scroll-section>
+        
+        @@include('common/breadcrumbs/_breadcrumbs.html', {
+            "arr": ['<a href="#">Home</a>', 'Impressum']
+        })
+
+        <div class="container-sm">
+            <div class="head pt-4 pt-lg-0">
+                <h2 class="head__title">Impressum</h2>
+            </div>
+        </div>
+
+
+        <div class="padding-wrap pt-0">
+            <div class="container-sm">
+                <div class="main-table">
+                    <div class="main-table__tr">
+                        <div class="main-table__td">
+                            <h4 class="main-table__title">Gesetzliche Anbieterkennung</h4>
+                        </div>
+                        <div class="main-table__td text-content">
+                            <ul class="simple-list">
+                                <li>KIDSMONT GmbH</li>
+                                <li>Meeraner Straße 11E</li>
+                                <li>12681 Berlin</li>
+                                <li>Deutschland</li>
+                                <li>Telefon: +49 (0)30 46997501</li>
+                                <li>E-Mail: info@kidsmont.de</li>
+                                <li>USt-IdNr.: DE342986797</li>
+                                <li>Vertretungsberechtigter Geschäftsführer: Eugen Gorbunov</li>
+                                <li>Registergericht: Amtsgericht Berlin Charlottenburg</li>
+                                <li>Registernummer: HRB228595</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="main-table__tr">
+                        <div class="main-table__td">
+                            <h4 class="main-table__title">Alternative Streitbeilegung</h4>
+                        </div>
+                        <div class="main-table__td text-content">
+                            <p>
+                                Die Europäische Kommission stellt eine Plattform für die außergerichtliche Online-Streitbeilegung (OS-Plattform) bereit, aufrufbar unter https://ec.europa.eu/odr. Wir sind nicht verpflichtet an der Streitbeteiligung über die OS-Plattform teilzunehmen und nehmen auch nicht freiwillig Teil
+                            </p>
+                        </div>
+                    </div>
+                    <div class="main-table__tr">
+                        <div class="main-table__td">
+                            <h5 class="main-table__title">Wir sind seit 11.10.2018 Mitglied der Initiative “FairCommerce”</h5>
+                        </div>
+                        <div class="main-table__td text-content">
+                            <p>
+                                Nähere Informationen hierzu finden Sie unter www.fair-commerce.de.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+	</main>
+
+	<!-- == FOOTER ================== -->
+	@@include('common/footer/_footer.html',{})
+	<!-- == // FOOTER ================== -->
+
+	@@include('_js-bottom.html',{})
+</body>
+
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('_head.html',{
+"title": "Kidsmond"
+})
+
+<body data-scroll-container>
+    <div class="_preload-body"></div>
+    <!-- == TOP LINE ================== -->
+
+    @@include('common/header/_header.html',{
+    "mod": ""
+    })
+    <!-- == // TOP LINE ================== -->
+
+    <main class="_page " data-padding-top-header-size data-scroll-section>
+
+        @@include('common/breadcrumbs/_breadcrumbs.html', {
+        "arr": ['<a href="#">Home</a>', 'Frequently Asked Questions']
+        })
+
+        <div class="container-sm">
+            <div class="head pt-4 pt-lg-0">
+                <h2 class="head__title">Frequently asked Questions</h2>
+            </div>
+        </div>
+
+
+        <div class="faq padding-wrap pt-0">
+            <div class="container-sm">
+                <div class="faq__head">
+                    <form action="/">
+                        <div class="faq__search">
+                            <button type="submit" class="faq__search-submit">
+                                <img class="img-svg" src="img/icons/search.svg" alt="">
+                            </button>
+                            <input class="faq__search-input" type="text" placeholder="Enter text to search...">
+                        </div>
+                    </form>
+                </div>
+                <div class="faq__body tabs" data-tabs>
+                    <div class="tabs__col-1">
+                        <div class="tabs__nav">
+                            <div class="tabs__nav-list swiper d-none d-md-block" data-tabs-nav data-mobile="false">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <a href="#" class="not-hover" data-tab-trigger="0">Produktanfragen</a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#" class="not-hover" data-tab-trigger="1">Garantie</a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#" class="not-hover" data-tab-trigger="2">Bezahlung</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tabs__nav-select select-wrap d-block d-md-none">
+                                <select name="" class="_select" data-tab-select>
+                                    <option value="0" selected>Produktanfragen</option>
+                                    <option value="1">Garantie</option>
+                                    <option value="2">Bezahlung</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabs__col-2">
+                        <div class="tabs__content" data-tab-content="0">
+                            <ul class="accordion" data-spoller>
+                                <li>
+                                    <div class="accordion__title" data-spoller-trigger>
+                                        Wir sind an einem Doppelhochbett oder am Kinderspielplatz „Kleinkind“ interessiert. Können wir Ihre Brettrtutsche dafür benutzen?
+                                        <div class="accordion__icon">
+                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="accordion__collapse text-content">
+                                        <p>
+                                            Ja, für beide Produkte ist unsere Brettrutsche geeignet. Sie können die Brettrutsche benutzen, in dem Sie die Brettrutsche an beliebige Sprossen anlegen.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="accordion__title" data-spoller-trigger>
+                                        Sie geben in der Produktbeschreibung an, dass Ihre Sprossenwände und Brettrutschen ein Gewicht von bis zu 150kg aushalten. Heißt es, dass ich als Vater zusammen mit den Kindern das Gerüst gleichzeitig benutzen kann?
+                                        <div class="accordion__icon">
+                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="accordion__collapse text-content">
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
+                                            in alias quis nisi sequi omnis?</p>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
+                                            in alias quis nisi sequi omnis?</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="accordion__title" data-spoller-trigger>
+                                        Wir haben 2 Kinder und überlegen uns eine Sprossenwand mit Brettrutsche und Matte zu kaufen. Ist eine Matte für 2 Kinder ausreichend genug?
+                                        <div class="accordion__icon">
+                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="accordion__collapse text-content">
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
+                                            in alias quis nisi sequi omnis?</p>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
+                                            in alias quis nisi sequi omnis?</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="accordion__title" data-spoller-trigger>
+                                        Verändert sich das Maximalbelastungsgewicht bei Positionswechsel der Sprossenwand?
+                                        <div class="accordion__icon">
+                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="accordion__collapse text-content">
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
+                                            in alias quis nisi sequi omnis?</p>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
+                                            in alias quis nisi sequi omnis?</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="accordion__title" data-spoller-trigger>
+                                        Beziehen sich die 150 kg Belastbarkeit der Sprossenwand nur auf das Reck oder dürfen Erwachsene mit Kindern das Klettergerüst benutzen?
+                                        <div class="accordion__icon">
+                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="accordion__collapse text-content">
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
+                                            in alias quis nisi sequi omnis?</p>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
+                                            in alias quis nisi sequi omnis?</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="accordion__title" data-spoller-trigger>
+                                        Wie viel beträgt der Abstand zwischen den Sprossen und wie lauten die Maße der Sprossen?
+                                        <div class="accordion__icon">
+                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="accordion__collapse text-content">
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
+                                            in alias quis nisi sequi omnis?</p>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
+                                            in alias quis nisi sequi omnis?</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="accordion__title" data-spoller-trigger>
+                                        Wie weit ragt das Reck in den Raum?
+                                        <div class="accordion__icon">
+                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="accordion__collapse text-content">
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
+                                            in alias quis nisi sequi omnis?</p>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
+                                            in alias quis nisi sequi omnis?</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="accordion__title" data-spoller-trigger>
+                                        Ist Ihre Sprossenwand aus Kiefer oder Esche auch für outdoor geeignet, wie z.B. für den Wintergarten oder für den Hof?
+                                        <div class="accordion__icon">
+                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="accordion__collapse text-content">
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
+                                            in alias quis nisi sequi omnis?</p>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
+                                            in alias quis nisi sequi omnis?</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tabs__content" data-tab-content="1">
+                            <ul class="accordion" data-spoller>
+                                <li>
+                                    <div class="accordion__title" data-spoller-trigger>
+                                        Was ist ein Piratenschiff-Bett?
+                                        <div class="accordion__icon">
+                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="accordion__collapse text-content">
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
+                                            in alias quis nisi sequi omnis?</p>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
+                                            in alias quis nisi sequi omnis?</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tabs__content" data-tab-content="2">
+                            <ul class="accordion" data-spoller>
+                                <li>
+                                    <div class="accordion__title" data-spoller-trigger>
+                                        Kann man ein Piratenbett kaufen oder muss man es selbst machen?
+                                        <div class="accordion__icon">
+                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="accordion__collapse text-content">
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
+                                            in alias quis nisi sequi omnis?</p>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
+                                            in alias quis nisi sequi omnis?</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="accordion__title" data-spoller-trigger>
+                                        Wie viel kostet ein Piratenschiff-Hochbett?
+                                        <div class="accordion__icon">
+                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="accordion__collapse text-content">
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
+                                            in alias quis nisi sequi omnis?</p>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
+                                            in alias quis nisi sequi omnis?</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- == FOOTER ================== -->
+    @@include('common/footer/_footer.html',{})
+    <!-- == // FOOTER ================== -->
+
+    @@include('_js-bottom.html',{})
+</body>
+
+</html>

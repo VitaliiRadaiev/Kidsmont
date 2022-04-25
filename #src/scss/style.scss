@@ -60,6 +60,9 @@
 @import "../common/review-list-card/review-list-card";
 @import "../common/gallery-carousel/gallery-carousel";
 @import "../common/drop-zone/drop-zone";
+@import "../common/main-table/main-table";
+@import "../common/accordion/accordion";
+@import "../common/tabs/tabs";
 // ==== // COMMON BLOCKS =====================================================
 
 // ==== PAGES =====================================================
@@ -71,5 +74,10 @@
 @import "pages/blog-detail";
 @import "pages/about";
 @import "pages/reviews";
+@import "pages/impressum";
+@import "pages/faq";
+@import "pages/contact";
+@import "pages/leave-complaint";
+@import "pages/account";
 // ==== AND PAGES =====================================================
 

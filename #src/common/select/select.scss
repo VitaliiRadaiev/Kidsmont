@@ -1,4 +1,9 @@
 .select {
+	&._active {
+		& .select__value {
+			border-bottom: 1px solid $mainColor;
+		}
+	}
 	&__item {
 		position: relative;
 	}
@@ -9,7 +14,7 @@
 	&__value {
 		padding-right: 2.5rem;
 		min-height: 6rem;
-		border-bottom: 2px solid $borderColor;
+		border-bottom: 1px solid $borderColor;
 		display: flex;
 		align-items: center;
 		span {
@@ -51,7 +56,7 @@
 		overflow-y: auto;
 		padding-top: 4px;
 		padding-bottom: 4px;
-		border: 2px solid $borderColor;
+		border: 1px solid $borderColor;
 	}
 	// .select__option
 	&__option {
