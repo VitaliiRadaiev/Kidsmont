@@ -12,7 +12,8 @@
                             slidesPerView: 'auto',
                             slideToClickedSlide: true,
                             speed: 800,
-                            freeMode: true
+                            freeMode: true,
+                            spaceBetween: 25,
                         });
 
                         slider.dataset.mobile = 'true';

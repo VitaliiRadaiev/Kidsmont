@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('_head.html',{
+"title": "Kidsmond"
+})
+
+<body data-scroll-container>
+    <div class="_preload-body"></div>
+    <!-- == TOP LINE ================== -->
+
+    @@include('common/header/_header.html',{
+    "mod": ""
+    })
+    <!-- == // TOP LINE ================== -->
+
+    <main class="_page " data-padding-top-header-size data-scroll-section>
+
+        @@include('common/breadcrumbs/_breadcrumbs.html', {
+        "arr": ['<a href="#">Home</a>', 'Checkout']
+        })
+
+        <div class="container-sm">
+            <div class="head pt-4 pt-lg-0">
+                <h2 class="head__title">Shopping Cart</h2>
+            </div>
+        </div>
+
+
+        <div class="checkout padding-wrap pt-0">
+            <div class="container-sm">
+                <form action="">
+                    <div class="checkout__body">
+                        <div class="checkout__col-1"></div>
+                        <div class="checkout__col-2">
+                            <div class="checkout-card">
+                                <div class="checkout-card__title">Gesamt</div>
+                                <ul class="checkout-card__list">
+                                    <li>
+                                        <div>1 Artikel wert</div>
+                                        <div><strong>500€</strong></div>
+                                    </li>
+                                    <li>
+                                        <div>Lieferpreis</div>
+                                        <div><strong>Ist gratis</strong></div>
+                                    </li>
+                                </ul>
+                                <div class="checkout-card__total">
+                                    <div>Bezahlen</div>
+                                    <div class="checkout-card__total-price">530€</div>
+                                </div>
+                                <button type="submit" class="checkout-card__btn btn-default">Die Bestellung wird bestätigt</button>
+                                <div class="checkout-card__bottom">
+                                    <div class="checkbox-radio">
+                                        <input type="checkbox">
+                                        <div class="checkbox-radio__square"></div>
+                                        <div class="checkbox-radio__text">Mit der Bestätigung der Bestellung <a href="#">akzeptiere ich die Nutzungsbedingungen</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- == FOOTER ================== -->
+    @@include('common/footer/_footer.html',{})
+    <!-- == // FOOTER ================== -->
+
+    @@include('_js-bottom.html',{})
+</body>
+
+</html>

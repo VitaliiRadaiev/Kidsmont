@@ -1,0 +1,71 @@
+.account {
+    &__body {
+        padding-top: 3.6rem;
+        border-top: 1px solid $borderColor;
+    }
+
+    &__bottom-link {
+        padding-top: 36px;
+        width: 100%;
+        text-align: center;
+
+        @media (min-width: 768px) {
+            display: none;
+        }
+    }
+
+    & .tabs {
+        @media (max-width: $md2+px) {
+            display: block;
+        }
+    }
+
+    & .tabs__col-1 {
+        @media (max-width: $md2+px) {
+            padding-right: 0;
+        }
+    }
+
+    & .tabs__nav-list {
+        @media (max-width: $md2+px) {
+            & .swiper-wrapper {
+                flex-direction: row;
+            }
+
+            & .swiper-slide {
+                width: auto;
+                margin-bottom: 0;
+                padding-right: 25px;
+            }
+        }
+
+        @media (max-width: $md3+px) {
+            & .swiper-slide {
+                padding-right: 0px;
+            }
+        }
+    }
+
+    & .form {
+        
+        @media (min-width: 992px) {
+            max-width: 64rem;
+            margin-left: auto;
+        }
+    }
+}
+
+
+.go-out-link {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    font-family: $titleFontFamily;
+    justify-content: space-between;
+
+    & img, & svg {
+        flex: 0 0 auto;
+        margin-left: 1.5rem;
+    }
+}

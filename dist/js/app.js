@@ -457,6 +457,7 @@ if(popupCloseIcon.length > 0) {
 
 function popupOpen(curentPopup) {
 	if(curentPopup && unlock) {
+		window.locomotivePageScroll.stop();
 		const popupActive = document.querySelector('.popup.popup--open');
 		if (popupActive) {
 			popupClose(popupActive, false);
@@ -475,6 +476,7 @@ function popupOpen(curentPopup) {
 
 function popupClose(popupActive, doUnlock = true) {
 	if(unlock) {
+		window.locomotivePageScroll.start();
 		popupActive.classList.remove('popup--open');
 		if(doUnlock) {
 			bodyUnlock();
@@ -868,7 +870,8 @@ window.popup = {
                             slidesPerView: 'auto',
                             slideToClickedSlide: true,
                             speed: 800,
-                            freeMode: true
+                            freeMode: true,
+                            spaceBetween: 25,
                         });
 
                         slider.dataset.mobile = 'true';
@@ -1636,12 +1639,41 @@ if (videoBlock.length) {
 
             textarea.addEventListener('focus', () => {
                 wrapper.classList.add('textarea-is-focus');
-                textarea.style.height = sizeBox.clientHeight  + 'px';
+                textarea.style.height = sizeBox.clientHeight + 'px';
             })
             textarea.addEventListener('blur', () => {
                 wrapper.classList.remove('textarea-is-focus');
                 textarea.removeAttribute('style');
             })
+        })
+    }
+}
+
+{
+    let passwordAll = document.querySelectorAll('[data-password]');
+    if (passwordAll.length) {
+        passwordAll.forEach(password => {
+            let input = password.querySelector('input');
+
+            if (input) {
+                // init
+                input.setAttribute('type', 'password');
+
+                // add btn eye
+                let btnEye = document.createElement('div');
+                btnEye.className = 'password__btn-eye';
+                password.append(btnEye);
+
+                btnEye.addEventListener('click', () => {
+                    if (password.classList.contains('password--show')) {
+                        input.setAttribute('type', 'password');
+                        password.classList.remove('password--show');
+                    } else {
+                        input.setAttribute('type', 'text');
+                        password.classList.add('password--show');
+                    }
+                })
+            }
         })
     }
 };
@@ -1836,26 +1868,34 @@ if (videoBlock.length) {
     let sidePanelAll = Array.from(document.querySelectorAll('[data-side-panel]'));
     if(sidePanelAll.length) {
         sidePanelAll.forEach(sidePanel => {
-            let closeBtn = sidePanel.querySelector('[data-side-panel-close]');
-            
-            closeBtn.addEventListener('click', () => {
-                sidePanel.classList.remove('side-panel--open');
-                document.body.classList.remove('overflow-hidden');
-            })
+            let closeButtons = sidePanel.querySelectorAll('[data-side-panel-close]');
+            if(closeButtons.length) {
+                closeButtons.forEach(closeBtn => {
+                    closeBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        sidePanel.classList.remove('side-panel--open');
+                        document.body.classList.remove('overflow-hidden');
+                        window.locomotivePageScroll.start();
+                    })
+                })
+            }
     })
 
         let openButtons = document.querySelectorAll('[data-side-panel-open]');
         if(openButtons.length) {
             openButtons.forEach(openButton => {
                 let [sidePanel] = sidePanelAll.filter(sidePanel => sidePanel.dataset.sidePanel === openButton.dataset.sidePanelOpen);
-                openButton.addEventListener('click', () => {
+                openButton.addEventListener('click', (e) => {
+                    e.preventDefault();
                     sidePanel.classList.add('side-panel--open');
                     document.body.classList.add('overflow-hidden');
+                    window.locomotivePageScroll.stop();
                 })
             })
         }
     }
-};
+}
+;
 		{
     let rangeAll = document.querySelectorAll('[data-price-range]');
     if (rangeAll.length) {
@@ -2097,6 +2137,60 @@ if (dropZoneBox) {
         console.log(dt.files)
     })
 };
+		{
+    let orderList = document.querySelector('[data-order-list]');
+    if (orderList) {
+        let items = orderList.querySelectorAll('.orders-list__item');
+        if (items.length) {
+            items.forEach(item => {
+                let btn = item.querySelector('.orders-list__icon');
+                let collapsedRow = item.querySelector('.orders-list__detail-info-row');
+
+                if (btn && collapsedRow) {
+                    btn.addEventListener('click', () => {
+                        btn.classList.toggle('active');
+                        this.utils.slideToggle(collapsedRow);
+
+                        // update locomotive scroll
+                        let id = setInterval(() => {
+                            window.locomotivePageScroll.update();
+                        }, 200);
+                        setTimeout(() => {
+                            clearInterval(id);
+                        }, 600)
+                    })
+                }
+            })
+        }
+    }
+};
+		{
+    let quantityAll = document.querySelectorAll('[data-quantity]');
+    if(quantityAll.length) {
+        quantityAll.forEach(quantity => {
+            let buttons = quantity.querySelectorAll('.quantity__button');
+            let input = quantity.querySelector('input');
+
+            if(buttons.length && input) {
+                buttons.forEach(button => {
+                    button.addEventListener("click", function (e) {
+                        let value = input.value;
+                        if (button.classList.contains('quantity__button--plus')) {
+                            value++;
+                        } else {
+                            value = value - 1;
+                            if (value < 1) {
+                                value = 1
+                            }
+                        }
+                        input.value = value;
+                    });
+                })
+            }
+        })
+    }
+}
+;
 	}
 
 }

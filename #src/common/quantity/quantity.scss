@@ -1,9 +1,15 @@
 .quantity {
-	width: 109px;
-	height: 40px;
+	width: 9rem;
+	height: 3.7rem;
 	display: flex;
-    background: #F8F8FA;
-	// .quantity__button
+	padding-bottom: 0.8rem;
+	border-bottom: 1px solid $borderColor;
+
+	@media (max-width: $md3+px) {
+		height: 30px;
+		padding-bottom: 4px;
+	}
+
 	&__button {
 		flex: 0 0 30px;
 		position: relative;
@@ -29,25 +35,35 @@
 			}
 		}
 		// .quantity__button_plus
-		&_plus {
+		&--minus {
+			margin-left: -0.9rem;
+
+		}
+		// .quantity__button_minus
+		&--plus {
+			margin-right: -0.9rem;
+
 			&::before {
 				transform: rotate(-90deg);
 			}
-		}
-		// .quantity__button_minus
-		&_minus {
 		}
 	}
 	// .quantity__input
 	&__input {
 		flex: 1 1 auto;
+		padding: 0 0.6rem;
 		input {
-            background: #F8F8FA;
+            background: transparent;
 			height: 100%;
 			color: $textColor;
 			font-size: 14px;
+			font-weight: 600;
+			font-family: $titleFontFamily;
 			width: 100%;
 			text-align: center;
+			border: none;
+			outline: none;
+			box-shadow: none;
 		}
 	}
 }

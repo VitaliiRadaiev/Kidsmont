@@ -1,0 +1,186 @@
+.orders-list {
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-bottom: 5rem;
+
+    @media (max-width: $md2+px) {
+        border-top: 1px solid $borderColor;
+    }
+
+    @media (max-width: $md3+px) {
+        margin-bottom: 24px;
+    }
+
+    & > li {
+        &:first-child {
+            @media (min-width: 992px) {
+                & .orders-list__main-info-row {
+                    padding-top: 0;
+                }
+
+                & .orders-list__icon {
+                    transform: translateY(calc(-50% - (3.6rem / 2)));
+
+                    &.active {
+                        transform: translateY(calc(-50% - (3.6rem / 2))) rotate(-45deg);
+                    }
+                }
+            }
+        }
+    }
+    &__main-info-row {
+        position: relative;
+        display: flex;
+        padding: 3.6rem 0;
+        border-bottom: 1px solid $borderColor;
+
+        @media (max-width: $md3+px) {
+            padding: 24px 0;
+            justify-content: space-between;
+            padding-right: 30px;
+        }
+    }
+
+    &__main-info-col {
+        &:nth-child(1) {
+            flex: 0 0 37.12%;
+            @media (max-width: $md3+px) {
+                flex: 0 1 auto;
+            }
+        }
+        &:nth-child(2) {
+            flex: 0 0 35.92%;
+            @media (max-width: $md3+px) {
+                flex: 0 1 auto;
+            }
+        }
+        &:nth-child(3) {
+            flex: 1 1 auto;
+            @media (max-width: $md3+px) {
+                flex: 0 1 auto;
+            }
+        }
+
+        &:not(:last-child) {
+            margin-right: 16px;
+        }
+
+        & div {
+            @media (max-width: $md3+px) {
+                font-size: 14px;
+                line-height: 1.5em;
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 0.6rem;
+            }
+
+            & strong {
+                font-weight: 600;
+                font-family: $titleFontFamily;
+            }
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        z-index: 5;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 5rem;
+        width: 5rem;
+        border-radius: 50%;
+        background-color: #fff;
+        font-size: 2.4rem;
+        transition: all 0.3s ease;
+
+        @media (max-width: $md3+px) {
+            height: 36px;
+            width: 36px;
+            font-size: 20px;
+        }
+
+        @media (min-width: 992px) {
+            &:hover {
+                background-color: $hover;
+                color: $lightColor;
+            }
+        }
+
+        &:active {
+            background-color: $active !important;
+            color: $lightColor !important;
+        }
+
+        &.active {
+            transform: translateY(-50%) rotate(-45deg);
+        }
+    }
+
+    &__detail-info-row {
+        display: none;
+    }
+}
+
+.order-detail-card {
+    background-color: $bgSecondary;
+    position: relative;
+    padding: 2.4rem 3rem;
+
+    @media (max-width: $md3+px) {
+        padding: 15px;
+    }
+
+    &:before {
+        position: absolute;
+        content: "";
+        left: 0;
+        bottom: 0;
+        height: 1px;
+        width: 100%;
+        background-color: $borderColor;
+    }
+
+    &__row-1 {
+        margin-bottom: 2.4rem;
+
+        @media (max-width: $md3+px) {
+            margin-bottom: 16px;
+        }
+    }
+
+    &__row-2 {
+        @media (min-width: 768px) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 72.7rem;
+        }
+    }
+
+    &__col {
+        &:not(:last-child) {
+            @media (min-width: 768px) {
+                margin-right: 1.5rem;
+            }
+            @media (max-width: $md3+px) {
+                margin-bottom: 12px;
+            }
+        }
+
+        &:first-child {
+            @media (min-width: 768px) {
+                max-width: 30rem;
+            }
+        }
+
+        @media (max-width: $md3+px) {
+            font-size: 14px;
+            line-height: 1.5em;
+        }
+    }
+}

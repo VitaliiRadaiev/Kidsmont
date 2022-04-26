@@ -343,6 +343,8 @@ class App {
 		@@include('../common/blog-list/blog-list.js');
 		@@include('../common/blog-detail/blog-detail.js');
 		@@include('../common/drop-zone/drop-zone.js');
+		@@include('../common/orders-list/orders-list.js');
+		@@include('../common/quantity/quantity.js');
 	}
 
 }

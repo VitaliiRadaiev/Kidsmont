@@ -122,6 +122,11 @@
     font-family: $titleFontFamily;
     border: 1px solid $secondColor;
 
+    @media (max-width: $md3+px) {
+        min-height: 48px;
+        font-size: 18px;
+    }
+
     @media (min-width: 992px) {
         &:hover {
             color: $lightColor;

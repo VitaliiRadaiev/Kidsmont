@@ -1,18 +1,26 @@
-let quantityButtons = document.querySelectorAll('.quantity__button');
-if (quantityButtons.length > 0) {
-    for (let index = 0; index < quantityButtons.length; index++) {
-        const quantityButton = quantityButtons[index];
-        quantityButton.addEventListener("click", function (e) {
-            let value = parseInt(quantityButton.closest('.quantity').querySelector('input').value);
-            if (quantityButton.classList.contains('quantity__button_plus')) {
-                value++;
-            } else {
-                value = value - 1;
-                if (value < 1) {
-                    value = 1
-                }
+{
+    let quantityAll = document.querySelectorAll('[data-quantity]');
+    if(quantityAll.length) {
+        quantityAll.forEach(quantity => {
+            let buttons = quantity.querySelectorAll('.quantity__button');
+            let input = quantity.querySelector('input');
+
+            if(buttons.length && input) {
+                buttons.forEach(button => {
+                    button.addEventListener("click", function (e) {
+                        let value = input.value;
+                        if (button.classList.contains('quantity__button--plus')) {
+                            value++;
+                        } else {
+                            value = value - 1;
+                            if (value < 1) {
+                                value = 1
+                            }
+                        }
+                        input.value = value;
+                    });
+                })
             }
-            quantityButton.closest('.quantity').querySelector('input').value = value;
-        });
+        })
     }
-};
+}

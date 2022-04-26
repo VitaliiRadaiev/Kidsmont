@@ -580,8 +580,8 @@
         }
 
         &:before {
-            content: '\f053';
-            font-family: $fontAwesome;
+            content: "\e904";
+            font-family: 'icomoon';
             font-weight: 700;
             margin-right: 5px;
         }
@@ -620,9 +620,8 @@
 
             &:before {
                 position: absolute;
-                font-family: $fontAwesome;
-                font-weight: 700;
-                content: "\f054";
+                font-family: 'icomoon';
+                content: "\e905";
                 top: 50%;
                 right: 20px;
                 transform: translateY(-50%);

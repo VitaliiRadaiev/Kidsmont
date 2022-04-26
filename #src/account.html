@@ -21,7 +21,16 @@
 
         <div class="container-sm">
             <div class="head pt-4 pt-lg-0">
-                <h2 class="head__title">Persönliches Büro</h2>
+                <h2 class="head__title d-flex align-items-center justify-content-between">
+                    Persönliches Büro
+
+                    <div class="d-flex align-items-center justify-content-center justify-content-md-start" data-da=".account__bottom-link,767.98,0">
+                        <a href="#" class="go-out-link">
+                            Hinausgehen
+                            <img class="img-svg" src="img/icons/go-out.svg" alt="">
+                        </a>
+                    </div>
+                </h2>
             </div>
         </div>
 
@@ -37,7 +46,8 @@
                                         <a href="#" class="not-hover" data-tab-trigger="0">Meine Details</a>
                                     </div>
                                     <div class="swiper-slide">
-                                        <a href="#" class="not-hover tab-active" data-tab-trigger="1">Meine Bestellungen</a>
+                                        <a href="#" class="not-hover" data-tab-trigger="1">Meine
+                                            Bestellungen</a>
                                     </div>
                                 </div>
                             </div>
@@ -45,8 +55,8 @@
                     </div>
                     <div class="tabs__col-2">
                         <div class="tabs__content" data-tab-content="0">
-                            <form  action="/">
-                                <div class="form">
+                            <div class="d-flex flex-column">
+                                <form action="/" class="form">
                                     <h5 class="form__title">
                                         Fülle das Formular aus
                                     </h5>
@@ -67,27 +77,626 @@
                                             <input class="input" type="text" placeholder="Die Adresse">
                                         </div>
                                     </div>
-                                    <button type="submit" class="form__submit btn-default align-self-end">Speichern</button>
-                                </div>
-                            </form>
+                                    <button type="submit"
+                                        class="form__submit btn-default align-self-end">Speichern</button>
+                                </form>
+                                <div class="account__bottom-link"></div>
+                            </div>
                         </div>
                         <div class="tabs__content" data-tab-content="1">
-                            <ul class="accordion" data-spoller>
-                                <li>
-                                    <div class="accordion__title" data-spoller-trigger>
-                                        Was ist ein Piratenschiff-Bett?
-                                        <div class="accordion__icon">
+                            <ul class="orders-list" data-order-list>
+                                <li class="orders-list__item">
+                                    <div class="orders-list__main-info-row">
+                                        <div class="orders-list__main-info-col">
+                                            <div>№421 432 1123</div>
+                                            <div><strong>20.06.20</strong></div>
+                                        </div>
+                                        <div class="orders-list__main-info-col">
+                                            <div>Status:</div>
+                                            <div><strong>Completed</strong></div>
+                                        </div>
+                                        <div class="orders-list__main-info-col">
+                                            <div>Summe:</div>
+                                            <div><strong>76€</strong></div>
+                                        </div>
+                                        <div class="orders-list__icon">
                                             <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
                                         </div>
                                     </div>
-                                    <div class="accordion__collapse text-content">
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
-                                            in alias quis nisi sequi omnis?</p>
-                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur,
-                                            in alias quis nisi sequi omnis?</p>
+                                    <div class="orders-list__detail-info-row">
+                                        <div class="order-detail-card">
+                                            <div class="order-detail-card__row-1">
+                                                <div class="order-card">
+                                                    <div class="order-card__img">
+                                                        <img src="img/photo/order-card-img.png" alt="">
+                                                    </div>
+                                                    <div class="order-card__inner">
+                                                        <div class="order-card__title">
+                                                            Kinderbett “Piratenschiff” aus Kiefer oder Esche für
+                                                        </div>
+                                                        <div class="order-card__info-wrap">
+                                                            <div class="order-card__col">
+                                                                <div>Menge:</div>
+                                                                <div><strong>1</strong></div>
+                                                            </div>
+                                                            <div class="order-card__col">
+                                                                <div>Die Zustellung:</div>
+                                                                <div><strong>0 €</strong></div>
+                                                            </div>
+                                                            <div class="order-card__col">
+                                                                <div>Summe:</div>
+                                                                <div><strong>76€</strong></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="order-detail-card__row-2">
+                                                <div class="order-detail-card__col">
+                                                    Abholung bei der Post(Meerner Str. 11E, 12681 Berlin 12, Abteilung
+                                                    №3)
+                                                </div>
+                                                <div class="order-detail-card__col">
+                                                    +7333999443
+                                                </div>
+                                                <div class="order-detail-card__col">
+                                                    ТТН 223345454004
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="orders-list__item">
+                                    <div class="orders-list__main-info-row">
+                                        <div class="orders-list__main-info-col">
+                                            <div>№421 432 1123</div>
+                                            <div><strong>20.06.20</strong></div>
+                                        </div>
+                                        <div class="orders-list__main-info-col">
+                                            <div>Status:</div>
+                                            <div><strong>Completed</strong></div>
+                                        </div>
+                                        <div class="orders-list__main-info-col">
+                                            <div>Summe:</div>
+                                            <div><strong>76€</strong></div>
+                                        </div>
+                                        <div class="orders-list__icon">
+                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="orders-list__detail-info-row">
+                                        <div class="order-detail-card">
+                                            <div class="order-detail-card__row-1">
+                                                <div class="order-card">
+                                                    <div class="order-card__img">
+                                                        <img src="img/photo/order-card-img.png" alt="">
+                                                    </div>
+                                                    <div class="order-card__inner">
+                                                        <div class="order-card__title">
+                                                            Kinderbett “Piratenschiff” aus Kiefer oder Esche für
+                                                        </div>
+                                                        <div class="order-card__info-wrap">
+                                                            <div class="order-card__col">
+                                                                <div>Menge:</div>
+                                                                <div><strong>1</strong></div>
+                                                            </div>
+                                                            <div class="order-card__col">
+                                                                <div>Die Zustellung:</div>
+                                                                <div><strong>0 €</strong></div>
+                                                            </div>
+                                                            <div class="order-card__col">
+                                                                <div>Summe:</div>
+                                                                <div><strong>76€</strong></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="order-detail-card__row-2">
+                                                <div class="order-detail-card__col">
+                                                    Abholung bei der Post(Meerner Str. 11E, 12681 Berlin 12, Abteilung
+                                                    №3)
+                                                </div>
+                                                <div class="order-detail-card__col">
+                                                    +7333999443
+                                                </div>
+                                                <div class="order-detail-card__col">
+                                                    ТТН 223345454004
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="orders-list__item">
+                                    <div class="orders-list__main-info-row">
+                                        <div class="orders-list__main-info-col">
+                                            <div>№421 432 1123</div>
+                                            <div><strong>20.06.20</strong></div>
+                                        </div>
+                                        <div class="orders-list__main-info-col">
+                                            <div>Status:</div>
+                                            <div><strong>Completed</strong></div>
+                                        </div>
+                                        <div class="orders-list__main-info-col">
+                                            <div>Summe:</div>
+                                            <div><strong>76€</strong></div>
+                                        </div>
+                                        <div class="orders-list__icon">
+                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="orders-list__detail-info-row">
+                                        <div class="order-detail-card">
+                                            <div class="order-detail-card__row-1">
+                                                <div class="order-card">
+                                                    <div class="order-card__img">
+                                                        <img src="img/photo/order-card-img.png" alt="">
+                                                    </div>
+                                                    <div class="order-card__inner">
+                                                        <div class="order-card__title">
+                                                            Kinderbett “Piratenschiff” aus Kiefer oder Esche für
+                                                        </div>
+                                                        <div class="order-card__info-wrap">
+                                                            <div class="order-card__col">
+                                                                <div>Menge:</div>
+                                                                <div><strong>1</strong></div>
+                                                            </div>
+                                                            <div class="order-card__col">
+                                                                <div>Die Zustellung:</div>
+                                                                <div><strong>0 €</strong></div>
+                                                            </div>
+                                                            <div class="order-card__col">
+                                                                <div>Summe:</div>
+                                                                <div><strong>76€</strong></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="order-detail-card__row-2">
+                                                <div class="order-detail-card__col">
+                                                    Abholung bei der Post(Meerner Str. 11E, 12681 Berlin 12, Abteilung
+                                                    №3)
+                                                </div>
+                                                <div class="order-detail-card__col">
+                                                    +7333999443
+                                                </div>
+                                                <div class="order-detail-card__col">
+                                                    ТТН 223345454004
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="orders-list__item">
+                                    <div class="orders-list__main-info-row">
+                                        <div class="orders-list__main-info-col">
+                                            <div>№421 432 1123</div>
+                                            <div><strong>20.06.20</strong></div>
+                                        </div>
+                                        <div class="orders-list__main-info-col">
+                                            <div>Status:</div>
+                                            <div><strong>Completed</strong></div>
+                                        </div>
+                                        <div class="orders-list__main-info-col">
+                                            <div>Summe:</div>
+                                            <div><strong>76€</strong></div>
+                                        </div>
+                                        <div class="orders-list__icon">
+                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="orders-list__detail-info-row">
+                                        <div class="order-detail-card">
+                                            <div class="order-detail-card__row-1">
+                                                <div class="order-card">
+                                                    <div class="order-card__img">
+                                                        <img src="img/photo/order-card-img.png" alt="">
+                                                    </div>
+                                                    <div class="order-card__inner">
+                                                        <div class="order-card__title">
+                                                            Kinderbett “Piratenschiff” aus Kiefer oder Esche für
+                                                        </div>
+                                                        <div class="order-card__info-wrap">
+                                                            <div class="order-card__col">
+                                                                <div>Menge:</div>
+                                                                <div><strong>1</strong></div>
+                                                            </div>
+                                                            <div class="order-card__col">
+                                                                <div>Die Zustellung:</div>
+                                                                <div><strong>0 €</strong></div>
+                                                            </div>
+                                                            <div class="order-card__col">
+                                                                <div>Summe:</div>
+                                                                <div><strong>76€</strong></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="order-detail-card__row-2">
+                                                <div class="order-detail-card__col">
+                                                    Abholung bei der Post(Meerner Str. 11E, 12681 Berlin 12, Abteilung
+                                                    №3)
+                                                </div>
+                                                <div class="order-detail-card__col">
+                                                    +7333999443
+                                                </div>
+                                                <div class="order-detail-card__col">
+                                                    ТТН 223345454004
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="orders-list__item">
+                                    <div class="orders-list__main-info-row">
+                                        <div class="orders-list__main-info-col">
+                                            <div>№421 432 1123</div>
+                                            <div><strong>20.06.20</strong></div>
+                                        </div>
+                                        <div class="orders-list__main-info-col">
+                                            <div>Status:</div>
+                                            <div><strong>Completed</strong></div>
+                                        </div>
+                                        <div class="orders-list__main-info-col">
+                                            <div>Summe:</div>
+                                            <div><strong>76€</strong></div>
+                                        </div>
+                                        <div class="orders-list__icon">
+                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="orders-list__detail-info-row">
+                                        <div class="order-detail-card">
+                                            <div class="order-detail-card__row-1">
+                                                <div class="order-card">
+                                                    <div class="order-card__img">
+                                                        <img src="img/photo/order-card-img.png" alt="">
+                                                    </div>
+                                                    <div class="order-card__inner">
+                                                        <div class="order-card__title">
+                                                            Kinderbett “Piratenschiff” aus Kiefer oder Esche für
+                                                        </div>
+                                                        <div class="order-card__info-wrap">
+                                                            <div class="order-card__col">
+                                                                <div>Menge:</div>
+                                                                <div><strong>1</strong></div>
+                                                            </div>
+                                                            <div class="order-card__col">
+                                                                <div>Die Zustellung:</div>
+                                                                <div><strong>0 €</strong></div>
+                                                            </div>
+                                                            <div class="order-card__col">
+                                                                <div>Summe:</div>
+                                                                <div><strong>76€</strong></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="order-detail-card__row-2">
+                                                <div class="order-detail-card__col">
+                                                    Abholung bei der Post(Meerner Str. 11E, 12681 Berlin 12, Abteilung
+                                                    №3)
+                                                </div>
+                                                <div class="order-detail-card__col">
+                                                    +7333999443
+                                                </div>
+                                                <div class="order-detail-card__col">
+                                                    ТТН 223345454004
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="orders-list__item">
+                                    <div class="orders-list__main-info-row">
+                                        <div class="orders-list__main-info-col">
+                                            <div>№421 432 1123</div>
+                                            <div><strong>20.06.20</strong></div>
+                                        </div>
+                                        <div class="orders-list__main-info-col">
+                                            <div>Status:</div>
+                                            <div><strong>Completed</strong></div>
+                                        </div>
+                                        <div class="orders-list__main-info-col">
+                                            <div>Summe:</div>
+                                            <div><strong>76€</strong></div>
+                                        </div>
+                                        <div class="orders-list__icon">
+                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="orders-list__detail-info-row">
+                                        <div class="order-detail-card">
+                                            <div class="order-detail-card__row-1">
+                                                <div class="order-card">
+                                                    <div class="order-card__img">
+                                                        <img src="img/photo/order-card-img.png" alt="">
+                                                    </div>
+                                                    <div class="order-card__inner">
+                                                        <div class="order-card__title">
+                                                            Kinderbett “Piratenschiff” aus Kiefer oder Esche für
+                                                        </div>
+                                                        <div class="order-card__info-wrap">
+                                                            <div class="order-card__col">
+                                                                <div>Menge:</div>
+                                                                <div><strong>1</strong></div>
+                                                            </div>
+                                                            <div class="order-card__col">
+                                                                <div>Die Zustellung:</div>
+                                                                <div><strong>0 €</strong></div>
+                                                            </div>
+                                                            <div class="order-card__col">
+                                                                <div>Summe:</div>
+                                                                <div><strong>76€</strong></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="order-detail-card__row-2">
+                                                <div class="order-detail-card__col">
+                                                    Abholung bei der Post(Meerner Str. 11E, 12681 Berlin 12, Abteilung
+                                                    №3)
+                                                </div>
+                                                <div class="order-detail-card__col">
+                                                    +7333999443
+                                                </div>
+                                                <div class="order-detail-card__col">
+                                                    ТТН 223345454004
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="orders-list__item">
+                                    <div class="orders-list__main-info-row">
+                                        <div class="orders-list__main-info-col">
+                                            <div>№421 432 1123</div>
+                                            <div><strong>20.06.20</strong></div>
+                                        </div>
+                                        <div class="orders-list__main-info-col">
+                                            <div>Status:</div>
+                                            <div><strong>Completed</strong></div>
+                                        </div>
+                                        <div class="orders-list__main-info-col">
+                                            <div>Summe:</div>
+                                            <div><strong>76€</strong></div>
+                                        </div>
+                                        <div class="orders-list__icon">
+                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="orders-list__detail-info-row">
+                                        <div class="order-detail-card">
+                                            <div class="order-detail-card__row-1">
+                                                <div class="order-card">
+                                                    <div class="order-card__img">
+                                                        <img src="img/photo/order-card-img.png" alt="">
+                                                    </div>
+                                                    <div class="order-card__inner">
+                                                        <div class="order-card__title">
+                                                            Kinderbett “Piratenschiff” aus Kiefer oder Esche für
+                                                        </div>
+                                                        <div class="order-card__info-wrap">
+                                                            <div class="order-card__col">
+                                                                <div>Menge:</div>
+                                                                <div><strong>1</strong></div>
+                                                            </div>
+                                                            <div class="order-card__col">
+                                                                <div>Die Zustellung:</div>
+                                                                <div><strong>0 €</strong></div>
+                                                            </div>
+                                                            <div class="order-card__col">
+                                                                <div>Summe:</div>
+                                                                <div><strong>76€</strong></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="order-detail-card__row-2">
+                                                <div class="order-detail-card__col">
+                                                    Abholung bei der Post(Meerner Str. 11E, 12681 Berlin 12, Abteilung
+                                                    №3)
+                                                </div>
+                                                <div class="order-detail-card__col">
+                                                    +7333999443
+                                                </div>
+                                                <div class="order-detail-card__col">
+                                                    ТТН 223345454004
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="orders-list__item">
+                                    <div class="orders-list__main-info-row">
+                                        <div class="orders-list__main-info-col">
+                                            <div>№421 432 1123</div>
+                                            <div><strong>20.06.20</strong></div>
+                                        </div>
+                                        <div class="orders-list__main-info-col">
+                                            <div>Status:</div>
+                                            <div><strong>Completed</strong></div>
+                                        </div>
+                                        <div class="orders-list__main-info-col">
+                                            <div>Summe:</div>
+                                            <div><strong>76€</strong></div>
+                                        </div>
+                                        <div class="orders-list__icon">
+                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="orders-list__detail-info-row">
+                                        <div class="order-detail-card">
+                                            <div class="order-detail-card__row-1">
+                                                <div class="order-card">
+                                                    <div class="order-card__img">
+                                                        <img src="img/photo/order-card-img.png" alt="">
+                                                    </div>
+                                                    <div class="order-card__inner">
+                                                        <div class="order-card__title">
+                                                            Kinderbett “Piratenschiff” aus Kiefer oder Esche für
+                                                        </div>
+                                                        <div class="order-card__info-wrap">
+                                                            <div class="order-card__col">
+                                                                <div>Menge:</div>
+                                                                <div><strong>1</strong></div>
+                                                            </div>
+                                                            <div class="order-card__col">
+                                                                <div>Die Zustellung:</div>
+                                                                <div><strong>0 €</strong></div>
+                                                            </div>
+                                                            <div class="order-card__col">
+                                                                <div>Summe:</div>
+                                                                <div><strong>76€</strong></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="order-detail-card__row-2">
+                                                <div class="order-detail-card__col">
+                                                    Abholung bei der Post(Meerner Str. 11E, 12681 Berlin 12, Abteilung
+                                                    №3)
+                                                </div>
+                                                <div class="order-detail-card__col">
+                                                    +7333999443
+                                                </div>
+                                                <div class="order-detail-card__col">
+                                                    ТТН 223345454004
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="orders-list__item">
+                                    <div class="orders-list__main-info-row">
+                                        <div class="orders-list__main-info-col">
+                                            <div>№421 432 1123</div>
+                                            <div><strong>20.06.20</strong></div>
+                                        </div>
+                                        <div class="orders-list__main-info-col">
+                                            <div>Status:</div>
+                                            <div><strong>Completed</strong></div>
+                                        </div>
+                                        <div class="orders-list__main-info-col">
+                                            <div>Summe:</div>
+                                            <div><strong>76€</strong></div>
+                                        </div>
+                                        <div class="orders-list__icon">
+                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="orders-list__detail-info-row">
+                                        <div class="order-detail-card">
+                                            <div class="order-detail-card__row-1">
+                                                <div class="order-card">
+                                                    <div class="order-card__img">
+                                                        <img src="img/photo/order-card-img.png" alt="">
+                                                    </div>
+                                                    <div class="order-card__inner">
+                                                        <div class="order-card__title">
+                                                            Kinderbett “Piratenschiff” aus Kiefer oder Esche für
+                                                        </div>
+                                                        <div class="order-card__info-wrap">
+                                                            <div class="order-card__col">
+                                                                <div>Menge:</div>
+                                                                <div><strong>1</strong></div>
+                                                            </div>
+                                                            <div class="order-card__col">
+                                                                <div>Die Zustellung:</div>
+                                                                <div><strong>0 €</strong></div>
+                                                            </div>
+                                                            <div class="order-card__col">
+                                                                <div>Summe:</div>
+                                                                <div><strong>76€</strong></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="order-detail-card__row-2">
+                                                <div class="order-detail-card__col">
+                                                    Abholung bei der Post(Meerner Str. 11E, 12681 Berlin 12, Abteilung
+                                                    №3)
+                                                </div>
+                                                <div class="order-detail-card__col">
+                                                    +7333999443
+                                                </div>
+                                                <div class="order-detail-card__col">
+                                                    ТТН 223345454004
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="orders-list__item">
+                                    <div class="orders-list__main-info-row">
+                                        <div class="orders-list__main-info-col">
+                                            <div>№421 432 1123</div>
+                                            <div><strong>20.06.20</strong></div>
+                                        </div>
+                                        <div class="orders-list__main-info-col">
+                                            <div>Status:</div>
+                                            <div><strong>Completed</strong></div>
+                                        </div>
+                                        <div class="orders-list__main-info-col">
+                                            <div>Summe:</div>
+                                            <div><strong>76€</strong></div>
+                                        </div>
+                                        <div class="orders-list__icon">
+                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="orders-list__detail-info-row">
+                                        <div class="order-detail-card">
+                                            <div class="order-detail-card__row-1">
+                                                <div class="order-card">
+                                                    <div class="order-card__img">
+                                                        <img src="img/photo/order-card-img.png" alt="">
+                                                    </div>
+                                                    <div class="order-card__inner">
+                                                        <div class="order-card__title">
+                                                            Kinderbett “Piratenschiff” aus Kiefer oder Esche für
+                                                        </div>
+                                                        <div class="order-card__info-wrap">
+                                                            <div class="order-card__col">
+                                                                <div>Menge:</div>
+                                                                <div><strong>1</strong></div>
+                                                            </div>
+                                                            <div class="order-card__col">
+                                                                <div>Die Zustellung:</div>
+                                                                <div><strong>0 €</strong></div>
+                                                            </div>
+                                                            <div class="order-card__col">
+                                                                <div>Summe:</div>
+                                                                <div><strong>76€</strong></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="order-detail-card__row-2">
+                                                <div class="order-detail-card__col">
+                                                    Abholung bei der Post(Meerner Str. 11E, 12681 Berlin 12, Abteilung
+                                                    №3)
+                                                </div>
+                                                <div class="order-detail-card__col">
+                                                    +7333999443
+                                                </div>
+                                                <div class="order-detail-card__col">
+                                                    ТТН 223345454004
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </li>
                             </ul>
+                            @@include('common/pagination/_pagination.html')
                         </div>
                     </div>
                 </div>

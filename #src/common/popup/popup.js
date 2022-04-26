@@ -34,6 +34,7 @@ if(popupCloseIcon.length > 0) {
 
 function popupOpen(curentPopup) {
 	if(curentPopup && unlock) {
+		window.locomotivePageScroll.stop();
 		const popupActive = document.querySelector('.popup.popup--open');
 		if (popupActive) {
 			popupClose(popupActive, false);
@@ -52,6 +53,7 @@ function popupOpen(curentPopup) {
 
 function popupClose(popupActive, doUnlock = true) {
 	if(unlock) {
+		window.locomotivePageScroll.start();
 		popupActive.classList.remove('popup--open');
 		if(doUnlock) {
 			bodyUnlock();

@@ -40,7 +40,6 @@
 @import "../common/card/card";
 @import "../common/form/form";
 @import "../common/popup/popup";
-@import "../common/popup/popup-search";
 @import "../common/hero/hero";
 @import "../common/select/select";
 @import "../common/product-carousel/product-carousel";
@@ -63,6 +62,9 @@
 @import "../common/main-table/main-table";
 @import "../common/accordion/accordion";
 @import "../common/tabs/tabs";
+@import "../common/orders-list/orders-list";
+@import "../common/order-card/order-card";
+@import "../common/quantity/quantity";
 // ==== // COMMON BLOCKS =====================================================
 
 // ==== PAGES =====================================================
@@ -79,5 +81,6 @@
 @import "pages/contact";
 @import "pages/leave-complaint";
 @import "pages/account";
+@import "pages/checkout";
 // ==== AND PAGES =====================================================
 
