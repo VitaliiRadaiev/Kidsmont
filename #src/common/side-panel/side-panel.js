@@ -13,6 +13,19 @@
                     })
                 })
             }
+
+            if(sidePanel.dataset.sidePanel === "basket" || sidePanel.dataset.sidePanel === "favorites") {
+                let head = sidePanel.querySelector('.side-panel__head');
+                let scrollWrap = sidePanel.querySelector('.side-panel__scroll-wrap');
+                let bottom = sidePanel.querySelector('.side-panel__bottom');
+
+                const setHeight = () => {
+                    scrollWrap.style.height = `calc(100% - ${head.clientHeight + bottom.clientHeight}px)`;
+                }
+                setHeight();
+
+                window.addEventListener('resize',setHeight);
+            }
     })
 
         let openButtons = document.querySelectorAll('[data-side-panel-open]');

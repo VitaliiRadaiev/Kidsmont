@@ -316,17 +316,19 @@ defer
     </div>
 </div>
 
+
 <div class="side-panel side-panel--right selected-products basket" data-side-panel="basket">
     <div class="side-panel__body">
         <div class="side-panel__head">
             <h3 class="selected-products__title">Gesamt</h3>
             <div class="selected-products__count">2 products</div>
-            <div class="side-panel__close side-panel__close--circle" data-side-panel-close><span></span></div> 
+            <div class="side-panel__close side-panel__close--circle" data-side-panel-close><span></span></div>
         </div>
         <div class="side-panel__scroll-wrap">
             <ul class="selected-products__list">
                 <li>
-                    <div class="order-card">
+                    <div class="order-card order-card--has-delete">
+                        <a href="#" class="order-card__delete"><span></span></a>
                         <div class="order-card__img">
                             <a href="#">
                                 <img src="img/photo/order-card-img.png" alt="">
@@ -356,7 +358,8 @@ defer
                     </div>
                 </li>
                 <li>
-                    <div class="order-card">
+                    <div class="order-card order-card--has-delete">
+                        <a href="#" class="order-card__delete"><span></span></a>
                         <div class="order-card__img">
                             <a href="#">
                                 <img src="img/photo/order-card-img.png" alt="">
@@ -389,13 +392,17 @@ defer
         </div>
         <div class="side-panel__bottom">
             <div class="selected-products__bottom">
-                <div class="selected-products__bottom-col"><a href="#" class="side-panel__close-link" data-side-panel-close>Continue Shopping</a></div>
-                <div class="selected-products__bottom-col">
-                    <div class="selected-products__total">
-                        Total: <strong>76€</strong>
+                <div class="selected-products__bottom-row selected-products__bottom-row--1">
+                    <div class="selected-products__bottom-text">
+                        <div class="selected-products__bottom-label">Bezahlen</div>
+                        <p>Including VAT €35.34</p>
+                    </div>
+                    <div class="selected-products__bottom-total">
+                        1 530.00 €
                     </div>
                 </div>
-                <div class="selected-products__bottom-col">
+                <div class="selected-products__bottom-row selected-products__bottom-row--2">
+                    <a href="#" class="btn-default btn-default--transparent not-hover">View Cart</a>
                     <a href="#" class="btn-default not-hover">Checkout</a>
                 </div>
             </div>
@@ -403,71 +410,53 @@ defer
     </div>
 </div>
 
-<div class="side-panel side-panel--right selected-products basket" data-side-panel="favorites">
+<div class="side-panel  side-panel--right selected-products favorites" data-side-panel="favorites">
     <div class="side-panel__body">
         <div class="side-panel__head">
             <h3 class="selected-products__title">Favorites</h3>
             <div class="selected-products__count">2 products</div>
-            <div class="side-panel__close side-panel__close--circle" data-side-panel-close><span></span></div> 
+            <div class="side-panel__close side-panel__close--circle" data-side-panel-close><span></span></div>
         </div>
         <div class="side-panel__scroll-wrap">
             <ul class="selected-products__list">
                 <li>
-                    <div class="order-card">
+                    <div class="order-card order-card--has-like-btn">
+                        <a href="#" class="order-card__like order-card__like--active"></a>
                         <div class="order-card__img">
                             <a href="#">
                                 <img src="img/photo/order-card-img.png" alt="">
                             </a>
                         </div>
-                        <div class="order-card__inner">
-                            <div class="order-card__title">
+                        <div class="order-card__inner pt-0  pb-0">
+                            <div class="order-card__text">
                                 <a href="#">
-                                    Kinderbett “Piratenschiff” aus Kiefer oder Esche für
+                                    Kombi Sprossenwand 5-in-1 aus Kiefer Naturholz Farbe mit Matte und Rutsche, für Kinderzimmer
                                 </a>
                             </div>
-                            <div class="order-card__info-wrap align-items-center">
-                                <div class="order-card__col">
-                                    <div class="quantity" data-quantity>
-    <div class="quantity__button quantity__button--minus"></div>
-    <div class="quantity__input">
-        <input autocomplete="off" type="text" value="1">
-    </div>
-    <div class="quantity__button quantity__button--plus"></div>
-</div>
-                                </div>
-                                <div class="order-card__col">
-                                    <div class="order-card__price"><strong>76€</strong></div>
-                                </div>
+                            <div class="order-card__info-wrap flex-row  flex-md-column justify-content-between align-items-center align-items-md-end justify-content-md-start">
+                                <div class="order-card__price"><strong>471,00€</strong></div>
+                                <a href="#" class="order-card__add-to-cart">Add to Cart</a>
                             </div>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <div class="order-card">
+                    <div class="order-card order-card--has-like-btn">
+                        <a href="#" class="order-card__like order-card__like--active"></a>
                         <div class="order-card__img">
                             <a href="#">
                                 <img src="img/photo/order-card-img.png" alt="">
                             </a>
                         </div>
-                        <div class="order-card__inner">
-                            <div class="order-card__title">
+                        <div class="order-card__inner pt-0  pb-0">
+                            <div class="order-card__text">
                                 <a href="#">
-                                    Kinderbett “Piratenschiff” aus Kiefer oder Esche für
+                                    Sprossenwand 5-in-1 aus Kiefer Schwarz
                                 </a>
                             </div>
-                            <div class="order-card__info-wrap align-items-center">
-                                <div class="order-card__col">
-                                    <div class="quantity" data-quantity>
-    <div class="quantity__button quantity__button--minus"></div>
-    <div class="quantity__input">
-        <input autocomplete="off" type="text" value="1">
-    </div>
-    <div class="quantity__button quantity__button--plus"></div>
-</div>
-                                </div>
-                                <div class="order-card__col">
-                                    <div class="order-card__price"><strong>76€</strong></div>
-                                </div>
+                            <div class="order-card__info-wrap flex-row  flex-md-column justify-content-between align-items-center align-items-md-end justify-content-md-start">
+                                <div class="order-card__price"><strong>471,00€</strong></div>
+                                <a href="#" class="order-card__add-to-cart">Add to Cart</a>
                             </div>
                         </div>
                     </div>
@@ -476,14 +465,9 @@ defer
         </div>
         <div class="side-panel__bottom">
             <div class="selected-products__bottom">
-                <div class="selected-products__bottom-col"><a href="#" class="side-panel__close-link" data-side-panel-close>Continue Shopping</a></div>
-                <div class="selected-products__bottom-col">
-                    <div class="selected-products__total">
-                        Total: <strong>76€</strong>
-                    </div>
-                </div>
-                <div class="selected-products__bottom-col">
-                    <a href="#" class="btn-default not-hover">In den warenkorb legen</a>
+                <div class="selected-products__bottom-row selected-products__bottom-row--2">
+                    <a href="#" class="btn-default btn-default--transparent not-hover">View Cart</a>
+                    <a href="#" class="btn-default not-hover">Checkout</a>
                 </div>
             </div>
         </div>
