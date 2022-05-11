@@ -65,44 +65,44 @@ class App {
 
 	initMouse() {
 		if (!this.utils.isMobile()) {
-			const createDot = () => {
-				let dot = document.createElement('div');
-				dot.className = 'mouse-dot';
-				document.body.append(dot);
-				return dot;
-			}
+			// const createDot = () => {
+			// 	let dot = document.createElement('div');
+			// 	dot.className = 'mouse-dot';
+			// 	document.body.append(dot);
+			// 	return dot;
+			// }
 
-			let mouseDot = createDot();
+			// let mouseDot = createDot();
 
-			const setPositon = (e) => {
-				let width = mouseDot.clientWidth / 2;
-				mouseDot.style.left = e.pageX + 'px';
-				mouseDot.style.top = e.pageY + 'px';
-			}
+			// const setPositon = (e) => {
+			// 	let width = mouseDot.clientWidth / 2;
+			// 	mouseDot.style.left = e.pageX + 'px';
+			// 	mouseDot.style.top = e.pageY + 'px';
+			// }
 
-			const setHoverTrigger = (e) => {
-				if (e.target.closest('.hover')) {
-					mouseDot.classList.add('hover');
-				} else {
-					mouseDot.classList.remove('hover');
-				}
-			}
+			// const setHoverTrigger = (e) => {
+			// 	if (e.target.closest('.hover')) {
+			// 		mouseDot.classList.add('hover');
+			// 	} else {
+			// 		mouseDot.classList.remove('hover');
+			// 	}
+			// }
 
-			const mouseHandler = (e) => {
-				setPositon(e);
-				setHoverTrigger(e);
-			}
+			// const mouseHandler = (e) => {
+			// 	setPositon(e);
+			// 	setHoverTrigger(e);
+			// }
 
 
 
-			document.documentElement.addEventListener('mousemove', mouseHandler);
+			// document.documentElement.addEventListener('mousemove', mouseHandler);
 
 			window.mouseDot = {
 				show() {
-					mouseDot.classList.remove('hide');
+					//mouseDot.classList.remove('hide');
 				},
 				hide() {
-					mouseDot.classList.add('hide');
+					//mouseDot.classList.add('hide');
 				}
 			}
 

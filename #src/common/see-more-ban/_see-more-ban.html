@@ -1,45 +1,88 @@
 <div class="see-more-ban padding-wrap">
     <a href="#" class="swiper" data-slider="see-more-ban">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <strong>
-                    see more
-                </strong>
-                <div class="see-more-ban__circle">
+            @@if (type === 'type-1') {
+                <div class="swiper-slide">
+                    <span>Why</span> 
+                    <strong>
+                        clients choose us
+                    </strong>
+                </div>
+                <div class="swiper-slide">
+                    <span>Why</span> 
+                    <strong>
+                        clients choose us
+                    </strong>
+                </div>
+                <div class="swiper-slide">
+                    <span>Why</span>  
+                    <strong>
+                        clients choose us
+                    </strong>
+                </div>
+            }
+
+            @@if (type === 'type-2') {
+                <div class="swiper-slide">
+                    <span>What</span> 
+                    <strong>
+                        customers say
+                    </strong>
+                </div>
+                <div class="swiper-slide">
+                    <span>What</span> 
+                    <strong>
+                        customers say
+                    </strong>
+                </div>
+                <div class="swiper-slide">
+                    <span>What</span>  
+                    <strong>
+                        customers say
+                    </strong>
+                </div>
+            }
+            @@if (type === 'type-3') {
+                <div class="swiper-slide">
+                    <strong>
+                        see more
+                    </strong>
+                    <div class="see-more-ban__circle">
+                        <span>
+                            See more
+                        </span>
+                    </div>
                     <span>
-                        See more
+                        see more
                     </span>
                 </div>
-                <span>
-                    see more
-                </span>
-            </div>
-            <div class="swiper-slide">
-                <strong>
-                    see more
-                </strong>
-                <div class="see-more-ban__circle">
+                <div class="swiper-slide">
+                    <strong>
+                        see more
+                    </strong>
+                    <div class="see-more-ban__circle">
+                        <span>
+                            See more
+                        </span>
+                    </div>
                     <span>
-                        See more
+                        see more
                     </span>
                 </div>
-                <span>
-                    see more
-                </span>
-            </div>
-            <div class="swiper-slide">
-                <strong>
-                    see more
-                </strong>
-                <div class="see-more-ban__circle">
+                <div class="swiper-slide">
+                    <strong>
+                        see more
+                    </strong>
+                    <div class="see-more-ban__circle">
+                        <span>
+                            See more
+                        </span>
+                    </div>
                     <span>
-                        See more
+                        see more
                     </span>
                 </div>
-                <span>
-                    see more
-                </span>
-            </div>
+            }
         </div>
     </a>
 </div>

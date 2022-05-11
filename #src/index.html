@@ -19,54 +19,44 @@
 
 		@@include('common/product-carousel/_product-carousel.html',{})
 
-		@@include('common/see-more-ban/_see-more-ban.html',{})
+		@@include('common/see-more-ban/_see-more-ban.html',{
+			"type": "type-1"
+		})
 
 		<section class="advantages padding-wrap" >
 			<div class="container-sm">
-				<div class="head">
-					<h3 class="head__title">Why clients choose us</h3>
-				</div>
-				<div class="advantages__body">
-					<div class="advantages__col-1">
-						<div class="advantages__text-wrap">
-							<ul class="advantages__list" data-scroll data-scroll-offset="15%,100">
-								<li>
-									<div class="advantages__list-title">Uniqueness</div>
-									<div class="advantages__list-text">
-										Our walls have a unique, thoughtful design that will give you emotions
-									</div>
-								</li>
-								<li>
-									<div class="advantages__list-title">Ergonomics</div>
-									<div class="advantages__list-text">
-										You get a full-fledged playground that can be folded
-									</div>
-								</li>
-								<li>
-									<div class="advantages__list-title">Fast shipping</div>
-									<div class="advantages__list-text">
-										We do our best to get you up and running the next day.
-									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="advantages__col-2">
-						<div class="advantages__media-wrap">
-							<a href="img/videoForTest.mp4" data-fancybox class="video not-hover">
-								<div class="video__poster ibg">
-									<img src="img/photo/poster.jpg" alt="">
+				<div class="advantages__body"> 
+					<ul class="advantages__list">
+						<li>
+							<div class="advantages__item">
+								<div class="advantages__item-icon">
+									<img src="img/photo/advantages-icon-1.svg" alt="">
 								</div>
-								<div class="video__btn">
-									@@include('common/buttons/_btn.html', {
-									"link":"false",
-									"decor": "img/photo/play-text.svg",
-									"text": "Play"
-									})
+								<div class="advantages__title">Uniqueness</div>
+								<div class="advantages__text">Our walls have a unique, thoughtful design that will give you emotions</div>
+							</div>
+						</li>
+						<li>
+							<div class="advantages__item">
+								<div class="advantages__item-icon">
+									<img src="img/photo/advantages-icon-2.svg" alt="">
 								</div>
-							</a>
-						</div>
-					</div>
+								<div class="advantages__title">Ergonomics</div>
+								<div class="advantages__text">
+									You get a full-fledged playground that can be folded
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="advantages__item">
+								<div class="advantages__item-icon">
+									<img src="img/photo/advantages-icon-3.svg" alt="">
+								</div>
+								<div class="advantages__title">Fast shipping</div>
+								<div class="advantages__text">We do our best to get you up and running the next day.</div>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</section>
@@ -137,9 +127,12 @@
 			</div>
 		</section>
 
+		@@include('common/see-more-ban/_see-more-ban.html',{
+			"type": "type-2"
+		})
+
 		@@include('common/reviews/_reviews.html')
 
-		@@include('common/see-more-ban/_see-more-ban.html',{})
 
 		<section class="ergonomics padding-wrap">
 			<div class="ergonomics__inner">

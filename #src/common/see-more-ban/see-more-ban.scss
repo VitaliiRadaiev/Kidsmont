@@ -41,20 +41,25 @@
         width: auto;
         display: flex;
         align-items: center;
-        padding: 0 3em;
+        padding: 0 1em;
+        font-size: 9.9em;
+        line-height: 1.5em;
+        letter-spacing: 0.045em;
+        text-transform: uppercase;
+        color: $secondColor;
+        font-weight: 300;
+
+        @media (max-width: $md3+px) {
+            font-size: 40px;
+        }
 
         & strong {
-            font-family: $titleFontFamily;
-            font-weight: 600;
-            font-size: 18em;
-            line-height: 1em;
-            text-transform: uppercase;
+            font-weight: 400;
         }
         
         & > span {
-            font-size: 18em;
-            line-height: 1em;
-            text-transform: uppercase;
+            margin-right: 0.3em;
+            font-style: italic;
         }
     }
 

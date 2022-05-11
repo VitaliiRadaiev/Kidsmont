@@ -13,119 +13,51 @@
         width: 100%;
         height: 100%;
         z-index: 1;
+        display: flex;
+        background-color: #efebe9;
+
+        @media (max-width: $md3+px) {
+            position: relative;
+            height: 0;
+            padding-bottom: 118.8%;
+        }
     }
 
     &__img {
-        position: absolute;
-        transform: scale(0);
+        flex: 0 1 50%;
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
 
-        @media (min-width: 992px) {
-            &:hover {
-                & img {
-                    opacity: 0;
-                }
-            }
+        @media (max-width: $md3+px) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            flex: 0 1 auto;
+       
         }
 
-        img {
-            transition: all .8s ease;
-            z-index: 2;
-        }
-
-        &--1 {
-            top: 60 / $height * 100%;
-            left: 12 / $width * 100%;
-            width: 320 / $width * 100%;
-            height: 360 / $height * 100%;
-
-            @media (max-width: $md3+px) {
-                top: 15 / $heightMob * 100%;
-                left: -29 / $widthMob * 100%;
-                width: 142 / $widthMob * 100%;
-                height: 160 / $heightMob * 100%;
-            }
-
-            &.is-inview {
-                transition: all 0.5s ease 1.8s;
-                transform: scale(1);
-            }
-        }
-
-        &--2 {
-            top: 34 / $height * 100%;
-            left: 1068 / $width * 100%;
-            width: 250 / $width * 100%;
-            height: 300 / $height * 100%;
-
-            @media (max-width: $md3+px) {
-                top: 20 / $heightMob * 100%;
-                left: 272 / $widthMob * 100%;
-                width: 119 / $widthMob * 100%;
-                height: 143 / $heightMob * 100%;
-            }
-
-            &.is-inview {
-                transition: all 1s ease 1s;
-                transform: scale(1);
-            }
-        }
-
-        &--3 {
-            top: 484 / $height * 100%;
-            left: 171 / $width * 100%;
-            width: 250 / $width * 100%;
-            height: 300 / $height * 100%;
-
-            @media (max-width: $md3+px) {
-                top: 312 / $heightMob * 100%;
-                left: -42 / $widthMob * 100%;
-                width: 125 / $widthMob * 100%;
-                height: 150 / $heightMob * 100%;
-            }
-
-            &.is-inview {
-                transition: all 1s ease 1.4s;
-                transform: scale(1);
-            }
-        }
-
-        &--4 {
-            top: 473 / $height * 100%;
-            left: 1004 / $width * 100%;
-            width: 250 / $width * 100%;
-            height: 300 / $height * 100%;
-
-            @media (max-width: $md3+px) {
-                top: 373 / $heightMob * 100%;
-                left: 272 / $widthMob * 100%;
-                width: 108 / $widthMob * 100%;
-                height: 130 / $heightMob * 100%;
-            }
-
-            &.is-inview {
-                transition: all 0.5s ease 2s;
-                transform: scale(1);
-            }
+        & img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
         }
     }
 
-    &__img-canvas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        pointer-events: none;
-    }   
 
     &__body {
         position: relative;
-        padding-bottom: 57.85%;
+        padding-bottom: 50%;
 
         @media (max-width: $md3+px) {
-            margin: 0 -20px;
-            padding-bottom: 150.2%;
+            padding-top: 24px;
+            padding-bottom: 80px;
+            z-index: 3;
         }
     }
 
@@ -137,29 +69,44 @@
         width: 100%;
         height: 100%;
         pointer-events: none;
+
+        @media (max-width: $md3+px) {
+            position: static;
+        }
+    }
+
+    &__title-container {
+        position: absolute;
+        top: 27.75%;
+        left: 0;
+        width: 100%;
+
+        @media (max-width: $md3+px) {
+            position: static;
+        }
     }
 
     &__title {
-        position: absolute;
-        top: 21.6%;
-        left: 50%;
-        transform: translateX(-50%);
-        text-align: center;
+        // position: absolute;
+        // top: 27.75%;
+        // left: 0;
         display: block;
         font-family: $titleFontFamily;
         font-weight: 600;
-        font-size: 7.1em;
+        font-size: 6.2em;
         line-height: 1.2em;
         text-transform: uppercase;
         margin: 0;
         opacity: 0;
-        
+
         @media (max-width: $md3+px) {
-            top: 152 / $heightMob * 100%;
-            font-size: 11em;
+            font-size: 32px;
+            line-height: 130%;
 
             & strong:not(:last-child) {
-                margin-bottom: 0.5em;
+                @media (min-width: 768px) {
+                    margin-bottom: 0.5em;
+                }
             }
         }
 
@@ -179,7 +126,7 @@
         & span {
             display: inline-block;
             transform: translateY(100%);
-            transition: transform .6s ease 0.3s;
+            transition: transform 0.6s ease 0.3s;
         }
 
         &--layer-1 {
@@ -205,16 +152,15 @@
         height: 100%;
         background-color: $secondColor;
         color: #fff;
-        position: absolute;
         z-index: 2;
         pointer-events: none;
         opacity: 0;
-        transition: opacity .3s ease;
+        transition: opacity 0.3s ease;
         clip-path: circle(12% at -50% -50%);
         pointer-events: none;
 
         &._anime {
-            transition: opacity .3s ease;
+            transition: opacity 0.3s ease;
             opacity: 1;
         }
     }
@@ -234,7 +180,7 @@
 
     &__mob-btn {
         position: absolute;
-        top: 59%;
+        top: 65%;
         left: 50%;
         margin: 0 auto;
         flex: 0 0 auto;
@@ -249,9 +195,17 @@
         transform: translate(-50%, 0%) rotate(15deg);
         background-color: $hover;
         font-size: 18px;
-        
+
         @media (min-width: 992px) {
             display: none;
+        }
+
+        @media (max-width: $md3+px) {
+            top: auto;
+            left: auto;
+            right: 20px;
+            bottom: 0;
+            transform: translate(0%, 50%) rotate(15deg);
         }
     }
 }
