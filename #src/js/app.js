@@ -345,6 +345,7 @@ class App {
 		@@include('../common/drop-zone/drop-zone.js');
 		@@include('../common/orders-list/orders-list.js');
 		@@include('../common/quantity/quantity.js');
+		@@include('../common/footer/footer.js');
 	}
 
 }
