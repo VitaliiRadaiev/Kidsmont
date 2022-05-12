@@ -9,19 +9,18 @@ let btnHideMainSearch = document.querySelector('[data-action="hide-main-search"]
 if (header && mobileMenu) {
 
     let slider = document.querySelector('[data-mobile-menu-slider]');
-    let triggerItem = document.querySelector('[data-action="show-next-list"] a');
+    let triggerItem = document.querySelector('[data-action="show-next-list"]');
     let btnBack = document.querySelector('[data-action="hide-next-list"]');
-    let mobileMenuLogo = document.querySelector('.menu-mobile__logo');
+    let sidePanelHead = mobileMenu.querySelector('.side-panel__head');
     let swiperSlider;
-
 
     const toggleShowBtnBack = (state) => {
         if(state === 'hide') {
             btnBack.classList.remove('show');
-            mobileMenuLogo.classList.remove('hide');
+            sidePanelHead.classList.remove('hide');
         } else if (state == 'show') {
             btnBack.classList.add('show');
-            mobileMenuLogo.classList.add('hide');
+            sidePanelHead.classList.add('hide');
         }
     }
 

@@ -1,4 +1,4 @@
-<div class="side-panel menu-mobile" data-side-panel="menu-mobile">
+<div class="side-panel side-panel--open menu-mobile" data-side-panel="menu-mobile">
     <div class="side-panel__close" data-side-panel-close><span></span></div> 
     <div class="side-panel__body">
         <div class="side-panel__head">
@@ -7,6 +7,7 @@
                     <img src="img/logo/logo.svg" alt="">
                 </a>
             </div>
+            <a href="#" class="menu-mobile__phone"> +49 (0)30 52014157</a>
             <div class="menu-mobile__back-btn" data-action="hide-next-list">
                 back
             </div>
@@ -15,11 +16,36 @@
             <div class="swiper" data-mobile-menu-slider>
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <ul class="menu-mobile__list">
-                            <li class="menu-mobile__list-item" data-action="show-next-list">
-                                <a class="menu-mobile__link menu-mobile__link--with-chevron menu-mobile__link"
-                                    href="#">Catalog</a>
+                        <ul class="menu-mobile__actions">
+                            <li>
+                                <div class="menu-mobile__actions-item" data-action="show-next-list">
+                                    <div class="menu-mobile__actions-item-icon">
+                                        <img src="img/icons/catalog.svg" alt="">
+                                    </div>
+                                    <div class="menu-mobile__actions-item-text">Catalog</div>
+                                    <div class="menu-mobile__actions-item-arrow"></div>
+                                </div>
                             </li>
+                            <li>
+                                <div class="menu-mobile__actions-item" data-side-panel-open="basket">
+                                    <div class="menu-mobile__actions-item-icon">
+                                        <img src="img/icons/basket.svg" alt=""> 
+                                    </div>
+                                    <div class="menu-mobile__actions-item-text">Basket</div>
+                                    <div class="menu-mobile__actions-item-count">1</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="menu-mobile__actions-item" data-side-panel-open="favorites">
+                                    <div class="menu-mobile__actions-item-icon">
+                                        <img src="img/icons/favorites.svg" alt="">
+                                    </div>
+                                    <div class="menu-mobile__actions-item-text">Favorites</div>
+                                    <div class="menu-mobile__actions-item-count d-none">2</div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="menu-mobile__list">
                             <li class="menu-mobile__list-item">
                                 <a class="menu-mobile__link" href="#">
                                     About Us
@@ -51,9 +77,13 @@
                                 </a>
                             </li>
                         </ul>
+                        <div class="menu-mobile__bottom">
+                            <a href="#" class="btn-default">Join Us</a>
+                            <a href="#" class="btn-default btn-default--transparent">Sign in</a>
+                        </div>
                     </div>
                     <div class="swiper-slide">
-                        <ul class="menu-mobile__list">
+                        <ul class="menu-mobile__list menu-mobile__list--catalog">
                             <li class="menu-mobile__list-item">
                                 <a class="menu-mobile__link" href="#">
                                     Swedish wall
