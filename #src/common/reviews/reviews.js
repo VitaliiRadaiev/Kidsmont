@@ -3,7 +3,6 @@
     if (reviewsSlider) {
 
         let swiperReviewsSlider = new Swiper(reviewsSlider.querySelector('.swiper'), {
-            slidesPerView: 'auto',
             speed: 1000,
             navigation: {
                 nextEl: reviewsSlider.querySelector('[data-action="btn-next"]'),
@@ -11,10 +10,14 @@
             },
             breakpoints: {
                 320: {
+                    slidesPerView: 1,
                     spaceBetween: 20,
+                    autoHeight: true,
                 },
                 768: {
+                    slidesPerView: 'auto',
                     spaceBetween: 60,
+                    autoHeight: false,
                 },
             }
         });

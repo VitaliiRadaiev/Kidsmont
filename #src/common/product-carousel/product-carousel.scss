@@ -24,6 +24,38 @@
             transform: translateX(0%);
         }
     }
+
+    &__bottom {
+        text-align: center;
+        padding-top: 14rem;
+
+        @media (max-width: $md2+px) {
+            padding-top: 80px;
+        }
+        @media (max-width: $md3+px) {
+            padding-top: 24px;
+        }
+    }
+
+    &__btn-desk {
+        @media (max-width: $md3+px) {
+            display: none;
+        }
+
+        & .btn-with-arrow {
+            text-transform: uppercase;
+        }
+    }
+
+    &__btn-mob {
+        @media (min-width: 768px) {
+            display: none;
+        }
+
+        & .btn-default {
+            width: 100%;
+        }
+    }
 }
 
 .product-carousel-card {
@@ -34,9 +66,9 @@
     padding: 0 3rem 3rem;
 
     @media (max-width: $md3+px) {
-        width: 275px;
+        width: 200px;
         height: auto;
-        padding: 0 20px 20px;
+        padding: 20px 20px 16px;
         flex-direction: column-reverse;
     }
 
@@ -62,6 +94,10 @@
         height: calc(100% - 6.7rem);
         background-color: $bgSecondary;
         transition: all .3s ease;
+
+        @media (max-width: $md3+px) {
+            height: 100%;
+        }
     }
 
     &__center-icon {
@@ -96,12 +132,12 @@
     &__col-2 {
         position: relative;
         z-index: 2;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
 
         @media (min-width: 768px) {
             flex: 1 1 auto;
             padding-bottom: 3.7rem;
-        
+            margin-bottom: 10px;
         }
     }
 
@@ -121,7 +157,7 @@
         line-height: 1.5em;
 
         @media (max-width: $md3+px) {
-            font-size: 20px;
+            font-size: 18px;
         }
     }
 
@@ -132,8 +168,9 @@
         align-items: flex-end;
 
         @media (max-width: $md3+px) {
-            height: 280px;
-            justify-content: flex-end;
+            height: 150px;
+            justify-content: center;
+            align-items: center;
         }
 
         & img {

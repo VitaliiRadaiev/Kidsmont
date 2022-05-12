@@ -61,6 +61,7 @@ class App {
 		@@include('../common/review-list-card/review-list-card.js');
 		@@include('../common/gallery-carousel/gallery-carousel.js');
 		@@include('../common/tabs/tabs.js');
+		@@include('../common/blog-preview/blog-preview.js');
 	}
 
 	initMouse() {

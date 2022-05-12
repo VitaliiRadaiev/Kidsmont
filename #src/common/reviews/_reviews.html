@@ -4,7 +4,7 @@
             <h3 class="reviews__title">Reviews</h3>
             @@include('../slider-buttons/_slider-buttons.html')
         </div>
-        <div class="reviews__slider swiper" data-scroll  data-scroll-offset="0%,100">
+        <div class="reviews__slider swiper" data-scroll data-scroll-offset="0%,100">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="reviews-card">
@@ -52,5 +52,15 @@
                 </div>
             </div>
         </div>
+
+        <div class="reviews__bottom">
+            <div class="reviews__btn-desk">
+                @@include('../buttons/_btn-with-arrow.html', {"text": "Discover all"})
+            </div>
+            <div class="reviews__btn-mob">
+                <a href="#" class="btn-default">Sea more</a>
+            </div>
+        </div>
+
     </div>
 </section>

@@ -627,6 +627,21 @@ defer
             </div>
         </div>
     </div>
+    <div class="container-sm">
+        <div class="product-carousel__bottom">
+            <div class="product-carousel__btn-desk">
+                <a href="#" class="btn-with-arrow not-hover">
+    Discover all
+    <span>
+        <img class="img-svg" src="img/icons/arrow-right.svg" alt="">
+    </span>
+</a>
+            </div>
+            <div class="product-carousel__btn-mob">
+                <a href="#" class="btn-default">Sea more</a>
+            </div>
+        </div>
+    </div>
 </section>
 
 		<div class="see-more-ban padding-wrap">
@@ -756,12 +771,9 @@ defer
 					</li>
 				</ul>
 				<div class="products-preview__mob-btn">
-					<a href="#" class="btn-with-arrow not-hover">
-    Discover all
-    <span>
-        <img class="img-svg" src="img/icons/arrow-right.svg" alt="">
-    </span>
-</a>
+					<a href="#" class="btn-default not-hover">
+						Discover all
+					</a>
 				</div>
 			</div>
 		</section>
@@ -809,7 +821,7 @@ defer
     </div>
 </div>
         </div>
-        <div class="reviews__slider swiper" data-scroll  data-scroll-offset="0%,100">
+        <div class="reviews__slider swiper" data-scroll data-scroll-offset="0%,100">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="reviews-card">
@@ -857,6 +869,21 @@ defer
                 </div>
             </div>
         </div>
+
+        <div class="reviews__bottom">
+            <div class="reviews__btn-desk">
+                <a href="#" class="btn-with-arrow not-hover">
+    Discover all
+    <span>
+        <img class="img-svg" src="img/icons/arrow-right.svg" alt="">
+    </span>
+</a>
+            </div>
+            <div class="reviews__btn-mob">
+                <a href="#" class="btn-default">Sea more</a>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -899,89 +926,104 @@ defer
 			</div>
 		</section>
 
-		<section class="blog-preview padding-wrap">
-			<div class="container-sm">
-				<div class="blog-preview__head head">
-					<h3 class="head__title">Blog</h3>
-				</div>
-				<ul class="blog-preview__list">
-					<li>
-						<a href="#" class="blog-preview-card">
-							<div class="blog-preview-card__col-1">
-								<div class="blog-preview-card__img ibg">
-									<img src="img/photo/blog-preview-card-img-1.jpg" alt="">
-								</div>
-							</div>
-							<div class="blog-preview-card__col-2">
-								<div class="blog-preview-card__arrow">
-									<img class="img-svg" src="img/icons/arrow-right.svg" alt="">
-								</div>
-								<div class="blog-preview-card__date">12.03.2022</div>
-								<div class="blog-preview-card__title">
-									International Children's Day. Celebrate with us!
-								</div>
-								<div class="blog-preview-card__text">
-									June 1 is celebrated by all the children in the world. On this occasion, we are
-									giving up to 70%* discount on many of our accessories for 2 weeks.
-								</div>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="#" class="blog-preview-card">
-							<div class="blog-preview-card__col-1">
-								<div class="blog-preview-card__img ibg">
-									<img src="img/photo/blog-preview-card-img-2.jpg" alt="">
-								</div>
-							</div>
-							<div class="blog-preview-card__col-2">
-								<div class="blog-preview-card__arrow">
-									<img class="img-svg" src="img/icons/arrow-right.svg" alt="">
-								</div>
-								<div class="blog-preview-card__date">12.03.2022</div>
-								<div class="blog-preview-card__title">
-									New colors of Kidsmont black and white
-								</div>
-								<div class="blog-preview-card__text">
-									Following numerous requests from our customers, we now also offer boulder board
-									slide climbing holds as a separate product.
-								</div>
-							</div>
-						</a>
-					</li>
-					<li>
-						<a href="#" class="blog-preview-card">
-							<div class="blog-preview-card__col-1">
-								<div class="blog-preview-card__img ibg">
-									<img src="img/photo/blog-preview-card-img-3.jpg" alt="">
-								</div>
-							</div>
-							<div class="blog-preview-card__col-2">
-								<div class="blog-preview-card__arrow">
-									<img class="img-svg" src="img/icons/arrow-right.svg" alt="">
-								</div>
-								<div class="blog-preview-card__date">12.03.2022</div>
-								<div class="blog-preview-card__title">
-									International Children's Day. Celebrate with us!
-								</div>
-								<div class="blog-preview-card__text">
-									June 1 is celebrated by all the children in the world. On this occasion, we are
-									giving up to 70%* discount on many of our accessories for 2 weeks.
-								</div>
-							</div>
-						</a>
-					</li>
-				</ul>
-				<div class="blog-preview__bottom">
-					<a href="#" class="btn-with-arrow not-hover">
+		<section class="blog-preview padding-wrap" data-slider="blog-preview">
+    <div class="container-sm">
+        <div class="blog-preview__head head d-flex align-items-center justify-content-between">
+            <h3 class="head__title">Blog</h3>
+            <div class="slider-buttons">
+    <div class="slider-button slider-button--prev hover" data-action="btn-prev">
+        <img class="img-svg" src="img/icons/arrow-left.svg" alt="">
+    </div>
+    <div class="slider-button slider-button--next hover" data-action="btn-next">
+        <img class="img-svg" src="img/icons/arrow-right.svg" alt="">
+    </div>
+</div>
+        </div>
+        <div class="blog-preview__list swiper" data-mobile="false">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="#" class="blog-preview-card">
+                        <div class="blog-preview-card__col-1">
+                            <div class="blog-preview-card__img ibg">
+                                <img src="img/photo/blog-preview-card-img-1.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="blog-preview-card__col-2">
+                            <div class="blog-preview-card__arrow">
+                                <img class="img-svg" src="img/icons/arrow-right.svg" alt="">
+                            </div>
+                            <div class="blog-preview-card__date">12.03.2022</div>
+                            <div class="blog-preview-card__title">
+                                International Children's Day. Celebrate with us!
+                            </div>
+                            <div class="blog-preview-card__text">
+                                June 1 is celebrated by all the children in the world. On this occasion, we are
+                                giving up to 70%* discount on many of our accessories for 2 weeks.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="blog-preview-card">
+                        <div class="blog-preview-card__col-1">
+                            <div class="blog-preview-card__img ibg">
+                                <img src="img/photo/blog-preview-card-img-2.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="blog-preview-card__col-2">
+                            <div class="blog-preview-card__arrow">
+                                <img class="img-svg" src="img/icons/arrow-right.svg" alt="">
+                            </div>
+                            <div class="blog-preview-card__date">12.03.2022</div>
+                            <div class="blog-preview-card__title">
+                                New colors of Kidsmont black and white
+                            </div>
+                            <div class="blog-preview-card__text">
+                                Following numerous requests from our customers, we now also offer boulder board
+                                slide climbing holds as a separate product.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="blog-preview-card">
+                        <div class="blog-preview-card__col-1">
+                            <div class="blog-preview-card__img ibg">
+                                <img src="img/photo/blog-preview-card-img-3.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="blog-preview-card__col-2">
+                            <div class="blog-preview-card__arrow">
+                                <img class="img-svg" src="img/icons/arrow-right.svg" alt="">
+                            </div>
+                            <div class="blog-preview-card__date">12.03.2022</div>
+                            <div class="blog-preview-card__title">
+                                International Children's Day. Celebrate with us!
+                            </div>
+                            <div class="blog-preview-card__text">
+                                June 1 is celebrated by all the children in the world. On this occasion, we are
+                                giving up to 70%* discount on many of our accessories for 2 weeks.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="blog-preview__bottom">
+            <div class="blog-preview__btn-desk">
+                <a href="#" class="btn-with-arrow not-hover">
     Discover all
     <span>
         <img class="img-svg" src="img/icons/arrow-right.svg" alt="">
     </span>
 </a>
-				</div>
-			</div>
-		</section>
+            </div>
+            <div class="blog-preview__btn-mob">
+                <a href="#" class="btn-default">Discover all</a>
+            </div>
+        </div>
+    </div>
+</section>
 
 	</main>
 
