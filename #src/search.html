@@ -11,6 +11,8 @@
     @@include('common/header/_header.html',{
     "mod": ""
     })
+
+    @@include('common/side-panel/_products-sort.html')
     <!-- == // TOP LINE ================== -->
 
     <main class="_page " data-padding-top-header-size data-scroll-section>
@@ -21,7 +23,8 @@
 
         <div class="container-sm">
             <div class="head head--top">
-                <h2 class="head__title products-title d-flex align-items-center justify-content-between">Suchergebnisse für "Wand"</h2>
+                <h2 class="head__title products-title d-flex align-items-center justify-content-between">Suchergebnisse
+                    für "Wand"</h2>
             </div>
         </div>
 
@@ -32,17 +35,18 @@
 
                         <div class="side-panel products-filter" data-side-panel="products-filter"
                             data-da="body,991.98,first">
-                            <div class="side-panel__close" data-side-panel-close><span></span></div>
-                            <div class="side-panel__body">
-                                <div class="side-panel__head">
-                                    <div class="products-filter__title">Filter Products</div>
-                                </div>
-                                <div class="side-panel__scroll-wrap">
-                                    <form action="/">
+                            <form action="/">
+                                <div class="side-panel__close" data-side-panel-close><span></span></div>
+                                <div class="side-panel__body">
+                                    <div class="side-panel__head">
+                                        <div class="products-filter__title">Filter Products</div>
+                                    </div>
+                                    <div class="side-panel__scroll-wrap">
                                         <div class="products-filter__body">
                                             <div class="products-filter__list" data-spoller>
                                                 <div class="products-filter__list-item">
-                                                    <div class="products-filter__list-item-title active" data-spoller-trigger>Material</div>
+                                                    <div class="products-filter__list-item-title active"
+                                                        data-spoller-trigger>Material</div>
                                                     <div class="products-filter__list-item-body">
                                                         <div class="products-filter__item">
                                                             <label class="checkbox-radio">
@@ -61,7 +65,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="products-filter__list-item">
-                                                    <div class="products-filter__list-item-title active" data-spoller-trigger>Size</div>
+                                                    <div class="products-filter__list-item-title active"
+                                                        data-spoller-trigger>Size</div>
                                                     <div class="products-filter__list-item-body">
                                                         <div class="products-filter__item">
                                                             <label class="checkbox-radio">
@@ -87,7 +92,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="products-filter__list-item">
-                                                    <div class="products-filter__list-item-title active" data-spoller-trigger>Price</div>
+                                                    <div class="products-filter__list-item-title active"
+                                                        data-spoller-trigger>Price</div>
                                                     <div class="products-filter__list-item-body">
                                                         <div class="products-filter__item">
                                                             @@include('common/price-range/_price-range.html')
@@ -95,7 +101,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="products-filter__list-item">
-                                                    <div class="products-filter__list-item-title active" data-spoller-trigger>Colour</div>
+                                                    <div class="products-filter__list-item-title active"
+                                                        data-spoller-trigger>Colour</div>
                                                     <div class="products-filter__list-item-body">
                                                         <div class="products-filter__item">
                                                             <label class="checkbox-radio">
@@ -121,11 +128,20 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button class="products-filter__submit btn-default">Save</button>
                                         </div>
-                                    </form>
+
+                                    </div>
+                                    <div class="side-panel__bottom">
+                                        <div class="products-filter__bottom">
+                                            <button type="reset" data-button-reset
+                                                class="products-filter__rest btn-default btn-default--transparent">Clear
+                                                (<span>4</span>)</button>
+                                            <button type="submit"
+                                                class="products-filter__submit btn-default">Apply</button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                     <div class="products__content">
@@ -144,16 +160,14 @@
                                 </div>
                             </div>
                             <div class="products__mobile">
-                                <button class="products__filter-btn"
-                                    data-side-panel-open="products-filter">Filter</button>
-                                <div class="select-wrap">
-                                    <select id="sort" name="sort" class="_select">
-                                        <option value="" selected>Sort by</option>
-                                        <option value="1">High to low</option>
-                                        <option value="2">Low to high</option>
-                                        <option value="3">New</option>
-                                    </select>
-                                </div>
+                                <button class="products__mobile-btn" data-side-panel-open="products-filter">
+                                    <img src="img/icons/filter.svg" alt="">
+                                    Filter
+                                </button>
+                                <button class="products__mobile-btn" data-side-panel-open="products-sort">
+                                    <img src="img/icons/sort.svg" alt="">
+                                    Sort by
+                                </button>
                             </div>
                         </div>
                         <ul class="products__list">
@@ -214,11 +228,11 @@
         </div>
 
         @@include('common/carousel/_carousel-preview-products.html',{
-            "title": "Products viewed",
-            "class": "carousel-preview-products",
-            "modClass": "",
-            "mod": "",
-            "type": "products",
+        "title": "Products viewed",
+        "class": "carousel-preview-products",
+        "modClass": "",
+        "mod": "",
+        "type": "products",
         })
 
     </main>

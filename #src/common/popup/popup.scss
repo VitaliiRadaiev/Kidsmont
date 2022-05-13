@@ -35,6 +35,20 @@
 		}
 	}
 
+	&--second {
+		& .popup__body {
+			padding: 20px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: transparent;
+		}
+
+		& .popup__content {
+			height: auto;
+		}
+	}
+
 	&__body {
 		min-height: 100%;
 		display: flex;

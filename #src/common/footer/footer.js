@@ -14,6 +14,16 @@
                             trigger.classList.toggle('active');
                             this.utils.slideToggle(content);
 
+                            items.forEach(i => {
+                                if(item === i) return;
+
+                                let trigger = i.querySelector('.footer__title-link');
+                                let content = i.querySelector('.footer__list');
+
+                                trigger.classList.remove('active');
+                                this.utils.slideUp(content);
+                            })
+
                             // update locomotive scroll
                             let id = setInterval(() => {
                                 window.locomotivePageScroll.update();

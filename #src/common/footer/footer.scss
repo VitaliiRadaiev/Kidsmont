@@ -71,8 +71,8 @@
             font-size: 54px;
         }
         @media (max-width: $md3+px) {
-            font-size: 42px;
-            margin-bottom: 34px;
+            font-size: 32px;
+            margin-bottom: 16px;
         }
 
         & span {
@@ -225,20 +225,55 @@
             margin-bottom:0;
             position: relative;
             padding-right: 25px;
+        }
 
-            &:before {
-                position: absolute;
-                content: '';
-                top: 50%;
-                right: 0;
-                transform: translateY(-50%);
-                width: 16px;
-                height: 16px;
-                background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNyAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTguOTg1MjIgLTAuMDAwOTYyMzQyTDcuOTg1MzQgLTAuMDAwOTYyMzQyTDcuOTg1MzQgNy40ODQ0M0wwLjQ5OTk0MyA3LjQ4NDQzTDAuNDk5OTQzIDguNDg0MzJMNy45ODUzNCA4LjQ4NDMyTDcuOTg1MzQgMTUuOTY5N0w4Ljk4NTIyIDE1Ljk2OTdMOC45ODUyMiA4LjQ4NDMyTDE2LjQ3MDYgOC40ODQzMkwxNi40NzA2IDcuNDg0NDNMOC45ODUyMiA3LjQ4NDQzTDguOTg1MjIgLTAuMDAwOTYyMzQyWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==);
-                background-position: center;
-                background-size: contain;
-                background-repeat: no-repeat;
+        &.active {
+            & .footer__title-link-plus {
+                &:before {
+                    height: 0;
+                }
             }
+        }
+    }
+
+    &__title-link-plus {
+
+        @media (min-width: 768px) {
+            display: none;
+        }
+
+        position: relative;
+        width: 16px;
+        height: 16px;
+        display: block;
+        position: absolute;
+        content: '';
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+
+
+        &:before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 100%;
+            background-color: #fff;
+            transition: all .3s ease;
+        }
+        &:after {
+            position: absolute;
+            content: '';
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 100%;
+            height: 1px;
+            background-color: #fff;
+            
         }
     }
 
