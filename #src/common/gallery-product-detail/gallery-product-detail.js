@@ -13,7 +13,7 @@
                         spaceBetween: 20,
                         pagination: {
                             el: slider.querySelector('.swiper-pagination'),
-                            type: "fraction",
+                            clickable: true,
                         }    
                     });
     

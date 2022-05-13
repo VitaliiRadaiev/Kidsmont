@@ -375,7 +375,7 @@ figure {
 	}
 }
 
-[data-spoller-trigger] {
+[data-spoller-trigger]:not(.mob-accordion__title) {
 	& + * {
 		display: none;
 	}

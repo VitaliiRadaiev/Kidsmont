@@ -752,7 +752,7 @@ window.popup = {
                         spaceBetween: 20,
                         pagination: {
                             el: slider.querySelector('.swiper-pagination'),
-                            type: "fraction",
+                            clickable: true,
                         }    
                     });
     
@@ -1054,10 +1054,18 @@ window.popup = {
 
 	spollerInit() {
 		let spollers = document.querySelectorAll('[data-spoller]');
+		
 		if (spollers.length) {
 			spollers.forEach(spoller => {
 				let isOneActiveItem = spoller.dataset.spoller.trim() === 'one' ? true : false;
-				let triggers = spoller.querySelectorAll('[data-spoller-trigger]');
+				let mobModification = spoller.dataset.spoller.trim() === 'mob' ? true : false;
+
+				let triggers;
+				if(spoller.dataset.hasOwnProperty('subSpoller')) {
+					triggers = spoller.querySelectorAll('[data-spoller-trigger]');
+				} else {
+					triggers = spoller.querySelectorAll('[data-spoller-trigger]:not([data-sub-spoller] [data-spoller-trigger])');
+				}
 				if (triggers.length) {
 					triggers.forEach(trigger => {
 						let parent = trigger.parentElement;
@@ -1069,12 +1077,15 @@ window.popup = {
 						}
 
 						trigger.addEventListener('click', (e) => {
+
+							if(mobModification && document.documentElement.clientWidth > 991.98) return;
+
 							e.preventDefault();
 							parent.classList.toggle('active');
 							trigger.classList.toggle('active');
 							content && this.utils.slideToggle(content);
 
-							if (isOneActiveItem) {
+							if (isOneActiveItem || mobModification) {
 								triggers.forEach(i => {
 									if (i === trigger) return;
 
