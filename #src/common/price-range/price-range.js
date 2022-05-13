@@ -25,6 +25,8 @@
                 })
             });
 
+            window.priceSlider = slider;
+
             let numFormat = wNumb({ decimals: 0, thousand: ',' });
 
             slider.noUiSlider.on('update', function (values, handle) {

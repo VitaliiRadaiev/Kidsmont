@@ -273,6 +273,14 @@ figure {
 	@media (max-width: $md3+px) {
 		padding: 36px 0;
 	}
+
+	&--last {
+		margin-bottom: -6rem;
+
+		@media (max-width: $md3+px) {
+			margin-bottom: -36px;
+		}
+	}
 }
 
 .ibg {
@@ -303,7 +311,7 @@ figure {
 			padding-top: 24px;
 		}
 		@media (max-width: $md3+px) {
-			margin-bottom: 12px;
+			margin-bottom: 24px;
 		}
 	}
 
@@ -326,6 +334,16 @@ figure {
 }
 
 .link {
+}
+
+.link-see-more {
+	color: $secondColor ;
+	text-decoration: none !important;
+
+	@media (max-width: $md3+px) {
+		font-size: 18px;
+		line-height: 1.5em;
+	}
 }
 
 .box {
@@ -510,7 +528,7 @@ figure {
 	& ul {
 
 		&:not(.simple-list) {
-			padding-left: 3em;
+			padding-left: 1em;
 
 			@media (max-width: $md3+px) {
 				padding-left: 1.5em;
@@ -518,10 +536,6 @@ figure {
 	
 			& > li {
 				list-style: disc;
-	
-				&:not(:last-child) {
-					margin-bottom: 0.7em;
-				}
 	
 				& > *:last-child {
 					margin-bottom: 0;
@@ -535,16 +549,13 @@ figure {
 	}
 
 	& ol {
-		padding-left: 3em;
+		padding-left: 1em;
 
 		@media (max-width: $md3+px) {
 			padding-left: 1.5em;
 		}
 
 		& > li {
-			&:not(:last-child) {
-				margin-bottom: 0.7em;
-			}
 
 			& > *:last-child {
 				margin-bottom: 0;

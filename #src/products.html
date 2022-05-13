@@ -11,6 +11,8 @@
     @@include('common/header/_header.html',{
     "mod": ""
     })
+
+    @@include('common/side-panel/_products-sort.html')
     <!-- == // TOP LINE ================== -->
 
     <main class="_page " data-padding-top-header-size data-scroll-section>
@@ -21,7 +23,8 @@
 
         <div class="container-sm">
             <div class="head head--top">
-                <h2 class="head__title products-title d-flex align-items-center justify-content-between">Walls</h2>
+                <h2 class="head__title products-title d-flex align-items-center justify-content-between">Sprossenwände
+                </h2>
             </div>
         </div>
 
@@ -32,17 +35,18 @@
 
                         <div class="side-panel products-filter" data-side-panel="products-filter"
                             data-da="body,991.98,first">
-                            <div class="side-panel__close" data-side-panel-close><span></span></div>
-                            <div class="side-panel__body">
-                                <div class="side-panel__head">
-                                    <div class="products-filter__title">Filter Products</div>
-                                </div>
-                                <div class="side-panel__scroll-wrap">
-                                    <form action="/">
+                            <form action="/">
+                                <div class="side-panel__close" data-side-panel-close><span></span></div>
+                                <div class="side-panel__body">
+                                    <div class="side-panel__head">
+                                        <div class="products-filter__title">Filter Products</div>
+                                    </div>
+                                    <div class="side-panel__scroll-wrap">
                                         <div class="products-filter__body">
                                             <div class="products-filter__list" data-spoller>
                                                 <div class="products-filter__list-item">
-                                                    <div class="products-filter__list-item-title active" data-spoller-trigger>Material</div>
+                                                    <div class="products-filter__list-item-title active"
+                                                        data-spoller-trigger>Material</div>
                                                     <div class="products-filter__list-item-body">
                                                         <div class="products-filter__item">
                                                             <label class="checkbox-radio">
@@ -61,7 +65,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="products-filter__list-item">
-                                                    <div class="products-filter__list-item-title active" data-spoller-trigger>Size</div>
+                                                    <div class="products-filter__list-item-title active"
+                                                        data-spoller-trigger>Size</div>
                                                     <div class="products-filter__list-item-body">
                                                         <div class="products-filter__item">
                                                             <label class="checkbox-radio">
@@ -87,7 +92,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="products-filter__list-item">
-                                                    <div class="products-filter__list-item-title active" data-spoller-trigger>Price</div>
+                                                    <div class="products-filter__list-item-title active"
+                                                        data-spoller-trigger>Price</div>
                                                     <div class="products-filter__list-item-body">
                                                         <div class="products-filter__item">
                                                             @@include('common/price-range/_price-range.html')
@@ -95,7 +101,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="products-filter__list-item">
-                                                    <div class="products-filter__list-item-title active" data-spoller-trigger>Colour</div>
+                                                    <div class="products-filter__list-item-title active"
+                                                        data-spoller-trigger>Colour</div>
                                                     <div class="products-filter__list-item-body">
                                                         <div class="products-filter__item">
                                                             <label class="checkbox-radio">
@@ -121,11 +128,20 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button class="products-filter__submit btn-default">Save</button>
                                         </div>
-                                    </form>
+
+                                    </div>
+                                    <div class="side-panel__bottom">
+                                        <div class="products-filter__bottom">
+                                            <button type="reset" data-button-reset
+                                                class="products-filter__rest btn-default btn-default--transparent">Clear
+                                                (<span>4</span>)</button>
+                                            <button type="submit"
+                                                class="products-filter__submit btn-default">Apply</button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                     <div class="products__content">
@@ -144,16 +160,14 @@
                                 </div>
                             </div>
                             <div class="products__mobile">
-                                <button class="products__filter-btn"
-                                    data-side-panel-open="products-filter">Filter</button>
-                                <div class="select-wrap">
-                                    <select id="sort" name="sort" class="_select">
-                                        <option value="" selected>Sort by</option>
-                                        <option value="1">High to low</option>
-                                        <option value="2">Low to high</option>
-                                        <option value="3">New</option>
-                                    </select>
-                                </div>
+                                <button class="products__mobile-btn" data-side-panel-open="products-filter">
+                                    <img src="img/icons/filter.svg" alt="">
+                                    Filter
+                                </button>
+                                <button class="products__mobile-btn" data-side-panel-open="products-sort">
+                                    <img src="img/icons/sort.svg" alt="">
+                                    Sort by
+                                </button>
                             </div>
                         </div>
                         <ul class="products__list">
@@ -163,7 +177,8 @@
                                 "labelText": 'hit',
                                 "img": "img/photo/product-list-img-1.png",
                                 "title": "Sprossenwand 5-in-1 aus Kiefer Naturholz",
-                                "price": "437,00€"
+                                "price": "437,00€",
+                                "colorPicer": false
                                 })
                             </li>
                             <li>
@@ -172,7 +187,8 @@
                                 "labelText": 'hit',
                                 "img": "img/photo/product-list-img-2.png",
                                 "title": "Sprossenwand 5-in-1 aus Kiefer Schwarz",
-                                "price": "471,00€"
+                                "price": "471,00€",
+                                "colorPicer": false
                                 })
                             </li>
                             <li>
@@ -181,7 +197,8 @@
                                 "labelText": 'SALE',
                                 "img": "img/photo/product-list-img-3.png",
                                 "title": "Kinderbett “Piratenschiff” aus Kiefer oder Esche...",
-                                "price": "501,00€ – 595,00€"
+                                "price": "501,00€ – 595,00€",
+                                "colorPicer": false
                                 })
                             </li>
                             <li>
@@ -190,7 +207,8 @@
                                 "labelText": 'hit',
                                 "img": "img/photo/product-list-img-1.png",
                                 "title": "Kletterspielplatz „Kleinkind“ von Kidsmont",
-                                "price": "512,00€"
+                                "price": "512,00€",
+                                "colorPicer": false
                                 })
                             </li>
                             <li>
@@ -199,7 +217,8 @@
                                 "labelText": 'hit',
                                 "img": "img/photo/product-list-img-2.png",
                                 "title": "Sprossenwand 5-in-1 aus Kiefer Schwarz",
-                                "price": "471,00€"
+                                "price": "471,00€",
+                                "colorPicer": true
                                 })
                             </li>
                             <li>
@@ -208,7 +227,8 @@
                                 "labelText": 'hit',
                                 "img": "img/photo/product-list-img-3.png",
                                 "title": "Kinderbett “Piratenschiff” aus Kiefer oder Esche...",
-                                "price": "501,00€ – 595,00€"
+                                "price": "501,00€ – 595,00€",
+                                "colorPicer": true
                                 })
                             </li>
                             <li>
@@ -217,7 +237,8 @@
                                 "labelText": 'hit',
                                 "img": "img/photo/product-list-img-1.png",
                                 "title": "Sprossenwand 5-in-1 aus Kiefer Naturholz",
-                                "price": "437,00€"
+                                "price": "437,00€",
+                                "colorPicer": false
                                 })
                             </li>
                             <li>
@@ -226,7 +247,8 @@
                                 "labelText": 'hit',
                                 "img": "img/photo/product-list-img-2.png",
                                 "title": "Sprossenwand 5-in-1 aus Kiefer Schwarz",
-                                "price": "471,00€"
+                                "price": "471,00€",
+                                "colorPicer": false
                                 })
                             </li>
                             <li>
@@ -235,7 +257,8 @@
                                 "labelText": 'sale',
                                 "img": "img/photo/product-list-img-3.png",
                                 "title": "Kinderbett “Piratenschiff” aus Kiefer oder Esche...",
-                                "price": "501,00€ – 595,00€"
+                                "price": "501,00€ – 595,00€",
+                                "colorPicer": false
                                 })
                             </li>
                             <li>
@@ -244,7 +267,8 @@
                                 "labelText": 'hit',
                                 "img": "img/photo/product-list-img-1.png",
                                 "title": "Kletterspielplatz „Kleinkind“ von Kidsmont",
-                                "price": "512,00€"
+                                "price": "512,00€",
+                                "colorPicer": false
                                 })
                             </li>
                             <li>
@@ -253,7 +277,8 @@
                                 "labelText": 'hit',
                                 "img": "img/photo/product-list-img-2.png",
                                 "title": "Sprossenwand 5-in-1 aus Kiefer Schwarz",
-                                "price": "471,00€"
+                                "price": "471,00€",
+                                "colorPicer": false
                                 })
                             </li>
                             <li>
@@ -262,7 +287,8 @@
                                 "labelText": 'sale',
                                 "img": "img/photo/product-list-img-3.png",
                                 "title": "Kinderbett “Piratenschiff” aus Kiefer oder Esche...",
-                                "price": "501,00€ – 595,00€"
+                                "price": "501,00€ – 595,00€",
+                                "colorPicer": false
                                 })
                             </li>
                         </ul>
@@ -275,12 +301,126 @@
         </div>
 
         @@include('common/carousel/_carousel-preview-products.html',{
-            "title": "Products viewed",
-            "class": "carousel-preview-products",
-            "modClass": "",
-            "mod": "",
-            "type": "products",
+        "title": "Products viewed",
+        "class": "carousel-preview-products",
+        "modClass": "",
+        "mod": "",
+        "type": "products",
         })
+
+        <div class="padding-wrap pb-0" data-last-section>
+            <div class="text-tabel" data-text-table>
+                <div class="container-sm">
+                    <div class="main-table">
+                        <div class="text-tabel__preview">
+                            <div class="main-table__tr">
+                                <div class="main-table__td">
+                                    <h3 class="main-table__title">
+                                        Immer mehr Familien entscheiden sich für eine Turnwand aus Holz
+                                    </h3>
+
+                                    <img src="img/photo/text-table-img-1.jpg" alt="">
+                                </div>
+                                <div class="main-table__td text-content">
+                                    <p>
+                                        Unsere Sprossenwände sind vielseitig einsetzbar und nehmen im Raum nicht viel
+                                        Platz ein. Sie gehören zu den beliebtesten Sportartikeln für zu Hause und eignen
+                                        sich nicht nur für Kinder in jedem Alter, sondern auch für Erwachsene.
+                                    </p>
+                                    <p>
+                                        Kidsmont bietet eine große Auswahl an Sprossenwänden aus unterschiedlichen
+                                        Holzarten und Maßen an. Die beliebtesten Modelle sind die 5-in-1 Sprossenwände
+                                        aus Holz. Sie unterscheiden sich nicht nur nach der Holzart und Holzfarbe,
+                                        sondern auch nach Montagemethoden, Verarbeitungsqualität und stabilen Beschlägen
+                                        für den Aufbau der Sprossenwand.
+                                    </p>
+                                    <p>
+                                        Sprossenwände aus Holz haben eigene spezifische Eigenschaften. Bei der
+                                        Herstellung unserer Produkte wird geschliffenes Holz verwendet, das mit einem
+                                        Lack auf Wasserbasis verarbeitet wird. Es gibt keine Risse und Splitter an der
+                                        Oberfläche, wodurch die Sportgeräte 100% sicher sind.
+                                    </p>
+                                    <p>
+                                        Die einfache Montage ist ein weiterer Vorteil der Turngeräte von Kidsmont. Jede
+                                        Turnwand kann schnell in jedem Kinderzimmer oder anderen Raum aufgebaut werden.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-tabel__collapse">
+                            <div class="main-table__tr">
+                                <div class="main-table__td">
+                                    <h4 class="main-table__title">
+                                        Vorteile von Holzsprossenwänden
+                                    </h4>
+
+                                    <img src="img/photo/text-table-img-2.jpg" alt="">
+                                </div>
+                                <div class="main-table__td text-content">
+                                    <p>
+                                        Die Sprossenwände für das Kinderzimmer sind angenehm zum Tasten. Metall ist kalt
+                                        und rutschig, was einem Kind vielleicht nicht gefallen wird. Daher werden für
+                                        kleine Kinder Turnwände aus Holz empfohlen. Solche Sprossenwände sind auch
+                                        umweltfreundlich. Das Raumklima wird dadurch nicht beeinträchtigt.
+                                    </p>
+                                    <p>
+                                        Das Holz passt in jedes Interior. Danke verschiedener Modelle der Sprossenwand
+                                        ist es möglich.
+                                    </p>
+                                    <p>
+                                        das Kinderzimmer in einen echten Vergnügungspark zu verwandeln.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="main-table__tr">
+                                <div class="main-table__td">
+                                    <h4 class="main-table__title">
+                                        Richtige Übungen an der Sprossenwand mit dem Kind
+                                    </h4>
+
+                                    <img src="img/photo/text-table-img-3.jpg" alt="">
+                                </div>
+                                <div class="main-table__td text-content">
+                                    <p>
+                                        Sprossenwand aus Holz trägt zur geistigen und körperlichen Entwicklung des Kindes bei. Es ist wissenschaftlich erwiesen, dass Kinder, die täglich trainieren, weniger krank sind und hervorragende Lernfähigkeiten nachweisen.
+                                    </p>
+
+                                    <h4>Gesundheitliche Vorteile von körperlicher Aktivität:</h4>
+                                    <ul>
+                                        <li>die Arbeit der Lunge und des Atmungssystems wird verbessert;</li>
+                                        <li>der Schutz von Krankheiten wird erhöht und das Immunsystem wird gestärkt;</li>
+                                        <li>erhöht die Glukosetoleranz und reduziert Stoffwechselprobleme;</li>
+                                        <li>der Blutdruck normalisiert sich, wodurch das Herz richtig funktioniert;</li>
+                                        <li>erhöht die Sauerstoffkapazität des Blutes;</li>
+                                        <li>erhöht die Ausdauer und Elastizität der Muskeln, verbessert die neuromuskuläre Koordination.</li>
+                                    </ul>
+                                    <p>
+                                        Kinder, die täglich trainieren, vertragen bessere körperliche, geistige und psychologische Anstrengung und Belastung.
+                                    </p>
+                                    <p>
+                                        Sprossenwände helfen Kindern im unterschiedlichen Alter sportlich fit und aktiv zu sein. Solche Gymnastikgeräte helfen nicht nur Eltern die Freizeit des Kindes richtig zu organisieren, sondern unterstützen auch effektiv körperliche Entwicklung ihrer Kindes. Kinder können ihre Kreativität und Phantasie spielen lassen, indem sie verschiedene Gymnastik,- oder Entspannungsspiele entwickeln.
+                                    </p>
+                                    <p>
+                                        Es genügt sogar ein paar Minuten pro Tag Übungen an der Sprossenwand zu machen, damit das Kind sportlich aktiv zu Hause bleibt. Eine Sprossenwand ermöglicht es die Zeit Kindern und Erwachsenen zusammen mit Spaß zu verbringen. Und zusammen mit den Produkten von Kidsmont werden aktive Spiele noch lustiger und abwechslungsreicher.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-tabel__bottom">
+                            <div class="main-table__tr ">
+                                <div class="main-table__td">
+                                </div>
+                                <div class="main-table__td text-content">
+                                    <p>
+                                        <a href="#" class="link-see-more" data-text="Zeige weniger">Zeig mehr</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- == FOOTER ================== -->

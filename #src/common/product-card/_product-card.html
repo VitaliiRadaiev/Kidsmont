@@ -15,5 +15,20 @@
         </div>
     </a>
     <a href="#" class="product-card__title">@@title</a>
-    <div class="product-card__price">@@price</div>
+    <div class="product-card__bottom">
+        <div class="product-card__price">@@price</div>
+        @@if (colorPicer === true) {
+            <ul class="color-picker">
+                <li>
+                    <a class="color-picker__item color-picker__item--active" style="background-color: #E5C985;" href="#"></a>
+                </li>
+                <li>
+                    <a class="color-picker__item" style="background-color: #8E4612;" href="#"></a>
+                </li>
+                <li>
+                    <a class="color-picker__item" style="background-color: #5A574F;" href="#"></a>
+                </li>
+            </ul>
+        }
+    </div>
 </div>

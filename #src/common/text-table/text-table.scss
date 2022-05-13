@@ -1,0 +1,106 @@
+.text-tabel {
+    background-color: $bgSecondary;
+    padding: 13rem 0 13rem;
+
+    @media (max-width: $md3+px) {
+        padding: 32px 0;
+    }
+
+    &__preview {
+        & .main-table__tr {
+            padding-top: 0;
+            border-bottom: none;
+            padding-bottom: 7rem;
+
+            @media (max-width: $md3+px) {
+                padding-bottom: 32px;
+            }
+        }
+    }
+
+    &__collapse {
+        display: none;
+
+        & .main-table__tr {
+            border-bottom: none;
+            border-top: 1px solid $borderColor;
+            padding-top: 10rem;
+            padding-bottom: 7rem;
+
+            @media (max-width: $md3+px) {
+                padding-top: 0px;
+                border-top: none;
+                padding-bottom: 40px;
+            }
+        }
+    }
+
+    &__bottom {
+        & .main-table__tr {
+            padding-top: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        & .main-table__td {
+            &:nth-child(1) {
+                margin-bottom: 0 !important;
+            }
+        }
+    }
+
+    & .main-table {
+        border-top: 0;
+    }
+
+    & .main-table__td {
+        &:nth-child(1) {
+            @media (min-width: 992px) {
+                padding-right: 6rem;
+            }
+
+            @media (max-width: $md3+px) {
+                margin-bottom: 32px;
+            }
+
+            & img {
+                width: 100%;
+                max-width: 45rem;
+                display: block;
+                margin-top: 7rem;
+
+                @media (max-width: $md2+px) {
+                    margin-top: 50px;
+                }
+
+                @media (max-width: $md3+px) {
+                    margin-top: 32px;
+                    max-width: none;
+                }
+            }
+        }
+    }
+
+    & .main-table__title {
+        @media (max-width: $md3+px) {
+            margin-bottom: 32px;
+        }
+    }
+
+    & h3.main-table__title {
+        line-height: 130%;
+
+        @media (max-width: $md3+px) {
+            font-size: 18px;
+            line-height: 130%;
+        }
+    }
+    & h4.main-table__title {
+        line-height: 150%;
+
+        @media (max-width: $md3+px) {
+            font-size: 16px;
+            line-height: 130%;
+        }
+    }
+}

@@ -28,6 +28,7 @@ class App {
 		this.initMouse();
 		this.spollerInit();
 		this.componentsScriptsBeforeLoadPage();
+		this.resetFormHandler();
 
 
 		window.addEventListener('load', () => {
@@ -227,14 +228,17 @@ class App {
 		if (items.length) {
 			items.forEach(item => {
 				let maskValue = item.dataset.mask;
-				let input = item.querySelector('input[type="text"]');
-
-				if (input) {
-					Inputmask(maskValue, {
-						//"placeholder": '',
-						clearIncomplete: true,
-						clearMaskOnLostFocus: true,
-					}).mask(input);
+				let inputs = item.querySelectorAll('input');
+				if(inputs.length) {
+					inputs.forEach(input => {
+						if (input) {
+							Inputmask(maskValue, {
+								//"placeholder": '',
+								clearIncomplete: true,
+								clearMaskOnLostFocus: true,
+							}).mask(input);
+						}
+					})
 				}
 			})
 		}
@@ -334,6 +338,57 @@ class App {
 		});
 
 	}
+
+	resetFormHandler() {
+		let resetButtons = document.querySelectorAll('[data-button-reset]');
+		if(resetButtons.length) {
+			resetButtons.forEach(resetButton => {
+				let count = 0;
+				let form = resetButton.closest('form');
+				let checkboxInputs = form.querySelectorAll('input[type="checkbox"]');
+				let numBox = resetButton.querySelector('span');
+				let inputPriceStart = form.querySelector('.price-range__input--start');
+				let inputPriceEnd = form.querySelector('.price-range__input--end');
+
+				// init
+				numBox.innerText = count;
+
+				checkboxInputs.forEach(checkboxInput => {
+					checkboxInput.addEventListener('change', () => {
+						if(checkboxInput.checked) {
+							count++;
+						} else {
+							count--;
+						}
+
+						numBox.innerText = count;
+					})
+				})
+
+				form.addEventListener('reset', (e) => {
+					e.preventDefault();
+					count = 0;
+					numBox.innerText = count;
+
+					checkboxInputs.forEach(checkboxInput => {
+						checkboxInput.checked = false;
+					})
+
+					if(inputPriceStart) {
+						inputPriceStart.value = 0;
+						window.priceSlider.noUiSlider.set([0, null]);
+					}
+
+					if(inputPriceEnd) {
+						let value = inputPriceEnd.closest('.price-range').dataset.max;
+						inputPriceStart.value = value;
+						window.priceSlider.noUiSlider.set([null, value]);
+					}
+				})
+			})
+		}
+	}
+
 	componentsScriptsBeforeLoadPage() {
 		@@include('../common/form/form.js');
 	}
@@ -347,6 +402,17 @@ class App {
 		@@include('../common/orders-list/orders-list.js');
 		@@include('../common/quantity/quantity.js');
 		@@include('../common/footer/footer.js');
+		@@include('../common/text-table/text-table.js');
+		
+		{
+			let lastSection = document.querySelector('[data-last-section]');
+			let footer = document.querySelector('.footer');
+			if(lastSection && footer) {
+				footer.style.paddingTop = '0px';
+			}
+		}
+
+		
 	}
 
 }

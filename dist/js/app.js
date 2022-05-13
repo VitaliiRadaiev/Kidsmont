@@ -299,6 +299,7 @@ class App {
 		this.initMouse();
 		this.spollerInit();
 		this.componentsScriptsBeforeLoadPage();
+		this.resetFormHandler();
 
 
 		window.addEventListener('load', () => {
@@ -1106,14 +1107,17 @@ window.popup = {
 		if (items.length) {
 			items.forEach(item => {
 				let maskValue = item.dataset.mask;
-				let input = item.querySelector('input[type="text"]');
-
-				if (input) {
-					Inputmask(maskValue, {
-						//"placeholder": '',
-						clearIncomplete: true,
-						clearMaskOnLostFocus: true,
-					}).mask(input);
+				let inputs = item.querySelectorAll('input');
+				if(inputs.length) {
+					inputs.forEach(input => {
+						if (input) {
+							Inputmask(maskValue, {
+								//"placeholder": '',
+								clearIncomplete: true,
+								clearMaskOnLostFocus: true,
+							}).mask(input);
+						}
+					})
 				}
 			})
 		}
@@ -1652,6 +1656,57 @@ if (videoBlock.length) {
 		});
 
 	}
+
+	resetFormHandler() {
+		let resetButtons = document.querySelectorAll('[data-button-reset]');
+		if(resetButtons.length) {
+			resetButtons.forEach(resetButton => {
+				let count = 0;
+				let form = resetButton.closest('form');
+				let checkboxInputs = form.querySelectorAll('input[type="checkbox"]');
+				let numBox = resetButton.querySelector('span');
+				let inputPriceStart = form.querySelector('.price-range__input--start');
+				let inputPriceEnd = form.querySelector('.price-range__input--end');
+
+				// init
+				numBox.innerText = count;
+
+				checkboxInputs.forEach(checkboxInput => {
+					checkboxInput.addEventListener('change', () => {
+						if(checkboxInput.checked) {
+							count++;
+						} else {
+							count--;
+						}
+
+						numBox.innerText = count;
+					})
+				})
+
+				form.addEventListener('reset', (e) => {
+					e.preventDefault();
+					count = 0;
+					numBox.innerText = count;
+
+					checkboxInputs.forEach(checkboxInput => {
+						checkboxInput.checked = false;
+					})
+
+					if(inputPriceStart) {
+						inputPriceStart.value = 0;
+						window.priceSlider.noUiSlider.set([0, null]);
+					}
+
+					if(inputPriceEnd) {
+						let value = inputPriceEnd.closest('.price-range').dataset.max;
+						inputPriceStart.value = value;
+						window.priceSlider.noUiSlider.set([null, value]);
+					}
+				})
+			})
+		}
+	}
+
 	componentsScriptsBeforeLoadPage() {
 		{
     let textareaAll = document.querySelectorAll('[data-textarea]');
@@ -1864,6 +1919,8 @@ if (videoBlock.length) {
                     decimals: 0
                 })
             });
+
+            window.priceSlider = slider;
 
             let numFormat = wNumb({ decimals: 0, thousand: ',' });
 
@@ -2163,6 +2220,54 @@ if (dropZoneBox) {
         }
     }
 };
+		{
+    let textTableAll = document.querySelectorAll('[data-text-table]');
+    if (textTableAll.length) {
+        textTableAll.forEach(textTable => {
+            let collapseBox = textTable.querySelector('.text-tabel__collapse');
+            let btn = textTable.querySelector('.link-see-more');
+
+            if(collapseBox && btn) {
+                let textOpen = btn.innerText;
+                let textClose = btn.dataset.text;
+
+                btn.addEventListener('click', (e) => {
+                    if(btn.classList.contains('text-is-show')) {
+                        btn.classList.remove('text-is-show');
+                        btn.innerText = textOpen;
+
+                        window.locomotivePageScroll.scrollTo(textTable, {
+                            offset: -50,
+                            duration: 0
+                        })
+                    } else {
+                        btn.classList.add('text-is-show');
+                        btn.innerText = textClose;
+                    }
+
+                    this.utils.slideToggle(collapseBox);
+
+                    let id = setInterval(() => {
+                        window.locomotivePageScroll.update();
+                    }, 200);
+                    setTimeout(() => {
+                        clearInterval(id);
+                    }, 600)
+                })
+            }
+        })
+    }
+};
+		
+		{
+			let lastSection = document.querySelector('[data-last-section]');
+			let footer = document.querySelector('.footer');
+			if(lastSection && footer) {
+				footer.style.paddingTop = '0px';
+			}
+		}
+
+		
 	}
 
 }

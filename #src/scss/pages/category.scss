@@ -1,4 +1,5 @@
 .category {
+
     &__list {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -13,12 +14,18 @@
         }
 
         @media (max-width: $md3+px) {
-            padding-top: 12px;
-            gap: 2rem;
-            grid-template-columns: 1fr;
+            display: block;
+            padding-top: 0;
+            border-top: none;
         }
 
         & > li {
+            &:not(:last-child) {
+                @media (max-width: $md3+px) {
+                    margin-bottom: 12px;
+                }
+            }
+
             &:nth-child(1) {
                 @media (min-width: 992px) {
                     grid-column: span 2;
@@ -100,6 +107,13 @@
         }
     }
 
+    @media (max-width: $md3+px) {
+        flex-direction: row-reverse;
+        align-items: center;
+        min-height: 140px;
+        padding: 16px 20px;
+    }
+
     &__img {
         height: 25.8rem;
         padding: 3rem;
@@ -108,7 +122,10 @@
         align-items: center;
 
         @media (max-width: $md3+px) {
-            height: 26.2rem;
+            flex: 0 0 auto;
+            height: 120px;
+            width: 120px;
+            padding: 0;
         }
 
         & img {
@@ -123,7 +140,8 @@
         padding: 0 3rem 3rem;
 
         @media (max-width: $md3+px) {
-            padding: 0 2.5rem 2.5rem;
+            padding: 0 20px 0 0;
+            flex: 1 1 auto;
         }
     }
 
@@ -136,7 +154,7 @@
         text-transform: uppercase;
 
         @media (max-width: $md3+px) {
-            font-size: 20px;
+            font-size: 18px;
             margin-bottom: 8px;
         }
     }
