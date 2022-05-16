@@ -4,7 +4,7 @@
         background-color: $bgSecondary;
 
         @media (max-width: $md3+px) {
-            padding: 36px;
+            padding: 36px 0;
         }
     }   
 
@@ -12,7 +12,14 @@
     }
 
     &__slider {
-
+        @media (max-width: $md3+px) {
+            margin-right: -20px;
+        }
+        & .swiper-slide {
+            @media (max-width: $md3+px) {
+                width: 275px;
+            }
+        }
     }
 
     &__slider-item {
@@ -21,7 +28,7 @@
         padding-bottom: 82.8%;
 
         @media (max-width: $md3+px) {
-            padding-bottom: 65.67%;
+            padding-bottom: 80%;
         }
     }
 

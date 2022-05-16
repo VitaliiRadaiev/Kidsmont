@@ -12956,7 +12956,7 @@ form.dropzone > .dz-preview {
   }
 
   .reviews-list-card__slider .swiper-slide {
-    width: 220px;
+    width: 275px;
     height: 220px;
   }
 
@@ -12965,11 +12965,19 @@ form.dropzone > .dz-preview {
   }
 
   .gallery-carousel__inner {
-    padding: 36px;
+    padding: 36px 0;
+  }
+
+  .gallery-carousel__slider {
+    margin-right: -20px;
+  }
+
+  .gallery-carousel__slider .swiper-slide {
+    width: 275px;
   }
 
   .gallery-carousel__slider-item {
-    padding-bottom: 65.67%;
+    padding-bottom: 80%;
   }
 
   .drop-zone {

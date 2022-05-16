@@ -851,7 +851,7 @@ window.popup = {
             },
             breakpoints: {
                 320: {
-                    slidesPerView: 1,
+                    slidesPerView: 'auto',
                     spaceBetween: 20,
                 },
                 768: {
