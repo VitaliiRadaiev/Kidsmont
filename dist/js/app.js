@@ -321,7 +321,7 @@ let closeBtn = document.querySelector('[data-side-panel="menu-mobile"] [data-sid
 let mobileMenu = document.querySelector('[data-side-panel="menu-mobile"]');
 let deskMenuItemHasSubMenu = document.querySelector('[data-menu-item-has-sab-menu]');
 let mainSearch = document.querySelector('[data-main-search]');
-let btnShowMainSearch = document.querySelector('[data-action="show-main-search"]');
+let btnShowMainSearchButtons = document.querySelectorAll('[data-action="show-main-search"]');
 let btnHideMainSearch = document.querySelector('[data-action="hide-main-search"]');
 
 if (header && mobileMenu) {
@@ -392,13 +392,16 @@ if (header && mobileMenu) {
 }
 
 if(mainSearch) {
-
-    btnShowMainSearch.addEventListener('click', (e) => {
-        e.preventDefault();
-        mainSearch.classList.add('main-search--show');
-        document.body.classList.add('cover');
-        document.body.classList.add('overflow-hidden');
-    })
+    if(btnShowMainSearchButtons.length) {
+        btnShowMainSearchButtons.forEach(btnShowMainSearch => {
+            btnShowMainSearch.addEventListener('click', (e) => {
+                e.preventDefault();
+                mainSearch.classList.add('main-search--show');
+                document.body.classList.add('cover');
+                document.body.classList.add('overflow-hidden');
+            })
+        })
+    }
 
     btnHideMainSearch.addEventListener('click', (e) => {
         e.preventDefault();
@@ -718,8 +721,8 @@ window.popup = {
                     ...options,
                     breakpoints: {
                         320: {
-                            slidesPerView: 1,
-                            spaceBetween: 15,
+                            slidesPerView: 'auto',
+                            spaceBetween: 20,
                             autoHeight: true,
                         },
                         768: {
@@ -745,7 +748,7 @@ window.popup = {
             let mySwiper;
     
             function mobileSlider() {
-                if(document.documentElement.clientWidth <= 991 && slider.dataset.mobile == 'false') {
+                if(document.documentElement.clientWidth <= 991.98 && slider.dataset.mobile == 'false') {
                     mySwiper = new Swiper(slider, {
                         slidesPerView: 1,
                         speed: 800,
@@ -761,7 +764,7 @@ window.popup = {
                     //mySwiper.slideNext(0);
                 }
     
-                if(document.documentElement.clientWidth > 767) {
+                if(document.documentElement.clientWidth > 992) {
                     slider.dataset.mobile = 'false';
     
                     if(slider.classList.contains('swiper-initialized')) {
@@ -791,7 +794,7 @@ window.popup = {
                 breakpoints: {
                     320: {
                         slidesPerView: 'auto',
-                        spaceBetween: 25,
+                        spaceBetween: 20,
                     },
                     768: {
                         slidesPerView: 3,
@@ -942,6 +945,46 @@ window.popup = {
     
     }
 };
+		{
+    let benefitsList = document.querySelector('[data-slider="benefits-list"]');
+    if(benefitsList) {
+        const slider = benefitsList;
+        if(slider) {
+            let mySwiper;
+    
+            function mobileSlider() {
+                if(document.documentElement.clientWidth <= 767 && slider.dataset.mobile == 'false') {
+                    mySwiper = new Swiper(slider, {
+                        slidesPerView: 1,
+                        speed: 800,
+                        pagination: {
+                            el: slider.querySelector('.swiper-pagination'),
+                            clickable: true,  
+                        },
+                    });
+    
+                    slider.dataset.mobile = 'true';
+    
+                    //mySwiper.slideNext(0);
+                }
+    
+                if(document.documentElement.clientWidth > 767) {
+                    slider.dataset.mobile = 'false';
+    
+                    if(slider.classList.contains('swiper-initialized')) {
+                        mySwiper.destroy();
+                    }
+                }
+            }
+    
+            mobileSlider();
+    
+            window.addEventListener('resize', () => {
+                mobileSlider();
+            })
+        }
+    }
+};
 	}
 
 	initMouse() {
@@ -1006,7 +1049,7 @@ window.popup = {
 				if (triggerItems.length && contentItems.length) {
 					// init
 					let activeItem = tabsContainer.querySelector('.tab-active[data-tab-trigger]');
-					if(activeItem) {
+					if (activeItem) {
 						activeItem.classList.add('tab-active');
 						getContentItem(activeItem.dataset.tabTrigger).classList.add('tab-active');
 					} else {
@@ -1015,7 +1058,8 @@ window.popup = {
 					}
 
 					triggerItems.forEach(item => {
-						item.addEventListener('click', () => {
+						item.addEventListener('click', (e) => {
+							e.preventDefault();
 							item.classList.add('tab-active');
 							getContentItem(item.dataset.tabTrigger).classList.add('tab-active');
 
@@ -1037,16 +1081,58 @@ window.popup = {
 					})
 				}
 
-				if(select) {
+				if (select) {
 					select.addEventListener('change', (e) => {
 						getContentItem(e.target.value).classList.add('tab-active');
 
 						contentItems.forEach(item => {
-							if(getContentItem(e.target.value) === item) return;
+							if (getContentItem(e.target.value) === item) return;
 
 							item.classList.remove('tab-active');
 						})
 					})
+				}
+
+				if (tabsContainer.dataset.tabs === 'has-outside-navigation') {
+					let outsideNavigation = document.querySelector('[data-tabs-outside-nav]');
+					if (outsideNavigation) {
+						let triggerItems = outsideNavigation.querySelectorAll('[data-tab-trigger]');
+
+						// init
+						let activeItem = tabsContainer.querySelector('.tab-active[data-tab-trigger]');
+						if (activeItem) {
+							activeItem.classList.add('tab-active');
+							getContentItem(activeItem.dataset.tabTrigger).classList.add('tab-active');
+						} else {
+							triggerItems[0].classList.add('tab-active');
+							getContentItem(triggerItems[0].dataset.tabTrigger).classList.add('tab-active');
+						}
+
+						triggerItems.forEach(item => {
+							item.addEventListener('click', (e) => {
+								e.preventDefault();
+								item.classList.add('tab-active');
+								getContentItem(item.dataset.tabTrigger).classList.add('tab-active');
+
+								triggerItems.forEach(i => {
+									if (i === item) return;
+
+									i.classList.remove('tab-active');
+									getContentItem(i.dataset.tabTrigger).classList.remove('tab-active');
+								})
+
+								// update locomotive scroll
+								let id = setInterval(() => {
+									window.locomotivePageScroll.update();
+								}, 20);
+								setTimeout(() => {
+									clearInterval(id);
+								}, 200)
+
+								window.sidePanel.close('faq-items');
+							})
+						})
+					}
 				}
 			})
 		}
@@ -1054,14 +1140,14 @@ window.popup = {
 
 	spollerInit() {
 		let spollers = document.querySelectorAll('[data-spoller]');
-		
+
 		if (spollers.length) {
 			spollers.forEach(spoller => {
 				let isOneActiveItem = spoller.dataset.spoller.trim() === 'one' ? true : false;
 				let mobModification = spoller.dataset.spoller.trim() === 'mob' ? true : false;
 
 				let triggers;
-				if(spoller.dataset.hasOwnProperty('subSpoller')) {
+				if (spoller.dataset.hasOwnProperty('subSpoller')) {
 					triggers = spoller.querySelectorAll('[data-spoller-trigger]');
 				} else {
 					triggers = spoller.querySelectorAll('[data-spoller-trigger]:not([data-sub-spoller] [data-spoller-trigger])');
@@ -1078,7 +1164,7 @@ window.popup = {
 
 						trigger.addEventListener('click', (e) => {
 
-							if(mobModification && document.documentElement.clientWidth > 991.98) return;
+							if (mobModification && document.documentElement.clientWidth > 991.98) return;
 
 							e.preventDefault();
 							parent.classList.toggle('active');
@@ -1119,7 +1205,7 @@ window.popup = {
 			items.forEach(item => {
 				let maskValue = item.dataset.mask;
 				let inputs = item.querySelectorAll('input');
-				if(inputs.length) {
+				if (inputs.length) {
 					inputs.forEach(input => {
 						if (input) {
 							Inputmask(maskValue, {
@@ -1670,7 +1756,7 @@ if (videoBlock.length) {
 
 	resetFormHandler() {
 		let resetButtons = document.querySelectorAll('[data-button-reset]');
-		if(resetButtons.length) {
+		if (resetButtons.length) {
 			resetButtons.forEach(resetButton => {
 				let count = 0;
 				let form = resetButton.closest('form');
@@ -1684,7 +1770,7 @@ if (videoBlock.length) {
 
 				checkboxInputs.forEach(checkboxInput => {
 					checkboxInput.addEventListener('change', () => {
-						if(checkboxInput.checked) {
+						if (checkboxInput.checked) {
 							count++;
 						} else {
 							count--;
@@ -1703,12 +1789,12 @@ if (videoBlock.length) {
 						checkboxInput.checked = false;
 					})
 
-					if(inputPriceStart) {
+					if (inputPriceStart) {
 						inputPriceStart.value = 0;
 						window.priceSlider.noUiSlider.set([0, null]);
 					}
 
-					if(inputPriceEnd) {
+					if (inputPriceEnd) {
 						let value = inputPriceEnd.closest('.price-range').dataset.max;
 						inputPriceStart.value = value;
 						window.priceSlider.noUiSlider.set([null, value]);
@@ -1902,6 +1988,25 @@ if (videoBlock.length) {
             })
         }
     }
+
+    window.sidePanel = {
+        open(id) {
+            let sidePanel = document.querySelector(`[data-side-panel="${id}"]`);
+            if(sidePanel) {
+                sidePanel.classList.add('side-panel--open');
+                document.body.classList.add('overflow-hidden');
+                window.locomotivePageScroll.stop();
+            }
+        },
+        close (id) {
+            let sidePanel = document.querySelector(`[data-side-panel="${id}"]`);
+            if(sidePanel) {
+                sidePanel.classList.remove('side-panel--open');
+                document.body.classList.remove('overflow-hidden');
+                window.locomotivePageScroll.start();
+            }
+        }
+    }
 }
 ;
 		{
@@ -2046,105 +2151,109 @@ if (videoBlock.length) {
         }
     }
 };
-		let dropZoneBox = document.querySelector('[data-drop-zone]');
-if (dropZoneBox) {
-    let inputFile = dropZoneBox.querySelector('.drop-zone__input');
-    let fraction = dropZoneBox.querySelector('.drop-zone__fraction');
-    let submitBtn = dropZoneBox.closest('form').querySelector('[type="submit"], .form__submit');
-    
-    let dropZone = new Dropzone(dropZoneBox, {
-        url: '/',
-        previewsContainer: dropZoneBox.querySelector('.drop-zone__preview'),
-        uploadMultiple: true,
-        maxFiles: 10,
-        addRemoveLinks: true,
-        thumbnail: function (file, dataUrl) {
-            if (file.previewElement) {
-                file.previewElement.classList.remove("dz-file-preview");
-                let images = file.previewElement.querySelectorAll("[data-dz-thumbnail]");
-                for (let i = 0; i < images.length; i++) {
-                    let thumbnailElement = images[i];
-                    thumbnailElement.alt = file.name;
-                    thumbnailElement.src = dataUrl;
-                }
-                setTimeout(function () { file.previewElement.classList.add("dz-image-preview"); }, 1);
-            }
-        },
-        accept: function (file, done) {
-            if (file.type === "image/jpeg" || file.type === "image/jpg" || file.type === "image/png" || file.type === "application/pdf") {
-                done();
-            }
-            else {
-                done("Error! Files of this type are not accepted");
-            }
-        }
-    });
-
-    let minSteps = 6,
-        maxSteps = 60,
-        timeBetweenSteps = 100,
-        bytesPerStep = 100000;
-
-    dropZone.uploadFiles = function (files) {
-        let self = this;
-
-        for (let i = 0; i < files.length; i++) {
-
-            let file = files[i];
-            let totalSteps = Math.round(Math.min(maxSteps, Math.max(minSteps, file.size / bytesPerStep)));
-
-            for (let step = 0; step < totalSteps; step++) {
-                let duration = timeBetweenSteps * (step + 1);
-                setTimeout(function (file, totalSteps, step) {
-                    return function () {
-                        file.upload = {
-                            progress: 100 * (step + 1) / totalSteps,
-                            total: file.size,
-                            bytesSent: (step + 1) * file.size / totalSteps
-                        };
-
-                        self.emit('uploadprogress', file, file.upload.progress, file.upload.bytesSent);
-                        if (file.upload.progress == 100) {
-                            file.status = Dropzone.SUCCESS;
-                            self.emit("success", file, 'success', null);
-                            self.emit("complete", file);
-                            self.processQueue();
-                            //document.getElementsByClassName("dz-success-mark").style.opacity = "1";
+		let dropZoneBoxes = document.querySelectorAll('[data-drop-zone]');
+if(dropZoneBoxes.length) {
+    dropZoneBoxes.forEach(dropZoneBox => {
+        if (dropZoneBox) {
+            let inputFile = dropZoneBox.querySelector('.drop-zone__input');
+            let fraction = dropZoneBox.querySelector('.drop-zone__fraction');
+            let submitBtn = dropZoneBox.closest('form').querySelector('[type="submit"], .form__submit');
+            
+            let dropZone = new Dropzone(dropZoneBox, {
+                url: '/',
+                previewsContainer: dropZoneBox.querySelector('.drop-zone__preview'),
+                uploadMultiple: true,
+                maxFiles: 10,
+                addRemoveLinks: true,
+                thumbnail: function (file, dataUrl) {
+                    if (file.previewElement) {
+                        file.previewElement.classList.remove("dz-file-preview");
+                        let images = file.previewElement.querySelectorAll("[data-dz-thumbnail]");
+                        for (let i = 0; i < images.length; i++) {
+                            let thumbnailElement = images[i];
+                            thumbnailElement.alt = file.name;
+                            thumbnailElement.src = dataUrl;
                         }
-                    };
-                }(file, totalSteps, step), duration);
+                        setTimeout(function () { file.previewElement.classList.add("dz-image-preview"); }, 1);
+                    }
+                },
+                accept: function (file, done) {
+                    if (file.type === "image/jpeg" || file.type === "image/jpg" || file.type === "image/png" || file.type === "application/pdf") {
+                        done();
+                    }
+                    else {
+                        done("Error! Files of this type are not accepted");
+                    }
+                }
+            });
+        
+            let minSteps = 6,
+                maxSteps = 60,
+                timeBetweenSteps = 100,
+                bytesPerStep = 100000;
+        
+            dropZone.uploadFiles = function (files) {
+                let self = this;
+        
+                for (let i = 0; i < files.length; i++) {
+        
+                    let file = files[i];
+                    let totalSteps = Math.round(Math.min(maxSteps, Math.max(minSteps, file.size / bytesPerStep)));
+        
+                    for (let step = 0; step < totalSteps; step++) {
+                        let duration = timeBetweenSteps * (step + 1);
+                        setTimeout(function (file, totalSteps, step) {
+                            return function () {
+                                file.upload = {
+                                    progress: 100 * (step + 1) / totalSteps,
+                                    total: file.size,
+                                    bytesSent: (step + 1) * file.size / totalSteps
+                                };
+        
+                                self.emit('uploadprogress', file, file.upload.progress, file.upload.bytesSent);
+                                if (file.upload.progress == 100) {
+                                    file.status = Dropzone.SUCCESS;
+                                    self.emit("success", file, 'success', null);
+                                    self.emit("complete", file);
+                                    self.processQueue();
+                                    //document.getElementsByClassName("dz-success-mark").style.opacity = "1";
+                                }
+                            };
+                        }(file, totalSteps, step), duration);
+                    }
+                }
             }
+        
+            let dt = new DataTransfer();
+            const numberOfFilesHandler = () => {
+                fraction.innerText = dt.files.length + '/10';
+                dropZoneBox.classList.toggle('drop-zone--has-files', dt.files.length > 0)
+        
+                if(dt.files.length > 10) {
+                    submitBtn.setAttribute('disabled', true);
+                } else {
+                    submitBtn.removeAttribute('disabled');
+                }
+            }
+        
+            dropZone.on("complete", function (file) {
+                // console.log(file);
+            });
+        
+            dropZone.on("addedfile", file => {
+                dt.items.add(file)
+                inputFile.files = dt.files;
+        
+                numberOfFilesHandler();
+            })
+        
+            dropZone.on("removedfile", file => {
+                dt.items.remove(file)
+                inputFile.files = dt.files;
+                numberOfFilesHandler();
+                console.log(dt.files)
+            })
         }
-    }
-
-    let dt = new DataTransfer();
-    const numberOfFilesHandler = () => {
-        fraction.innerText = dt.files.length + '/10';
-        dropZoneBox.classList.toggle('drop-zone--has-files', dt.files.length > 0)
-
-        if(dt.files.length > 10) {
-            submitBtn.setAttribute('disabled', true);
-        } else {
-            submitBtn.removeAttribute('disabled');
-        }
-    }
-
-    dropZone.on("complete", function (file) {
-        // console.log(file);
-    });
-
-    dropZone.on("addedfile", file => {
-        dt.items.add(file)
-        inputFile.files = dt.files;
-
-        numberOfFilesHandler();
-    })
-
-    dropZone.on("removedfile", file => {
-        dt.items.remove(file)
-        inputFile.files = dt.files;
-        numberOfFilesHandler();
-        console.log(dt.files)
     })
 };
 		{
@@ -2279,16 +2388,37 @@ if (dropZoneBox) {
         })
     }
 };
-		
+		{
+    let mobShareBox = document.querySelector('[data-mob-share]');
+    let mobShareBtn = document.querySelector('[data-action="mob-share-open"]');
+
+    if(mobShareBox && mobShareBtn) {
+        mobShareBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            mobShareBtn.classList.add('hide');
+            mobShareBox.classList.add('mob-share--open');
+            document.body.classList.add('overflow-hidden');
+        })
+
+        mobShareBox.addEventListener('click', (e) => {
+            if(e.target.closest('.mob-share__social')) return;
+
+            mobShareBtn.classList.remove('hide');
+            mobShareBox.classList.remove('mob-share--open');
+            document.body.classList.remove('overflow-hidden');
+        })
+    }
+};
+
 		{
 			let lastSection = document.querySelector('[data-last-section]');
 			let footer = document.querySelector('.footer');
-			if(lastSection && footer) {
+			if (lastSection && footer) {
 				footer.style.paddingTop = '0px';
 			}
 		}
 
-		
+
 	}
 
 }

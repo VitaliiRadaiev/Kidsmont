@@ -74,7 +74,7 @@
 
     &__body {
         display: flex;
-
+        position: relative;
         @media (max-width: $md2+px) {
             flex-direction: column-reverse;
         }
@@ -89,19 +89,25 @@
         flex-direction: column;
 
         @media (max-width: $md2+px) {
-            position: relative;
-            padding-top: 80px;
-            padding-bottom: 80px;
+            position: absolute;
+            padding: 12px 32px;
+            right: -32px;
+            bottom: 0;
+            z-index: 2;
+            background-color: $bgSecondary;
         }
 
         @media (max-width: $md3+px) {
-            padding-top: 40px;
-            padding-bottom: 40px;
+            padding: 12px 25px;
+            right: -20px;
         }
+
     }
 
     &__col-2 {
-        flex: 0 0 65.23%;
+        @media (min-width: 992px) {
+            flex: 0 0 65.23%;
+        }
     }
 
     &__title {
@@ -131,6 +137,7 @@
             position: absolute;
             top: 80px;
             right: 30px;
+            display: none;
         }
 
         @media (max-width: $md3+px) {

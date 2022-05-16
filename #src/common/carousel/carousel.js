@@ -50,8 +50,8 @@
                     ...options,
                     breakpoints: {
                         320: {
-                            slidesPerView: 1,
-                            spaceBetween: 15,
+                            slidesPerView: 'auto',
+                            spaceBetween: 20,
                             autoHeight: true,
                         },
                         768: {

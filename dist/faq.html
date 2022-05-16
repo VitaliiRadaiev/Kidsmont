@@ -507,6 +507,28 @@ defer
     </div>
 </div>
 
+
+    <div class="side-panel faq-items" data-side-panel="faq-items">
+    <div class="side-panel__close" data-side-panel-close><span></span></div>
+    <div class="side-panel__body">
+        <div class="side-panel__head">
+            <div class="faq-items__title">Sort by</div>
+        </div>
+        <div class="side-panel__scroll-wrap">
+            <ul class="faq-items__list" data-tabs-outside-nav>
+                <li>
+                    <a href="#" class="tab-active" data-tab-trigger="0">Produktanfragen</a>
+                </li>
+                <li>
+                    <a href="#" data-tab-trigger="1">Garantie</a>
+                </li>
+                <li>
+                    <a href="#" data-tab-trigger="2">Bezahlung</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
     <!-- == // TOP LINE ================== -->
 
     <main class="_page " data-padding-top-header-size data-scroll-section>
@@ -527,7 +549,7 @@ defer
 
 
         <div class="faq padding-wrap pt-0">
-            <div class="container-sm">
+            <div class="container-sm" data-tabs="has-outside-navigation">
                 <div class="faq__head">
                     <form action="/">
                         <div class="faq__search">
@@ -537,8 +559,16 @@ defer
                             <input class="faq__search-input" type="text" placeholder="Enter text to search...">
                         </div>
                     </form>
+                    <button class="faq__mob-search-btn" data-action="show-main-search">
+                        <img src="img/icons/search.svg" alt="">
+                        Search
+                    </button>
+                    <button class="faq__mob-select" data-side-panel-open="faq-items">
+                        <img src="img/icons/menu.svg" alt="">
+                        Iteams
+                    </button>
                 </div>
-                <div class="faq__body tabs" data-tabs>
+                <div class="faq__body tabs">
                     <div class="tabs__col-1">
                         <div class="tabs__nav">
                             <div class="tabs__nav-list swiper d-none d-md-block" data-tabs-nav data-mobile="false">
@@ -554,13 +584,6 @@ defer
                                     </div>
                                 </div>
                             </div>
-                            <div class="tabs__nav-select select-wrap d-block d-md-none">
-                                <select name="" class="_select" data-tab-select>
-                                    <option value="0" selected>Produktanfragen</option>
-                                    <option value="1">Garantie</option>
-                                    <option value="2">Bezahlung</option>
-                                </select>
-                            </div>
                         </div>
                     </div>
                     <div class="tabs__col-2">
@@ -570,7 +593,7 @@ defer
                                     <div class="accordion__title" data-spoller-trigger>
                                         Wir sind an einem Doppelhochbett oder am Kinderspielplatz „Kleinkind“ interessiert. Können wir Ihre Brettrtutsche dafür benutzen?
                                         <div class="accordion__icon">
-                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="accordion__collapse text-content">
@@ -583,7 +606,7 @@ defer
                                     <div class="accordion__title" data-spoller-trigger>
                                         Sie geben in der Produktbeschreibung an, dass Ihre Sprossenwände und Brettrutschen ein Gewicht von bis zu 150kg aushalten. Heißt es, dass ich als Vater zusammen mit den Kindern das Gerüst gleichzeitig benutzen kann?
                                         <div class="accordion__icon">
-                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="accordion__collapse text-content">
@@ -597,7 +620,7 @@ defer
                                     <div class="accordion__title" data-spoller-trigger>
                                         Wir haben 2 Kinder und überlegen uns eine Sprossenwand mit Brettrutsche und Matte zu kaufen. Ist eine Matte für 2 Kinder ausreichend genug?
                                         <div class="accordion__icon">
-                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="accordion__collapse text-content">
@@ -611,7 +634,7 @@ defer
                                     <div class="accordion__title" data-spoller-trigger>
                                         Verändert sich das Maximalbelastungsgewicht bei Positionswechsel der Sprossenwand?
                                         <div class="accordion__icon">
-                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="accordion__collapse text-content">
@@ -625,7 +648,7 @@ defer
                                     <div class="accordion__title" data-spoller-trigger>
                                         Beziehen sich die 150 kg Belastbarkeit der Sprossenwand nur auf das Reck oder dürfen Erwachsene mit Kindern das Klettergerüst benutzen?
                                         <div class="accordion__icon">
-                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="accordion__collapse text-content">
@@ -639,7 +662,7 @@ defer
                                     <div class="accordion__title" data-spoller-trigger>
                                         Wie viel beträgt der Abstand zwischen den Sprossen und wie lauten die Maße der Sprossen?
                                         <div class="accordion__icon">
-                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="accordion__collapse text-content">
@@ -653,7 +676,7 @@ defer
                                     <div class="accordion__title" data-spoller-trigger>
                                         Wie weit ragt das Reck in den Raum?
                                         <div class="accordion__icon">
-                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="accordion__collapse text-content">
@@ -667,7 +690,7 @@ defer
                                     <div class="accordion__title" data-spoller-trigger>
                                         Ist Ihre Sprossenwand aus Kiefer oder Esche auch für outdoor geeignet, wie z.B. für den Wintergarten oder für den Hof?
                                         <div class="accordion__icon">
-                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="accordion__collapse text-content">
@@ -685,7 +708,7 @@ defer
                                     <div class="accordion__title" data-spoller-trigger>
                                         Was ist ein Piratenschiff-Bett?
                                         <div class="accordion__icon">
-                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="accordion__collapse text-content">
@@ -703,7 +726,7 @@ defer
                                     <div class="accordion__title" data-spoller-trigger>
                                         Kann man ein Piratenbett kaufen oder muss man es selbst machen?
                                         <div class="accordion__icon">
-                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="accordion__collapse text-content">
@@ -717,7 +740,7 @@ defer
                                     <div class="accordion__title" data-spoller-trigger>
                                         Wie viel kostet ein Piratenschiff-Hochbett?
                                         <div class="accordion__icon">
-                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="accordion__collapse text-content">
@@ -1148,6 +1171,96 @@ defer
                                 </div>
                             </div>
                             <button class="form__submit w-100 btn-default">Eingang</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup--second" id="leaveComment"> 
+    <div class="popup__body">
+        <div class="popup__content">
+            <div class="popup__close" data-popup="close-popup"><span></span></div>
+            <div class="popup-box">
+                <div class="popup-box__head">
+                    <h3 class="popup-box__title text-transform-none">
+                        Leave a comment
+                    </h3>
+                </div>
+                <div class="popup-box__body d-block text-normal">
+
+                    <form class="dropzone" action="/">
+                        <div class="form">
+                            <div class="form__items">
+                                <div class="form__item">
+                                    <input class="input" type="text" placeholder="Name">
+                                </div>
+                                <div class="form__item">
+                                    <textarea data-textarea class="textarea" placeholder="Comment"></textarea>
+                                </div>
+                                <div class="form__item">
+                                    <div class="drop-zone" data-drop-zone>
+                                        <input class="drop-zone__input" type="file" multiple="multiple" >
+                                        <!-- accept=".jpg, .jpeg, .png, .pdf" -->
+                                        <div class="drop-zone__fraction">
+                                            0/10
+                                        </div>
+                                        <div class="drop-zone__body">
+                                            <div class="drop-zone__title">Upload photos</div>
+                                        </div>
+                                        <div class="drop-zone__preview dropzone-previews"></div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <button type="submit" class="form__submit btn-default w-100">Leave a comment</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup--second" id="contact"> 
+    <div class="popup__body">
+        <div class="popup__content">
+            <div class="popup__close" data-popup="close-popup"><span></span></div>
+            <div class="popup-box">
+                <div class="popup-box__head">
+                    <h3 class="popup-box__title text-transform-none">
+                        Sich beschweren
+                    </h3>
+                </div>
+                <div class="popup-box__body d-block text-normal">
+
+                    <form class="dropzone" action="/">
+                        <div class="form">
+                            <div class="form__items">
+                                <div class="form__item">
+                                    <input class="input" type="text" placeholder="Ihr Name">
+                                </div>
+                                <div class="form__item">
+                                    <input class="input" type="text" placeholder="Ihr Nachname">
+                                </div>
+                                <div class="form__item">
+                                    <input class="input" type="email" placeholder="Email">
+                                </div>
+                                <div class="form__item">
+                                    <input class="input" type="text" placeholder="Bestellnummer">
+                                </div>
+                                <div class="form__item">
+                                    <input class="input" type="text" placeholder="Seriennummer der Wand">
+                                </div>
+                                <div class="form__item">
+                                    <input class="input" type="text" placeholder="Beschreiben Sie, wie der Schaden entstande...">
+                                </div>
+                            </div>
+                            <button type="submit" class="form__submit btn-default w-100">Schicken</button>
                         </div>
                     </form>
 

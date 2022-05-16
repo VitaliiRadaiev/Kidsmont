@@ -12,6 +12,10 @@
             padding-top: 12px;
         }
 
+        @media (max-width: $md3+px) {
+            display: none;
+        }
+
         & > li {
             margin-right: 3.2rem;
             flex: 0 0 auto;
@@ -19,6 +23,31 @@
             @media (max-width: $md3+px) {
                 margin-right: 20px;
             }
+        }
+    }
+
+    &__filter-mob {
+        margin: 0 -20px;
+        position: relative;
+        z-index: 10;
+        border-top: 1px solid $borderColor;
+        border-bottom: 1px solid $borderColor;
+        margin-bottom: 16px;
+        padding: 0 20px;
+
+        @media (min-width: 768px) {
+            display: none;
+        }
+
+        & .select__value {
+            border: none !important;
+        }
+
+        & .select__value span {
+            font-family: $titleFontFamily;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 20px;
         }
     }
 

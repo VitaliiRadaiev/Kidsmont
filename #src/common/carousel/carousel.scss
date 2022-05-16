@@ -21,7 +21,41 @@
 }
 
 .carousel-preview-posts {
+    & .carousel__slider {
+        @media (max-width: $md3+px) {
+            border-bottom: none !important;
+        }
+    }
+    & .swiper-slide {
+        @media (max-width: $md3+px) {
+            width: 275px;
+        }
+    }
+
     & .post-card {
         border-bottom: none;
+
+        @media (max-width: $md3+px) {
+            padding-bottom: 0;
+        }
+    }
+
+    & .post-card__img {
+        @media (max-width: $md3+px) {
+            margin-bottom: 16px;
+            padding-bottom: 66.18%;
+        }
+    }
+
+    & .post-card__date {
+        @media (max-width: $md3+px) {
+            display: none;
+        }
+    }
+
+    & .post-card__text {
+        @media (max-width: $md3+px) {
+            display: none;
+        }
     }
 }

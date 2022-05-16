@@ -1,8 +1,12 @@
 .gallery-carousel {
     &__inner {
-        padding: 5rem 0;
+        padding: 6rem 0;
         background-color: $bgSecondary;
-    }
+
+        @media (max-width: $md3+px) {
+            padding: 36px;
+        }
+    }   
 
     &__head {
     }
@@ -19,5 +23,9 @@
         @media (max-width: $md3+px) {
             padding-bottom: 65.67%;
         }
+    }
+
+    & .see-more-ban {
+        padding-bottom: 0 !important;
     }
 }

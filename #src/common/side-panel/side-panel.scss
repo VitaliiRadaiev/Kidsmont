@@ -393,3 +393,54 @@
         }
     }
 }
+
+.faq-items {
+    &__title {
+        font-weight: $titleFontFamily;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 1.5em;
+        text-transform: uppercase;
+    }
+
+    &__list {
+        padding: 0 30px;
+        margin-bottom: 0;
+
+        @media (max-width: $md3+px) {
+            padding: 0 20px;
+        }
+
+        & > li {
+            border-bottom: 1px solid $borderColor;
+        }
+
+        & a {
+            display: block;
+            color: $textColor;
+            font-size: 18px;
+            line-height: 150%;
+            padding: 16px 0;
+            position: relative;
+
+            &.tab-active {
+                color: $secondColor;
+
+
+                &:before {
+                    position: absolute;
+                    content: '';
+                    top: 50%;
+                    right: 0;
+                    transform: translateY(-50%);
+                    height: 12px;
+                    width: 16px;
+                    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTMiIHZpZXdCb3g9IjAgMCAxOCAxMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAuOTk5OTk4IDguMjcyNzNMNC42NTY1MyAxMS45MjkzQzUuMDQ3MDUgMTIuMzE5OCA1LjY4MDIyIDEyLjMxOTggNi4wNzA3NCAxMS45MjkzTDE3IDEiIHN0cm9rZT0iIzAzNzg0NyIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+            }
+        }
+    }
+}

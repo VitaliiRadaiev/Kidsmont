@@ -3,7 +3,7 @@ let closeBtn = document.querySelector('[data-side-panel="menu-mobile"] [data-sid
 let mobileMenu = document.querySelector('[data-side-panel="menu-mobile"]');
 let deskMenuItemHasSubMenu = document.querySelector('[data-menu-item-has-sab-menu]');
 let mainSearch = document.querySelector('[data-main-search]');
-let btnShowMainSearch = document.querySelector('[data-action="show-main-search"]');
+let btnShowMainSearchButtons = document.querySelectorAll('[data-action="show-main-search"]');
 let btnHideMainSearch = document.querySelector('[data-action="hide-main-search"]');
 
 if (header && mobileMenu) {
@@ -74,13 +74,16 @@ if (header && mobileMenu) {
 }
 
 if(mainSearch) {
-
-    btnShowMainSearch.addEventListener('click', (e) => {
-        e.preventDefault();
-        mainSearch.classList.add('main-search--show');
-        document.body.classList.add('cover');
-        document.body.classList.add('overflow-hidden');
-    })
+    if(btnShowMainSearchButtons.length) {
+        btnShowMainSearchButtons.forEach(btnShowMainSearch => {
+            btnShowMainSearch.addEventListener('click', (e) => {
+                e.preventDefault();
+                mainSearch.classList.add('main-search--show');
+                document.body.classList.add('cover');
+                document.body.classList.add('overflow-hidden');
+            })
+        })
+    }
 
     btnHideMainSearch.addEventListener('click', (e) => {
         e.preventDefault();

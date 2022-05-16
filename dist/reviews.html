@@ -96,10 +96,10 @@ defer
 </head>
 
 <body data-scroll-container>
-	<div class="_preload-body"></div>
-	<!-- == TOP LINE ================== -->
+    <div class="_preload-body"></div>
+    <!-- == TOP LINE ================== -->
 
-	<header class="header " data-header data-popup="add-right-padding">
+    <header class="header " data-header data-popup="add-right-padding">
     <div class="container">
         <div class="header__body">
             <div class="header__burger burger" data-side-panel-open="menu-mobile">
@@ -507,9 +507,9 @@ defer
     </div>
 </div>
 
-	<!-- == // TOP LINE ================== -->
-	
-	<main class="_page " data-padding-top-header-size data-scroll-section>
+    <!-- == // TOP LINE ================== -->
+
+    <main class="_page " data-padding-top-header-size data-scroll-section>
         <div class="container-sm d-none d-lg-block">
     <ul class="breadcrumbs">
          <li><a href="#">Home</a></li>
@@ -518,15 +518,21 @@ defer
     </ul>
 </div>
 
+            <a href="#leaveComment" class="fixed-btn" data-popup="open-popup" >
+                Leave a comment
+                <span class="fixed-btn__icon">
+                    <img src="img/icons/comment.svg" alt="">
+                </span>
+            </a>
+
+
         <div class="container-sm">
             <div class="head pt-4 pt-lg-0">
                 <h2 class="head__title">Feedback from our clients</h2>
             </div>
         </div>
 
-
-
-        <div class="container-sm">
+        <div class="container-sm padding-wrap pt-0">
             <ul class="reviews-list">
                 <li>
                     <div class="reviews-list-card">
@@ -667,10 +673,58 @@ defer
 </div>
             </div>
         </div>
-    
 
+        <div class="d-none d-md-block">
+            <div class="see-more-ban padding-wrap type-3">
+    <a href="#" class="swiper" data-slider="see-more-ban">
+        <div class="swiper-wrapper">
+            
 
-        <div class="gallery-carousel padding-wrap" data-gallery-carousel>
+            
+            
+                <div class="swiper-slide">
+                    
+                    <div class="see-more-ban__circle">
+                        <span>
+                            Mehr sehen
+                        </span>
+                    </div>
+                    <span>MEHR</span>
+                    <strong>
+                        SEHEN
+                    </strong>
+                </div>
+                <div class="swiper-slide">
+                    
+                    <div class="see-more-ban__circle">
+                        <span>
+                            Mehr sehen
+                        </span>
+                    </div>
+                    <span>MEHR</span>
+                    <strong>
+                        SEHEN
+                    </strong>
+                </div>
+                <div class="swiper-slide">
+                    
+                    <div class="see-more-ban__circle">
+                        <span>
+                            Mehr sehen
+                        </span>
+                    </div>
+                    <span>MEHR</span>
+                    <strong>
+                        SEHEN
+                    </strong>
+                </div>
+            
+        </div>
+    </a>
+</div>
+        </div> 
+
+        <div class="gallery-carousel padding-wrap pb-0-mob" data-gallery-carousel>
     <div class="gallery-carousel__inner">
         <div class="container-sm">
             <div class="gallery-carousel__head head d-flex align-items-center justify-content-between">
@@ -709,10 +763,60 @@ defer
                 </div>
             </div>
         </div>
+        <div class="d-none d-md-block">
+            <div class="see-more-ban padding-wrap type-3">
+    <a href="#" class="swiper" data-slider="see-more-ban">
+        <div class="swiper-wrapper">
+            
+
+            
+            
+                <div class="swiper-slide">
+                    
+                    <div class="see-more-ban__circle">
+                        <span>
+                            Mehr sehen
+                        </span>
+                    </div>
+                    <span>MEHR</span>
+                    <strong>
+                        SEHEN
+                    </strong>
+                </div>
+                <div class="swiper-slide">
+                    
+                    <div class="see-more-ban__circle">
+                        <span>
+                            Mehr sehen
+                        </span>
+                    </div>
+                    <span>MEHR</span>
+                    <strong>
+                        SEHEN
+                    </strong>
+                </div>
+                <div class="swiper-slide">
+                    
+                    <div class="see-more-ban__circle">
+                        <span>
+                            Mehr sehen
+                        </span>
+                    </div>
+                    <span>MEHR</span>
+                    <strong>
+                        SEHEN
+                    </strong>
+                </div>
+            
+        </div>
+    </a>
+</div>
+        </div>
     </div>
 </div>
 
-        <div class="leave-comment padding-wrap">
+
+        <div class="leave-comment padding-wrap d-none d-md-block">
             <div class="container-sm">
                 <h3 class="leave-comment__title">Leave a comment</h3>
                 <form class="dropzone" action="/">
@@ -754,12 +858,12 @@ defer
                     </div>
                 </form>
             </div>
-        </div>  
+        </div>
 
-	</main>
+    </main>
 
-	<!-- == FOOTER ================== -->
-	<footer class="footer padding-wrap pb-0" data-scroll-section>
+    <!-- == FOOTER ================== -->
+    <footer class="footer padding-wrap pb-0" data-scroll-section>
     <div class="footer__inner bg-dark">
         <div class="container-sm">
             <div class="footer__head">
@@ -1178,9 +1282,99 @@ defer
         </div>
     </div>
 </div>
-	<!-- == // FOOTER ================== -->
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<div class="popup popup--second" id="leaveComment"> 
+    <div class="popup__body">
+        <div class="popup__content">
+            <div class="popup__close" data-popup="close-popup"><span></span></div>
+            <div class="popup-box">
+                <div class="popup-box__head">
+                    <h3 class="popup-box__title text-transform-none">
+                        Leave a comment
+                    </h3>
+                </div>
+                <div class="popup-box__body d-block text-normal">
+
+                    <form class="dropzone" action="/">
+                        <div class="form">
+                            <div class="form__items">
+                                <div class="form__item">
+                                    <input class="input" type="text" placeholder="Name">
+                                </div>
+                                <div class="form__item">
+                                    <textarea data-textarea class="textarea" placeholder="Comment"></textarea>
+                                </div>
+                                <div class="form__item">
+                                    <div class="drop-zone" data-drop-zone>
+                                        <input class="drop-zone__input" type="file" multiple="multiple" >
+                                        <!-- accept=".jpg, .jpeg, .png, .pdf" -->
+                                        <div class="drop-zone__fraction">
+                                            0/10
+                                        </div>
+                                        <div class="drop-zone__body">
+                                            <div class="drop-zone__title">Upload photos</div>
+                                        </div>
+                                        <div class="drop-zone__preview dropzone-previews"></div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <button type="submit" class="form__submit btn-default w-100">Leave a comment</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup--second" id="contact"> 
+    <div class="popup__body">
+        <div class="popup__content">
+            <div class="popup__close" data-popup="close-popup"><span></span></div>
+            <div class="popup-box">
+                <div class="popup-box__head">
+                    <h3 class="popup-box__title text-transform-none">
+                        Sich beschweren
+                    </h3>
+                </div>
+                <div class="popup-box__body d-block text-normal">
+
+                    <form class="dropzone" action="/">
+                        <div class="form">
+                            <div class="form__items">
+                                <div class="form__item">
+                                    <input class="input" type="text" placeholder="Ihr Name">
+                                </div>
+                                <div class="form__item">
+                                    <input class="input" type="text" placeholder="Ihr Nachname">
+                                </div>
+                                <div class="form__item">
+                                    <input class="input" type="email" placeholder="Email">
+                                </div>
+                                <div class="form__item">
+                                    <input class="input" type="text" placeholder="Bestellnummer">
+                                </div>
+                                <div class="form__item">
+                                    <input class="input" type="text" placeholder="Seriennummer der Wand">
+                                </div>
+                                <div class="form__item">
+                                    <input class="input" type="text" placeholder="Beschreiben Sie, wie der Schaden entstande...">
+                                </div>
+                            </div>
+                            <button type="submit" class="form__submit btn-default w-100">Schicken</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- == // FOOTER ================== -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="js/jQueryScripts.min.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
 </body>

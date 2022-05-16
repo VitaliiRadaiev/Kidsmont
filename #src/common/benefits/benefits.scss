@@ -1,0 +1,102 @@
+.benefits {
+    &__title {
+        margin-bottom: 10rem;
+
+        @media (max-width: $md2+px) {
+            margin-bottom: 8rem;
+        }
+        @media (max-width: $md3+px) {
+            margin-bottom:36px;
+        }
+    }
+
+    &__list {
+        padding-left: 0;
+        margin-bottom: 0;
+
+        @media (max-width: $md3+px) {
+            padding-bottom: 42px;
+        }
+
+        & .swiper-wrapper {
+            @media (min-width: 768px) {
+                justify-content: space-between;
+            }
+        }
+
+        & .swiper-slide {
+            @media (min-width: 768px) {
+                margin-bottom: 5rem;
+                flex: 0 1 calc(33.33333% - 2rem);
+                max-width: 34rem;
+            }
+        }
+    }
+
+    &__list-icon {
+        height: 8rem;
+        margin-bottom: 3.6rem;
+
+        @media (max-width: $md3+px) {
+            height: 62px;
+            margin-bottom: 24px;
+        }
+
+        & img {
+            height: 100%;
+            width: auto;
+        }
+    }
+
+    &__list-title {
+        margin-bottom: 1.2rem;
+        text-transform: uppercase;
+
+        @media (max-width: $md3+px) {
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+    }
+
+    &__list-text {
+        font-size: 16px;
+        line-height: 150%;
+
+        @media (max-width: $md3+px) {
+            font-size: 14px;
+        }
+    }
+
+    & .swiper-pagination {
+        @media (min-width: 768px) {
+            display: none;
+        }
+    }
+
+    & .swiper-pagination {
+        display: inline-block;
+        left: auto;
+        width: auto;
+        left: 0;
+        bottom: 0;
+
+        @media (min-width: 992px) {
+            display: none;
+        }
+
+        & .swiper-pagination-bullet {
+            height: 6px;
+            width: 6px;
+            opacity: 1;
+            background-color: #C4C4C4;
+            margin: 0 3px;
+            transition: all .3s ease;
+            border-radius: 100px;
+
+            &.swiper-pagination-bullet-active {
+                width: 30px;
+                background-color: $secondColor;
+            }
+        }
+    }
+}

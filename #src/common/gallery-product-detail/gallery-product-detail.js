@@ -6,7 +6,7 @@
             let mySwiper;
     
             function mobileSlider() {
-                if(document.documentElement.clientWidth <= 991 && slider.dataset.mobile == 'false') {
+                if(document.documentElement.clientWidth <= 991.98 && slider.dataset.mobile == 'false') {
                     mySwiper = new Swiper(slider, {
                         slidesPerView: 1,
                         speed: 800,
@@ -22,7 +22,7 @@
                     //mySwiper.slideNext(0);
                 }
     
-                if(document.documentElement.clientWidth > 767) {
+                if(document.documentElement.clientWidth > 992) {
                     slider.dataset.mobile = 'false';
     
                     if(slider.classList.contains('swiper-initialized')) {

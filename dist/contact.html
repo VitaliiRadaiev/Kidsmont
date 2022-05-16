@@ -519,6 +519,13 @@ defer
     </ul>
 </div>
 
+        <a href="#contact" class="fixed-btn" data-popup="open-popup" >
+            Kontakt
+            <span class="fixed-btn__icon">
+                <img src="img/icons/comment.svg" alt="">
+            </span>
+        </a>
+
         <div class="container-sm">
             <div class="head pt-4 pt-lg-0">
                 <h2 class="head__title">Kontaktformular</h2>
@@ -596,7 +603,7 @@ defer
             </div>
         </div>
 
-        <div class="contact padding-wrap">
+        <div class="contact padding-wrap d-none d-md-block">
             <div class="container-sm">
                 <div class="main-table border-top-0">
                     <div class="main-table__tr pt-0">
@@ -1055,6 +1062,96 @@ defer
                                 </div>
                             </div>
                             <button class="form__submit w-100 btn-default">Eingang</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup--second" id="leaveComment"> 
+    <div class="popup__body">
+        <div class="popup__content">
+            <div class="popup__close" data-popup="close-popup"><span></span></div>
+            <div class="popup-box">
+                <div class="popup-box__head">
+                    <h3 class="popup-box__title text-transform-none">
+                        Leave a comment
+                    </h3>
+                </div>
+                <div class="popup-box__body d-block text-normal">
+
+                    <form class="dropzone" action="/">
+                        <div class="form">
+                            <div class="form__items">
+                                <div class="form__item">
+                                    <input class="input" type="text" placeholder="Name">
+                                </div>
+                                <div class="form__item">
+                                    <textarea data-textarea class="textarea" placeholder="Comment"></textarea>
+                                </div>
+                                <div class="form__item">
+                                    <div class="drop-zone" data-drop-zone>
+                                        <input class="drop-zone__input" type="file" multiple="multiple" >
+                                        <!-- accept=".jpg, .jpeg, .png, .pdf" -->
+                                        <div class="drop-zone__fraction">
+                                            0/10
+                                        </div>
+                                        <div class="drop-zone__body">
+                                            <div class="drop-zone__title">Upload photos</div>
+                                        </div>
+                                        <div class="drop-zone__preview dropzone-previews"></div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <button type="submit" class="form__submit btn-default w-100">Leave a comment</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup--second" id="contact"> 
+    <div class="popup__body">
+        <div class="popup__content">
+            <div class="popup__close" data-popup="close-popup"><span></span></div>
+            <div class="popup-box">
+                <div class="popup-box__head">
+                    <h3 class="popup-box__title text-transform-none">
+                        Sich beschweren
+                    </h3>
+                </div>
+                <div class="popup-box__body d-block text-normal">
+
+                    <form class="dropzone" action="/">
+                        <div class="form">
+                            <div class="form__items">
+                                <div class="form__item">
+                                    <input class="input" type="text" placeholder="Ihr Name">
+                                </div>
+                                <div class="form__item">
+                                    <input class="input" type="text" placeholder="Ihr Nachname">
+                                </div>
+                                <div class="form__item">
+                                    <input class="input" type="email" placeholder="Email">
+                                </div>
+                                <div class="form__item">
+                                    <input class="input" type="text" placeholder="Bestellnummer">
+                                </div>
+                                <div class="form__item">
+                                    <input class="input" type="text" placeholder="Seriennummer der Wand">
+                                </div>
+                                <div class="form__item">
+                                    <input class="input" type="text" placeholder="Beschreiben Sie, wie der Schaden entstande...">
+                                </div>
+                            </div>
+                            <button type="submit" class="form__submit btn-default w-100">Schicken</button>
                         </div>
                     </form>
 

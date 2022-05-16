@@ -153,3 +153,55 @@
         }
     }
 }
+
+.fixed-btn {
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    justify-content: flex-end;
+    border-radius: 100px;
+    min-height: 48px;
+    min-width: 139px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(34, 34, 34, 0.1);
+    padding: 8px 66px 8px 18px;
+    text-align: right;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    font-family: $titleFontFamily;
+    transition: all .3s ease;
+    box-shadow: 0 0 10px rgba($bg, 0.2);
+
+    position: fixed;
+    z-index: 47;
+    right: 20px;
+    bottom: 16px;
+
+    @media (min-width: 768px) {
+        display: none;
+    }
+
+    &__text {
+    }
+
+    &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 48px;
+        width: 48px;
+        border-radius: 50%;
+        background-color: $mainColor;
+        position:absolute;
+        top: 0;
+        right: -1px;
+        z-index: 3;
+    }
+}
+
+.hide {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}

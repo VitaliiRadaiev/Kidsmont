@@ -65,23 +65,31 @@
 
     &__circle {
         flex: 0 0 auto;
-        width: 15em;
-        height: 15em;
-        background-color: $lightColor;
-        color: $textColor;
+        width: 15rem;
+        height: 15rem;
+        background-color: $secondColor !important;
+        color: #fff;
         border-radius: 50%;
         font-family: $titleFontFamily;
         font-weight: 600;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0 3em;
+        margin: 0 8rem;
         transform: rotate(-15deg);
         transition: all .3s ease;
 
         & span {
-            font-size: 1.8em;
-            line-height: 1.5em;
+            font-size: 1.8rem;
+            line-height: 1.5rem;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+    }
+
+    &.type-3 {
+        & .swiper-slide {
+            padding: 0;
         }
     }
 }

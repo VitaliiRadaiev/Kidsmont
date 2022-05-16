@@ -25,12 +25,13 @@
             </div>
         </div>
 
-        <div class="padding-wrap pt-0">
+        <div class="leave-complaint padding-wrap pt-0">
             <div class="container-sm">
-                <div class="main-table">
+                <div class="main-table" data-spoller="mob-sm">
                     <div class="main-table__tr">
-                        <div class="main-table__td">
+                        <div class="main-table__td" data-spoller-trigger>
                             <h4 class="main-table__title">Information</h4>
+                            <div class="main-table__plus"><span></span></div>
                         </div>
                         <div class="main-table__td text-content">
                             <h5>Es ist etwas nicht in Ordnung?
@@ -81,7 +82,7 @@
                             <h4 class="main-table__title">Reichen Sie Ihre Bewerbung ein</h4>
                         </div>
                         <div class="main-table__td">
-                            <form action="/">
+                            <form class="dropzone" action="/">
                                 <div class="form">
                                     <div class="form__items">
                                         <div class="form__item form__item--half">
@@ -90,24 +91,30 @@
                                         <div class="form__item form__item--half">
                                             <input class="input" type="text" placeholder="Ihr Nachname">
                                         </div>
-                                        <div class="form__item form__item--half" data-mask="+9(999)-999-99-99">
-                                            <input class="input" type="text" placeholder="Telefonnummer">
-                                        </div>
                                         <div class="form__item form__item--half">
                                             <input class="input" type="email" placeholder="Email">
                                         </div>
-                                        <div class="form__item">
-                                            <div class="select-wrap">
-                                                <select name="" class="_select">
-                                                    <option value="" selected>Wie sind Sie auf uns aufmerksam geworden?
-                                                    </option>
-                                                    <option value="1">Lorem, ipsum dolor.</option>
-                                                    <option value="2">Lorem, ipsum dolor.</option>
-                                                </select>
-                                            </div>
+                                        <div class="form__item form__item--half" data-mask="9{*}">
+                                            <input class="input" type="text" placeholder="Bestellnummer">
                                         </div>
                                         <div class="form__item">
-                                            <input class="input" type="text" placeholder="Nachricht">
+                                            <input class="input" type="text" placeholder="Seriennummer der Wand">
+                                        </div>
+                                        <div class="form__item">
+                                            <input class="input" type="text" placeholder="Beschreiben Sie, wie der Schaden entstanden ist">
+                                        </div>
+                                        <div class="form__item">
+                                            <div class="drop-zone drop-zone--second" data-drop-zone>
+                                                <input class="drop-zone__input" type="file" multiple="multiple" >
+                                                <!-- accept=".jpg, .jpeg, .png, .pdf" -->
+                                                <div class="drop-zone__fraction">
+                                                    0/10
+                                                </div>
+                                                <div class="drop-zone__body">
+                                                    <div class="drop-zone__title">Drop your files here</div>
+                                                </div>
+                                                <div class="drop-zone__preview dropzone-previews"></div>
+                                            </div>
                                         </div>
                                     </div>
                                     <button type="submit"

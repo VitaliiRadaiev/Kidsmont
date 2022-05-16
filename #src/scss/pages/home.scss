@@ -108,6 +108,13 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+
+        & .btn {
+            @media (max-width: $md3+px) {
+                width: 100px;
+                height: 100px;
+            }
+        }
     }
 }
 
@@ -157,7 +164,7 @@
         @media (min-width: 768px) {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 15.7%;
-            grid-gap: 6rem;
+            gap: 6rem;
         }
 
         @media (max-width: $md3+px) {

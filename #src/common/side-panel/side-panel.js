@@ -41,4 +41,23 @@
             })
         }
     }
+
+    window.sidePanel = {
+        open(id) {
+            let sidePanel = document.querySelector(`[data-side-panel="${id}"]`);
+            if(sidePanel) {
+                sidePanel.classList.add('side-panel--open');
+                document.body.classList.add('overflow-hidden');
+                window.locomotivePageScroll.stop();
+            }
+        },
+        close (id) {
+            let sidePanel = document.querySelector(`[data-side-panel="${id}"]`);
+            if(sidePanel) {
+                sidePanel.classList.remove('side-panel--open');
+                document.body.classList.remove('overflow-hidden');
+                window.locomotivePageScroll.start();
+            }
+        }
+    }
 }

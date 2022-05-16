@@ -1,8 +1,13 @@
 .blog-detail {
+
     &__body {
         min-width: 0;
         @media (min-width: 992px) {
             display: flex;
+        }
+
+        @media (max-width: $md3+px) {
+            padding-top: 16px;
         }
     }
 
@@ -47,7 +52,7 @@
             font-size: 24px;
             line-height: 1.5em;
             text-transform: uppercase;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
         }
     }
 
@@ -57,8 +62,8 @@
         color: $textColorThird;
         margin-bottom: 2.2rem;
 
-        @media (max-width: $md2+px) {
-            display: none;
+        @media (max-width: $md3+px) {
+            font-size: 16px;
         }
     }
 
@@ -106,6 +111,7 @@
             margin-top: 0;
             width: 100%;
             margin-bottom: 24px;
+            display: none;
         }
 
         & .blog-detail-social {

@@ -63,6 +63,7 @@ class App {
 		@@include('../common/gallery-carousel/gallery-carousel.js');
 		@@include('../common/tabs/tabs.js');
 		@@include('../common/blog-preview/blog-preview.js');
+		@@include('../common/benefits/benefits.js');
 	}
 
 	initMouse() {
@@ -127,7 +128,7 @@ class App {
 				if (triggerItems.length && contentItems.length) {
 					// init
 					let activeItem = tabsContainer.querySelector('.tab-active[data-tab-trigger]');
-					if(activeItem) {
+					if (activeItem) {
 						activeItem.classList.add('tab-active');
 						getContentItem(activeItem.dataset.tabTrigger).classList.add('tab-active');
 					} else {
@@ -136,7 +137,8 @@ class App {
 					}
 
 					triggerItems.forEach(item => {
-						item.addEventListener('click', () => {
+						item.addEventListener('click', (e) => {
+							e.preventDefault();
 							item.classList.add('tab-active');
 							getContentItem(item.dataset.tabTrigger).classList.add('tab-active');
 
@@ -158,16 +160,58 @@ class App {
 					})
 				}
 
-				if(select) {
+				if (select) {
 					select.addEventListener('change', (e) => {
 						getContentItem(e.target.value).classList.add('tab-active');
 
 						contentItems.forEach(item => {
-							if(getContentItem(e.target.value) === item) return;
+							if (getContentItem(e.target.value) === item) return;
 
 							item.classList.remove('tab-active');
 						})
 					})
+				}
+
+				if (tabsContainer.dataset.tabs === 'has-outside-navigation') {
+					let outsideNavigation = document.querySelector('[data-tabs-outside-nav]');
+					if (outsideNavigation) {
+						let triggerItems = outsideNavigation.querySelectorAll('[data-tab-trigger]');
+
+						// init
+						let activeItem = tabsContainer.querySelector('.tab-active[data-tab-trigger]');
+						if (activeItem) {
+							activeItem.classList.add('tab-active');
+							getContentItem(activeItem.dataset.tabTrigger).classList.add('tab-active');
+						} else {
+							triggerItems[0].classList.add('tab-active');
+							getContentItem(triggerItems[0].dataset.tabTrigger).classList.add('tab-active');
+						}
+
+						triggerItems.forEach(item => {
+							item.addEventListener('click', (e) => {
+								e.preventDefault();
+								item.classList.add('tab-active');
+								getContentItem(item.dataset.tabTrigger).classList.add('tab-active');
+
+								triggerItems.forEach(i => {
+									if (i === item) return;
+
+									i.classList.remove('tab-active');
+									getContentItem(i.dataset.tabTrigger).classList.remove('tab-active');
+								})
+
+								// update locomotive scroll
+								let id = setInterval(() => {
+									window.locomotivePageScroll.update();
+								}, 20);
+								setTimeout(() => {
+									clearInterval(id);
+								}, 200)
+
+								window.sidePanel.close('faq-items');
+							})
+						})
+					}
 				}
 			})
 		}
@@ -175,14 +219,14 @@ class App {
 
 	spollerInit() {
 		let spollers = document.querySelectorAll('[data-spoller]');
-		
+
 		if (spollers.length) {
 			spollers.forEach(spoller => {
 				let isOneActiveItem = spoller.dataset.spoller.trim() === 'one' ? true : false;
 				let mobModification = spoller.dataset.spoller.trim() === 'mob' ? true : false;
 
 				let triggers;
-				if(spoller.dataset.hasOwnProperty('subSpoller')) {
+				if (spoller.dataset.hasOwnProperty('subSpoller')) {
 					triggers = spoller.querySelectorAll('[data-spoller-trigger]');
 				} else {
 					triggers = spoller.querySelectorAll('[data-spoller-trigger]:not([data-sub-spoller] [data-spoller-trigger])');
@@ -199,7 +243,7 @@ class App {
 
 						trigger.addEventListener('click', (e) => {
 
-							if(mobModification && document.documentElement.clientWidth > 991.98) return;
+							if (mobModification && document.documentElement.clientWidth > 991.98) return;
 
 							e.preventDefault();
 							parent.classList.toggle('active');
@@ -240,7 +284,7 @@ class App {
 			items.forEach(item => {
 				let maskValue = item.dataset.mask;
 				let inputs = item.querySelectorAll('input');
-				if(inputs.length) {
+				if (inputs.length) {
 					inputs.forEach(input => {
 						if (input) {
 							Inputmask(maskValue, {
@@ -352,7 +396,7 @@ class App {
 
 	resetFormHandler() {
 		let resetButtons = document.querySelectorAll('[data-button-reset]');
-		if(resetButtons.length) {
+		if (resetButtons.length) {
 			resetButtons.forEach(resetButton => {
 				let count = 0;
 				let form = resetButton.closest('form');
@@ -366,7 +410,7 @@ class App {
 
 				checkboxInputs.forEach(checkboxInput => {
 					checkboxInput.addEventListener('change', () => {
-						if(checkboxInput.checked) {
+						if (checkboxInput.checked) {
 							count++;
 						} else {
 							count--;
@@ -385,12 +429,12 @@ class App {
 						checkboxInput.checked = false;
 					})
 
-					if(inputPriceStart) {
+					if (inputPriceStart) {
 						inputPriceStart.value = 0;
 						window.priceSlider.noUiSlider.set([0, null]);
 					}
 
-					if(inputPriceEnd) {
+					if (inputPriceEnd) {
 						let value = inputPriceEnd.closest('.price-range').dataset.max;
 						inputPriceStart.value = value;
 						window.priceSlider.noUiSlider.set([null, value]);
@@ -414,16 +458,17 @@ class App {
 		@@include('../common/quantity/quantity.js');
 		@@include('../common/footer/footer.js');
 		@@include('../common/text-table/text-table.js');
-		
+		@@include('../common/mob-share/mob-share.js');
+
 		{
 			let lastSection = document.querySelector('[data-last-section]');
 			let footer = document.querySelector('.footer');
-			if(lastSection && footer) {
+			if (lastSection && footer) {
 				footer.style.paddingTop = '0px';
 			}
 		}
 
-		
+
 	}
 
 }

@@ -11,6 +11,8 @@
     @@include('common/header/_header.html',{
     "mod": ""
     })
+
+    @@include('common/side-panel/_faq-items.html')
     <!-- == // TOP LINE ================== -->
 
     <main class="_page " data-padding-top-header-size data-scroll-section>
@@ -27,7 +29,7 @@
 
 
         <div class="faq padding-wrap pt-0">
-            <div class="container-sm">
+            <div class="container-sm" data-tabs="has-outside-navigation">
                 <div class="faq__head">
                     <form action="/">
                         <div class="faq__search">
@@ -37,8 +39,16 @@
                             <input class="faq__search-input" type="text" placeholder="Enter text to search...">
                         </div>
                     </form>
+                    <button class="faq__mob-search-btn" data-action="show-main-search">
+                        <img src="img/icons/search.svg" alt="">
+                        Search
+                    </button>
+                    <button class="faq__mob-select" data-side-panel-open="faq-items">
+                        <img src="img/icons/menu.svg" alt="">
+                        Iteams
+                    </button>
                 </div>
-                <div class="faq__body tabs" data-tabs>
+                <div class="faq__body tabs">
                     <div class="tabs__col-1">
                         <div class="tabs__nav">
                             <div class="tabs__nav-list swiper d-none d-md-block" data-tabs-nav data-mobile="false">
@@ -54,13 +64,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tabs__nav-select select-wrap d-block d-md-none">
-                                <select name="" class="_select" data-tab-select>
-                                    <option value="0" selected>Produktanfragen</option>
-                                    <option value="1">Garantie</option>
-                                    <option value="2">Bezahlung</option>
-                                </select>
-                            </div>
                         </div>
                     </div>
                     <div class="tabs__col-2">
@@ -70,7 +73,7 @@
                                     <div class="accordion__title" data-spoller-trigger>
                                         Wir sind an einem Doppelhochbett oder am Kinderspielplatz „Kleinkind“ interessiert. Können wir Ihre Brettrtutsche dafür benutzen?
                                         <div class="accordion__icon">
-                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="accordion__collapse text-content">
@@ -83,7 +86,7 @@
                                     <div class="accordion__title" data-spoller-trigger>
                                         Sie geben in der Produktbeschreibung an, dass Ihre Sprossenwände und Brettrutschen ein Gewicht von bis zu 150kg aushalten. Heißt es, dass ich als Vater zusammen mit den Kindern das Gerüst gleichzeitig benutzen kann?
                                         <div class="accordion__icon">
-                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="accordion__collapse text-content">
@@ -97,7 +100,7 @@
                                     <div class="accordion__title" data-spoller-trigger>
                                         Wir haben 2 Kinder und überlegen uns eine Sprossenwand mit Brettrutsche und Matte zu kaufen. Ist eine Matte für 2 Kinder ausreichend genug?
                                         <div class="accordion__icon">
-                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="accordion__collapse text-content">
@@ -111,7 +114,7 @@
                                     <div class="accordion__title" data-spoller-trigger>
                                         Verändert sich das Maximalbelastungsgewicht bei Positionswechsel der Sprossenwand?
                                         <div class="accordion__icon">
-                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="accordion__collapse text-content">
@@ -125,7 +128,7 @@
                                     <div class="accordion__title" data-spoller-trigger>
                                         Beziehen sich die 150 kg Belastbarkeit der Sprossenwand nur auf das Reck oder dürfen Erwachsene mit Kindern das Klettergerüst benutzen?
                                         <div class="accordion__icon">
-                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="accordion__collapse text-content">
@@ -139,7 +142,7 @@
                                     <div class="accordion__title" data-spoller-trigger>
                                         Wie viel beträgt der Abstand zwischen den Sprossen und wie lauten die Maße der Sprossen?
                                         <div class="accordion__icon">
-                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="accordion__collapse text-content">
@@ -153,7 +156,7 @@
                                     <div class="accordion__title" data-spoller-trigger>
                                         Wie weit ragt das Reck in den Raum?
                                         <div class="accordion__icon">
-                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="accordion__collapse text-content">
@@ -167,7 +170,7 @@
                                     <div class="accordion__title" data-spoller-trigger>
                                         Ist Ihre Sprossenwand aus Kiefer oder Esche auch für outdoor geeignet, wie z.B. für den Wintergarten oder für den Hof?
                                         <div class="accordion__icon">
-                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="accordion__collapse text-content">
@@ -185,7 +188,7 @@
                                     <div class="accordion__title" data-spoller-trigger>
                                         Was ist ein Piratenschiff-Bett?
                                         <div class="accordion__icon">
-                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="accordion__collapse text-content">
@@ -203,7 +206,7 @@
                                     <div class="accordion__title" data-spoller-trigger>
                                         Kann man ein Piratenbett kaufen oder muss man es selbst machen?
                                         <div class="accordion__icon">
-                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="accordion__collapse text-content">
@@ -217,7 +220,7 @@
                                     <div class="accordion__title" data-spoller-trigger>
                                         Wie viel kostet ein Piratenschiff-Hochbett?
                                         <div class="accordion__icon">
-                                            <img class="img-svg" src="img/icons/arrow-top-right.svg" alt="">
+                                            <span></span>
                                         </div>
                                     </div>
                                     <div class="accordion__collapse text-content">

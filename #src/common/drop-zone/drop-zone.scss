@@ -4,6 +4,11 @@
     position: relative;
     min-height: 40rem;
 
+    @media (max-width: $md3+px) {
+        border: none;
+        min-height: 69px;
+    }
+
     @media (min-width: 992px) {
         &:hover {
             & .btn {
@@ -12,10 +17,11 @@
         }
     }
 
-    @media (max-width: $md3+px) {
-        min-height: 260px;
+    &.dz-drag-hover {
+        & .drop-zone__body {
+            opacity: 0.7;
+        }
     }
-
 
     &__body {
         position: absolute;
@@ -31,18 +37,23 @@
         pointer-events: none;
 
         @media (max-width: $md3+px) {
-            padding: 27px;
+            padding: 10px;
+            justify-content: center;
+            border: 2px dashed $mainColor;
+            height: 69px;
+            position: static;
         }
+
+
 
         & > span {
             margin-bottom: 2.4rem;
 
-            
-        @media (max-width: $md3+px) {
-            font-size: 14px !important;
-            line-height: 1.5em;
-            margin-bottom: 12px;
-        }
+            @media (max-width: $md3+px) {
+                font-size: 14px !important;
+                line-height: 1.5em;
+                margin-bottom: 12px;
+            }
         }
     }
 
@@ -56,6 +67,7 @@
     }
 
     &__title {
+        font-family: $titleFontFamily;
         font-weight: 600;
         margin-bottom: 2.4rem;
         display: block;
@@ -63,7 +75,7 @@
         @media (max-width: $md3+px) {
             font-size: 14px !important;
             line-height: 1.5em;
-            margin-bottom: 12px;
+            margin-bottom: 0px;
         }
     }
 
@@ -77,7 +89,8 @@
 
         @media (max-width: $md3+px) {
             right: 10px;
-            bottom: 10px;
+            bottom: auto;
+            top: 40px;
             font-size: 14px;
         }
     }
@@ -109,8 +122,8 @@
         padding-bottom: 3rem;
 
         @media (max-width: $md3+px) {
-            min-height: 260px;
-            padding-bottom: 20px;
+            min-height: 0px;
+            padding-bottom: 0px;
         }
 
         & .dz-preview.dz-image-preview {
@@ -121,7 +134,7 @@
 
             @media (max-width: $md3+px) {
                 padding: 10px 5px;
-                flex: 0 1 25%;
+                flex: 0 1 20%;
             }
 
             & .dz-image {
@@ -149,7 +162,9 @@
                 line-height: 1;
             }
 
-            & .dz-success-mark, & .dz-error-mark, & .dz-progress {
+            & .dz-success-mark,
+            & .dz-error-mark,
+            & .dz-progress {
                 top: 70px;
 
                 @media (max-width: $md3+px) {
@@ -158,8 +173,28 @@
             }
 
             & .dz-remove {
-                position: relative;
+                position: absolute;
                 z-index: 30;
+                top: 0;
+                right: 0;
+                width: 2.4rem;
+                height: 2.4rem;
+                font-size: 0;
+                background-color: #fff;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &:before {
+                    content: "";
+                    height: 0.6rem;
+                    width: 0.6rem;
+                    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSI4IiB2aWV3Qm94PSIwIDAgOCA4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMS4xMjAxMiAxLjEyMTA5TDYuODgwMTIgNi44ODEwOSIgc3Ryb2tlPSIjMjIyMjIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPHBhdGggZD0iTTYuODc5ODggMS4xMjEwOUwxLjExOTg4IDYuODgxMDkiIHN0cm9rZT0iIzIyMjIyMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cjwvc3ZnPgo=);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                }
             }
 
             & .dz-error-message {
@@ -174,7 +209,9 @@
 
     &--has-files {
         & .drop-zone__body {
-            display: none;
+            @media (min-width: 768px) {
+                display: none;
+            }
         }
 
         & .drop-zone__preview {
@@ -182,6 +219,39 @@
         }
     }
 
+    &--second {
+        border: none;
+        min-height: 60px;
+
+        &.drop-zone--has-files {
+            & .drop-zone__body {
+                display: flex !important;
+            }
+        }
+
+        & .drop-zone__body {
+            padding: 10px;
+            justify-content: center;
+            border: 2px dashed $mainColor;
+            height: 60px;
+            position: static;
+        }
+
+        & .drop-zone__title {
+            margin-bottom: 0px;
+        }
+
+        & .drop-zone__preview {
+            min-height: 0px;
+            padding-bottom: 0px;
+        }
+
+        & .drop-zone__fraction {
+            right: 10px;
+            bottom: auto;
+            top: 35px;
+        }
+    }
 }
 
 form.dropzone {
@@ -190,7 +260,13 @@ form.dropzone {
     background-color: transparent;
     border: none;
     min-height: auto;
+    border: none !important;
+
     & .dz-default.dz-message {
         display: none;
-    }   
+    }
+
+    & > .dz-preview {
+        display: none;
+    }
 }

@@ -1,0 +1,9 @@
+.leave-complaint {
+    & .main-table[data-spoller="mob-sm"] {
+        & .main-table__tr:last-child {
+            @media (max-width: $md3+px) {
+                padding-top: 16px;
+            }
+        }
+    }
+}

@@ -16,7 +16,7 @@
 
         & .swiper-slide {
             @media (max-width: $md3+px) {
-                width: 223px;
+                width: 275px;
             }
         }
     }
@@ -30,6 +30,10 @@
         padding-bottom: 105.33%;
         margin-bottom: 1.2rem;
         background-color: $mainColor;
+
+        @media (max-width: $md3+px) {
+            padding-bottom: 85.45%;
+        }
 
         & img {
             transition: all .3s ease;

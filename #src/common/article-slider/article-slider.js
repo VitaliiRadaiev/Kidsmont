@@ -11,7 +11,7 @@
                 breakpoints: {
                     320: {
                         slidesPerView: 'auto',
-                        spaceBetween: 25,
+                        spaceBetween: 20,
                     },
                     768: {
                         slidesPerView: 3,
