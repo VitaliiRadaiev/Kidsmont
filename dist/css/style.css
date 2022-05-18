@@ -11217,6 +11217,22 @@ form.dropzone > .dz-preview {
 
 .faq__head {
   margin-bottom: 6rem;
+  position: relative;
+  z-index: 3;
+}
+
+.faq__head .search-result {
+  background-color: #F3F1EF;
+  -webkit-box-shadow: 5px 5px 10px rgba(34, 34, 34, 0.15);
+          box-shadow: 5px 5px 10px rgba(34, 34, 34, 0.15);
+  padding: 2rem;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.faq__head .search-result:empty {
+  opacity: 0;
 }
 
 .faq__mob-search-btn {

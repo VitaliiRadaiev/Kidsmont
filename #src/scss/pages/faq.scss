@@ -1,6 +1,8 @@
 .faq {
     &__head {
         margin-bottom: 6rem;
+        position: relative;
+        z-index: 3;
 
         @media (max-width: $md3+px) {
             position: relative;
@@ -9,6 +11,17 @@
             border-bottom: 1px solid $borderColor;
             margin: 0 -20px;
             display: flex;
+        }
+
+        & .search-result {
+            background-color: $bg;
+            box-shadow: 5px 5px 10px rgba($mainColor, 0.15);
+            padding: 2rem;
+            transition: all .3s ease;
+
+            &:empty {
+                opacity: 0;
+            }
         }
     }
 
