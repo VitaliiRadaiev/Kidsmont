@@ -1,7 +1,11 @@
 .account {
     &__body {
-        padding-top: 3.6rem;
-        border-top: 1px solid $borderColor;
+
+        @media (min-width: 768px) {
+            padding-top: 3.6rem;
+            border-top: 1px solid $borderColor;
+    
+        }
     }
 
     &__bottom-link {

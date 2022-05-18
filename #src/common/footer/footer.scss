@@ -347,3 +347,46 @@
         }
     }
 }
+
+
+.footer-simple {
+    border-top: 1px solid $borderColor;
+    position: relative;
+    z-index: 5;
+    background-color: $bg;
+    &__body {
+        min-height: 9rem;
+        padding-top: 2.4rem;
+        padding-bottom: 2.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 1.6rem;
+        line-height: 1.5em;
+
+        @media (max-width: $md3+px) {
+            display: block;
+            text-align: center;
+        }
+
+        & p {
+            margin-bottom: 0;
+
+            &:first-child {
+                @media (max-width: $md3+px) {
+                    margin-bottom: 16px;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        & a {
+            text-decoration: underline;
+        }
+
+        & strong {
+            font-weight: 700;
+            font-family: $mainFontFamily;
+        }
+    }
+}

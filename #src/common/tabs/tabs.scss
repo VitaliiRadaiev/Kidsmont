@@ -45,6 +45,10 @@
             }
         }
 
+        @media (max-width: $md3+px) {
+            display: none;
+        }
+
         & .swiper-slide {
             &:not(:last-child) {
                 margin-bottom: 2.4rem;
@@ -90,41 +94,65 @@
     }
 
     &__nav-select {
-        margin-bottom: 0;
+        //margin-bottom: 0;
 
-        & .select {
-            & .select__title {
-                display: flex;
-                align-items: center;
-                min-height: 3.8rem;
-                border: 1px solid $borderColor;
-                padding: 0.8rem 2.5rem 0.8rem 1.5rem;
-                min-width: 17.6rem;
-            }
+        margin: 0 -20px;
+        position: relative;
+        z-index: 10;
+        border-top: 1px solid $borderColor;
+        border-bottom: 1px solid $borderColor;
+        margin-bottom: 16px;
+        padding: 0 20px;
 
-            & .select__label {
-                font-size: 1.4rem;
-                line-height: 1.5em;
-                margin-right: 0.6rem;
-                color: #9e9e9e;
-            }
-            & .select__value {
-                min-height: auto;
-                border: none;
-                padding-right: 0;
-
-                & span {
-                    font-size: 1.8rem;
-                    font-weight: 600;
-                    font-family: $titleFontFamily;
-                    text-transform: uppercase;
-                }
-
-                &::before {
-                    right: 1.5rem;
-                }
-            }
+        @media (min-width: 768px) {
+            display: none;
         }
+
+        & .select__value {
+            border: none !important;
+            min-height: 52px;
+        }
+
+        & .select__value span {
+            font-family: $titleFontFamily;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 20px;
+        }
+
+        // & .select {
+        //     & .select__title {
+        //         display: flex;
+        //         align-items: center;
+        //         min-height: 3.8rem;
+        //         border: 1px solid $borderColor;
+        //         padding: 0.8rem 2.5rem 0.8rem 1.5rem;
+        //         min-width: 17.6rem;
+        //     }
+
+        //     & .select__label {
+        //         font-size: 1.4rem;
+        //         line-height: 1.5em;
+        //         margin-right: 0.6rem;
+        //         color: #9e9e9e;
+        //     }
+        //     & .select__value {
+        //         min-height: auto;
+        //         border: none;
+        //         padding-right: 0;
+
+        //         & span {
+        //             font-size: 1.8rem;
+        //             font-weight: 600;
+        //             font-family: $titleFontFamily;
+        //             text-transform: uppercase;
+        //         }
+
+        //         &::before {
+        //             right: 1.5rem;
+        //         }
+        //     }
+        // }
     }
 
     &__content {

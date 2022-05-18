@@ -29,6 +29,8 @@ class App {
 		this.spollerInit();
 		this.componentsScriptsBeforeLoadPage();
 		this.resetFormHandler();
+		this.initDatepicker();
+		this.initTooltip();
 
 
 		window.addEventListener('load', () => {
@@ -39,7 +41,7 @@ class App {
 			//this.videoHandlerInit();
 			this.slidersInit();
 			this.setFontSize();
-
+			this.setFullHeight();
 		});
 
 	}
@@ -116,7 +118,7 @@ class App {
 		let tabsContainers = document.querySelectorAll('[data-tabs]');
 		if (tabsContainers.length) {
 			tabsContainers.forEach(tabsContainer => {
-				let triggerItems = tabsContainer.querySelectorAll('[data-tab-trigger]');
+				let triggerItems = Array.from(tabsContainer.querySelectorAll('[data-tab-trigger]'));
 				let contentItems = Array.from(tabsContainer.querySelectorAll('[data-tab-content]'));
 				let select = tabsContainer.querySelector('[data-tab-select]');
 
@@ -213,6 +215,78 @@ class App {
 						})
 					}
 				}
+
+
+				// open found resutl
+				let serchResult = document.querySelector('.search-result');
+				if (serchResult) {
+
+
+					serchResult.addEventListener('click', (e) => {
+
+						if (e.target.classList.contains('search-link')) {
+							let link = e.target;
+							let elId = link.getAttribute('href').match(/#\w+$/gi).join('');
+							let [tab] = triggerItems.filter(i => i.dataset.tabTrigger === link.dataset.term);
+							let questionEl = document.querySelector(`${elId}`);
+
+							if (tab) {
+								tab.classList.add('tab-active');
+								getContentItem(tab.dataset.tabTrigger).classList.add('tab-active');
+
+								triggerItems.forEach(i => {
+									if (i === tab) return;
+
+									i.classList.remove('tab-active');
+									getContentItem(i.dataset.tabTrigger).classList.remove('tab-active');
+								})
+							}
+
+							if (questionEl) {
+								let spollerTrigger = questionEl.querySelector('[data-spoller-trigger]');
+								if (spollerTrigger) {
+									let collapseContent = spollerTrigger.nextElementSibling;
+									let spollerTriggers = spollerTrigger.closest('[data-spoller]').querySelectorAll('[data-spoller-trigger]');
+
+									if (collapseContent) {
+										spollerTrigger.classList.add('active');
+										spollerTrigger.parentElement.classList.add('active');
+										this.utils.slideDown(collapseContent);
+
+										if (spollerTriggers.length) {
+											spollerTriggers.forEach(i => {
+												if (i === spollerTrigger) return;
+
+												i.classList.remove('active');
+												i.parentElement.classList.remove('active');
+												this.utils.slideUp(i.nextElementSibling);
+											})
+										}
+									}
+								}
+
+								if(document.documentElement.clientHeight - questionEl.clientHeight < questionEl.getBoundingClientRect().top) {
+									setTimeout(() => {
+										window.locomotivePageScroll.scrollTo(questionEl, {
+											offset: -100,
+											duration: 0
+										})
+									}, 200)
+								}
+
+							}
+
+							// update locomotive scroll
+							let id = setInterval(() => {
+								window.locomotivePageScroll.update();
+							}, 20);
+							setTimeout(() => {
+								clearInterval(id);
+							}, 200)
+						}
+					})
+				}
+
 			})
 		}
 	}
@@ -363,35 +437,39 @@ class App {
 	}
 
 	locomotiveScrollInit() {
-		const scroll = new LocomotiveScroll({
-			el: document.querySelector('[data-scroll-container]'),
-			smooth: true,
-			lerp: 0.03
-		});
+		let container = document.querySelector('[data-scroll-container]');
+		if (container) {
 
-		window.locomotivePageScroll = scroll;
 
-		let id = setInterval(() => {
-			scroll.update();
-		}, 200);
-		setTimeout(() => {
-			clearInterval(id);
-		}, 1000)
+			const scroll = new LocomotiveScroll({
+				el: container,
+				smooth: true,
+				lerp: 0.03
+			});
 
-		scroll.on('call', func => {
+			window.locomotivePageScroll = scroll;
+
 			let id = setInterval(() => {
-				window?.webGLCurtainElements[func]();
+				scroll.update();
 			}, 200);
 			setTimeout(() => {
 				clearInterval(id);
-			}, 3000)
+			}, 1000)
 
-		});
+			scroll.on('call', func => {
+				let id = setInterval(() => {
+					window?.webGLCurtainElements[func]();
+				}, 200);
+				setTimeout(() => {
+					clearInterval(id);
+				}, 3000)
 
-		scroll.on('scroll', (args) => {
-			//console.log(args);
-		});
+			});
 
+			scroll.on('scroll', (args) => {
+				//console.log(args);
+			});
+		}
 	}
 
 	resetFormHandler() {
@@ -447,6 +525,52 @@ class App {
 	componentsScriptsBeforeLoadPage() {
 		@@include('../common/form/form.js');
 	}
+
+	setFullHeight() {
+		let elements = document.querySelectorAll('[data-set-full-height]');
+		if (elements.length) {
+			let header = document.querySelector('[data-header]');
+			elements.forEach(el => {
+				let mob = el.dataset.setFullHeight === 'mob';
+
+				const setHeight = () => {
+					if (mob && document.documentElement.clientWidth > 767.98) return;
+					el.style.minHeight = document.documentElement.clientHeight - header.clientHeight + 'px';
+				}
+
+				setHeight();
+
+				window.addEventListener('resize', setHeight);
+			})
+		}
+	}
+
+	initDatepicker() {
+		let elements = document.querySelectorAll('[data-datepicker]');
+		if (elements.length) {
+			elements.forEach(el => {
+				let input = el.querySelector('input');
+				datepicker(input, {
+					formatter: (input, date, instance) => {
+						const value = date.toLocaleDateString()
+						input.value = value
+					}
+				});
+			})
+		}
+	}
+
+	initTooltip() {
+		let elements = document.querySelectorAll('[data-tooltip]');
+		if (elements.length) {
+			elements.forEach(el => {
+				tippy(el, {
+					content: el.dataset.tooltip,
+				});
+			})
+		}
+	}
+
 	componentsScriptsAfterLoadPage() {
 		@@include('../common/promo-header/promo-header.js');
 		@@include('../common/side-panel/side-panel.js');
@@ -459,6 +583,10 @@ class App {
 		@@include('../common/footer/footer.js');
 		@@include('../common/text-table/text-table.js');
 		@@include('../common/mob-share/mob-share.js');
+		@@include('../common/payment-cart/payment-cart.js');
+		@@include('../common/checkout/checkout.js');
+		@@include('../common/pagination/pagination.js');
+		@@include('../common/faq/faq.js');
 
 		{
 			let lastSection = document.querySelector('[data-last-section]');

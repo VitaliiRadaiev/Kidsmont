@@ -151,6 +151,17 @@
             margin-left: 0;
         }
     }
+
+    &--simple {
+        & .header__burger, & .header__menu, & .header__search, & .header__actions {
+            display: none;
+        }
+
+        & .header__phone {
+            margin-left: auto;
+            margin-right: 0;
+        }
+    }
 }
 
 .menu {

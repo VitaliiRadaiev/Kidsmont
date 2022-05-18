@@ -20,10 +20,6 @@
 
                 & .orders-list__icon {
                     transform: translateY(calc(-50% - (3.6rem / 2)));
-
-                    &.active {
-                        transform: translateY(calc(-50% - (3.6rem / 2))) rotate(-45deg);
-                    }
                 }
             }
         }
@@ -37,7 +33,7 @@
         @media (max-width: $md3+px) {
             padding: 24px 0;
             justify-content: space-between;
-            padding-right: 30px;
+            padding-right: 8px;
         }
     }
 
@@ -97,11 +93,12 @@
         background-color: #fff;
         font-size: 2.4rem;
         transition: all 0.3s ease;
+        cursor: pointer;
 
         @media (max-width: $md3+px) {
-            height: 36px;
-            width: 36px;
-            font-size: 20px;
+            background-color: transparent;
+            height: auto;
+            width: auto;
         }
 
         @media (min-width: 992px) {
@@ -111,13 +108,67 @@
             }
         }
 
-        &:active {
-            background-color: $active !important;
-            color: $lightColor !important;
+        &.active {
+            & span:before {
+                height: 0;
+            }
+
+            & span {
+                @media (max-width: $md3+px) {
+                    transform: scale(1, -1);
+                }
+            }
         }
 
-        &.active {
-            transform: translateY(-50%) rotate(-45deg);
+        & > span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 16px;
+            height: 16px;
+            display: block;
+
+            @media (min-width: 768px) {
+                &:before {
+                    position: absolute;
+                    content: "";
+                    top: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 1px;
+                    height: 100%;
+                    background-color: $mainColor;
+                    transition: all 0.3s ease;
+                }
+                &:after {
+                    position: absolute;
+                    content: "";
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                    width: 100%;
+                    height: 1px;
+                    background-color: $mainColor;
+                }
+            }
+
+            @media (max-width: $md3+px) {
+                display: block;
+                position: static;
+                -webkit-transition: all 0.3s ease 0s;
+                -o-transition: all 0.3s ease 0s;
+                transition: all 0.3s ease 0s;
+                -webkit-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+                background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI1IiB2aWV3Qm94PSIwIDAgOSA1IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNNC41IDVMOC4zOTcxMSAwLjVIMC42MDI4ODZMNC41IDVaIiBmaWxsPSIjMjIyMjIyIi8+Cjwvc3ZnPgo=);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                width: 9px;
+                height: 6px;
+            }
         }
     }
 

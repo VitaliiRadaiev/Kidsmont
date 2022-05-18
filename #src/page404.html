@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('_head.html',{
+"title": "Kidsmond"
+})
+
+<body data-scroll-container>
+    <div class="_preload-body"></div>
+    <!-- == TOP LINE ================== -->
+
+    @@include('common/header/_header.html',{
+    "mod": ""
+    })
+    <!-- == // TOP LINE ================== -->
+
+    <main class="_page " data-padding-top-header-size data-scroll-section>
+        <div class="message padding-wrap" data-set-full-height>
+            <div class="container-sm">
+                <div class="message__body">
+                    <h2 class="message__title text-center">
+                        <span class="d-block text-success">Oops 404 Again!</span>
+                        That Page Can't Be Found.
+                    </h2>
+                    <div class="message__text text-center">
+                        <p>It looks like nothing was found at this location. <br> Maybe try a search?</p>
+                    </div>
+                    <div class="message__search">
+                        <form action="/">
+                            <div class="faq__search">
+                                <button type="submit" class="faq__search-submit">
+                                    <img class="img-svg" src="img/icons/search.svg" alt="">
+                                </button>
+                                <input class="faq__search-input" type="text" placeholder="Enter text to search...">
+                            </div>
+                        </form>
+                        <a href="#" class="message__search-mob-btn btn-default" data-action="show-main-search">Search products</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- == FOOTER ================== -->
+    @@include('common/footer/_footer.html',{})
+    <!-- == // FOOTER ================== -->
+
+    @@include('_js-bottom.html',{})
+</body>
+
+</html>

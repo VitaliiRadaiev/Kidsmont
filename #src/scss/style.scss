@@ -20,6 +20,7 @@
 @import "plugins/locomotive-scroll.min.scss";
 @import "plugins/nouislider"; 
 @import "plugins/dropzone.min.scss"; 
+@import "plugins/datepicker.scss"; 
 // ==== // PLUGINS ===========================================================================================
 
 // ==== VARS ===========================================================================================
@@ -69,6 +70,8 @@
 @import "../common/text-table/text-table";
 @import "../common/mob-share/mob-share";
 @import "../common/benefits/benefits";
+@import "../common/payment-cart/payment-cart";
+@import "../common/message/message";
 // ==== // COMMON BLOCKS =====================================================
 
 // ==== PAGES =====================================================
@@ -86,5 +89,7 @@
 @import "pages/leave-complaint";
 @import "pages/account";
 @import "pages/checkout";
+@import "pages/shopping-cart";
+@import "pages/thank-you-page";
 // ==== AND PAGES =====================================================
 
