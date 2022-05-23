@@ -4494,7 +4494,8 @@ strong {
           flex: 0 0 auto;
   width: 40rem;
   overflow: hidden;
-  padding: 5rem 0;
+  padding: 3rem 0;
+  max-height: 26rem;
 }
 
 .menu__img a {

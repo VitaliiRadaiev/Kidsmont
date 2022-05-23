@@ -276,7 +276,8 @@
         flex: 0 0 auto;
         width: 40rem;
         overflow: hidden;
-        padding: 5rem 0;
+        padding: 3rem 0;
+        max-height: 26rem;
 
         @media (max-width: $md2+px) {
             display: none;

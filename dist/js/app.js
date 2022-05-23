@@ -332,6 +332,7 @@ if (header && mobileMenu) {
     let triggerItem = document.querySelector('[data-action="show-next-list"]');
     let btnBack = document.querySelector('[data-action="hide-next-list"]');
     let sidePanelHead = mobileMenu.querySelector('.side-panel__head');
+    let menuItems = header.querySelectorAll('.menu__list-item');
     let swiperSlider;
 
     const toggleShowBtnBack = (state) => {
@@ -372,6 +373,18 @@ if (header && mobileMenu) {
         })
     }
 
+    menuItems.forEach(menuItem => {
+        let links = menuItem.querySelectorAll('.sub-menu__link');
+        let img = menuItem.querySelector('.menu__img img');
+
+        if(img && links.length) {
+            links.forEach(link => {
+                link.addEventListener('mouseenter', () => {
+                    img.src = link.dataset.imgUrl;
+                })
+            })
+        }
+    })
 
     closeBtn.addEventListener('click', () => {
         swiperSlider.slideTo(0);
