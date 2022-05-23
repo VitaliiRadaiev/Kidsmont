@@ -26,6 +26,15 @@
 
                 window.addEventListener('resize',setHeight);
             }
+
+            sidePanel.addEventListener('click', (e) => {
+                if(e.target.closest('.side-panel__body')) return;
+
+                e.preventDefault();
+                sidePanel.classList.remove('side-panel--open');
+                document.body.classList.remove('overflow-hidden');
+                window.locomotivePageScroll.start();
+            })
     })
 
         let openButtons = document.querySelectorAll('[data-side-panel-open]');
