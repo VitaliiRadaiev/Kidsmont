@@ -1286,6 +1286,7 @@ window.popup = {
 								//"placeholder": '',
 								clearIncomplete: true,
 								clearMaskOnLostFocus: true,
+								showMaskOnHover: false,
 							}).mask(input);
 						}
 					})
@@ -1665,6 +1666,7 @@ if (videoBlock.length) {
         const select_selected_text = select_selected_option.innerHTML;
         const select_type = select.getAttribute('data-type');
         const label = '<span class="select__label">Price:</span>';
+        let select_selected_option_label = '';
 
         if (select_items) {
             select_items.remove();
@@ -1677,8 +1679,12 @@ if (videoBlock.length) {
             select_type_content = '<div class="select__value icon-select-arrow"><span>' + select_selected_text + '</span></div>';
         }
 
+        if(!select_selected_option.value.trim()) {
+            select_selected_option_label = `<div class="select__label">${select_selected_text}</div>`;
+        }
    
         select_parent.insertAdjacentHTML('beforeend',
+            select_selected_option_label +
             '<div class="select__item">' +
             `<div class="select__title">${(select.dataset.select === 'price') ? label : ''}` + select_type_content + '</div>' +
             '<div class="select__options">' + select_get_options(select_options) + '</div>' +
@@ -1731,6 +1737,7 @@ if (videoBlock.length) {
                     select.querySelector('.select__value').innerHTML = '<span>' + select_option_text + '</span>';
                     original.value = select_option_value;
                     select_option.style.display = 'none';
+                    select.classList.add('_visited');
 
                     let event = new Event("change", { bubbles: true });
                     original.dispatchEvent(event);
@@ -1747,6 +1754,8 @@ if (videoBlock.length) {
                 if (select_option_value != '') {
                     const select_option_text = select_option.text;
                     select_options_content = select_options_content + '<div data-value="' + select_option_value + '" class="select__option">' + select_option_text + '</div>';
+                } else {
+                    
                 }
             }
             return select_options_content;
@@ -1776,6 +1785,8 @@ if (videoBlock.length) {
             }
         }
     }
+
+
 
 };
 	}
@@ -1887,7 +1898,7 @@ if (videoBlock.length) {
     let textareaAll = document.querySelectorAll('[data-textarea]');
     if (textareaAll.length) {
         textareaAll.forEach(textarea => {
-
+            let placeholder = textarea.placeholder.trim();
             // add wrapper
             let wrapper = document.createElement('div');
             wrapper.className = 'textarea-wrapper';
@@ -1904,6 +1915,13 @@ if (videoBlock.length) {
             sizeBox.className = 'textarea-size-box';
             wrapper.append(sizeBox);
 
+            if(textarea.placeholder.trim()) {
+                let label = document.createElement('div'); 
+                label.className = 'textarea-label';
+                label.innerHTML = textarea.placeholder.trim();
+                wrapper.append(label);
+            }
+
             textarea.addEventListener('input', (e) => {
                 wrapper.classList.toggle('textarea-has-text', e.target.value.length > 0);
                 sizeBox.innerText = e.target.value;
@@ -1914,11 +1932,59 @@ if (videoBlock.length) {
             textarea.addEventListener('focus', () => {
                 wrapper.classList.add('textarea-is-focus');
                 textarea.style.height = sizeBox.clientHeight + 'px';
+                textarea.placeholder = '';
             })
             textarea.addEventListener('blur', () => {
                 wrapper.classList.remove('textarea-is-focus');
                 textarea.removeAttribute('style');
+                textarea.placeholder = placeholder;
             })
+        })
+    }
+}
+
+{
+    let defaultInputs = document.querySelectorAll('input');
+    if(defaultInputs.length) {
+        defaultInputs.forEach(input => {
+            if(input.placeholder.trim()) {
+                let placeholder = input.placeholder.trim();
+
+                input.addEventListener('focus', () => {
+                    input.placeholder = '';
+                })
+                input.addEventListener('blur', () => {
+                    input.placeholder = placeholder;
+                })
+            }
+        })
+    }
+
+    let inputs = document.querySelectorAll('.input');
+    if(inputs.length) {
+        inputs.forEach(input => {
+            if(input.placeholder.trim()) {
+                let inputWrap = document.createElement('div');
+                let label = document.createElement('div');
+                label.className = 'input-label';
+                label.innerText = input.placeholder;
+                inputWrap.className = 'input-wrap';
+                input.after(inputWrap);
+                inputWrap.append(input);
+                inputWrap.append(label);
+
+
+                input.addEventListener('focus', () => {
+                    inputWrap.classList.add('input-is-focus');
+                })
+                input.addEventListener('blur', () => {
+                    inputWrap.classList.remove('input-is-focus');
+                })
+
+                input.addEventListener('input', (e) => {
+                    inputWrap.classList.toggle('input-has-text', e.target.value.length > 0);
+                })
+            }
         })
     }
 }
@@ -1997,6 +2063,7 @@ if (videoBlock.length) {
 			})
 		}
 	}
+
 
 	componentsScriptsAfterLoadPage() {
 		{

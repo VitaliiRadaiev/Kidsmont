@@ -6101,6 +6101,31 @@ strong {
   font-size: 1.8rem;
 }
 
+.input-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.input-wrap.input-is-focus .input-label,
+.input-wrap.input-has-text .input-label {
+  opacity: 1;
+}
+
+.input-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  pointer-events: none;
+  font-size: 1.2rem;
+  line-height: 150%;
+  color: #777777;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
 .input {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6116,13 +6141,9 @@ strong {
   border: none;
   border-bottom: 1px solid #D2D2D2;
   outline: none;
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   line-height: 1.5em;
   color: #222222;
-}
-
-.input:focus {
-  border-color: #222222;
 }
 
 .input::-webkit-input-placeholder {
@@ -6228,12 +6249,12 @@ strong {
   line-height: 1.5em;
   color: #222222;
   resize: none;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
   overflow: hidden;
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
+  -webkit-transition: height 0.3s ease;
+  -o-transition: height 0.3s ease;
+  transition: height 0.3s ease;
 }
 
 .textarea::-webkit-input-placeholder {
@@ -6278,22 +6299,19 @@ strong {
   opacity: 1;
 }
 
-.textarea-wrapper.textarea-is-focus {
-  border-color: #222222;
+.textarea-wrapper.textarea-has-text .textarea-label {
+  opacity: 1;
 }
 
-.textarea-wrapper.textarea-is-focus .textarea {
-  min-height: 12rem;
+.textarea-wrapper.textarea-is-focus .textarea-label {
+  opacity: 1;
 }
 
 .textarea-text-mask {
   pointer-events: none;
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 0;
-  -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
   z-index: 2;
   width: 100%;
   white-space: nowrap;
@@ -6303,10 +6321,26 @@ strong {
   font-size: 1.8rem;
   line-height: 1.5em;
   opacity: 0;
+  padding: 1.2rem 0;
 }
 
 .textarea-text-mask br {
   display: none;
+}
+
+.textarea-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  pointer-events: none;
+  font-size: 1.2rem;
+  line-height: 150%;
+  color: #777777;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  opacity: 0;
 }
 
 .textarea-size-box {
@@ -6551,6 +6585,10 @@ strong {
   margin-bottom: 0;
 }
 
+.popup-box__title.text-transform-none {
+  text-transform: uppercase !important;
+}
+
 .popup-box__body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6629,12 +6667,36 @@ strong {
   margin-bottom: 0;
 }
 
+.select {
+  position: relative;
+}
+
+.select._visited .select__label {
+  opacity: 1;
+}
+
 .select._active .select__value {
   border-bottom: 1px solid #222222;
 }
 
 .select__item {
   position: relative;
+}
+
+.select__label {
+  position: absolute;
+  font-size: 1.2rem;
+  line-height: 150%;
+  text-align: right;
+  color: #777777;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  pointer-events: none;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  opacity: 0;
 }
 
 .select__value {
@@ -12094,6 +12156,28 @@ form.dropzone > .dz-preview {
             flex: 0 1 calc(50% - 3rem);
   }
 
+  .popup-box__body.d-block .form__title {
+    text-align: center !important;
+    font-size: 2.4rem;
+    line-height: 150%;
+    margin-bottom: 5rem;
+  }
+
+  .popup-box__body.d-block .form__items {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.4rem;
+    width: 100%;
+    max-width: 46rem;
+  }
+
+  .popup-box__body.d-block .form__submit {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 46rem;
+  }
+
   .popup-box__col-1 {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 56.52%;
@@ -12101,6 +12185,11 @@ form.dropzone > .dz-preview {
     padding-right: 5rem;
     margin-right: 4rem;
     border-right: 1px solid #D2D2D2;
+  }
+
+  .select._visited .select__value span {
+    font-size: 1.8rem;
+    line-height: 150%;
   }
 
   .product-carousel__btn-mob {

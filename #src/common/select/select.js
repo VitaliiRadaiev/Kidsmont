@@ -116,6 +116,7 @@
         const select_selected_text = select_selected_option.innerHTML;
         const select_type = select.getAttribute('data-type');
         const label = '<span class="select__label">Price:</span>';
+        let select_selected_option_label = '';
 
         if (select_items) {
             select_items.remove();
@@ -128,8 +129,12 @@
             select_type_content = '<div class="select__value icon-select-arrow"><span>' + select_selected_text + '</span></div>';
         }
 
+        if(!select_selected_option.value.trim()) {
+            select_selected_option_label = `<div class="select__label">${select_selected_text}</div>`;
+        }
    
         select_parent.insertAdjacentHTML('beforeend',
+            select_selected_option_label +
             '<div class="select__item">' +
             `<div class="select__title">${(select.dataset.select === 'price') ? label : ''}` + select_type_content + '</div>' +
             '<div class="select__options">' + select_get_options(select_options) + '</div>' +
@@ -182,6 +187,7 @@
                     select.querySelector('.select__value').innerHTML = '<span>' + select_option_text + '</span>';
                     original.value = select_option_value;
                     select_option.style.display = 'none';
+                    select.classList.add('_visited');
 
                     let event = new Event("change", { bubbles: true });
                     original.dispatchEvent(event);
@@ -198,6 +204,8 @@
                 if (select_option_value != '') {
                     const select_option_text = select_option.text;
                     select_options_content = select_options_content + '<div data-value="' + select_option_value + '" class="select__option">' + select_option_text + '</div>';
+                } else {
+                    
                 }
             }
             return select_options_content;
@@ -227,5 +235,7 @@
             }
         }
     }
+
+
 
 }

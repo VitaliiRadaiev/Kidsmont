@@ -1,4 +1,18 @@
 .select {
+	position: relative;
+
+	&._visited {
+		& .select__label {
+			opacity: 1;
+		}
+
+		& .select__value span {
+			@media (min-width: 768px) {
+				font-size: 1.8rem;
+				line-height: 150%;
+			}
+		}
+	}
 	&._active {
 		& .select__value {
 			border-bottom: 1px solid $mainColor;
@@ -7,6 +21,21 @@
 	&__item {
 		position: relative;
 	}
+
+	&__label {
+		position: absolute;
+		font-size: 1.2rem;
+		line-height: 150%;
+		text-align: right;
+		color: #777777;
+		top: 0;
+		right: 0;
+		z-index: 3;
+		pointer-events: none;
+		transition: all 0.3s ease;
+		opacity: 0;
+	}
+
 	// .select__title
 	&__title {
 	}
@@ -71,7 +100,7 @@
 		display: flex;
 		align-items: center;
 		min-height: 3rem;
-		transition: all .3s ease;
+		transition: all 0.3s ease;
 		padding: 0.8rem 1.4rem;
 
 		@media (min-width: 992px) {

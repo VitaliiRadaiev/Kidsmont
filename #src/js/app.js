@@ -365,6 +365,7 @@ class App {
 								//"placeholder": '',
 								clearIncomplete: true,
 								clearMaskOnLostFocus: true,
+								showMaskOnHover: false,
 							}).mask(input);
 						}
 					})
@@ -570,6 +571,7 @@ class App {
 			})
 		}
 	}
+
 
 	componentsScriptsAfterLoadPage() {
 		@@include('../common/promo-header/promo-header.js');

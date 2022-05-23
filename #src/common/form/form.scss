@@ -233,6 +233,29 @@
     }
 }
 
+.input-wrap {
+    position: relative;
+    width: 100%;
+
+    &.input-is-focus, &.input-has-text {
+        & .input-label {
+            opacity: 1;
+        }   
+    }
+}
+
+.input-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    pointer-events: none;
+    font-size: 1.2rem;
+    line-height: 150%;
+    color: #777777;
+    transition: all .3s ease;
+    opacity: 0;
+}
 .input {
     display: flex;
     align-items: center;
@@ -244,7 +267,7 @@
     border: none;
     border-bottom: 1px solid $borderColor;
     outline: none;
-    font-size: 2.4rem;
+    font-size: 1.8rem;
     line-height: 1.5em;
     color: $textColor;
 
@@ -252,10 +275,6 @@
         font-size: 14px;
         height: 53px;
         padding: 16px 0;
-    }
-
-    &:focus {
-        border-color: $mainColor;
     }
 
     &::placeholder {
@@ -340,9 +359,9 @@
     line-height: 1.5em;
     color: $textColor;
     resize: none;
-    transition: all 0.3s ease;
     overflow: hidden;
     text-overflow: ellipsis;
+    transition: height .3s ease;
 
     @media (max-width: $md3+px) {
         font-size: 14px;
@@ -378,21 +397,24 @@
                 opacity: 1;
             }
         }
+
+        & .textarea-label {
+            opacity: 1;
+        } 
     }
 
     &.textarea-is-focus {
-        border-color: $mainColor;
-        & .textarea {
-            min-height: 12rem;
-        }
+
+        & .textarea-label {
+            opacity: 1;
+        } 
     }
 }
 .textarea-text-mask {
     pointer-events: none;
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 0;
-    transform: translateY(-50%);
     z-index: 2;
     width: 100%;
     white-space: nowrap;
@@ -401,6 +423,7 @@
     font-size: 1.8rem;
     line-height: 1.5em;
     opacity: 0;
+    padding: 1.2rem 0;
 
     @media (max-width: $md3+px) {
         font-size: 14px;
@@ -409,6 +432,18 @@
     & br {
         display: none;
     }
+}
+.textarea-label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    pointer-events: none;
+    font-size: 1.2rem;
+    line-height: 150%;
+    color: #777777;
+    transition: all .3s ease;
+    opacity: 0;
 }
 
 .textarea-size-box {
