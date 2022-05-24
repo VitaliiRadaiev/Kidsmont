@@ -35,6 +35,8 @@
         @media (max-width: $md2+px) {
             flex: 0 1 auto;
         }
+
+ 
         & > *:not(:last-child) {
             margin-bottom: 3.4rem;
 
@@ -42,6 +44,19 @@
                 margin-bottom: 24px;
             }
         }
+    }
+
+    &__sticky-wrap {
+
+       
+            
+      
+
+    }
+
+    &__sticky-inner {
+      
+
     }
 
     &__products {

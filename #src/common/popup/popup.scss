@@ -182,7 +182,9 @@
 		margin-bottom: 0;
 
 		&.text-transform-none {
-			text-transform: uppercase !important;
+			@media (min-width: 768px) {
+				text-transform: uppercase !important;
+			}
 		}
 	}
 

@@ -13,6 +13,7 @@
     })
     <!-- == // TOP LINE ================== -->
 
+    @@include('common/side-panel/_account-tabs.html')
     <main class="_page " data-padding-top-header-size data-scroll-section>
 
         @@include('common/breadcrumbs/_breadcrumbs.html', {
@@ -24,8 +25,7 @@
                 <h2 class="head__title d-flex align-items-center justify-content-between">
                     Persönliches Büro
 
-                    <div class="d-flex align-items-center justify-content-center justify-content-md-start"
-                        data-da=".account__bottom-link,767.98,0">
+                    <div class="d-none d-md-flex align-items-center justify-content-center justify-content-md-start">
                         <a href="#" class="go-out-link">
                             Hinausgehen
                             <img class="img-svg" src="img/icons/go-out.svg" alt="">
@@ -38,7 +38,7 @@
 
         <div class="account padding-wrap pt-0">
             <div class="container-sm">
-                <div class="account__body tabs" data-tabs>
+                <div class="account__body tabs" data-tabs="has-outside-navigation">
                     <div class="tabs__col-1">
                         <div class="tabs__nav">
                             <div class="tabs__nav-list swiper" data-tabs-nav data-mobile="false">
@@ -52,12 +52,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tabs__nav-select select-wrap">
-                                <select name="" class="_select" data-tab-select>
-                                    <option value="0" selected>Meine Details</option>
-                                    <option value="1">Meine Bestellungen</option>
-                                </select>
-                            </div>
+                            <button class="tabs__nav-btn" data-side-panel-open="account-tabs">Meine Details</button>
                         </div>
                     </div>
                     <div class="tabs__col-2">

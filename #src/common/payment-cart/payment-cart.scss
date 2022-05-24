@@ -1,4 +1,8 @@
 .payment-cart {
+    @media (min-width: 992px) {
+        position: sticky;
+        top: 10rem;
+    }
     &__main-box {
         background-color: $bgSecondary;
         padding: 3rem;
@@ -276,7 +280,7 @@
         @media (max-width: $md2+px) {
             position: fixed;
             left: 0;
-            bottom: 24px;
+            bottom: 0;
         }
     }
 

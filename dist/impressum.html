@@ -376,11 +376,11 @@ defer
                             <div class="order-card__info-wrap align-items-center">
                                 <div class="order-card__col">
                                     <div class="quantity" data-quantity>
-    <div class="quantity__button quantity__button--minus"></div>
+    <div class="quantity__button quantity__button--plus"></div>
     <div class="quantity__input" data-mask="9{*}">
         <input autocomplete="off" type="text" value="1">
     </div>
-    <div class="quantity__button quantity__button--plus"></div>
+    <div class="quantity__button quantity__button--minus"></div>
 </div>
                                 </div>
                                 <div class="order-card__col">
@@ -407,11 +407,11 @@ defer
                             <div class="order-card__info-wrap align-items-center">
                                 <div class="order-card__col">
                                     <div class="quantity" data-quantity>
-    <div class="quantity__button quantity__button--minus"></div>
+    <div class="quantity__button quantity__button--plus"></div>
     <div class="quantity__input" data-mask="9{*}">
         <input autocomplete="off" type="text" value="1">
     </div>
-    <div class="quantity__button quantity__button--plus"></div>
+    <div class="quantity__button quantity__button--minus"></div>
 </div>
                                 </div>
                                 <div class="order-card__col">
@@ -1053,26 +1053,32 @@ defer
                 </div>
                 <div class="popup-box__body d-block text-normal">
 
-                    <form class="dropzone" action="/">
+                    <form action="/">
                         <div class="form">
                             <div class="form__items">
-                                <div class="form__item">
+                                <div class="form__item form__item--half">
                                     <input class="input" type="text" placeholder="Ihr Name">
                                 </div>
-                                <div class="form__item">
+                                <div class="form__item form__item--half">
                                     <input class="input" type="text" placeholder="Ihr Nachname">
                                 </div>
-                                <div class="form__item">
+                                <div class="form__item form__item--half" data-mask="+9(999)-999-99-99">
+                                    <input class="input" type="text" placeholder="Telefonnummer">
+                                </div>
+                                <div class="form__item form__item--half">
                                     <input class="input" type="email" placeholder="Email">
                                 </div>
                                 <div class="form__item">
-                                    <input class="input" type="text" placeholder="Bestellnummer">
+                                    <div class="select-wrap">
+                                        <select name="" class="_select">
+                                            <option value="" selected>Wie sind Sie auf uns aufmerksam geworden?</option>
+                                            <option value="1">Lorem, ipsum dolor.</option>
+                                            <option value="2">Lorem, ipsum dolor.</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="form__item">
-                                    <input class="input" type="text" placeholder="Seriennummer der Wand">
-                                </div>
-                                <div class="form__item">
-                                    <input class="input" type="text" placeholder="Beschreiben Sie, wie der Schaden entstande...">
+                                    <input class="input" type="text" placeholder="Nachricht">
                                 </div>
                             </div>
                             <button type="submit" class="form__submit btn-default w-100">Schicken</button>

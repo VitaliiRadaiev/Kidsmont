@@ -182,14 +182,24 @@
                                 })
                             </li>
                             <li>
-                                @@include('common/product-card/_product-card.html', {
-                                "label": false,
-                                "labelText": 'hit',
-                                "img": "img/photo/product-list-img-2.png",
-                                "title": "Sprossenwand 5-in-1 aus Kiefer Schwarz",
-                                "price": "471,00€",
-                                "colorPicer": false
-                                })
+                                <div class="product-card">
+    
+                                    <a href="#" class="product-card__like product-card__like--active"></a> 
+                                    <!-- use  product-card__like--active -->
+                                    <a href="#" class="product-card__img-wrap">
+                                        <div class="product-card__img">
+                                            <img src="img/photo/product-list-img-2.png" alt="">
+                                        </div>
+                                        <div class="product-card__center-icon">
+                                            <img src="img/icons/bag-circle-green.svg" alt="">
+                                        </div>
+                                    </a>
+                                    <a href="#" class="product-card__title">Sprossenwand 5-in-1 aus Kiefer Schwarz</a>
+                                    <div class="product-card__bottom">
+                                        <div class="product-card__price">471,00€</div>
+                                        
+                                    </div>
+                                </div>
                             </li>
                             <li>
                                 @@include('common/product-card/_product-card.html', {

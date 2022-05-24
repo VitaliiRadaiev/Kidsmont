@@ -1,6 +1,7 @@
 .footer {
     overflow: hidden;
     position: relative;
+    z-index: 10;
     &__inner {
         padding-top: 5.6rem;
         color: $lightColor;
@@ -353,8 +354,12 @@
 .footer-simple {
     border-top: 1px solid $borderColor;
     position: relative;
-    z-index: 5;
+    z-index: 1;
     background-color: $bg;
+
+    @media (max-width: $md2+px) {
+        padding-bottom: 48px;
+    }
     &__body {
         min-height: 9rem;
         padding-top: 2.4rem;

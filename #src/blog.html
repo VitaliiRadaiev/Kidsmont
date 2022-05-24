@@ -12,7 +12,7 @@
 	"mod": ""
 	})
 	<!-- == // TOP LINE ================== -->
-	
+	@@include('common/side-panel/_blog-filter.html')
 	<main class="_page " data-padding-top-header-size data-scroll-section>
         
         @@include('common/breadcrumbs/_breadcrumbs.html', {
@@ -43,14 +43,7 @@
                     </li>
                 </ul>
                 <div class="blog__filter-mob">
-                    <div class="select-wrap">
-                        <select name="" class="_select">
-                            <option value="1" selected>All</option>
-                            <option value="2">Furniture</option>
-                            <option value="3">Updates</option>
-                            <option value="3">Additional</option>
-                        </select>
-                    </div>
+                    <button class="blog__filter-mob-btn" data-side-panel-open="blog-filter">all</button>
                 </div>
                 <div class="blog__list">
                     @@include('common/blog-list/_blog-list.html')

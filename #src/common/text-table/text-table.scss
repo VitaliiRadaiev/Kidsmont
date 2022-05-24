@@ -103,4 +103,10 @@
             line-height: 130%;
         }
     }
+
+    & .link-see-more {
+        @media (max-width: $md2+px) {
+            color:$secondColor !important;
+        }
+    }
 }

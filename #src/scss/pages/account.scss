@@ -30,6 +30,12 @@
         }
     }
 
+    & .tabs__nav {
+        @media (max-width: $md3+px) {
+            margin-bottom: 0;
+        }
+    }
+
     & .tabs__nav-list {
         @media (max-width: $md2+px) {
             & .swiper-wrapper {
@@ -55,6 +61,12 @@
         @media (min-width: 992px) {
             max-width: 64rem;
             margin-left: auto;
+        }
+    }
+
+    & .orders-list {
+        @media (max-width: $md3+px) {
+            border-top: none;
         }
     }
 }

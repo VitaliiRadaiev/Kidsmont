@@ -376,11 +376,11 @@ defer
                             <div class="order-card__info-wrap align-items-center">
                                 <div class="order-card__col">
                                     <div class="quantity" data-quantity>
-    <div class="quantity__button quantity__button--minus"></div>
+    <div class="quantity__button quantity__button--plus"></div>
     <div class="quantity__input" data-mask="9{*}">
         <input autocomplete="off" type="text" value="1">
     </div>
-    <div class="quantity__button quantity__button--plus"></div>
+    <div class="quantity__button quantity__button--minus"></div>
 </div>
                                 </div>
                                 <div class="order-card__col">
@@ -407,11 +407,11 @@ defer
                             <div class="order-card__info-wrap align-items-center">
                                 <div class="order-card__col">
                                     <div class="quantity" data-quantity>
-    <div class="quantity__button quantity__button--minus"></div>
+    <div class="quantity__button quantity__button--plus"></div>
     <div class="quantity__input" data-mask="9{*}">
         <input autocomplete="off" type="text" value="1">
     </div>
-    <div class="quantity__button quantity__button--plus"></div>
+    <div class="quantity__button quantity__button--minus"></div>
 </div>
                                 </div>
                                 <div class="order-card__col">
@@ -520,6 +520,19 @@ defer
     </ul>
 </div>
 
+        <div class="mobile-bottom-price">
+            <div class="mobile-bottom-price__col-1">
+                <div class="mobile-bottom-price__label">
+                    Price
+                </div>
+                <div class="mobile-bottom-price__price">
+                    501,00€ – 595,00€
+                </div>
+            </div>
+            <div class="mobile-bottom-price__col-2">
+                <button class="btn-default">Buy now</button>
+            </div>
+        </div>
 
         <div class="product-detail padding-wrap pt-0">
             <div class="container-sm">
@@ -774,17 +787,20 @@ defer
                                             <div class="reviews reviews--has-list">
     <div class="reviews__head d-flex align-items-center justify-content-between">
         <h3 class="reviews__title">Reviews</h3>
-        <a href="#" class="btn-with-arrow not-hover">
+        <div data-da=".reviews--has-list,991.98,last">
+            <a href="#" class="btn-with-arrow not-hover">
     Leave review
     <span>
         <img class="img-svg" src="img/icons/arrow-right.svg" alt="">
     </span>
 </a>
+        </div>
     </div>
     <ul class="reviews__list">
         <li>
             <div class="reviews__list-text text-content">
-                Excellent Swedish wall, looks good and easily withstands adults. Assembly was relatively easy thanks to good instructions.
+                Excellent Swedish wall, looks good and easily withstands adults. Assembly was relatively easy thanks to
+                good instructions.
             </div>
             <div class="reviews__list-meta">
                 <div class="reviews__list-author">mstephan1970</div>
@@ -793,7 +809,9 @@ defer
         </li>
         <li>
             <div class="reviews__list-text text-content">
-                It was a great purchase for us as we spend a lot of time at home due to Covid-19. We watched competitors' products, but chose this one because it has a larger size and height (and installation versatility) means my kids will enjoy it for longer.
+                It was a great purchase for us as we spend a lot of time at home due to Covid-19. We watched
+                competitors' products, but chose this one because it has a larger size and height (and installation
+                versatility) means my kids will enjoy it for longer.
             </div>
             <div class="reviews__list-meta">
                 <div class="reviews__list-author">mstephan1970</div>
@@ -802,7 +820,8 @@ defer
         </li>
         <li>
             <div class="reviews__list-text text-content">
-                Excellent Swedish wall, looks good and easily withstands adults. Assembly was relatively easy thanks to good instructions.
+                Excellent Swedish wall, looks good and easily withstands adults. Assembly was relatively easy thanks to
+                good instructions.
             </div>
             <div class="reviews__list-meta">
                 <div class="reviews__list-author">mstephan1970</div>
@@ -811,7 +830,9 @@ defer
         </li>
         <li>
             <div class="reviews__list-text text-content">
-                It was a great purchase for us as we spend a lot of time at home due to Covid-19. We watched competitors' products, but chose this one because it has a larger size and height (and installation versatility) means my kids will enjoy it for longer.
+                It was a great purchase for us as we spend a lot of time at home due to Covid-19. We watched
+                competitors' products, but chose this one because it has a larger size and height (and installation
+                versatility) means my kids will enjoy it for longer.
             </div>
             <div class="reviews__list-meta">
                 <div class="reviews__list-author">mstephan1970</div>
@@ -1503,26 +1524,32 @@ defer
                 </div>
                 <div class="popup-box__body d-block text-normal">
 
-                    <form class="dropzone" action="/">
+                    <form action="/">
                         <div class="form">
                             <div class="form__items">
-                                <div class="form__item">
+                                <div class="form__item form__item--half">
                                     <input class="input" type="text" placeholder="Ihr Name">
                                 </div>
-                                <div class="form__item">
+                                <div class="form__item form__item--half">
                                     <input class="input" type="text" placeholder="Ihr Nachname">
                                 </div>
-                                <div class="form__item">
+                                <div class="form__item form__item--half" data-mask="+9(999)-999-99-99">
+                                    <input class="input" type="text" placeholder="Telefonnummer">
+                                </div>
+                                <div class="form__item form__item--half">
                                     <input class="input" type="email" placeholder="Email">
                                 </div>
                                 <div class="form__item">
-                                    <input class="input" type="text" placeholder="Bestellnummer">
+                                    <div class="select-wrap">
+                                        <select name="" class="_select">
+                                            <option value="" selected>Wie sind Sie auf uns aufmerksam geworden?</option>
+                                            <option value="1">Lorem, ipsum dolor.</option>
+                                            <option value="2">Lorem, ipsum dolor.</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="form__item">
-                                    <input class="input" type="text" placeholder="Seriennummer der Wand">
-                                </div>
-                                <div class="form__item">
-                                    <input class="input" type="text" placeholder="Beschreiben Sie, wie der Schaden entstande...">
+                                    <input class="input" type="text" placeholder="Nachricht">
                                 </div>
                             </div>
                             <button type="submit" class="form__submit btn-default w-100">Schicken</button>
