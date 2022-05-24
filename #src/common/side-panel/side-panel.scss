@@ -220,6 +220,21 @@
             }
         }
     }
+
+    &.basket {
+        @media (max-width: $md3+px) {
+            & .side-panel__body {
+                display: flex;
+                flex-direction: column;
+                height: 100vh;
+                background-color: #F3F1EF;
+            }
+
+            & .side-panel__bottom {
+                margin-top: auto;
+            }
+        }
+    }
 }
 
 .selected-products {

@@ -33,19 +33,19 @@
 
                 window.addEventListener('resize',setHeight);
 
-                if(sidePanel.dataset.sidePanel === "basket") {
-                    let quantityInputs = sidePanel.querySelectorAll('.quantity__input input');
-                    if(quantityInputs.length) {
-                        quantityInputs.forEach(input => {
-                            input.addEventListener('focus', () => {
-                                setMinHeight();
-                            })
-                            input.addEventListener('blur', () => {
-                                setHeight();
-                            })
-                        })
-                    }
-                }
+                // if(sidePanel.dataset.sidePanel === "basket") {
+                //     let quantityInputs = sidePanel.querySelectorAll('.quantity__input input');
+                //     if(quantityInputs.length) {
+                //         quantityInputs.forEach(input => {
+                //             input.addEventListener('focus', () => {
+                //                 setMinHeight();
+                //             })
+                //             input.addEventListener('blur', () => {
+                //                 setHeight();
+                //             })
+                //         })
+                //     }
+                // }
             }
 
             sidePanel.addEventListener('click', (e) => {
