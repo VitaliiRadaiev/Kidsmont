@@ -21,7 +21,6 @@
 
                 const setHeight = () => {
                     scrollWrap.style.height = `calc(100% - ${head.clientHeight + bottom.clientHeight}px)`;
-                    scrollWrap.style.minHeight = 'auto';
                 }
                 setHeight();
 

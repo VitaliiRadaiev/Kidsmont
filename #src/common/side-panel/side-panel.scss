@@ -224,14 +224,10 @@
     &.basket {
         @media (max-width: $md3+px) {
             & .side-panel__body {
-                display: flex;
-                flex-direction: column;
-                height: 100vh;
-                background-color: #F3F1EF;
+                overflow-y: auto;
             }
-
-            & .side-panel__bottom {
-                margin-top: auto;
+            & .side-panel__scroll-wrap {
+                min-height: 342px;
             }
         }
     }
