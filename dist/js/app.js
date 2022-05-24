@@ -338,10 +338,10 @@ if (header && mobileMenu) {
     const toggleShowBtnBack = (state) => {
         if(state === 'hide') {
             btnBack.classList.remove('show');
-            sidePanelHead.classList.remove('hide');
+            sidePanelHead.classList.remove('side-panel__head--hide');
         } else if (state == 'show') {
             btnBack.classList.add('show');
-            sidePanelHead.classList.add('hide');
+            sidePanelHead.classList.add('side-panel__head--hide');
         }
     }
 
@@ -351,7 +351,7 @@ if (header && mobileMenu) {
             observeParents: true,
             slidesPerView: 1,
             spaceBetween: 0,
-            speed: 800,
+            speed: 300,
             allowTouchMove: false,
             autoHeight: true,
 
@@ -1828,7 +1828,9 @@ if (videoBlock.length) {
 			const scroll = new LocomotiveScroll({
 				el: container,
 				smooth: true,
-				lerp: 0.03
+				lerp: 0.03,
+				reloadOnContextChange: true,
+				scrollFromAnywhere: true
 			});
 
 			window.locomotivePageScroll = scroll;
@@ -1851,7 +1853,7 @@ if (videoBlock.length) {
 			});
 
 			scroll.on('scroll', (args) => {
-				//console.log(args);
+				//console.log(args.scroll.y);
 			});
 		}
 	}
@@ -2171,7 +2173,7 @@ if (videoBlock.length) {
                 let bottom = sidePanel.querySelector('.side-panel__bottom');
 
                 const setHeight = () => {
-                    scrollWrap.style.height = `calc(100% - ${head.clientHeight + bottom.clientHeight}px)`;
+                    scrollWrap.style.height = `calc(100vh - ${head.clientHeight + bottom.clientHeight}px)`;
                 }
                 setHeight();
 

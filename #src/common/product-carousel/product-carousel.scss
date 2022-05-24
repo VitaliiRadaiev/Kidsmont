@@ -10,7 +10,14 @@
     &__slider {
         overflow: visible;
         transform: translateX(20%);
+        margin-bottom: 7rem;
+
+        @media (max-width: $md2+px) {
+            margin-bottom: 40px;
+        }
+
         @media (max-width: $md3+px) {
+            margin-bottom: 0;
             padding: 0 20px;
         }
         & .swiper-slide {
@@ -27,12 +34,14 @@
 
     &__bottom {
         text-align: center;
-        padding-top: 14rem;
+        padding-top: 7rem;
+        border-top: 1px solid $borderColor;
 
         @media (max-width: $md2+px) {
-            padding-top: 80px;
+            padding-top: 40px;
         }
         @media (max-width: $md3+px) {
+            border: none;
             padding-top: 24px;
         }
     }

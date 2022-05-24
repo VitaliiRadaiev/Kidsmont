@@ -18,10 +18,10 @@ if (header && mobileMenu) {
     const toggleShowBtnBack = (state) => {
         if(state === 'hide') {
             btnBack.classList.remove('show');
-            sidePanelHead.classList.remove('hide');
+            sidePanelHead.classList.remove('side-panel__head--hide');
         } else if (state == 'show') {
             btnBack.classList.add('show');
-            sidePanelHead.classList.add('hide');
+            sidePanelHead.classList.add('side-panel__head--hide');
         }
     }
 
@@ -31,7 +31,7 @@ if (header && mobileMenu) {
             observeParents: true,
             slidesPerView: 1,
             spaceBetween: 0,
-            speed: 800,
+            speed: 300,
             allowTouchMove: false,
             autoHeight: true,
 

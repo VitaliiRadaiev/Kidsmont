@@ -600,7 +600,7 @@
     }
 
     & .side-panel__head {
-        &.hide {
+        &--hide {
             & .menu-mobile__logo, & .menu-mobile__phone {
                 opacity: 0;
                 transform: translateX(-30%);

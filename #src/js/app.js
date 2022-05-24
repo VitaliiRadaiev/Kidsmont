@@ -445,7 +445,9 @@ class App {
 			const scroll = new LocomotiveScroll({
 				el: container,
 				smooth: true,
-				lerp: 0.03
+				lerp: 0.03,
+				reloadOnContextChange: true,
+				scrollFromAnywhere: true
 			});
 
 			window.locomotivePageScroll = scroll;
@@ -468,7 +470,7 @@ class App {
 			});
 
 			scroll.on('scroll', (args) => {
-				//console.log(args);
+				//console.log(args.scroll.y);
 			});
 		}
 	}

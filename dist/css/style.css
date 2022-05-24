@@ -4835,8 +4835,8 @@ strong {
   background-color: #222222;
 }
 
-.menu-mobile .side-panel__head.hide .menu-mobile__logo,
-.menu-mobile .side-panel__head.hide .menu-mobile__phone {
+.menu-mobile .side-panel__head--hide .menu-mobile__logo,
+.menu-mobile .side-panel__head--hide .menu-mobile__phone {
   opacity: 0;
   -webkit-transform: translateX(-30%);
       -ms-transform: translateX(-30%);
@@ -6804,6 +6804,7 @@ strong {
   -webkit-transform: translateX(20%);
       -ms-transform: translateX(20%);
           transform: translateX(20%);
+  margin-bottom: 7rem;
 }
 
 .product-carousel__slider .swiper-slide {
@@ -6821,7 +6822,8 @@ strong {
 
 .product-carousel__bottom {
   text-align: center;
-  padding-top: 14rem;
+  padding-top: 7rem;
+  border-top: 1px solid #D2D2D2;
 }
 
 .product-carousel__btn-desk .btn-with-arrow {
@@ -7572,11 +7574,11 @@ strong {
   bottom: 0;
   width: 100%;
   height: 100%;
-  -webkit-transition: -webkit-transform 0.6s ease;
-  transition: -webkit-transform 0.6s ease;
-  -o-transition: transform 0.6s ease;
-  transition: transform 0.6s ease;
-  transition: transform 0.6s ease, -webkit-transform 0.6s ease;
+  -webkit-transition: -webkit-transform 0.4s ease;
+  transition: -webkit-transform 0.4s ease;
+  -o-transition: transform 0.4s ease;
+  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, -webkit-transform 0.4s ease;
   -webkit-transform: translateX(0%);
       -ms-transform: translateX(0%);
           transform: translateX(0%);
@@ -7615,28 +7617,10 @@ strong {
   transition: opacity 0.3s ease;
 }
 
-.side-panel--open .side-panel__body {
-  -webkit-transform: translateX(0%);
-      -ms-transform: translateX(0%);
-          transform: translateX(0%);
-}
-
-.side-panel--open .side-panel__close {
-  opacity: 1;
-}
-
 .side-panel__body {
   background-color: #F3F1EF;
   height: 100%;
   width: 100%;
-  -webkit-transition: -webkit-transform 0.6s ease;
-  transition: -webkit-transform 0.6s ease;
-  -o-transition: transform 0.6s ease;
-  transition: transform 0.6s ease;
-  transition: transform 0.6s ease, -webkit-transform 0.6s ease;
-  -webkit-transform: translateX(-100%);
-      -ms-transform: translateX(-100%);
-          transform: translateX(-100%);
   position: relative;
   z-index: 2;
 }
@@ -7646,7 +7630,6 @@ strong {
   top: 18px;
   right: 18px;
   z-index: 4;
-  opacity: 0;
 }
 
 .side-panel__close > span {
@@ -13377,8 +13360,12 @@ form.dropzone > .dz-preview {
     font-size: 12px;
   }
 
+  .product-carousel__slider {
+    margin-bottom: 40px;
+  }
+
   .product-carousel__bottom {
-    padding-top: 80px;
+    padding-top: 40px;
   }
 
   .reviews__bottom {
@@ -14449,10 +14436,12 @@ form.dropzone > .dz-preview {
   }
 
   .product-carousel__slider {
+    margin-bottom: 0;
     padding: 0 20px;
   }
 
   .product-carousel__bottom {
+    border: none;
     padding-top: 24px;
   }
 
