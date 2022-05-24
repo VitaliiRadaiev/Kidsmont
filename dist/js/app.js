@@ -1830,7 +1830,8 @@ if (videoBlock.length) {
 				smooth: true,
 				lerp: 0.03,
 				reloadOnContextChange: true,
-				scrollFromAnywhere: true
+				scrollFromAnywhere: true,
+				repeat: true
 			});
 
 			window.locomotivePageScroll = scroll;
