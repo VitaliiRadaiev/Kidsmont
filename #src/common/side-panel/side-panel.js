@@ -21,10 +21,31 @@
 
                 const setHeight = () => {
                     scrollWrap.style.height = `calc(100% - ${head.clientHeight + bottom.clientHeight}px)`;
+                    scrollWrap.style.minHeight = 'auto';
                 }
                 setHeight();
 
+                const setMinHeight = () => {
+                    if (this.utils.isMobile()) {
+                        scrollWrap.style.minHeight = `calc(100% - ${head.clientHeight}px)`;
+                    }
+                }
+
                 window.addEventListener('resize',setHeight);
+
+                if(sidePanel.dataset.sidePanel === "basket") {
+                    let quantityInputs = sidePanel.querySelectorAll('.quantity__input input');
+                    if(quantityInputs.length) {
+                        quantityInputs.forEach(input => {
+                            input.addEventListener('focus', () => {
+                                setMinHeight();
+                            })
+                            input.addEventListener('blur', () => {
+                                setHeight();
+                            })
+                        })
+                    }
+                }
             }
 
             sidePanel.addEventListener('click', (e) => {

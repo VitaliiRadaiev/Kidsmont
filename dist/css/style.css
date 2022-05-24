@@ -7730,7 +7730,6 @@ strong {
   height: calc(100% - 60px);
   overflow: auto;
   min-width: 0;
-  min-height: 0;
 }
 
 .side-panel__scroll-wrap::-webkit-scrollbar {
