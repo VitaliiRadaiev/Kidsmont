@@ -20,7 +20,7 @@
                 let bottom = sidePanel.querySelector('.side-panel__bottom');
 
                 const setHeight = () => {
-                    scrollWrap.style.height = `calc(100vh - ${head.clientHeight + bottom.clientHeight}px)`;
+                    scrollWrap.style.height = `calc(100% - ${head.clientHeight + bottom.clientHeight}px)`;
                 }
                 setHeight();
 
