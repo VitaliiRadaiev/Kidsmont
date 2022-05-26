@@ -23,7 +23,9 @@
 	-webkit-transform: translateZ(0);
 
 	@media (max-width: $md3+px) {
-		overflow: hidden !important;
+		&:not(.popup--second) {
+			overflow: hidden !important;
+		}
 	}
 
 	&--open {
@@ -36,12 +38,14 @@
 	}
 
 	&--second {
+
 		& .popup__body {
 			padding: 20px;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			background-color: transparent;
+			height: auto;
 		}
 
 		& .popup__content {

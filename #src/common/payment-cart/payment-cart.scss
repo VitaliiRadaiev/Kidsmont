@@ -1,24 +1,31 @@
 .payment-cart {
+    padding: 3rem;
+    background-color: $bgSecondary;
+
     @media (min-width: 992px) {
         position: sticky;
         top: 10rem;
     }
+
+    @media (max-width: $md2+px) {
+        padding-top: 0;
+        padding-bottom: 0;
+        margin: 0 -32px;
+    }
+
+    @media (max-width: $md3+px) {
+        margin: 0 -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
     &__main-box {
-        background-color: $bgSecondary;
-        padding: 3rem;
+   
         margin-bottom: 2.4rem;
 
-        @media (max-width: $md2+px) {
-            padding-top: 0;
-            padding-bottom: 0;
-            margin: 0 -32px;
-        }
 
-        @media (max-width: $md3+px) {
-            margin: 0 -20px;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
+
+
     }
 
     &__mob-head {
@@ -288,7 +295,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 3rem;
 
         @media (max-width: $md2+px) {
             display: none;

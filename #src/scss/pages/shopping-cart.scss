@@ -55,7 +55,14 @@
     }
 
     &__sticky-inner {
-      
+        @media (min-width: 992px) {
+            background-color: $bgSecondary;
+            padding-bottom: 3rem;
+
+            & .payment-cart {
+                padding-bottom: 0;
+            }
+        }
 
     }
 

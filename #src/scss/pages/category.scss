@@ -122,9 +122,10 @@
         align-items: center;
 
         @media (max-width: $md3+px) {
-            flex: 0 0 auto;
+            flex: 0 1 auto;
             height: 120px;
-            width: 120px;
+            width: 100%;
+            max-width: 120px;
             padding: 0;
         }
 
