@@ -50,6 +50,9 @@
 
 		& .popup__content {
 			height: auto;
+			@media (min-width: 768px) {
+				padding-bottom: 6.5rem;
+			}
 		}
 	}
 

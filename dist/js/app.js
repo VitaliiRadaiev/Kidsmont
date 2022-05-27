@@ -1976,7 +1976,7 @@ if (videoBlock.length) {
         })
     }
 
-    let inputs = document.querySelectorAll('.input');
+    let inputs = document.querySelectorAll('.input:not(.not-label)');
     if(inputs.length) {
         inputs.forEach(input => {
             if(input.placeholder.trim()) {

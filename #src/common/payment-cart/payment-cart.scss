@@ -288,6 +288,10 @@
             position: fixed;
             left: 0;
             bottom: 0;
+
+            &.btn-default {
+                min-height: 56px;
+            }
         }
     }
 

@@ -365,6 +365,7 @@
     }
 
     &__title {
+        margin-bottom: 0;
         @media (min-width: 992px) {
             display: none;
         }
@@ -446,6 +447,14 @@
             & .reviews__list {
                 border-top: none;
                 margin-bottom: 24px;
+            }
+
+            & .accordion {
+                border-top: none;
+
+                & > li:last-child::before {
+                    display: none;
+                }
             }
         }
     }
