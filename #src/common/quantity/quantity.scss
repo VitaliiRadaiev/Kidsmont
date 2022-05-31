@@ -36,12 +36,12 @@
 		}
 		// .quantity__button_plus
 		&--minus {
-			margin-right: -0.9rem;
+			margin-left: -0.9rem;
 			
 		}
 		// .quantity__button_minus
 		&--plus {
-			margin-left: -0.9rem;
+			margin-right: -0.9rem;
 
 			&::before {
 				transform: rotate(-90deg);

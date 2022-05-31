@@ -99,7 +99,7 @@
         // position: absolute;
         // top: 27.75%;
         // left: 0;
-        display: block;
+        display: inline-block;
         font-family: $titleFontFamily;
         font-weight: 600;
         font-size: 6.2em;
@@ -107,6 +107,7 @@
         text-transform: uppercase;
         margin: 0;
         opacity: 0;
+        cursor: none;
 
         @media (max-width: $md3+px) {
             font-size: 32px;

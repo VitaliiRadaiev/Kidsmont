@@ -5687,7 +5687,7 @@ strong {
 }
 
 .promo-header__title {
-  display: block;
+  display: inline-block;
   font-family: "GeneralSans-Semibold", sans-serif;
   font-weight: 600;
   font-size: 6.2em;
@@ -5695,6 +5695,7 @@ strong {
   text-transform: uppercase;
   margin: 0;
   opacity: 0;
+  cursor: none;
 }
 
 .promo-header__title.is-inview {
@@ -9383,11 +9384,11 @@ form.dropzone > .dz-preview {
 }
 
 .quantity__button--minus {
-  margin-right: -0.9rem;
+  margin-left: -0.9rem;
 }
 
 .quantity__button--plus {
-  margin-left: -0.9rem;
+  margin-right: -0.9rem;
 }
 
 .quantity__button--plus::before {
@@ -14794,7 +14795,7 @@ form.dropzone > .dz-preview {
   }
 
   .product-card__img-wrap {
-    margin-bottom: 12px;
+    margin-bottom: 4px;
   }
 
   .product-card__img {
@@ -14808,6 +14809,10 @@ form.dropzone > .dz-preview {
 
   .product-card__price {
     font-size: 14px;
+  }
+
+  .product-card .color-picker {
+    margin-bottom: 4px;
   }
 
   .product-card .color-picker > li:not(:last-child) {

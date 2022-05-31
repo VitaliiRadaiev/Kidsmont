@@ -2033,6 +2033,30 @@ if (videoBlock.length) {
         })
     }
 };
+		{
+    let productCards = document.querySelectorAll('.product-card');
+    if(productCards.length) {
+        productCards.forEach(productCard => {
+            let imgWrap = productCard.querySelector('.product-card__img-wrap');
+            let bottom = productCard.querySelector('.product-card__bottom');
+            let colorPicker = productCard.querySelector('.color-picker');
+
+            if(imgWrap && bottom && colorPicker) {
+                const changePosition = () => {
+                    if(document.documentElement.clientWidth < 768) {
+                        imgWrap.after(colorPicker);
+                    } else {
+                        bottom.append(colorPicker);
+                    }
+                }
+
+                changePosition();
+
+                window.addEventListener('resize', changePosition);
+            }
+        })
+    }
+};
 	}
 
 	setFullHeight() {
@@ -2154,52 +2178,79 @@ if (videoBlock.length) {
 };
 		{
     let sidePanelAll = Array.from(document.querySelectorAll('[data-side-panel]'));
-    if(sidePanelAll.length) {
+    if (sidePanelAll.length) {
         sidePanelAll.forEach(sidePanel => {
-            let closeButtons = sidePanel.querySelectorAll('[data-side-panel-close]');
-            if(closeButtons.length) {
-                closeButtons.forEach(closeBtn => {
-                    closeBtn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        sidePanel.classList.remove('side-panel--open');
-                        document.body.classList.remove('overflow-hidden');
-                        window.locomotivePageScroll.start();
-                    })
-                })
-            }
+            sidePanel.addEventListener('click', (e) => {
+                if (e.target.closest('[data-side-panel-close]')) {
+                    e.preventDefault();
+                    sidePanel.classList.remove('side-panel--open');
+                    document.body.classList.remove('overflow-hidden');
+                    window.locomotivePageScroll.start();
 
-            if(sidePanel.dataset.sidePanel === "basket" || sidePanel.dataset.sidePanel === "favorites") {
+                }
+            })
+
+            if (sidePanel.dataset.sidePanel === "basket" || sidePanel.dataset.sidePanel === "favorites") {
                 let head = sidePanel.querySelector('.side-panel__head');
                 let scrollWrap = sidePanel.querySelector('.side-panel__scroll-wrap');
                 let bottom = sidePanel.querySelector('.side-panel__bottom');
 
-                const setHeight = () => {
-                    scrollWrap.style.height = `calc(100% - ${head.clientHeight + bottom.clientHeight}px)`;
-                }
-                setHeight();
-
-                const setMinHeight = () => {
-                    if (this.utils.isMobile()) {
-                        scrollWrap.style.minHeight = `calc(100% - ${head.clientHeight}px)`;
+                if (head && scrollWrap && bottom) {
+                    const setHeight = () => {
+                        scrollWrap.style.height = `calc(100% - ${head.clientHeight + bottom.clientHeight}px)`;
                     }
+                    setHeight();
+
+                    const setMinHeight = () => {
+                        if (this.utils.isMobile()) {
+                            scrollWrap.style.minHeight = `calc(100% - ${head.clientHeight}px)`;
+                        }
+                    }
+
+                    window.addEventListener('resize', setHeight);
                 }
 
-                window.addEventListener('resize',setHeight);
+                let observer = new MutationObserver(mutationRecords => {
+                    let head = sidePanel.querySelector('.side-panel__head');
+                    let scrollWrap = sidePanel.querySelector('.side-panel__scroll-wrap');
+                    let bottom = sidePanel.querySelector('.side-panel__bottom');
+    
+                    if (head && scrollWrap && bottom) {
+                        const setHeight = () => {
+                            scrollWrap.style.height = `calc(100% - ${head.clientHeight + bottom.clientHeight}px)`;
+                        }
+                        setHeight();
+    
+                        const setMinHeight = () => {
+                            if (this.utils.isMobile()) {
+                                scrollWrap.style.minHeight = `calc(100% - ${head.clientHeight}px)`;
+                            }
+                        }
+    
+                        window.addEventListener('resize', setHeight);
+                    }
+                });
+
+                observer.observe(sidePanel, {
+                    childList: true,
+                    subtree: true,
+                });
+
 
             }
 
             sidePanel.addEventListener('click', (e) => {
-                if(e.target.closest('.side-panel__body')) return;
+                if (e.target.closest('.side-panel__body')) return;
 
                 e.preventDefault();
                 sidePanel.classList.remove('side-panel--open');
                 document.body.classList.remove('overflow-hidden');
                 window.locomotivePageScroll.start();
             })
-    })
+        })
 
         let openButtons = document.querySelectorAll('[data-side-panel-open]');
-        if(openButtons.length) {
+        if (openButtons.length) {
             openButtons.forEach(openButton => {
                 let [sidePanel] = sidePanelAll.filter(sidePanel => sidePanel.dataset.sidePanel === openButton.dataset.sidePanelOpen);
                 openButton.addEventListener('click', (e) => {
@@ -2215,15 +2266,15 @@ if (videoBlock.length) {
     window.sidePanel = {
         open(id) {
             let sidePanel = document.querySelector(`[data-side-panel="${id}"]`);
-            if(sidePanel) {
+            if (sidePanel) {
                 sidePanel.classList.add('side-panel--open');
                 document.body.classList.add('overflow-hidden');
                 window.locomotivePageScroll.stop();
             }
         },
-        close (id) {
+        close(id) {
             let sidePanel = document.querySelector(`[data-side-panel="${id}"]`);
-            if(sidePanel) {
+            if (sidePanel) {
                 sidePanel.classList.remove('side-panel--open');
                 document.body.classList.remove('overflow-hidden');
                 window.locomotivePageScroll.start();
@@ -2894,6 +2945,21 @@ if(dropZoneBoxes.length) {
     }
 };
 		;
+		{
+    let mobileBottomPrice = document.querySelector('[data-mobile-bottom-price]');
+    let btnBuyNow = document.querySelector('[data-btn-buy-now]');
+
+    if(mobileBottomPrice && btnBuyNow) {
+
+        window.addEventListener('scroll', (e) => {
+            if(btnBuyNow.getBoundingClientRect().top > 0 && btnBuyNow.getBoundingClientRect().top < document.documentElement.clientHeight) {
+                mobileBottomPrice.classList.add('hide')
+            } else {
+                mobileBottomPrice.classList.remove('hide')
+            }
+        })
+    }
+};
 
 		{
 			let lastSection = document.querySelector('[data-last-section]');

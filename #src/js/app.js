@@ -528,6 +528,7 @@ class App {
 
 	componentsScriptsBeforeLoadPage() {
 		@@include('../common/form/form.js');
+		@@include('../common/product-card/product-card.js');
 	}
 
 	setFullHeight() {
@@ -592,6 +593,7 @@ class App {
 		@@include('../common/checkout/checkout.js');
 		@@include('../common/pagination/pagination.js');
 		@@include('../common/faq/faq.js');
+		@@include('../common/product-detail/product-detail.js');
 
 		{
 			let lastSection = document.querySelector('[data-last-section]');
