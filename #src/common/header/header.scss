@@ -153,7 +153,10 @@
     }
 
     &--simple {
-        & .header__burger, & .header__menu, & .header__search, & .header__actions {
+        & .header__burger,
+        & .header__menu,
+        & .header__search,
+        & .header__actions {
             display: none;
         }
 
@@ -545,6 +548,15 @@
         &::placeholder {
             color: #c4c4c4;
         }
+
+        &:-webkit-autofill {
+            background-color: transparent;
+            box-shadow: inset 0px 0px 30px 30px #f3f1ef;
+        }
+        &:autofill {
+            background-color: transparent;
+            box-shadow: inset 0px 0px 30px 30px #f3f1ef;
+        }
     }
 
     &__close {
@@ -598,7 +610,8 @@
 
     & .side-panel__head {
         &--hide {
-            & .menu-mobile__logo, & .menu-mobile__phone {
+            & .menu-mobile__logo,
+            & .menu-mobile__phone {
                 opacity: 0;
                 transform: translateX(-30%);
                 pointer-events: none;

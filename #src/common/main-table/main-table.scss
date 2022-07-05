@@ -54,6 +54,26 @@
         &[data-spoller-trigger] {
             position: relative;
         }
+
+        & .btn-default {
+            @media (min-width: 992px) {
+                min-width: 39.3rem;
+            }
+        }
+    }
+
+    &__td-row {
+        &:not(:last-child) {
+            margin-bottom: 3.2rem;
+
+            @media (max-width: $md3+px) {
+                margin-bottom: 1.8rem;
+            }
+        }
+
+        & h6 {
+            margin-bottom: 1rem;
+        }
     }
 
     &__plus {
@@ -166,6 +186,77 @@
             @media (max-width: $md3+px) {
                 margin-bottom: 0;
                 padding-right: 40px;
+            }
+        }
+    }
+
+    &--second {
+        border-top: none;
+
+        & .main-table__title {
+            @media (min-width: 768px) {
+                max-width: 46rem;
+            }
+        }
+        & .main-table__tr {
+            @media (min-width: 768px) {
+                padding: 5.4rem 0;
+            }
+            &:first-child {
+                padding-top: 0;
+            }
+
+            &:last-child {
+                padding-bottom: 0;
+                border-bottom: none;
+            }
+        }
+
+        & .text-content {
+            @media (min-width: 768px) {
+                & > *:first-child {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+    &--third {
+        border-top: none;
+
+        & .main-table__title {
+            @media (min-width: 768px) {
+                max-width: 46rem;
+            }
+        }
+        & .main-table__tr {
+            @media (min-width: 768px) {
+                padding: 5.4rem 0;
+            }
+            &:first-child {
+                padding-top: 0;
+            }
+
+            &:last-child {
+                padding-bottom: 0;
+                border-bottom: none;
+            }
+        }
+
+        & .main-table__td {
+            &:first-child {
+                flex: 1 1 auto;
+            }
+
+            &:nth-child(2) {
+                flex: 0 0 56.64%
+            }
+        }
+
+        & .text-content {
+            @media (min-width: 768px) {
+                & > *:first-child {
+                    margin-top: 0;
+                }
             }
         }
     }

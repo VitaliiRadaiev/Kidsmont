@@ -120,6 +120,14 @@
                 width: 100%;
             }
         }
+
+        &.tab-active {
+            color: $mainColor;
+
+            &:before {
+                width: 100%;
+            }
+        }
     }
 
     &__list {

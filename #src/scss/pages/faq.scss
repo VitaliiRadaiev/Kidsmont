@@ -20,7 +20,7 @@
             transition: all .3s ease;
 
             &:empty {
-                opacity: 0;
+                opacity: 0 !important;
             }
         }
     }
@@ -114,7 +114,49 @@
         position: relative;
 
         @media (max-width: $md3+px) {
-            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 49;
+            height: 60px;
+            background-color: $bg;
+            padding: 0 20px;
+            transition: all 0.4s ease;
+            transform: translateY(-100%);
+            display: flex;
+            align-items: center;
+        
+            &--show {
+                transform: translateY(0);
+
+                & .search-result {
+                    opacity: 1 !important;
+                    pointer-events: auto;
+                }
+            }
+        }
+
+        & .main-search__close {
+            @media (min-width: 768px) {
+                display: none;
+            }
+        }
+
+        & .search-result {
+            border-top: 1px solid $borderColor;
+            background-color: $bg;
+            left: 0;
+            top: 100%;
+            padding: 8px 20px;
+            opacity: 0 !important;
+            pointer-events: none;
+            transition: all .3s ease;
+
+            &:empty {
+                opacity: 0 !important;
+                pointer-events: none;
+            }
         }
     }
 
@@ -135,7 +177,20 @@
         }
 
         @media (max-width: $md3+px) {
-            font-size: 20px;
+            position: relative;
+            flex: 0 0 auto;
+            font-size: 24px;
+            margin-right: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            border: none;
+            outline: none;
+            background: transparent;
+            transform: translate(0);
+            left: 0;
+            top: 0;
         }
     }
 
@@ -153,8 +208,16 @@
         height: auto;
 
         @media (max-width: $md3+px) {
-            padding-left: 36px;
+            flex: 1 1 auto;
+            color: $textColor;
+            font-weight: 400;
+            font-size: 2.4rem;
+            line-height: 1.2em;
+            background: transparent;
+            border: none;
+            outline: none;
             font-size: 16px;
+            padding: 0;
         }
 
         &::placeholder {
@@ -164,8 +227,29 @@
         &:focus {
             border-color: $mainColor;
         }
+
+        &:-webkit-autofill {
+            background-color: transparent;
+            box-shadow: inset 0px 0px 30px 30px #f3f1ef;
+        }
+        &:autofill {
+            background-color: transparent;
+            box-shadow: inset 0px 0px 30px 30px #f3f1ef;
+        }
     }
 
     &__body {
+    }
+
+    & .tabs__col-1 {
+        @media (max-width: $md3+px) {
+            display: none;
+        }
+    }
+
+    & .tabs__col-2 .accordion > li:first-child {
+        @media (max-width: $md3+px) {
+            padding-top: 24px;
+        }
     }
 }

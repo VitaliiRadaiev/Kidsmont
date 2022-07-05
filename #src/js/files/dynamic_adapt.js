@@ -68,16 +68,18 @@ class DynamicAdapt {
 	}
   
 	moveTo(place, element, destination) {
-	  element.classList.add(this.daClassname);
-	  if (place === 'last' || place >= destination.children.length) {
-		destination.append(element);
-		return;
-	  }
-	  if (place === 'first') {
-		destination.prepend(element);
-		return;
-	  }
-	  destination.children[place].before(element);
+		if(destination) {
+			element.classList.add(this.daClassname);
+			if (place === 'last' || place >= destination.children.length) {
+			  destination.append(element);
+			  return;
+			}
+			if (place === 'first') {
+			  destination.prepend(element);
+			  return;
+			}
+			destination.children[place].before(element);
+		}
 	}
   
 	moveBack(parent, element, index) {

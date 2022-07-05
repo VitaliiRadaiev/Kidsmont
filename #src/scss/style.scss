@@ -72,6 +72,10 @@
 @import "../common/benefits/benefits";
 @import "../common/payment-cart/payment-cart";
 @import "../common/message/message";
+@import "../common/rating/rating";
+@import "../common/color-picker/color-picker";
+@import "../common/product-detail-slider/product-detail-slider";
+@import "../common/model/model";
 // ==== // COMMON BLOCKS =====================================================
 
 // ==== PAGES =====================================================
@@ -91,5 +95,6 @@
 @import "pages/checkout";
 @import "pages/shopping-cart";
 @import "pages/thank-you-page";
+@import "pages/constructor";
 // ==== AND PAGES =====================================================
 

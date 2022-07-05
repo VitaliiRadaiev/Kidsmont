@@ -194,11 +194,15 @@ h4 {
 h5 {
 	font-family: $titleFontFamily;
 	font-weight: 600;
-	font-size: 1.8rem;
-	line-height: 1.5em;
+	font-size: 2rem;
+	line-height: 1.4em
 }
 
 h6 {
+	font-family: $titleFontFamily;
+	font-weight: 600;
+	font-size: 1.8rem;
+	line-height: 1.5em;
 }
 
 .subtitle {
@@ -218,7 +222,7 @@ figure {
 
 strong {
 	font-weight: 600;
-	font-family:$titleFontFamily;
+	font-family: $titleFontFamily;
 }
 
 ._page {
@@ -332,6 +336,12 @@ strong {
 
 	&__title {
 		margin-bottom: 4rem;
+
+		& .go-out-link {
+			@media (max-width: $md3+px) {
+				display: none;
+			}
+		}
 	}
 }
 
@@ -342,7 +352,7 @@ strong {
 }
 
 .link-see-more {
-	color: $secondColor ;
+	color: $secondColor;
 	text-decoration: none !important;
 
 	@media (max-width: $md3+px) {
@@ -400,6 +410,10 @@ strong {
 
 .text-secondary {
 	color: $textColorSecondary !important;
+}
+
+.text-third {
+	color: $textColorThird !important;
 }
 
 .text-success {
@@ -472,6 +486,11 @@ strong {
 	}
 }
 
+.disabled {
+	pointer-events: none;
+	opacity: 0.15;
+}
+
 // === TEXT CONTETN BLOCK ========================================================================
 .text-content {
 	@media (max-width: $md3+px) {
@@ -529,27 +548,29 @@ strong {
 	}
 
 	& a {
-		text-decoration: underline;
+		&:not(.btn-default) {
+			text-decoration: underline;
 
-		@media (min-width: 992px) {
-			&:hover {
-				color: $mainColor;
+			@media (min-width: 992px) {
+				&:hover {
+					color: $mainColor;
+				}
 			}
 		}
+
 	}
 
 	& ul {
-
 		&:not(.simple-list) {
 			padding-left: 1em;
 
 			@media (max-width: $md3+px) {
 				padding-left: 1.5em;
 			}
-	
+
 			& > li {
 				list-style: disc;
-	
+
 				& > *:last-child {
 					margin-bottom: 0;
 				}
@@ -558,6 +579,44 @@ strong {
 
 		&.simple-list {
 			padding-left: 0;
+		}
+
+		&.with-check {
+			padding-left: 0;
+			@media (max-width: $md3+px) {
+				padding-left: 0;
+			}
+			& > li {
+				list-style: none;
+				position: relative;
+				padding-left: 4.4rem;
+
+				@media (max-width: $md3+px) {
+					padding-left: 30px;
+				}
+
+				&:not(:last-child) {
+					margin-bottom: 1.2rem;
+				}
+
+				&:before {
+					position: absolute;
+					content: "";
+					top: 0;
+					left: 0;
+					height: 2.8rem;
+					width: 2.8rem;
+					background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxOCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNy42NzMyIDEuNjM5OTlMNS44MzQxNiAxMy40NzlMMC45OTUxMTcgOC42Mzk5OUwxLjkyMzE5IDcuNzExOTFMNS44MzQxNiAxMS42MjI5TDE2Ljc0NTEgMC43MTE5MTRMMTcuNjczMiAxLjYzOTk5WiIgZmlsbD0iIzJFMkIyNiIvPgo8L3N2Zz4K);
+					background-size: 80% auto;
+					background-position: center;
+					background-repeat: no-repeat;
+
+					@media (max-width: $md3+px) {
+						height: 18px;
+						width: 18px;
+					}
+				}
+			}
 		}
 	}
 
@@ -569,7 +628,6 @@ strong {
 		}
 
 		& > li {
-
 			& > *:last-child {
 				margin-bottom: 0;
 			}
@@ -660,6 +718,7 @@ strong {
 	& .video-wrap {
 		margin: 5rem 0;
 		padding-bottom: 64%;
+
 		@media (max-width: $md3+px) {
 			margin: 24px 0;
 		}
@@ -758,11 +817,106 @@ strong {
 // === and TEXT CONTETN BLOCK ========================================================================
 
 .img-full-width {
-    & img {
-        width: 100%;
-        height: auto;
-        display: block;
+	& img {
+		width: 100%;
+		height: auto;
+		display: block;
 		min-height: 180px;
 		object-fit: cover;
-    }
+	}
+}
+
+// woocommerce
+.woocommerce-info,
+.woocommerce-message,
+.woocommerce-error {
+	background-color: transparent !important;
+	border-top: none !important;
+	padding-left: 3.5rem !important;
+
+	&::before {
+		left: 0 !important;
+		color: $secondColor !important;
+	}
+}
+
+.woocommerce-error {
+	&::before {
+		color: #d63638 !important;
+	}
+}
+
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+	display: inline-flex;
+	min-height: 5.9rem !important;
+	min-width: 24.3rem;
+	background-color: $secondColor !important;
+	color: $lightColor;
+	transition: all 0.3s ease;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 1rem 2rem;
+	font-size: 1.8rem !important;
+	font-weight: 600;
+	font-family: $titleFontFamily;
+	border: 1px solid $secondColor;
+	border-radius: 0 !important;
+
+	@media (max-width: $md3+px) {
+		min-height: 48px !important;
+		font-size: 16px !important;
+		width: 100%;
+	}
+
+	@media (min-width: 992px) {
+		&:hover {
+			color: $lightColor !important;
+			background-color: $hover !important;
+			border-color: $hover !important;
+		}
+	}
+	@media (max-width: $md2+px) {
+		&:hover {
+			color: $lightColor !important;
+		}
+	}
+
+	&:active {
+		background-color: transparent !important;
+		color: $textColor !important;
+		border-color: $textColor !important;
+	}
+
+	&--transparent {
+		background-color: transparent;
+		border-color: $mainColor;
+		color: $textColor;
+
+		&:active {
+			background-color: $active !important;
+			color: $lightColor !important;
+			border-color: $active !important;
+		}
+	}
+}
+
+.woocommerce-notices-wrapper {
+	width: calc(100% - 200px);
+	max-width: 128rem !important;
+	margin: 0 auto;
+	padding: 0;
+
+	@media (max-width: $md1+px) {
+		width: calc(100% - 100px);
+	}
+	@media (max-width: $md2+px) {
+		width: calc(100% - 64px);
+	}
+	@media (max-width: $md3+px) {
+		width: calc(100% - 40px);
+	}
 }

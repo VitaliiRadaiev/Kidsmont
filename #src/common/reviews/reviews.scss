@@ -40,6 +40,12 @@
                 padding: 16px 0;
             }
         }
+
+        & + div {
+            @media (max-width: $md2+px) {
+                text-align: center;
+            }
+        }
     }
 
     &__list-text {
@@ -118,6 +124,15 @@
             @media (max-width: $md3+px) {
                 margin-bottom: 24px;
             }
+        }
+
+        & .reviews__bottom {
+            padding-top: 4.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            flex-wrap: wrap;
         }
     }
 }

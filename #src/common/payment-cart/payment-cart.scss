@@ -20,12 +20,7 @@
     }
 
     &__main-box {
-   
         margin-bottom: 2.4rem;
-
-
-
-
     }
 
     &__mob-head {
@@ -86,10 +81,42 @@
         & > *:not(:last-child) {
             margin-bottom: 2.4rem;
         }
+
+        & div.form-row {
+            padding: 0 !important;
+            margin-bottom: 0;
+        }
+
+        & #ppc-button {
+            border: none;
+            height: 5.9rem;
+            min-width: auto;
+
+            @media (max-width: $md3+px) {
+                height: 44px;
+            }
+
+            & > div {
+                height: 100% !important;
+                width: 100% !important;
+                overflow: hidden;
+                min-width: auto !important;
+                margin: 0 auto;
+                display: block;
+                & iframe {
+                    width: 500px !important;
+                    height: 56px !important;
+                    left: 50% !important;
+                    top: 50% !important;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
     }
 
     &__title {
         margin-bottom: 3.6rem;
+        text-transform: uppercase;
 
         @media (max-width: $md2+px) {
             display: none;
@@ -123,8 +150,6 @@
                 margin-right: 2rem;
             }
         }
-
-        
     }
 
     &__coupon {
@@ -194,15 +219,21 @@
         transition: all 0.3s ease;
         padding-top: 1.6rem;
         display: none;
+
         & input {
             background-color: #fff;
             border: 1px solid $borderColor;
             font-size: 1.8rem;
             height: 4.6rem;
             padding: 0.6rem 1.6rem;
+            margin-bottom: 1.6rem;
             &::placeholder {
                 font-size: 1.8rem;
             }
+        }
+
+        & > .button {
+            width: 100%;
         }
     }
 
@@ -283,15 +314,28 @@
 
     &__submit {
         width: 100%;
-
+        transition: all .0s ease;
         @media (max-width: $md2+px) {
-            position: fixed;
-            left: 0;
-            bottom: 0;
+            position: relative;
+
+            margin-bottom: 0 !important;
+            z-index: 20;
+            transform: translateY(6rem);
 
             &.btn-default {
                 min-height: 56px;
             }
+
+            &.payment-cart__submit--fixed {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                transform: translateY(0) !important;
+            }
+        }
+
+        @media (max-width: $md3+px) {
+            transform: translateY(36px);
         }
     }
 
@@ -327,5 +371,25 @@
                 height: auto;
             }
         }
+    }
+
+    & .shop_table {
+        background-color: transparent !important;
+    }
+}
+
+
+.button#place_order {
+    width: 100%;
+    transition: all .0s ease;
+    @media (max-width: $md2+px) {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        transform: translateY(0) !important;
+        margin-bottom: 0 !important;
+        z-index: 20;
+        transform: translateY(6rem);
+        min-height: 56px !important;
     }
 }

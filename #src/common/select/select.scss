@@ -1,7 +1,7 @@
 .select {
 	position: relative;
 
-	&._visited {
+	&._visited, &.not-placeholder {
 		& .select__label {
 			opacity: 1;
 		}

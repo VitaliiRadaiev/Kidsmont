@@ -14,6 +14,15 @@
                         pagination: {
                             el: slider.querySelector('.swiper-pagination'),
                             clickable: true,
+                        },
+                        on: {
+                            activeIndexChange: (e) => {
+                                if(e.activeIndex === 0) {
+                                    galleryProductDetail.classList.remove('hide-cover-elements')
+                                } else {
+                                    galleryProductDetail.classList.add('hide-cover-elements')
+                                }
+                            }
                         }    
                     });
     

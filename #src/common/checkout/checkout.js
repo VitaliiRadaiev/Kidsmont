@@ -153,6 +153,15 @@
                 }
             }
         }
+
+        // step one handler
+        let step1 = document.querySelector('[data-step="0"]');
+        if(step1) {
+            let resultList = document.querySelector('.steps-checkout__result-list');
+            let inputs = [
+                
+            ]
+        }
     }
 }
 

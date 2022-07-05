@@ -65,7 +65,7 @@
     }
 
     //Select
-    let selects = document.getElementsByTagName('select');
+    let selects = document.querySelectorAll('select:not(.created)');
     if (selects.length > 0) {
         selects_init();
     }
@@ -99,10 +99,12 @@
         const select_parent = select.parentElement;
         const select_modifikator = select.getAttribute('class');
         const select_selected_option = select.querySelector('option:checked');
+        select.classList.add('created');
         select.setAttribute('data-default', select_selected_option.value);
         select.style.display = 'none';
 
-        select_parent.insertAdjacentHTML('beforeend', '<div class="select select_' + select_modifikator + '"></div>');
+
+        select_parent.insertAdjacentHTML('beforeend', `<div class="select select_${select_modifikator} ${select_selected_option.value.trim() ? "not-placeholder" : ""}"></div>`);
 
         let new_select = select.parentElement.querySelector('.select');
         new_select.appendChild(select);

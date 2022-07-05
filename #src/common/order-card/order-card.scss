@@ -87,9 +87,9 @@
         margin-right: 2.4rem;
 
         @media (max-width: $md3+px) {
-            height: 60px;
-            width: 60px;
-            margin-right: 16px;
+            height: 80px;
+            width: 80px;
+            margin-right: 14px;
         }
 
         & a {
@@ -122,22 +122,19 @@
     &__title {
         flex: 0 0 auto;
         width: 24rem;
-        margin-right: 6rem;
-        font-weight: 600;
-        font-family: $titleFontFamily;
+        margin-right: 2.5rem;
+        font-size: 1.8rem;
+        line-height: 1.5em;
 
-        @media (max-width: $md1+px) {
-            margin-right: 2rem;
-        }
 
         @media (max-width: $md3+px) {
+            font-family: $mainFontFamily;
+            font-weight: 400;
             margin-right: 0;
             width: 100%;
             font-size: 14px;
             line-height: 1.5em;
-            padding: 9px 0;
             margin-bottom: 16px;
-            min-height: 60px;
         }
     }
 
@@ -170,7 +167,6 @@
         @media (max-width: $md3+px) {
             font-size: 14px;
             line-height: 1.5em;
-            margin-left: -76px;
         }
     }
 

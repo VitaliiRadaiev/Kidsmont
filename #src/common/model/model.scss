@@ -1,0 +1,44 @@
+.model {
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+
+    & > li {
+        flex: 0 0 auto;
+    }
+
+    &__item {
+        height: 4.6rem;
+        width: 4.6rem;
+        border: 1px solid $borderColor;
+        padding: 0.3rem;
+        transition: all .3s ease;
+
+        @media (min-width: 992px) {
+            &:hover {
+                border-color: $secondColor;
+            }
+        }
+
+        &.model__item--active {
+            border-color: $secondColor;
+            pointer-events: none;
+        }
+    }
+
+    &__img {
+        height: 100%;
+        width: 100%;
+
+        & img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__item--active {
+    }
+}

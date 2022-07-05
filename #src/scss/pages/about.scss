@@ -136,6 +136,17 @@
             margin-bottom: 0;
         }
     }
+
+    &--second {
+        & .about__body {
+            border: none;
+        }
+        & .about__content-col-1-img {
+            & img {
+                width: 100% !important;
+            }
+        }
+    }
 }
 
 

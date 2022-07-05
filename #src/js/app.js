@@ -31,6 +31,7 @@ class App {
 		this.resetFormHandler();
 		this.initDatepicker();
 		this.initTooltip();
+		this.initConstructorScripts();
 
 
 		window.addEventListener('load', () => {
@@ -127,6 +128,14 @@ class App {
 					return contentItems.filter(item => item.dataset.tabContent === id)[0];
 				}
 
+				if (tabsContainer.hasAttribute('data-tabs-sub')) {
+					triggerItems = triggerItems.filter(i => i.closest('[data-tabs-sub]'))
+					contentItems = contentItems.filter(i => i.closest('[data-tabs-sub]'))
+				} else {
+					triggerItems = triggerItems.filter(i => !i.closest('[data-tabs-sub]'))
+					contentItems = contentItems.filter(i => !i.closest('[data-tabs-sub]'))
+				}
+
 				if (triggerItems.length && contentItems.length) {
 					// init
 					let activeItem = tabsContainer.querySelector('.tab-active[data-tab-trigger]');
@@ -175,7 +184,10 @@ class App {
 				}
 
 				if (tabsContainer.dataset.tabs === 'has-outside-navigation') {
-					let outsideNavigation = document.querySelector('[data-tabs-outside-nav]');
+					let outsideNavigation = document.querySelector('[data-tabs-outside-nav]:not([data-tabs-sub])');
+					if (tabsContainer.hasAttribute('data-tabs-sub')) {
+						outsideNavigation = document.querySelector('[data-tabs-outside-nav][data-tabs-sub]');
+					}
 					if (outsideNavigation) {
 						let triggerItems = outsideNavigation.querySelectorAll('[data-tab-trigger]');
 
@@ -448,9 +460,22 @@ class App {
 				lerp: 0.03,
 				reloadOnContextChange: true,
 				scrollFromAnywhere: true,
-				repeat: true
+				repeat: true,
 			});
 
+			if(window.location.href.match(/#\w+$/gi)) {
+				let el = document.querySelector(window.location.href.match(/#\w+$/gi)[0]);
+				if(el) {
+					console.log('test');
+					setTimeout(() => {
+						scroll.scrollTo(el, {
+							offset: -100,
+							duration: 0
+						})
+					}, 200)
+
+				}
+			}
 			window.locomotivePageScroll = scroll;
 
 			let id = setInterval(() => {
@@ -604,6 +629,13 @@ class App {
 		}
 
 
+	}
+
+	initConstructorScripts() {
+		@@include('../common/rating/rating.js');
+		@@include('../common/color-picker/color-picker.js');
+		@@include('../common/product-detail-slider/product-detail-slider.js');
+		@@include('../common/model/model.js');
 	}
 
 }

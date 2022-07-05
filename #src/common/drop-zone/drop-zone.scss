@@ -120,6 +120,7 @@
         align-self: flex-start;
         min-height: 40rem;
         padding-bottom: 3rem;
+        pointer-events: none;
 
         @media (max-width: $md3+px) {
             min-height: 0px;
@@ -127,6 +128,7 @@
         }
 
         & .dz-preview.dz-image-preview {
+            pointer-events: auto;
             flex: 0 1 20%;
             background-color: transparent;
             margin: 0;
@@ -135,6 +137,19 @@
             @media (max-width: $md3+px) {
                 padding: 10px 5px;
                 flex: 0 1 20%;
+                min-height: 55px;
+            }
+
+            & .dz-size {
+                @media (max-width: $md3+px) {
+                    font-size: 6px;
+                }
+            }
+
+            & .dz-filename {
+                @media (max-width: $md3+px) {
+                    font-size: 6px;
+                }
             }
 
             & .dz-image {
@@ -169,6 +184,14 @@
 
                 @media (max-width: $md3+px) {
                     top: 50px;
+                }
+            }
+
+            & .dz-progress {
+                @media (max-width: $md3+px) {
+                    height: 8px;
+                    width: 40px;
+                    margin-left: -20px;
                 }
             }
 
@@ -210,7 +233,13 @@
     &--has-files {
         & .drop-zone__body {
             @media (min-width: 768px) {
-                display: none;
+                & .drop-zone__title, & > span, & .btn__text-decor {
+                    opacity: 0;
+                }
+
+                & .btn__text {
+                    transform: translateY(-3rem);
+                }
             }
         }
 

@@ -6,6 +6,8 @@
     position: relative;
     color: $lightColor;
     transition: all 0.3s ease;
+    box-shadow: none;
+    outline: none;
 
     @media (min-width: 992px) {
         &:hover {
@@ -68,6 +70,8 @@
     font-weight: 600;
     font-size: 1.8rem;
     line-height: 1.5em;
+    box-shadow: none;
+    outline: none;
 
     @media (min-width: 992px) {
         &:hover {
@@ -134,23 +138,43 @@
             border-color: $hover !important;
         }
     }
+    @media (max-width: $md2+px) {
+        &:hover {
+            color: $lightColor;
+        }
+    }
+
 
     &:active {
-        background-color: transparent !important;
-        color: $textColor !important;
-        border-color: $textColor !important;
+        opacity: 0.7;
+    }
+
+    & img {
+        height: 1.2em;
+        width: auto;
+        margin: 0 0.4em;
     }
 
     &--transparent {
         background-color: transparent;
         border-color: $mainColor;
-        color: $textColor;
+        color: $textColor ;
 
-        &:active {
-            background-color: $active !important;
-            color: $lightColor !important;
-            border-color: $active !important;
+        @media (max-width: $md2+px) {
+            &:hover {
+                color: $textColor;
+
+                &.un-wish {
+                    color: $lightColor;
+                }
+            }
         }
+    }
+
+    &--dark {
+        background-color: $mainColor;
+        border-color: $mainColor !important;
+        color: #fff;
     }
 }
 

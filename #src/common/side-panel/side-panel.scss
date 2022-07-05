@@ -31,8 +31,8 @@
         &::before {
             visibility: visible;
             pointer-events: auto;
-            opacity: 1; 
-            transition: opacity 0.3s ease ;
+            opacity: 1;
+            transition: opacity 0.3s ease;
         }
     }
 
@@ -42,6 +42,26 @@
         width: 100%;
         position: relative;
         z-index: 2;
+
+        & .woocommerce-mini-cart__empty-message {
+            margin-bottom: 0;
+            height: calc(100% - 10rem);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 130%;
+            text-align: center;
+            letter-spacing: -0.01em;
+            color: #353535;
+            font-family: $titleFontFamily;
+            padding: 20px;
+
+            @media (max-width: $md2+px) {
+                height: calc(100% - 60px);
+            }
+        }
     }
 
     &__close {
@@ -186,7 +206,6 @@
         right: auto;
         left: 100%;
 
-
         & .side-panel__body {
             width: 100%;
             max-width: 72rem;
@@ -203,7 +222,6 @@
 
         &.side-panel--open {
             transform: translateX(-100%);
-
 
             & .side-panel__body {
                 transform: translateX(0%);
@@ -423,10 +441,9 @@
             &.tab-active {
                 color: $secondColor;
 
-
                 &:before {
                     position: absolute;
-                    content: '';
+                    content: "";
                     top: 50%;
                     right: 0;
                     transform: translateY(-50%);

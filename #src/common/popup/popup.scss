@@ -54,6 +54,12 @@
 				padding-bottom: 6.5rem;
 			}
 		}
+
+		& #leaveComment {
+			& .form__item:last-child {
+				margin-top: 10px;
+			}
+		}
 	}
 
 	&__body {
@@ -166,6 +172,10 @@
 				}
 			}
 		}
+	}
+
+	& .wpcf7-response-output {
+		display: none;
 	}
 }
 

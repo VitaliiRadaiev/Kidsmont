@@ -1,5 +1,7 @@
 .shopping-cart {
-
+    @media (max-width: $md2+px) {
+        padding-bottom: 0 !important;
+    }
     &__body {
         padding-top: 6rem;
         border-top: 1px solid $borderColor;
@@ -61,6 +63,8 @@
 
             & .payment-cart {
                 padding-bottom: 0;
+                position: relative;
+                top: 0;
             }
         }
 

@@ -12,6 +12,7 @@
         padding-top: 36px;
         width: 100%;
         text-align: center;
+        display: none;
 
         @media (min-width: 768px) {
             display: none;
@@ -83,5 +84,66 @@
     & img, & svg {
         flex: 0 0 auto;
         margin-left: 1.5rem;
+    }
+}
+
+// forgot password page
+.woocommerce-ResetPassword {
+	width: calc(100% - 200px);
+	max-width: 128rem !important;
+	margin: 0 auto;
+	padding: 0rem 0 6rem;
+
+	@media (max-width: $md1+px) {
+		width: calc(100% - 100px);
+	}
+
+	@media (max-width: $md2+px) {
+		width: calc(100% - 64px);
+	}
+	@media (max-width: $md3+px) {
+		width: calc(100% - 40px);
+        padding: 0px 0 36px;
+	}
+
+    & > p:first-child {
+        font-size: 2.4rem;
+        font-weight: 400;
+        line-height: 1.5em;
+
+        @media (max-width: $md3+px) {
+            font-size: 18px ;
+        }
+    }
+
+    & > p.woocommerce-form-row--first {
+        margin-bottom: 5rem;
+
+        @media (max-width: $md3+px) {
+            margin-bottom: 24px;
+        }
+    }
+
+    & label[for="user_login"] {
+        display: none !important;
+    }
+}
+
+.woocommerce-lost-password {
+    & .woocommerce-notices-wrapper {
+        width: calc(100% - 200px);
+        max-width: 128rem !important;
+        margin: 0 auto;
+    
+        @media (max-width: $md1+px) {
+            width: calc(100% - 100px);
+        }
+    
+        @media (max-width: $md2+px) {
+            width: calc(100% - 64px);
+        }
+        @media (max-width: $md3+px) {
+            width: calc(100% - 40px);
+        }
     }
 }

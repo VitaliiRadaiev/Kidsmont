@@ -286,20 +286,33 @@
         }
     }
 
-    &--sm {
-        font-size: 1.8rem;
+    &:-webkit-autofill {
+        background-color: transparent;
+        box-shadow: inset 0px 0px 30px 30px #f3f1ef;
+    }
+    &:autofill {
+        background-color: transparent;
+        box-shadow: inset 0px 0px 30px 30px #f3f1ef;
+    }
 
-        @media (max-width: $md3+px) {
-            font-size: 14px;
-        }
+    // &--sm {
+    //     font-size: 1.8rem;
 
-        &::placeholder {
-            font-size: 1.8rem;
+    //     @media (max-width: $md3+px) {
+    //         font-size: 14px;
+    //     }
 
-            @media (max-width: $md3+px) {
-                font-size: 14px;
-            }
-        }
+    //     &::placeholder {
+    //         font-size: 1.8rem;
+
+    //         @media (max-width: $md3+px) {
+    //             font-size: 14px;
+    //         }
+    //     }
+    // }
+
+    &.error, &.wpcf7-not-valid {
+        border-color: red;
     }
 }
 .password {
@@ -378,6 +391,10 @@
             font-size: 14px;
         }
     }
+
+    &.error {
+        border-color: red;
+    }
 }
 .textarea-wrapper {
     position: relative;
@@ -408,6 +425,11 @@
         & .textarea-label {
             opacity: 1;
         } 
+    }
+
+    & label.error {
+        border-top: 1px solid red;
+        width: 100%;
     }
 }
 .textarea-text-mask {
@@ -549,4 +571,12 @@
             }
         }
     }
+}
+
+label.error, .wpcf7-not-valid-tip {
+    position: absolute;
+    top: 100%;
+    color: red;
+    font-size: 1.4rem;
+    line-height: 1.3em;
 }

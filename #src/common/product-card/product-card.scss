@@ -56,6 +56,32 @@
                 content: "\e901";
             }
         }
+
+        &.un-wish {
+            background-color: transparent !important;
+            color: $secondColor !important;
+            &:before {
+                content: "\e901";
+            }
+        } 
+
+        &--second {
+            background: #ffffff;
+            border: 1px solid $borderColor;
+            height: 5rem;
+            width: 5rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem !important;
+
+            @media (max-width: $md3+px) {
+                height: 36px;
+                width: 36px;
+                font-size: 16px !important; 
+            }
+        }
     }
 
     &__img-wrap {
@@ -141,6 +167,10 @@
         @media (max-width: $md3+px) {
             font-size: 14px;
         }
+
+        & p {
+            margin-bottom: 0;
+        }
     }
 
     &__bottom {
@@ -154,7 +184,7 @@
         margin-left: auto;
 
         @media (max-width: $md3+px) {
-            margin-bottom: 4px;
+            margin-bottom: 4px !important;
         }
 
         & > li {

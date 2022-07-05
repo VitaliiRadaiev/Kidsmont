@@ -1,0 +1,123 @@
+.color-picker {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0 !important;
+
+    & > li {
+        flex: 0 0 auto;
+        margin: 0.4rem 0;
+
+        &:not(:last-child) {
+            margin-right: 1.5rem;
+        }
+
+        & a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+    }
+
+    &__item a {
+        display: block;
+        height: 1.8rem;
+        width: 1.8rem;
+        border-radius: 50%;
+        border: 1px solid transparent;
+        transition: all 0.3s ease;
+
+        @media (min-width: 992px) {
+            &:hover {
+                border: 1px solid rgba(#000, 0.5);
+            }
+        }
+    }
+
+    &__item {
+        @media (min-width: 992px) {
+            &:hover {
+                & .color-picker__main-circle {
+                    color: $secondColor;
+                }
+            }
+        }
+    }
+
+    &__item--active a {
+        position: relative;
+        &:before {
+            position: absolute;
+            content: "";
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNiIgY3k9IjYiIHI9IjUuNSIgc3Ryb2tlPSIjMjIyMjIyIi8+CjxjaXJjbGUgY3g9IjYiIGN5PSI2IiByPSI0LjUiIHN0cm9rZT0id2hpdGUiLz4KPC9zdmc+Cg==);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+    }
+
+    &__main-circle {
+        transition: all .3s ease;
+    }
+
+    &__line {
+        transition: all .3s ease;
+        opacity: 0;
+    }
+
+    &--second {
+        gap: 1.5rem 1.2rem;
+        & > li {
+            margin: 0 !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            & a::before {
+                display: none;
+            }
+        }
+        & .color-picker__item {
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            
+            width: auto !important;
+            height: auto !important;
+            color: #C4C4C4;
+            border: none !important;
+
+            &::before {
+                display: none;
+            }
+
+
+
+            &.color-picker__item--active {
+                color: $secondColor;
+            }
+
+            &.color-picker__item--not-available {
+                pointer-events: none;
+
+                & .color-picker__line {
+                    opacity: 1;
+                }
+            }
+
+            & svg {
+                width: 2.4rem;
+                height: auto;
+            }
+
+            
+        }
+
+    }
+}
