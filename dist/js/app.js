@@ -2768,7 +2768,7 @@ if (videoBlock.length) {
         }
 
         if (btnSubmit) {
-            let mainWrap = btnSubmit.closest('main._page');
+            let mainWrap = btnSubmit.closest('.shopping-cart__body');
             let parent = btnSubmit.parentElement;
             let footer = document.querySelector('.footer__inner');
 

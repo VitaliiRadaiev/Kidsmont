@@ -315,12 +315,13 @@
     &__submit {
         width: 100%;
         transition: all .0s ease;
-        @media (max-width: $md2+px) {
-            position: relative;
 
+        @media (max-width: $md2+px) {
+            margin-top: 24px;
+            position: relative;
+            order: -1;
             margin-bottom: 0 !important;
             z-index: 20;
-            transform: translateY(6rem);
 
             &.btn-default {
                 min-height: 56px;
@@ -334,9 +335,6 @@
             }
         }
 
-        @media (max-width: $md3+px) {
-            transform: translateY(36px);
-        }
     }
 
     &__bottom {

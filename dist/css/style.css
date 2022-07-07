@@ -15362,12 +15362,13 @@ form.dropzone > .dz-preview {
   }
 
   .payment-cart__submit {
+    margin-top: 24px;
     position: relative;
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
     margin-bottom: 0 !important;
     z-index: 20;
-    -webkit-transform: translateY(6rem);
-        -ms-transform: translateY(6rem);
-            transform: translateY(6rem);
   }
 
   .payment-cart__submit.btn-default {
@@ -17453,12 +17454,6 @@ form.dropzone > .dz-preview {
   .payment-cart__agreed .checkbox-radio__text {
     font-size: 14px;
     line-height: 1.5em;
-  }
-
-  .payment-cart__submit {
-    -webkit-transform: translateY(36px);
-        -ms-transform: translateY(36px);
-            transform: translateY(36px);
   }
 
   .product-detail-slider__main .product-card__like--second {
