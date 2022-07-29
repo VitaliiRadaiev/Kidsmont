@@ -40,20 +40,17 @@
     margin-bottom: 0;
 
     & > li {
+        padding-bottom: 8.5rem;
+        border-bottom: 1px solid $borderColor;
+
+        @media (max-width: $md3+px) {
+            padding-bottom: 40px;
+        }
         &:not(:first-child) {
             padding-top: 8.5rem;
 
             @media (max-width: $md3+px) {
                 padding-top: 40px;
-            }
-        }
-
-        &:not(:last-child) {
-            padding-bottom: 8.5rem;
-            border-bottom: 1px solid $borderColor;
-
-            @media (max-width: $md3+px) {
-                padding-bottom: 40px;
             }
         }
     }

@@ -59,6 +59,10 @@
             @media (min-width: 992px) {
                 min-width: 39.3rem;
             }
+
+            @media (max-width: $md3+px) {
+                width: 100%;
+            }
         }
     }
 

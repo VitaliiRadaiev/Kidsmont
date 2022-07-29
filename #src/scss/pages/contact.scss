@@ -208,6 +208,12 @@
                 width: 100vw;
             }
         }
+
+        & .video__btn {
+            @media (max-width: $md4+px) {
+                top: 20%;
+            }
+        }
     }
 }
 
